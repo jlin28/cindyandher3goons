@@ -1,0 +1,19 @@
+CINDY'S DEVLOG
+Carrie Ko, Joyce Lin, Cindy Liu, Jeff Ou
+P05: Le Fin
+----------------------------
+
+* Each entry should begin with the following format: firstL -- TIMESTAMP ( e.g.: topherM -- 1999-12-31 23:59 )
+* Most recent entry at the bottom, separated from previous with a newline
+
+joyceL -- 2026-04-30 20:28
+TASK ZETA
+Designated primary VM: 134.209.175.50 @ cindyandher3goons.me
+* Wipe box clean (re-image)?
+    - NO
+* Serve multiple apps concurrently?
+    - NO
+* Flask|Node?
+    - Node
+* Has any team member provisioned SSL certificates to facilitate httpS traffic?
+    - YES

@@ -17,3 +17,7 @@ Designated primary VM: 134.209.175.50 @ cindyandher3goons.me
     - Node
 * Has any team member provisioned SSL certificates to facilitate httpS traffic?
     - YES
+
+joyceL -- 2026-05-05 11:01
+DATABASE ORGANIZATION
+* Added USER and ITEM databses to design doc

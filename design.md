@@ -6,12 +6,22 @@ TARGET SHIP DATE: TBA
 [DESC TBA]  
 
 ### Program Components + Explanation
+HTML (frontend display)
+- login.html
+- register.html
+- game.html
+
+Javascript
+- server.js
 
 ### Component Map
 
+
 ### Database Organization
 
+
 ### Site Map (front end)
+
 
 ### Member Tasks/Roles
 

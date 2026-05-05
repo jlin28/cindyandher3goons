@@ -1,5 +1,5 @@
 # Cindy and Her 3 Goons’ Design Doc for P05 – Le Fin  
-⤷ _Roster:_ $${\color{red}Carrie \space Ko}$$ (PM), $${\color{yellow}Joyce \space Lin}$$, $${\color{green}Cindy \space Liu}$$, $${\color{blue}Jeff \space Ou}$$   
+⤷ _Roster:_ $${\color{red}Carrie \space Ko (PM)}$$, $${\color{yellow}Joyce \space Lin}$$, $${\color{green}Cindy \space Liu}$$, $${\color{blue}Jeff \space Ou}$$   
 TARGET SHIP DATE: TBA   
 
 ### PROJECT NAME: _bleh_ 
@@ -10,12 +10,12 @@ TARGET SHIP DATE: TBA
 > __bleh is an open world puzzle-adventure game. You're a lonely orphan who has no friends and in order to cure your insatiable loneliness you spend your life building snowmen.__
 
 ## Program Components + Explanation
-_HTML (frontend display)_
+<ins>_HTML (frontend display)_</ins>
 - login.html
 - register.html
 - game.html
 
-_Javascript_
+<ins>_Javascript_</ins>
 - server.js
 
 ## Component Map

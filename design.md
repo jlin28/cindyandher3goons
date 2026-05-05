@@ -31,12 +31,12 @@ TARGET SHIP DATE: TBA
 | INTEGER | hp | NOT NULL |
 | INTEGER | stamina | NOT NULL |
 | INTEGER | snowballs | NOT NULL |
-| BOOLEAN | item1 | FK |
-| BOOLEAN | item2 | FK |
-| BOOLEAN | item3 | FK |
-| BOOLEAN | item4 | FK |
-| BOOLEAN | item5 | FK |
-| BOOLEAN | item6 | FK |  
+| TEXT | item1 | FK |
+| TEXT | item2 | FK |
+| TEXT | item3 | FK |
+| TEXT | item4 | FK |
+| TEXT | item5 | FK |
+| TEXT | item6 | FK |  
 
 <br>
 

@@ -3,7 +3,7 @@
 
 PROJECT NAME: bleh  
 TARGET SHIP DATE: TBA  
-PROJECT DESCRIPTION: bleh is an open world puzzle-adventure game. You're a lonely orphan who has no friends and in order to cure your insatiable loneliness you spend your life building snowmen. 
+PROJECT DESCRIPTION: bleh is an open world puzzle-adventure game. You're a lonely orphan who has no friends and in order to cure your insatiable loneliness you spend your life building snowmen.
 
 ### Program Components + Explanation
 HTML (frontend display)
@@ -22,9 +22,10 @@ Javascript
 
 | TYPE | VALUE | ADDITIONAL SPECIFICATIONS |
 |------|-------| ------------------------- |
-| STRING | username | PK |
-| STRING | password | NOT NULL |
+| TEXT | username | PK |
+| TEXT | password | NOT NULL |
 | INTEGER | hp | NOT NULL |
+| INTEGER | stamina | NOT NULL |
 | INTEGER | snowballs | NOT NULL |
 | BOOLEAN | item1 | FK |
 | BOOLEAN | item2 | FK |
@@ -37,8 +38,16 @@ Javascript
 
 | TYPE | VALUE | ADDITIONAL SPECIFICATIONS |
 |------|-------|-------------------------- |
-| STRING | button |    |
+| TEXT | name | PK |
+| TEXT | desc | NOT NULL |
+| TEXT | image | NOT NULL |
 
+#### __NPC__
+
+| TYPE | VALUE | ADDITIONAL SPECIFICATIONS |
+|------|-------|-------------------------- |
+| TEXT | name | PK |
+| TEXT | dialogue | NOT NULL |
 
 ### Site Map (front end)
 

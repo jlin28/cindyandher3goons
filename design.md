@@ -1,24 +1,28 @@
 # Cindy and Her 3 Goons’ Design Doc for P05 – Le Fin  
-⤷ Roster: $${\color{red}Carrie \space Ko}$$ (PM), $${\color{orange}Joyce \space Lin}$$, Cindy Liu, $${\color{yellow}Jeff \space Ou}$$    
+⤷ _Roster:_ $${\color{red}Carrie \space Ko}$$ (PM), $${\color{yellow}Joyce \space Lin}$$, $${\color{green}Cindy \space Liu}$$, $${\color{blue}Jeff \space Ou}$$   
+TARGET SHIP DATE: TBA   
 
-PROJECT NAME: bleh  
-TARGET SHIP DATE: TBA  
-PROJECT DESCRIPTION: bleh is an open world puzzle-adventure game. You're a lonely orphan who has no friends and in order to cure your insatiable loneliness you spend your life building snowmen.
+### PROJECT NAME: _bleh_ 
 
-### Program Components + Explanation
-HTML (frontend display)
+<br>
+
+<ins>___PROJECT DESCRIPTION___</ins>   
+> __bleh is an open world puzzle-adventure game. You're a lonely orphan who has no friends and in order to cure your insatiable loneliness you spend your life building snowmen.__
+
+## Program Components + Explanation
+_HTML (frontend display)_
 - login.html
 - register.html
 - game.html
 
-Javascript
+_Javascript_
 - server.js
 
-### Component Map
+## Component Map
 
 
-### Database Organization
-#### __USER__
+## Database Organization
+### &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; _USER_
 
 | TYPE | VALUE | ADDITIONAL SPECIFICATIONS |
 |------|-------| ------------------------- |
@@ -34,7 +38,9 @@ Javascript
 | BOOLEAN | item5 | FK |
 | BOOLEAN | item6 | FK |  
 
-#### __ITEM__
+<br>
+
+### &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;_ITEM_
 
 | TYPE | VALUE | ADDITIONAL SPECIFICATIONS |
 |------|-------|-------------------------- |
@@ -42,17 +48,21 @@ Javascript
 | TEXT | desc | NOT NULL |
 | TEXT | image | NOT NULL |
 
-#### __NPC__
+<br> 
+
+### &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;_NPC_
 
 | TYPE | VALUE | ADDITIONAL SPECIFICATIONS |
 |------|-------|-------------------------- |
 | TEXT | name | PK |
 | TEXT | dialogue | NOT NULL |
 
-### Site Map (front end)
+<br>
+
+## Site Map (front end)
 
 
-### Member Tasks/Roles
+## Member Tasks/Roles
 
 | TASK | DEVO | EXPECTED COMPLETION DATE |
 |------|------|--------------------------|

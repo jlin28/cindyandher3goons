@@ -18,6 +18,11 @@ Designated primary VM: 134.209.175.50 @ cindyandher3goons.me
 * Has any team member provisioned SSL certificates to facilitate httpS traffic?
     - YES
 
+carrieK -- 2026-05-05 11:00
+DD
+* formatted readme
+* worked on game desc
+
 joyceL -- 2026-05-05 11:01
 DATABASE ORGANIZATION
 * Added USER and ITEM databses to design doc

@@ -1,5 +1,5 @@
 # $${\color{red}Cindy}$$ and Her 3 Goons’ Design Doc for P05 – Le Fin  
-⤷ Roster: Carrie Ko (PM), Joyce Lin, $${\color{orange}Cindy}$$ Liu, Jeff Ou    
+⤷ Roster: Carrie Ko (PM), Joyce Lin, $${\color{orange}Cindy \space Liu}$$, Jeff Ou    
 
 PROJECT NAME: TBA  
 TARGET SHIP DATE: TBA  

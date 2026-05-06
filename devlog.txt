@@ -19,7 +19,7 @@ Designated primary VM: 134.209.175.50 @ cindyandher3goons.me
     - YES
 
 carrieK -- 2026-05-05 11:00
-DD
+DESIGN DOC
 * formatted readme
 * worked on game desc
 
@@ -28,9 +28,13 @@ DATABASE ORGANIZATION
 * Added USER and ITEM databses to design doc
 
 cindyL -- 2026-05-05 11:01
-DD
+DESIGN DOC
 * program components
 
 carrieK -- 2026-05-06 10:15
-DD
+DESIGN DOC
 * desc and site map
+
+joyceL -- 2026-05-06 10:26
+DESIGN DOC
+* helped carrie with desc and imported component map

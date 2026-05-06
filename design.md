@@ -23,7 +23,7 @@ TARGET SHIP DATE: TBA
 - `server.js`: node setup code
 
 ## Component Map
-
+[![](https://mermaid.ink/img/pako:eNptj8tOwzAQRX_FmnUa5f1aINGm5QNgRdKFSaaJUWxXjg2Ftv-Oax5qJbzy3HvuHfsInewRKthN8r0bqdLkqW4Fsee-mVG9ofJf5y1ZLO5ObpxPZNlMcmDCHzWftuQHviFWjcKBzdqGHfQfUzcD5Xjtr5zfKaQaibGchb6dpXOo0eOtXjsd-Qv2tnHdMNHj4bpy7QBlxEykOJFN81A_dortNdmwCWdHgQeDYj1UWhn0gKPi9DLC8eK2oEfk2EJlrz3uqJl0C60429ieimcp-W9SSTOMUO3oNNvJ7Hv7j5rRQVH-pyq0T1QraYSGqgwKVwLVEQ5QxWHql0mQhVFeRmVW5KkHH5Yq_SSOgjxNgyApiqg4e_Dp1gZ-niVxnGRhHsZ5lGbnL4xfkOU?type=png)](https://mermaid.live/edit#pako:eNptj8tOwzAQRX_FmnUa5f1aINGm5QNgRdKFSaaJUWxXjg2Ftv-Oax5qJbzy3HvuHfsInewRKthN8r0bqdLkqW4Fsee-mVG9ofJf5y1ZLO5ObpxPZNlMcmDCHzWftuQHviFWjcKBzdqGHfQfUzcD5Xjtr5zfKaQaibGchb6dpXOo0eOtXjsd-Qv2tnHdMNHj4bpy7QBlxEykOJFN81A_dortNdmwCWdHgQeDYj1UWhn0gKPi9DLC8eK2oEfk2EJlrz3uqJl0C60429ieimcp-W9SSTOMUO3oNNvJ7Hv7j5rRQVH-pyq0T1QraYSGqgwKVwLVEQ5QxWHql0mQhVFeRmVW5KkHH5Yq_SSOgjxNgyApiqg4e_Dp1gZ-niVxnGRhHsZ5lGbnL4xfkOU)
 
 ## Database Organization
 ### &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; _USER_

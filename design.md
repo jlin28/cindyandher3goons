@@ -17,13 +17,14 @@ TARGET SHIP DATE: TBA
 - `start.html`: startscreen for all your starts
 - `login.html`: you can login as a user wow amazing 10/10
 - `register.html`: wow you can register up and actually play our game wow amazing 11/10
+- `index.html`: contains exported Godot app and allows for embedding
 - `game.html`: this is where our game will live and where we will serve it for you to see
 
 <ins>_Javascript_</ins>
 - `server.js`: node setup code
 
 ## Component Map
-[![](https://mermaid.ink/img/pako:eNptj8tOwzAQRX_FmnUa5f1aINGm5QNgRdKFSaaJUWxXjg2Ftv-Oax5qJbzy3HvuHfsInewRKthN8r0bqdLkqW4Fsee-mVG9ofJf5y1ZLO5ObpxPZNlMcmDCHzWftuQHviFWjcKBzdqGHfQfUzcD5Xjtr5zfKaQaibGchb6dpXOo0eOtXjsd-Qv2tnHdMNHj4bpy7QBlxEykOJFN81A_dortNdmwCWdHgQeDYj1UWhn0gKPi9DLC8eK2oEfk2EJlrz3uqJl0C60429ieimcp-W9SSTOMUO3oNNvJ7Hv7j5rRQVH-pyq0T1QraYSGqgwKVwLVEQ5QxWHql0mQhVFeRmVW5KkHH5Yq_SSOgjxNgyApiqg4e_Dp1gZ-niVxnGRhHsZ5lGbnL4xfkOU?type=png)](https://mermaid.live/edit#pako:eNptj8tOwzAQRX_FmnUa5f1aINGm5QNgRdKFSaaJUWxXjg2Ftv-Oax5qJbzy3HvuHfsInewRKthN8r0bqdLkqW4Fsee-mVG9ofJf5y1ZLO5ObpxPZNlMcmDCHzWftuQHviFWjcKBzdqGHfQfUzcD5Xjtr5zfKaQaibGchb6dpXOo0eOtXjsd-Qv2tnHdMNHj4bpy7QBlxEykOJFN81A_dortNdmwCWdHgQeDYj1UWhn0gKPi9DLC8eK2oEfk2EJlrz3uqJl0C60429ieimcp-W9SSTOMUO3oNNvJ7Hv7j5rRQVH-pyq0T1QraYSGqgwKVwLVEQ5QxWHql0mQhVFeRmVW5KkHH5Yq_SSOgjxNgyApiqg4e_Dp1gZ-niVxnGRhHsZ5lGbnL4xfkOU)
+[![](https://mermaid.ink/img/pako:eNp1j8luwjAURX_FeusQhQxkWFQqBPiAdtWEhZs8klSxjTy0tMC_13EHgdR65fvuudfPJ2hEi1DAfhRvTU-lJo9lzYk995VC-YrSf1E7MpvdnZ1UZ7KsRtEN3O81G3fkG74hVpXEblDahh30F1NWHWX4v7-tlLbrXAPbCSDLL7FydCORaiTGpmzll7N0DjW6v52Xbo7sGVvbv64G3uLxun_tAGm4IoKfyabalg-NHA6abIYRlaPAg04OLRRaGvSAoWR0knCa3Bp0jwxrKOy1xT01o66h5hcbO1D-JAT7SUphuh6KPR2VVebQ2n-UA-0kZb9TiXZFuRKGayjyPHQlUJzgCEU0T_w8DhbzMM3DfJGliQfvE-XHURikSRIEcZaF2cWDD_ds4KeLOIriJE_SKM7nWX75BC4hntw?type=png)](https://mermaid.live/edit#pako:eNp1j8luwjAURX_FeusQhQxkWFQqBPiAdtWEhZs8klSxjTy0tMC_13EHgdR65fvuudfPJ2hEi1DAfhRvTU-lJo9lzYk995VC-YrSf1E7MpvdnZ1UZ7KsRtEN3O81G3fkG74hVpXEblDahh30F1NWHWX4v7-tlLbrXAPbCSDLL7FydCORaiTGpmzll7N0DjW6v52Xbo7sGVvbv64G3uLxun_tAGm4IoKfyabalg-NHA6abIYRlaPAg04OLRRaGvSAoWR0knCa3Bp0jwxrKOy1xT01o66h5hcbO1D-JAT7SUphuh6KPR2VVebQ2n-UA-0kZb9TiXZFuRKGayjyPHQlUJzgCEU0T_w8DhbzMM3DfJGliQfvE-XHURikSRIEcZaF2cWDD_ds4KeLOIriJE_SKM7nWX75BC4hntw)
 
 ## Database Organization
 ### &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; _USER_

@@ -18,6 +18,8 @@ TARGET SHIP DATE: TBA
 <ins>_Javascript_</ins>
 - server.js
 
+sqlite3 (backend data storage): contains USER, ITEM, and NPC
+
 ## Component Map
 
 

@@ -1,5 +1,5 @@
 # Cindy and Her 3 Goons’ Design Doc for P05 – Le Fin  
-⤷ _Roster:_ $${\color{red}Carrie \space Ko (PM)}$$, $${\color{yellow}Joyce \space Lin}$$, $${\color{green}Cindy \space Liu}$$, $${\color{blue}Jeff \space Ou}$$   
+⤷ _Roster:_ $${\color{red}Carrie \space Ko \space (PM)}$$, $${\color{yellow}Joyce \space Lin}$$, $${\color{green}Cindy \space Liu}$$, $${\color{blue}Jeff \space Ou}$$   
 TARGET SHIP DATE: TBA   
 
 ### PROJECT NAME: _bleh_ 
@@ -7,18 +7,19 @@ TARGET SHIP DATE: TBA
 <br>
 
 <ins>___PROJECT DESCRIPTION___</ins>   
-> __bleh is an open world puzzle-adventure game. You're a lonely orphan who has no friends and in order to cure your insatiable loneliness you spend your life building snowmen.__
+> __bleh is an open world puzzle-adventure game. You're a lonely orphan who has no friends and in order to cure your insatiable loneliness, you spend your life building snowmen. But, oh no! Your snowmen are all sad and naked! Thus, as a last resort, you finally decide to socialize and look to the town's villagers for help. And boy do they have some work for you to do. 😰__
 
 ## Program Components + Explanation
+<ins>_Backend_</ins>
+- `SQLITE`: db storage for all our storage needs
+
 <ins>_HTML (frontend display)_</ins>
-- login.html
-- register.html
-- game.html
+- `login.html`: you can login as a user wow amazing 10/10
+- `register.html`: wow you can register up and actually play our game wow amazing 11/10
+- `game.html`: this is where our game will live and where we will serve it for you to see
 
 <ins>_Javascript_</ins>
-- server.js
-
-sqlite3 (backend data storage): contains USER, ITEM, and NPC
+- `server.js`: node setup code
 
 ## Component Map
 
@@ -69,3 +70,4 @@ sqlite3 (backend data storage): contains USER, ITEM, and NPC
 | TASK | DEVO | EXPECTED COMPLETION DATE |
 |------|------|--------------------------|
 | temp | temp | temp |
+

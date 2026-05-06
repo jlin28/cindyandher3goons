@@ -35,9 +35,10 @@ carrieK -- 2026-05-06 10:15
 DESIGN DOC
 * desc and site map
 
-joyceL -- 2026-05-06 10:26
+joyceL -- 2026-05-06 10:51
 DESIGN DOC
 * helped carrie with desc and imported component map
+* Minor changes made to database organization to create a more reasonable inventory system
 
 cindyL -- 2026-05-06 10:28
 * keys readme tree compliance

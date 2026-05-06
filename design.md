@@ -36,13 +36,18 @@ TARGET SHIP DATE: TBA
 | TEXT | password | NOT NULL |
 | INTEGER | hp | NOT NULL |
 | INTEGER | stamina | NOT NULL |
-| INTEGER | snowballs | NOT NULL |
 | TEXT | item1 | FK |
 | TEXT | item2 | FK |
 | TEXT | item3 | FK |
 | TEXT | item4 | FK |
 | TEXT | item5 | FK |
-| TEXT | item6 | FK |  
+| TEXT | item6 | FK |
+| INTEGER | item1Count |    |
+| INTEGER | item2Count |    |
+| INTEGER | item3Count |    |
+| INTEGER | item4Count |    |
+| INTEGER | item5Count |    |
+| INTEGER | item6Count |    |
 
 <br>
 
@@ -53,6 +58,10 @@ TARGET SHIP DATE: TBA
 | TEXT | name | PK |
 | TEXT | desc | NOT NULL |
 | TEXT | image | NOT NULL |
+| INTEGER | maxCount | NOT NULL |
+| BOOLEAN | hasBeenFound | NOT NULL |  
+
+_hasBeenFound will help monitor whether an item is unlocked in encyclopedia and whether a pop up will occur when item is acquired for the first time_
 
 <br> 
 

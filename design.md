@@ -14,6 +14,7 @@ TARGET SHIP DATE: TBA
 - `SQLITE`: db storage for all our storage needs
 
 <ins>_HTML (frontend display)_</ins>
+- `start.html`: startscreen for all your starts
 - `login.html`: you can login as a user wow amazing 10/10
 - `register.html`: wow you can register up and actually play our game wow amazing 11/10
 - `game.html`: this is where our game will live and where we will serve it for you to see
@@ -63,7 +64,7 @@ TARGET SHIP DATE: TBA
 <br>
 
 ## Site Map (front end)
-
+[![](https://mermaid.ink/img/pako:eNpVUEtrhDAQ_isyJwuuJD4SDaXQ1WtvPRUvYZ2NsiZZYqQP8b_XByztnGa-18A3w8W2CAKug_28dNL54L1uTLDOazj69Y47r4en4HR6Cc7hYFVvDuQQnYPnjalCh6ofPbr_5MbVoZIa_-LVgUMEyvUtiKscRoxAo9Nyu2HedA34DjU2INa1le7WQGOW1XSX5sNaDcK7abU5O6nuETLdW-mx7qVyUj9Qh6ZFV9nJeBApJXsIiBm-QGQFj9OMcpKnSZKwnEXwDYLymHFeUMJYUWZ5SpMlgp_9LYl5TinNOClKUuYsLSPAtvfWvR1d7pUuvzcvZmM?type=png)](https://mermaid.live/edit#pako:eNpVUEtrhDAQ_isyJwuuJD4SDaXQ1WtvPRUvYZ2NsiZZYqQP8b_XByztnGa-18A3w8W2CAKug_28dNL54L1uTLDOazj69Y47r4en4HR6Cc7hYFVvDuQQnYPnjalCh6ofPbr_5MbVoZIa_-LVgUMEyvUtiKscRoxAo9Nyu2HedA34DjU2INa1le7WQGOW1XSX5sNaDcK7abU5O6nuETLdW-mx7qVyUj9Qh6ZFV9nJeBApJXsIiBm-QGQFj9OMcpKnSZKwnEXwDYLymHFeUMJYUWZ5SpMlgp_9LYl5TinNOClKUuYsLSPAtvfWvR1d7pUuvzcvZmM)
 
 ## Member Tasks/Roles
 

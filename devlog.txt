@@ -26,3 +26,7 @@ DD
 joyceL -- 2026-05-05 11:01
 DATABASE ORGANIZATION
 * Added USER and ITEM databses to design doc
+
+cindyL -- 2026-05-05 11:01
+DD
+* program components

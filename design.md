@@ -24,7 +24,8 @@ TARGET SHIP DATE: TBA
 - `server.js`: node setup code
 
 ## Component Map
-[![](https://mermaid.ink/img/pako:eNp1j8luwjAURX_FeusQhQxkWFQqBPiAdtWEhZs8klSxjTy0tMC_13EHgdR65fvuudfPJ2hEi1DAfhRvTU-lJo9lzYk995VC-YrSf1E7MpvdnZ1UZ7KsRtEN3O81G3fkG74hVpXEblDahh30F1NWHWX4v7-tlLbrXAPbCSDLL7FydCORaiTGpmzll7N0DjW6v52Xbo7sGVvbv64G3uLxun_tAGm4IoKfyabalg-NHA6abIYRlaPAg04OLRRaGvSAoWR0knCa3Bp0jwxrKOy1xT01o66h5hcbO1D-JAT7SUphuh6KPR2VVebQ2n-UA-0kZb9TiXZFuRKGayjyPHQlUJzgCEU0T_w8DhbzMM3DfJGliQfvE-XHURikSRIEcZaF2cWDD_ds4KeLOIriJE_SKM7nWX75BC4hntw?type=png)](https://mermaid.live/edit#pako:eNp1j8luwjAURX_FeusQhQxkWFQqBPiAdtWEhZs8klSxjTy0tMC_13EHgdR65fvuudfPJ2hEi1DAfhRvTU-lJo9lzYk995VC-YrSf1E7MpvdnZ1UZ7KsRtEN3O81G3fkG74hVpXEblDahh30F1NWHWX4v7-tlLbrXAPbCSDLL7FydCORaiTGpmzll7N0DjW6v52Xbo7sGVvbv64G3uLxun_tAGm4IoKfyabalg-NHA6abIYRlaPAg04OLRRaGvSAoWR0knCa3Bp0jwxrKOy1xT01o66h5hcbO1D-JAT7SUphuh6KPR2VVebQ2n-UA-0kZb9TiXZFuRKGayjyPHQlUJzgCEU0T_w8DhbzMM3DfJGliQfvE-XHURikSRIEcZaF2cWDD_ds4KeLOIriJE_SKM7nWX75BC4hntw)
+<img width="700" height="820" alt="image" src="https://github.com/user-attachments/assets/892ac1ba-2c55-468b-b9ac-3bb375bb3971" />
+
 
 ## Database Organization
 ### &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; _USER_

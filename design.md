@@ -1,13 +1,83 @@
-# Cindy and Her 3 Goons’ Design Doc for P05 – Le Fin  
-⤷ _Roster:_ $${\color{red}Carrie \space Ko \space (PM)}$$, $${\color{yellow}Joyce \space Lin}$$, $${\color{green}Cindy \space Liu}$$, $${\color{blue}Jeff \space Ou}$$   
-TARGET SHIP DATE: TBA   
+# Cindy and Her 3 Goons’ Design Doc
+### ⤷ __P05__ – _Le Fin_
+_Roster:_ $${\color{red}Carrie \space Ko \space (PM)}$$, $${\color{yellow}Joyce \space Lin}$$, $${\color{green}Cindy \space Liu}$$, $${\color{blue}Jeff \space Ou}$$   
 
 ### PROJECT NAME: _bleh_ 
+TARGET SHIP DATE: 2026-06-01   
+
 
 <br>
 
-<ins>___PROJECT DESCRIPTION___</ins>   
+---
+
+<br>
+
+## Roster
+| Name | Email | Primary Role | Secondary Role |
+| ---- | ----- | ------------ | -------------- |
+| Carrie Ko | carriek3@nycstudents.net | goon 1 | PM |
+| Cindy Liu | cindyl125@nycstudents.net | cindy | Devo |
+| Joyce Lin | joycel78@nycstudents.net | goon 2 | Devo |
+| Jeff Ou | jiefengo@nycstudents.net | goon 3 | Devo |
+
+<br>
+
+---
+
+<br>
+
+## ___PROJECT SUMMARY___
 > __bleh is an open world puzzle-adventure game. You're a lonely orphan who has no friends and in order to cure your insatiable loneliness, you spend your life building snowmen. But, oh no! Your snowmen are all sad and naked! Thus, as a last resort, you finally decide to socialize and look to the town's villagers for help. And boy do they have some work for you to do. 😰__
+
+### _Problem Being Solved_
+
+### _Target Users_
+* _
+* _
+
+### _Why This Project Matters_
+
+<br>
+
+---
+
+<br>
+
+## _MINIMUM VIABLE PRODUCT (MVP) SCOPE_
+### Core Features
+
+### Stretch Features
+1) _
+2) _
+3) _
+
+### Explicit Non-Goals
+
+### Features intentionally excluded
+* _
+
+
+## TECHNOLOGY STACK
+| Layer | Selected Tool |
+| ----- | ------------- |
+| Backend Framework | Node.js |
+| Frontend Framework | none |
+| Database | SQLite |
+| Authentication | Node Sessions |
+| ORM / DB Library | none |
+
+### Why This Stack Was Chosen
+
+
+## TEAM OWNERSHIP PLAN
+_Each member must own meaningful deliverables_
+
+| Team Member | Primary Ownership | Secondary Ownership | Specific Deliverables |
+| ----------- | ----------------- | ------------------- | --------------------- |
+||||
+||||
+||||
+
 
 ## Program Components + Explanation
 <ins>_Backend_</ins>
@@ -26,6 +96,23 @@ TARGET SHIP DATE: TBA
 ## Component Map
 [![](https://mermaid.ink/img/pako:eNptkk1PwzAMhv9K5HOpaNa1W4WQ2MrGhROcaHcIq9cWNc2UDxhs---4GUNDIqf49ePXdpQ9rFWFkMGmUx_rRmjLnvOyZ3TuCoP6HXX4Zlbs6ur24ENzYLOiU3Xbh42V3Yr9wJ7Yuq4zbKOVPLCHohJWvAqDZnXJnF3mhca6NZYaeKMTM2M3BLE5-68kL2oh8RL_m18WxtIGl8ByANjsFMw9vdYoLDJHVWR5bjtkhLPNXz33OspXrMj_vmj7CneX_vce0K43TPUHtiiW-dNat1vLFm33u_nJhl5NOUtj0nKDDgHUuq0gs9phABK1FEMI-yFbgm1QYgkZXSvcCNfZEsr-SGVb0b8oJc-VWrm6gWwjOkOR29LDY96KWgv5q2qk0fVcud5CFo3SiXeBbA87yHgaheM4jibTeDyK-DiAT4LicJrwdMxHMec8jnh0DODLt70OJ8k1SVESpUkyTTkPAKvWKv14-k3-Ux2_Aa-1u2g?type=png)](https://mermaid.live/edit#pako:eNptkk1PwzAMhv9K5HOpaNa1W4WQ2MrGhROcaHcIq9cWNc2UDxhs---4GUNDIqf49ePXdpQ9rFWFkMGmUx_rRmjLnvOyZ3TuCoP6HXX4Zlbs6ur24ENzYLOiU3Xbh42V3Yr9wJ7Yuq4zbKOVPLCHohJWvAqDZnXJnF3mhca6NZYaeKMTM2M3BLE5-68kL2oh8RL_m18WxtIGl8ByANjsFMw9vdYoLDJHVWR5bjtkhLPNXz33OspXrMj_vmj7CneX_vce0K43TPUHtiiW-dNat1vLFm33u_nJhl5NOUtj0nKDDgHUuq0gs9phABK1FEMI-yFbgm1QYgkZXSvcCNfZEsr-SGVb0b8oJc-VWrm6gWwjOkOR29LDY96KWgv5q2qk0fVcud5CFo3SiXeBbA87yHgaheM4jibTeDyK-DiAT4LicJrwdMxHMec8jnh0DODLt70OJ8k1SVESpUkyTTkPAKvWKv14-k3-Ux2_Aa-1u2g)
 
+
+## Site Map (front end)
+[![](https://mermaid.ink/img/pako:eNpVUMtqwzAQ_BWzJxccY1l2lIhQSOwee-up-CKi9QMsKcgSfZj8e2UbQrqnnZmdGdgZrkYicGhH83XthXXRR93oKMw5nlzAae_U-BLtdq_RJR5NN-iN2Y4u0WlRqthiN0wO7X9x0eq4Ewqf-WrjN1Cv4G2JNv657QwJdHaQwFsxTpiAQqvEgmFerA24HhU2wMMqsRV-dA00-h58N6E_jVHAnfXBaY3v-keOv0nhsB5EZ4V6sBa1RFsZrx1wUrI1BPgM38ApO6TH4khJRrOc0aJI4Gc5Ssm-ZIQGPi8Iuyfwu5Zm6Z7l5SFMQcs8y0qSAMrBGfu-PXv9-f0PdoBvvg?type=png)](https://mermaid.live/edit#pako:eNpVUMtqwzAQ_BWzJxccY1l2lIhQSOwee-up-CKi9QMsKcgSfZj8e2UbQrqnnZmdGdgZrkYicGhH83XthXXRR93oKMw5nlzAae_U-BLtdq_RJR5NN-iN2Y4u0WlRqthiN0wO7X9x0eq4Ewqf-WrjN1Cv4G2JNv657QwJdHaQwFsxTpiAQqvEgmFerA24HhU2wMMqsRV-dA00-h58N6E_jVHAnfXBaY3v-keOv0nhsB5EZ4V6sBa1RFsZrx1wUrI1BPgM38ApO6TH4khJRrOc0aJI4Gc5Ssm-ZIQGPi8Iuyfwu5Zm6Z7l5SFMQcs8y0qSAMrBGfu-PXv9-f0PdoBvvg)
+
+
+## Key User Stories
+### Carrie Ko
+As a __________, I want to __________ so that...
+
+### Cindy Liu
+As a __________, I want to __________ so that...
+
+### Joyce Lin
+As a __________, I want to __________ so that...
+
+### Jeff Ou
+As a __________, I want to __________ so that...
 
 ## Database Organization
 ### &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; _USER_
@@ -74,12 +161,29 @@ _hasBeenFound will help monitor whether an item is unlocked in encyclopedia and 
 
 <br>
 
-## Site Map (front end)
-[![](https://mermaid.ink/img/pako:eNpVUMtqwzAQ_BWzJxccY1l2lIhQSOwee-up-CKi9QMsKcgSfZj8e2UbQrqnnZmdGdgZrkYicGhH83XthXXRR93oKMw5nlzAae_U-BLtdq_RJR5NN-iN2Y4u0WlRqthiN0wO7X9x0eq4Ewqf-WrjN1Cv4G2JNv657QwJdHaQwFsxTpiAQqvEgmFerA24HhU2wMMqsRV-dA00-h58N6E_jVHAnfXBaY3v-keOv0nhsB5EZ4V6sBa1RFsZrx1wUrI1BPgM38ApO6TH4khJRrOc0aJI4Gc5Ssm-ZIQGPi8Iuyfwu5Zm6Z7l5SFMQcs8y0qSAMrBGfu-PXv9-f0PdoBvvg?type=png)](https://mermaid.live/edit#pako:eNpVUMtqwzAQ_BWzJxccY1l2lIhQSOwee-up-CKi9QMsKcgSfZj8e2UbQrqnnZmdGdgZrkYicGhH83XthXXRR93oKMw5nlzAae_U-BLtdq_RJR5NN-iN2Y4u0WlRqthiN0wO7X9x0eq4Ewqf-WrjN1Cv4G2JNv657QwJdHaQwFsxTpiAQqvEgmFerA24HhU2wMMqsRV-dA00-h58N6E_jVHAnfXBaY3v-keOv0nhsB5EZ4V6sBa1RFsZrx1wUrI1BPgM38ApO6TH4khJRrOc0aJI4Gc5Ssm-ZIQGPi8Iuyfwu5Zm6Z7l5SFMQcs8y0qSAMrBGfu-PXv9-f0PdoBvvg)
 
-## Member Tasks/Roles
+# Testing Plan
+{Delineate here your plan for testing each component}
 
-| TASK | DEVO | EXPECTED COMPLETION DATE |
-|------|------|--------------------------|
-| temp | temp | temp |
+# Timeline
+## Week 1 Goals:
+## Week 2 Goals:
+## Week 3 Goals:
+## Internal Deadlines:
+{List milestones your team has identified, in the order they must be completed. Set a target completion date for each.}
 
+
+# Completion Criteria (_a.k.a._ "Definition of 'Done'")
+Project is considered complete when all of the following are true:
+1.
+1.
+1.
+
+# Open Questions
+{Delineate anything undecided here}
+
+# Appendix
+{Any relevant info that is useful but would have interrupted narrative flow above, or cluttered the information portrayed}
+
+# Other
+{Put here anything that did not sensibly fit under above headings. This section will inform evolution of SoftDev.}

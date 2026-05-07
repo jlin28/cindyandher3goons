@@ -1,6 +1,5 @@
 # Cindy and Her 3 Goons’ Design Doc
 ### ⤷ __P05__ – _Le Fin_
-_Roster:_ $${\color{red}Carrie \space Ko \space (PM)}$$, $${\color{yellow}Joyce \space Lin}$$, $${\color{green}Cindy \space Liu}$$, $${\color{blue}Jeff \space Ou}$$   
 
 ### PROJECT NAME: _bleh_ 
 TARGET SHIP DATE: 2026-06-01   

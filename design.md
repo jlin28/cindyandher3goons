@@ -1,7 +1,7 @@
 # Cindy and Her 3 Goons’ Design Doc
 ### ⤷ __P05__ – _Le Fin_
 
-### PROJECT NAME: _bleh_ 
+### PROJECT NAME: _Snorphan_ 
 TARGET SHIP DATE: 2026-06-01   
 
 
@@ -26,7 +26,7 @@ TARGET SHIP DATE: 2026-06-01
 <br>
 
 ## ___PROJECT SUMMARY___
-> __bleh is an open world puzzle-adventure game. You're a lonely orphan who has no friends and in order to cure your insatiable loneliness, you spend your life building snowmen. But, oh no! Your snowmen are all sad and naked! Thus, as a last resort, you finally decide to socialize and look to the town's villagers for help. And boy do they have some work for you to do. 😰__
+> __Snorphan is an open world puzzle-adventure game. You're a lonely orphan who has no friends and in order to cure your insatiable loneliness, you spend your life building snowmen. But, oh no! Your snowmen are all sad and naked! Thus, as a last resort, you finally decide to socialize and look to the town's villagers for help. And boy do they have some work for you to do. 😰__
 
 ### _Problem Being Solved_
 

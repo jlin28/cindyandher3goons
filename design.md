@@ -2,26 +2,17 @@
 ### ⤷ __P05__ – _Le Fin_
 
 ### PROJECT NAME: _Snorphan_ 
-TARGET SHIP DATE: 2026-06-01   
-
-
-<br>
-
----
+TARGET SHIP DATE: 2026-06-01
 
 <br>
 
-## Roster
+## _ROSTER_
 | Name | Email | Primary Role | Secondary Role |
 | ---- | ----- | ------------ | -------------- |
 | Carrie Ko | carriek3@nycstudents.net | goon 1 | PM |
 | Cindy Liu | cindyl125@nycstudents.net | cindy | Devo |
 | Joyce Lin | joycel78@nycstudents.net | goon 2 | Devo |
 | Jeff Ou | jiefengo@nycstudents.net | goon 3 | Devo |
-
-<br>
-
----
 
 <br>
 
@@ -38,10 +29,6 @@ TARGET SHIP DATE: 2026-06-01
 
 <br>
 
----
-
-<br>
-
 ## _MINIMUM VIABLE PRODUCT (MVP) SCOPE_
 ### Core Features
 
@@ -55,6 +42,7 @@ TARGET SHIP DATE: 2026-06-01
 ### Features intentionally excluded
 * _
 
+<br>
 
 ## TECHNOLOGY STACK
 | Layer | Selected Tool |
@@ -67,6 +55,7 @@ TARGET SHIP DATE: 2026-06-01
 
 ### Why This Stack Was Chosen
 
+<br>
 
 ## TEAM OWNERSHIP PLAN
 _Each member must own meaningful deliverables_
@@ -77,6 +66,7 @@ _Each member must own meaningful deliverables_
 ||||
 ||||
 
+<br>
 
 ## Program Components + Explanation
 <ins>_Backend_</ins>
@@ -92,13 +82,17 @@ _Each member must own meaningful deliverables_
 <ins>_Javascript_</ins>
 - `server.js`: node setup code
 
+<br>
+
 ## Component Map
 [![](https://mermaid.ink/img/pako:eNptkk1PwzAMhv9K5HOpaNa1W4WQ2MrGhROcaHcIq9cWNc2UDxhs---4GUNDIqf49ePXdpQ9rFWFkMGmUx_rRmjLnvOyZ3TuCoP6HXX4Zlbs6ur24ENzYLOiU3Xbh42V3Yr9wJ7Yuq4zbKOVPLCHohJWvAqDZnXJnF3mhca6NZYaeKMTM2M3BLE5-68kL2oh8RL_m18WxtIGl8ByANjsFMw9vdYoLDJHVWR5bjtkhLPNXz33OspXrMj_vmj7CneX_vce0K43TPUHtiiW-dNat1vLFm33u_nJhl5NOUtj0nKDDgHUuq0gs9phABK1FEMI-yFbgm1QYgkZXSvcCNfZEsr-SGVb0b8oJc-VWrm6gWwjOkOR29LDY96KWgv5q2qk0fVcud5CFo3SiXeBbA87yHgaheM4jibTeDyK-DiAT4LicJrwdMxHMec8jnh0DODLt70OJ8k1SVESpUkyTTkPAKvWKv14-k3-Ux2_Aa-1u2g?type=png)](https://mermaid.live/edit#pako:eNptkk1PwzAMhv9K5HOpaNa1W4WQ2MrGhROcaHcIq9cWNc2UDxhs---4GUNDIqf49ePXdpQ9rFWFkMGmUx_rRmjLnvOyZ3TuCoP6HXX4Zlbs6ur24ENzYLOiU3Xbh42V3Yr9wJ7Yuq4zbKOVPLCHohJWvAqDZnXJnF3mhca6NZYaeKMTM2M3BLE5-68kL2oh8RL_m18WxtIGl8ByANjsFMw9vdYoLDJHVWR5bjtkhLPNXz33OspXrMj_vmj7CneX_vce0K43TPUHtiiW-dNat1vLFm33u_nJhl5NOUtj0nKDDgHUuq0gs9phABK1FEMI-yFbgm1QYgkZXSvcCNfZEsr-SGVb0b8oJc-VWrm6gWwjOkOR29LDY96KWgv5q2qk0fVcud5CFo3SiXeBbA87yHgaheM4jibTeDyK-DiAT4LicJrwdMxHMec8jnh0DODLt70OJ8k1SVESpUkyTTkPAKvWKv14-k3-Ux2_Aa-1u2g)
 
+<br>
 
 ## Site Map (front end)
 [![](https://mermaid.ink/img/pako:eNpVUMtqwzAQ_BWzJxccY1l2lIhQSOwee-up-CKi9QMsKcgSfZj8e2UbQrqnnZmdGdgZrkYicGhH83XthXXRR93oKMw5nlzAae_U-BLtdq_RJR5NN-iN2Y4u0WlRqthiN0wO7X9x0eq4Ewqf-WrjN1Cv4G2JNv657QwJdHaQwFsxTpiAQqvEgmFerA24HhU2wMMqsRV-dA00-h58N6E_jVHAnfXBaY3v-keOv0nhsB5EZ4V6sBa1RFsZrx1wUrI1BPgM38ApO6TH4khJRrOc0aJI4Gc5Ssm-ZIQGPi8Iuyfwu5Zm6Z7l5SFMQcs8y0qSAMrBGfu-PXv9-f0PdoBvvg?type=png)](https://mermaid.live/edit#pako:eNpVUMtqwzAQ_BWzJxccY1l2lIhQSOwee-up-CKi9QMsKcgSfZj8e2UbQrqnnZmdGdgZrkYicGhH83XthXXRR93oKMw5nlzAae_U-BLtdq_RJR5NN-iN2Y4u0WlRqthiN0wO7X9x0eq4Ewqf-WrjN1Cv4G2JNv657QwJdHaQwFsxTpiAQqvEgmFerA24HhU2wMMqsRV-dA00-h58N6E_jVHAnfXBaY3v-keOv0nhsB5EZ4V6sBa1RFsZrx1wUrI1BPgM38ApO6TH4khJRrOc0aJI4Gc5Ssm-ZIQGPi8Iuyfwu5Zm6Z7l5SFMQcs8y0qSAMrBGfu-PXv9-f0PdoBvvg)
 
+<br>
 
 ## Key User Stories
 ### Carrie Ko
@@ -112,6 +106,8 @@ As a __________, I want to __________ so that...
 
 ### Jeff Ou
 As a __________, I want to __________ so that...
+
+<br>
 
 ## Database Organization
 ### &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; _USER_
@@ -137,7 +133,7 @@ As a __________, I want to __________ so that...
 
 <br>
 
-### &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;_ITEM_
+### &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;_ITEM_
 
 | TYPE | VALUE | ADDITIONAL SPECIFICATIONS |
 |------|-------|-------------------------- |
@@ -160,28 +156,35 @@ _hasBeenFound will help monitor whether an item is unlocked in encyclopedia and 
 
 <br>
 
-
-# Testing Plan
+## _TESTING PLAN_
 {Delineate here your plan for testing each component}
 
-# Timeline
-## Week 1 Goals:
-## Week 2 Goals:
-## Week 3 Goals:
-## Internal Deadlines:
+<br>
+
+## TIMELINE
+### WEEK 1:
+
+### WEEK 2:
+
+### WEEK 3:
+
+### INTERNAL DEADLINES:
 {List milestones your team has identified, in the order they must be completed. Set a target completion date for each.}
 
+<br>
 
-# Completion Criteria (_a.k.a._ "Definition of 'Done'")
+## _COMPLETION CRITERIA_ 
 Project is considered complete when all of the following are true:
-1.
-1.
-1.
+1)
+2)
+3)
 
-# Open Questions
+<br>
+
+## _OPEN QUESTIONS_
 {Delineate anything undecided here}
 
-# Appendix
+## _APPENDIX_
 {Any relevant info that is useful but would have interrupted narrative flow above, or cluttered the information portrayed}
 
 # Other

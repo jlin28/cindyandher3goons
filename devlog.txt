@@ -45,3 +45,9 @@ cindyL -- 2026-05-06 10:28
 
 jiefengO -- 2026-05-06 10:35
 * added node structure, but keeping __init__.py and templates/login.html until we get a working node server
+
+cindyL -- 2026-05-08 8:59
+DESIGN DOC
+* drafted concepts of completion
+ISSUES
+* httpS on fetacheese.me no longer working (reason not discovered yet)

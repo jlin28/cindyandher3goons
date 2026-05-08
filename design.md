@@ -99,17 +99,11 @@ _Each member must own meaningful deliverables_
 <br>
 
 ## Key User Stories
-### Carrie Ko
-As a __________, I want to __________ so that...
+### Orphano McLover
+As an orphan lover, I want to __________ so that...
 
-### Cindy Liu
-As a __________, I want to __________ so that...
-
-### Joyce Lin
-As a __________, I want to __________ so that...
-
-### Jeff Ou
-As a __________, I want to __________ so that...
+### Snowmin Loverman
+As a snowman lover, I want to __________ so that...
 
 <br>
 

@@ -41,13 +41,34 @@ DESIGN DOC
 * Minor changes made to database organization to create a more reasonable inventory system
 
 cindyL -- 2026-05-06 10:28
+API KEYS
 * keys readme tree compliance
 
 jiefengO -- 2026-05-06 10:35
+REPO TREE
 * added node structure, but keeping __init__.py and templates/login.html until we get a working node server
+
+joyceL -- 2026-05-07 11:43
+DESIGN DOC
+* Continued with formatting and set up a pull request for Godot
 
 cindyL -- 2026-05-08 8:59
 DESIGN DOC
 * drafted concepts of completion
 ISSUES
 * httpS on fetacheese.me no longer working (reason not discovered yet)
+
+jiefengO -- 2026-05-08 11:01
+DESIGN DOC
+* Completed project sumamry section 
+* Began MVP section
+
+carrieK -- 2026-05-08 11:01
+TECHNICAL SUPPORT
+* Aiding cindy with issues regarding droplet malfunction
+
+joyceL -- 2026-05-08 11:30
+DESIGN DOC
+* Added intentionally excluded feature
+* Removed character causing pandoc pdf conversion issues
+* Continued on Godot kb addition

@@ -1,5 +1,5 @@
 # Cindy and Her 3 Goons’ Design Doc
-### ⤷ __P05__ – _Le Fin_
+### __P05__ – _Le Fin_
 
 ### PROJECT NAME: _Snorphan_ 
 TARGET SHIP DATE: 2026-06-01
@@ -41,9 +41,9 @@ We will have a working story game with an orphan character that can make snowmen
 3) Fighting a boss.
 
 ### Explicit Non-Goals
-
-### Features intentionally excluded
-* _
+Features intentionally **excluded**
+* Fight your snowmen
+* Selecting different base characters
 
 <br>
 
@@ -65,9 +65,10 @@ _Each member must own meaningful deliverables_
 
 | Team Member | Primary Ownership | Secondary Ownership | Specific Deliverables |
 | ----------- | ----------------- | ------------------- | --------------------- |
-||||
-||||
-||||
+| Carrie Ko |||
+| Cindy Liu |||
+| Joyce Lin |||
+| Jeff Ou |||
 
 <br>
 

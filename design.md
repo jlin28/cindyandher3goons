@@ -20,22 +20,25 @@ TARGET SHIP DATE: 2026-06-01
 > __Snorphan is an open world puzzle-adventure game. You're a lonely orphan who has no friends and in order to cure your insatiable loneliness, you spend your life building snowmen. But, oh no! Your snowmen are all sad and naked! Thus, as a last resort, you finally decide to socialize and look to the town's villagers for help. And boy do they have some work for you to do. 😰__
 
 ### _Problem Being Solved_
+We are bringing awareness to the loneliness of orphans and snowmen.
 
 ### _Target Users_
-* _
-* _
+* Orphan lovers
+* Snowmen lovers
 
 ### _Why This Project Matters_
+This is a very real issue in the real world. Orphanages have low adoption rates and [orphans who get left behind](https://en.wikipedia.org/wiki/The_Three_Stooges_(2012_film)) lose their most important human connections. This game is meant to give awareness to the love that orphans deserve.
 
 <br>
 
 ## _MINIMUM VIABLE PRODUCT (MVP) SCOPE_
 ### Core Features
+We will have a working story game with an orphan character that can make snowmen, obtain items, and interact with NPCs (dialogue, quests, etc). There will be a fixed terrain and map.
 
 ### Stretch Features
-1) _
-2) _
-3) _
+1) Using the Godot game engine to create a 3D game (if PR gets green lit).
+2) Using items (ie. throwing snowballs, using a shovel, etc.).
+3) Fighting a boss.
 
 ### Explicit Non-Goals
 

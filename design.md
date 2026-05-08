@@ -175,9 +175,11 @@ _hasBeenFound will help monitor whether an item is unlocked in encyclopedia and 
 
 ## _COMPLETION CRITERIA_ 
 Project is considered complete when all of the following are true:
-1)
-2)
-3)
+1) the app runs without crashing, ever
+2) start/login/register routes into the game, somehow, in reasonable order
+3) promised snowman functionality exists and works
+4) all assets load in on the average runthrough
+5) you cannot get stuck in-game (bugged progression, model stuck underground, etc.) w/o logout/restart available
 
 <br>
 

@@ -72,3 +72,7 @@ DESIGN DOC
 * Added intentionally excluded feature
 * Removed character causing pandoc pdf conversion issues
 * Continued on Godot kb addition
+
+cindyL -- 2026-05-08 23:37
+* wet-rats droplet destroyed with memory issue unresolved
+* new droplet dry-rats up and running fetacheese.me

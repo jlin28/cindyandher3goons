@@ -57,6 +57,11 @@ Features intentionally **excluded**
 | ORM / DB Library | none |
 
 ### Why This Stack Was Chosen
+* Node allows for easy set up of WebSocket servers as it supports it natively as opposed to Flask. This makes it more convenient when attempting to set up multiplayer features!
+* We will not be utilizing a Frontend Framework as we prefer manually doing CSS :D
+* As most members of our group are more accustomed to SQLite and there is no particular reason why we would need document-oriented databasing
+* Node supports sessions which is what we will be using to set up our authentication system!!
+* nope
 
 <br>
 

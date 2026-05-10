@@ -160,16 +160,35 @@ _hasBeenFound will help monitor whether an item is unlocked in encyclopedia and 
 <br>
 
 ## _TESTING PLAN_
-{Delineate here your plan for testing each component}
+Upon completion of each game component (assignation of story quests, NPC interactions, snowman rolling, etc.), they will be tested through gameplay as well as
+cheats designated for debugging. Any associated features will not be worked on until the basic component is working!
+
+Components such as backend server handling will be debugged as it always has been, through debug statements and pair handling.
 
 <br>
 
 ## TIMELINE
 ### WEEK 1:
+* Inserted models and animations
+* Working movement system
+* Terrain created
+* Server connections and multiplayer set up
+* Exit to startscreen and log-out system
+* Inventory system
 
 ### WEEK 2:
+* Snowman creation system 
+* NPC interaction (dialogue system) 
+* Cave systems created (with purpose!)
+* Puzzles set up and planned out
+* Itsm usage system
+* Item encyclopedia
 
 ### WEEK 3:
+* Story quest system set up
+* Cross player interaction (snowball throwing)
+* Puzzles all implemented
+* Final boss/disaster sequence implemented
 
 ### INTERNAL DEADLINES:
 {List milestones your team has identified, in the order they must be completed. Set a target completion date for each.}
@@ -187,10 +206,8 @@ Project is considered complete when all of the following are true:
 <br>
 
 ## _OPEN QUESTIONS_
-{Delineate anything undecided here}
+Will the final challenge be a boss fight (big yeti or snowman?!) or will it be an escape sequence (avalanche, collapsing cave, etc)?
 
 ## _APPENDIX_
-{Any relevant info that is useful but would have interrupted narrative flow above, or cluttered the information portrayed}
-
-# Other
-{Put here anything that did not sensibly fit under above headings. This section will inform evolution of SoftDev.}
+As Godot has yet to be greenlit, any Godot-reliant systems are subject to change. In the case that Godot will be rejected, the game will
+pivot towards a 2D system where characters move across a static page. Most components will remain the same otherwise.

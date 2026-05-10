@@ -105,10 +105,10 @@ _Each member must own meaningful deliverables_
 
 ## Key User Stories
 ### Orphano McLover
-As an orphan lover, I want to __________ so that...
+As an orphan lover, I want to be able to properly experience life as an orphan making snowmen so that I can understand the life and mindset of orphans better.
 
 ### Snowmin Loverman
-As a snowman lover, I want to __________ so that...
+As a snowman lover, I want to be able to make lots of snowmen so that I can satisfy my cravings for snowmen even when it isn't winter.
 
 <br>
 

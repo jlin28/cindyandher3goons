@@ -70,10 +70,10 @@ _Each member must own meaningful deliverables_
 
 | Team Member | Primary Ownership | Secondary Ownership | Specific Deliverables |
 | ----------- | ----------------- | ------------------- | --------------------- |
-| Carrie Ko |||
-| Cindy Liu |||
-| Joyce Lin |||
-| Jeff Ou |||
+| Carrie Ko | Visuals | Backend Development | Character models, SQLite3 databases |
+| Cindy Liu | Backend Development | Visuals | Authentication system, Movement system |
+| Joyce Lin | Visuals | Backend Development | Map/terrain, Model rigging |
+| Jeff Ou | Backend Development | Visuals | Node WebSocket Server, Multiplayer connections |
 
 <br>
 
@@ -191,7 +191,19 @@ Components such as backend server handling will be debugged as it always has bee
 * Final boss/disaster sequence implemented
 
 ### INTERNAL DEADLINES:
-{List milestones your team has identified, in the order they must be completed. Set a target completion date for each.}
+1) `Working movement system` ~ 5/12 
+2) `Working node websocket server up on primary domain` ~ 5/12
+3) `multiplayer system connections` ~ 5/13
+4) `inventory system` ~ 5/15
+5) `character models and map` ~ 5/15
+6) `dialogue system` ~ 5/19
+7) `puzzles set up` ~ 5/20
+8) `snowman creation system` ~ 5/22
+9) `item usage system and encyclopedia` ~ 5/22
+10) `story quests set up` ~ 5/26
+11) `puzzles all implemented` ~ 5/28
+12) `cross player interaction` ~ 5/29
+13) `final boss/disaster completion` ~ 5/31
 
 <br>
 

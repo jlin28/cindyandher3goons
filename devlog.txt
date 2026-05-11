@@ -82,3 +82,7 @@ DESIGN DOC CONTINUED
 * Filled out reasons for chosen tech stack
 * Completed key user stories
 * Filled out an intended timeline and added open question + appendix 
+
+joyceL -- 2026-05-10 21:57
+DESIGN DOC CONTINUED
+* Filled out remainder of DD

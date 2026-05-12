@@ -9,10 +9,10 @@ TARGET SHIP DATE: 2026-06-01
 ## _ROSTER_
 | Name | Email | Primary Role | Secondary Role |
 | ---- | ----- | ------------ | -------------- |
-| Carrie Ko | carriek3@nycstudents.net | goon 1 | PM |
-| Cindy Liu | cindyl125@nycstudents.net | cindy | Devo |
-| Joyce Lin | joycel78@nycstudents.net | goon 2 | Devo |
-| Jeff Ou | jiefengo@nycstudents.net | goon 3 | Devo |
+| Carrie Ko | carriek3@nycstudents.net | PM | Mediator |
+| Cindy Liu | cindyl125@nycstudents.net | Devo | Physics and Movement |
+| Joyce Lin | joycel78@nycstudents.net | Devo | Interactions |
+| Jeff Ou | jiefengo@nycstudents.net | Devo | Server Handling |
 
 <br>
 
@@ -41,9 +41,9 @@ We will have a working story game with an orphan character that can make snowmen
 3) Fighting a boss.
 
 ### Explicit Non-Goals
-Features intentionally **excluded**
-* Fight your snowmen
-* Selecting different base characters
+Features intentionally **excluded**  
+* Fight your snowmen  
+* Selecting different base characters  
 
 <br>
 
@@ -57,11 +57,10 @@ Features intentionally **excluded**
 | ORM / DB Library | none |
 
 ### Why This Stack Was Chosen
-* Node allows for easy set up of WebSocket servers as it supports it natively as opposed to Flask. This makes it more convenient when attempting to set up multiplayer features!
-* We will not be utilizing a Frontend Framework as we prefer manually doing CSS :D
-* As most members of our group are more accustomed to SQLite and there is no particular reason why we would need document-oriented databasing
-* Node supports sessions which is what we will be using to set up our authentication system!!
-* nope
+* `Backend Framework`: Node allows for easy set up of WebSocket servers as it supports it natively as opposed to Flask. This makes it more convenient when attempting to set up multiplayer features (though main story quests are player specific)!
+* `Frontend Framework`: We will not be utilizing a Frontend Framework as we prefer manually doing CSS :D
+* `Database`: As most members of our group are more accustomed to SQLite and there is no particular reason why we would need document-oriented databasing
+* `Authentication`: Node supports sessions which is what we will be using to set up our authentication system!!
 
 <br>
 
@@ -70,9 +69,9 @@ _Each member must own meaningful deliverables_
 
 | Team Member | Primary Ownership | Secondary Ownership | Specific Deliverables |
 | ----------- | ----------------- | ------------------- | --------------------- |
-| Carrie Ko | Visuals | Backend Development | Character models, SQLite3 databases |
+| Carrie Ko | Visuals | Backend Development | Character models, SQLite3 databases, Story Quests |
 | Cindy Liu | Backend Development | Visuals | Authentication system, Movement system |
-| Joyce Lin | Visuals | Backend Development | Map/terrain, Model rigging |
+| Joyce Lin | Visuals | Backend Development | Map/terrain, Model rigging, Story Quests |
 | Jeff Ou | Backend Development | Visuals | Node WebSocket Server, Multiplayer connections |
 
 <br>
@@ -95,6 +94,8 @@ _Each member must own meaningful deliverables_
 
 ## Component Map
 [![](https://mermaid.ink/img/pako:eNptkk1PwzAMhv9K5HOpaNa1W4WQ2MrGhROcaHcIq9cWNc2UDxhs---4GUNDIqf49ePXdpQ9rFWFkMGmUx_rRmjLnvOyZ3TuCoP6HXX4Zlbs6ur24ENzYLOiU3Xbh42V3Yr9wJ7Yuq4zbKOVPLCHohJWvAqDZnXJnF3mhca6NZYaeKMTM2M3BLE5-68kL2oh8RL_m18WxtIGl8ByANjsFMw9vdYoLDJHVWR5bjtkhLPNXz33OspXrMj_vmj7CneX_vce0K43TPUHtiiW-dNat1vLFm33u_nJhl5NOUtj0nKDDgHUuq0gs9phABK1FEMI-yFbgm1QYgkZXSvcCNfZEsr-SGVb0b8oJc-VWrm6gWwjOkOR29LDY96KWgv5q2qk0fVcud5CFo3SiXeBbA87yHgaheM4jibTeDyK-DiAT4LicJrwdMxHMec8jnh0DODLt70OJ8k1SVESpUkyTTkPAKvWKv14-k3-Ux2_Aa-1u2g?type=png)](https://mermaid.live/edit#pako:eNptkk1PwzAMhv9K5HOpaNa1W4WQ2MrGhROcaHcIq9cWNc2UDxhs---4GUNDIqf49ePXdpQ9rFWFkMGmUx_rRmjLnvOyZ3TuCoP6HXX4Zlbs6ur24ENzYLOiU3Xbh42V3Yr9wJ7Yuq4zbKOVPLCHohJWvAqDZnXJnF3mhca6NZYaeKMTM2M3BLE5-68kL2oh8RL_m18WxtIGl8ByANjsFMw9vdYoLDJHVWR5bjtkhLPNXz33OspXrMj_vmj7CneX_vce0K43TPUHtiiW-dNat1vLFm33u_nJhl5NOUtj0nKDDgHUuq0gs9phABK1FEMI-yFbgm1QYgkZXSvcCNfZEsr-SGVb0b8oJc-VWrm6gWwjOkOR29LDY96KWgv5q2qk0fVcud5CFo3SiXeBbA87yHgaheM4jibTeDyK-DiAT4LicJrwdMxHMec8jnh0DODLt70OJ8k1SVESpUkyTTkPAKvWKv14-k3-Ux2_Aa-1u2g)
+
+**Note**: GDScript files are Godot-specific files that allows interactions and events within the app to occur. Javascript within Index.html contains the exported engine object which allows the app to run. GDScript files are only relevant within Godot itself but since Index.html is rendering the app itself, it technically runs on these script files as well.
 
 <br>
 
@@ -156,6 +157,13 @@ _hasBeenFound will help monitor whether an item is unlocked in encyclopedia and 
 |------|-------|-------------------------- |
 | TEXT | name | PK |
 | TEXT | dialogue | NOT NULL |
+| TEXT | completedQuestUsers |   |
+
+* Dialogue EX. ~ "DG1$A.OPTION1$B.OPTION2&A.DG2...&B.DG2..."
+  * Dialogues will be split with & while the options themselves are split with $ (arr[0] will always point to the printed dialogue)
+  * Each line of dialogue will be preceded by the letter corresponding to each possible option
+* completedQuestUsers EX. ~ "USER1$USER2$USER3$USER4"
+  * Used to check if user has completed the quest!
 
 <br>
 
@@ -169,7 +177,7 @@ Components such as backend server handling will be debugged as it always has bee
 
 ## TIMELINE
 ### WEEK 1:
-* Inserted models and animations
+* Inserted models and animations (* Models will be acquired through the internet but rigging will be done through blender)
 * Working movement system
 * Terrain created
 * Server connections and multiplayer set up

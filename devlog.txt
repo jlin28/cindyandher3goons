@@ -86,3 +86,12 @@ DESIGN DOC CONTINUED
 joyceL -- 2026-05-10 21:57
 DESIGN DOC CONTINUED
 * Filled out remainder of DD
+
+joyceL -- 2026-5-11 21:29
+INITIAL DD REVIEW
+* Suggestions to increase clarity in multiple places regarding components, method of storing certain data, as well as individual roles
+    - This was addressed with changes to roster table, chosen stack reasoning (added labels for clarity), added story quests to member deliverables, additional notes under component map and DBs
+* Many components was also suggested to be put on the chopping block (multiplayer, rigged models, etc.) --- this will be considered
+* Certain comments/questions have been ignored such as: who is doing combat system?
+    - Reasoning is that a combat system is not yet confirmed (likely to be cut)
+* Questions raised about how doable this will be: No idea but we will try our best to make something awesome! (will cut as needed)

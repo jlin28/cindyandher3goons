@@ -1,7 +1,7 @@
 const WebSocket = require('ws');
 
 const PORT = 3030;
-const HOST = 'localhost';
+const HOST = '127.0.0.1';
 
 const ws = new WebSocket.Server({
   port: PORT,
@@ -13,8 +13,9 @@ ws.on('error', console.error);
 ws.on('connection', function connect(client, req) {
   console.log("client has connected");
   client.id = genID();
-  client.url = req.url;
+  client.url = clientLocation(req.url);
 
+  client.send(client.id);
   client.send(client.url);
 
   client.on('message', message => {
@@ -41,4 +42,19 @@ function genID() {
   }
 
   return id;
+}
+
+function clientLocation(url) {
+  if (url === '/start') {
+    return 'start';
+  }
+  else if (url === '/login') {
+    return 'login';
+  }
+  else if (url === '/register') {
+    return 'register';
+  }
+  else {
+    return 'game';
+  }
 }

@@ -95,3 +95,17 @@ INITIAL DD REVIEW
 * Certain comments/questions have been ignored such as: who is doing combat system?
     - Reasoning is that a combat system is not yet confirmed (likely to be cut)
 * Questions raised about how doable this will be: No idea but we will try our best to make something awesome! (will cut as needed)
+
+joyceL -- 2026-5-12 10:56
+JAVASCRIPT STYLE
+* Which aspects of the style guide were most applicable to your codebase?
+  - You may comment out parameters with `array.forEach((value /* , index, array */)` !! This is useful for things like the testing phase where not every parameter may be necessary
+  - While if, for and while statements don't require curly braces, you should usually use them .. (get out of bad habits!)
+  - Implicit returns with arrow functions! Make our code cleaner!
+* Which aspects of the style guide were most useful/appreciated by your Devos?
+  - Comment conventions!! We were not aware of the existence of such and will try to make more meaningful comments :)
+  - Console.error()??? Prints an error and makes them easier to catch while debugging (woah)
+  - i love camelCase
+  - The overusage of `var`s pollute the global scope (be careful!) so stick to `let` for variables subject to change and `const` otherwise
+  - You shouldn't be using implicit type coercions like "" + int to turn the int into a string :(
+    - Instead you should be using String() and Number()!!!!!!!!!!!

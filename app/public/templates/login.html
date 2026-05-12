@@ -7,6 +7,15 @@
 
 	<body>
 		WAHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH
+
+		<script>
+			const socket = new WebSocket('wss://cindyandher3goons.me/ws');
+
+			socket.onopen = () => {
+				console.log("connected to WS server");
+			}
+
+		</script>
 	</body>
 
 </html>

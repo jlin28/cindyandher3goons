@@ -113,7 +113,7 @@ As a snowman lover, I want to be able to make lots of snowmen so that I can sati
 <br>
 
 ## Database Organization
-### _USER_
+> ### _USER_
 
 | TYPE | VALUE | ADDITIONAL SPECIFICATIONS |
 |------|-------| ------------------------- |
@@ -136,7 +136,7 @@ As a snowman lover, I want to be able to make lots of snowmen so that I can sati
 
 <br>
 
-### _ITEM_
+> ### _ITEM_
 
 | TYPE | VALUE | ADDITIONAL SPECIFICATIONS |
 |------|-------|-------------------------- |
@@ -147,7 +147,7 @@ As a snowman lover, I want to be able to make lots of snowmen so that I can sati
 
 <br>
 
-### _ENCYCLOPEDIA_
+> ### _ENCYCLOPEDIA_
 
 | TYPE | VALUE | ADDITIONAL SPECIFICATIONS |
 |------|-------|-------------------------- |
@@ -156,7 +156,7 @@ As a snowman lover, I want to be able to make lots of snowmen so that I can sati
 
 <br>
 
-### _NPC_
+> ### _NPC_
 
 | TYPE | VALUE | ADDITIONAL SPECIFICATIONS |
 |------|-------|-------------------------- |

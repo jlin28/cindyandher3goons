@@ -1,11 +1,9 @@
 const WebSocket = require('ws');
 
 const PORT = 3000;
-const HOST = '0.0.0.0';
 
 const ws = new WebSocket.Server({
-  port: PORT,
-  host: HOST
+  port: PORT
 });
 
 ws.on('error', console.error);

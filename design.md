@@ -1,7 +1,7 @@
 # Cindy and Her 3 Goons’ Design Doc
 ### __P05__ – _Le Fin_
 
-### PROJECT NAME: _Snorphan_ 
+### PROJECT NAME: _Snorphan_
 TARGET SHIP DATE: 2026-06-01
 
 <br>
@@ -36,7 +36,6 @@ This is a very real issue in the real world. Orphanages have low adoption rates 
 We will have a working story game with an orphan character that can make snowmen, obtain items, and interact with NPCs (dialogue, quests, etc). There will be a fixed terrain and map.
 
 ### Stretch Features
-1) Using the Godot game engine to create a 3D game (if PR gets green lit).
 2) Using items (ie. throwing snowballs, using a shovel, etc.).
 3) Fighting a boss.
 
@@ -145,11 +144,17 @@ As a snowman lover, I want to be able to make lots of snowmen so that I can sati
 | TEXT | desc | NOT NULL |
 | TEXT | image | NOT NULL |
 | INTEGER | maxCount | NOT NULL |
-| BOOLEAN | hasBeenFound | NOT NULL |  
 
-_hasBeenFound will help monitor whether an item is unlocked in encyclopedia and whether a pop up will occur when item is acquired for the first time_
+<br>
 
-<br> 
+### &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;_ENCYCLOPEDIA_
+
+| TYPE | VALUE | ADDITIONAL SPECIFICATIONS |
+|------|-------|-------------------------- |
+| TEXT | item | FK |
+| TEXT | userThatFound | FK |
+
+<br>
 
 ### &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;_NPC_
 
@@ -182,11 +187,11 @@ Components such as backend server handling will be debugged as it always has bee
 * Terrain created
 * Server connections and multiplayer set up
 * Exit to startscreen and log-out system
-* Inventory system
 
 ### WEEK 2:
-* Snowman creation system 
-* NPC interaction (dialogue system) 
+* Inventory system
+* Snowman creation system
+* NPC interaction (dialogue system)
 * Cave systems created (with purpose!)
 * Puzzles set up and planned out
 * Itsm usage system
@@ -199,11 +204,11 @@ Components such as backend server handling will be debugged as it always has bee
 * Final boss/disaster sequence implemented
 
 ### INTERNAL DEADLINES:
-1) `Working movement system` ~ 5/12 
+1) `Working movement system` ~ 5/12
 2) `Working node websocket server up on primary domain` ~ 5/12
 3) `multiplayer system connections` ~ 5/13
-4) `inventory system` ~ 5/15
-5) `character models and map` ~ 5/15
+4) `character models and map` ~ 5/15
+5) `inventory system` ~ 5/18
 6) `dialogue system` ~ 5/19
 7) `puzzles set up` ~ 5/20
 8) `snowman creation system` ~ 5/22
@@ -215,7 +220,7 @@ Components such as backend server handling will be debugged as it always has bee
 
 <br>
 
-## _COMPLETION CRITERIA_ 
+## _COMPLETION CRITERIA_
 Project is considered complete when all of the following are true:
 1) the app runs without crashing, ever
 2) start/login/register routes into the game, somehow, in reasonable order
@@ -229,5 +234,4 @@ Project is considered complete when all of the following are true:
 Will the final challenge be a boss fight (big yeti or snowman?!) or will it be an escape sequence (avalanche, collapsing cave, etc)?
 
 ## _APPENDIX_
-As Godot has yet to be greenlit, any Godot-reliant systems are subject to change. In the case that Godot will be rejected, the game will
-pivot towards a 2D system where characters move across a static page. Most components will remain the same otherwise.
+Empty! For Now!

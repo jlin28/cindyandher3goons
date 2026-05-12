@@ -96,6 +96,29 @@ INITIAL DD REVIEW
     - Reasoning is that a combat system is not yet confirmed (likely to be cut)
 * Questions raised about how doable this will be: No idea but we will try our best to make something awesome! (will cut as needed)
 
+cindyL -- 2026-05-12 10:57
+carrieK -- 2026-05-12 10:57
+APPLICATION OF PYTHON STYLE
+Most applicable:
+* Imports:
+  - "Imports should be grouped in the following order:
+    Standard library imports.
+    Related third party imports.
+    Local application/library specific imports."
+  - "You should put a blank line between each group of imports."
+* Function and Variable Names:
+  - "Function names should be lowercase, with words separated by underscores as necessary to improve readability." (reference __init__.py, line 8. "def login():")
+  - "Variable names follow the same convention as function names."
+  - "mixedCase is allowed only in contexts where that’s already the prevailing style (e.g. threading.py), to retain backwards compatibility."
+* Tabs or Spaces?:
+  - "Spaces are the preferred indentation method. Tabs should be used solely to remain consistent with code that is already indented with tabs."
+  - "Python disallows mixing tabs and spaces for indentation."
+* Limit Line Length:
+  - "Limit all lines to a maximum of 79 characters."
+Most useful/appreciated by our Devos:
+* Indentation:
+  - "Use 4 spaces per indentation level."
+
 joyceL -- 2026-5-12 10:56
 JAVASCRIPT STYLE
 * Which aspects of the style guide were most applicable to your codebase?

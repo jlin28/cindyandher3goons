@@ -1,6 +1,6 @@
 const WebSocket = require('ws');
 
-const PORT = 3000;
+const PORT = 3030;
 
 const ws = new WebSocket.Server({
   port: PORT

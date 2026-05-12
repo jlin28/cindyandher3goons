@@ -2,11 +2,11 @@
 
 <html>
 	<head>
-		<title> CINDY'S LOGIN </title>
+    <title> CINDY'S register </title>
 	</head>
 
 	<body>
-		i am login
+    i am register
 
 		<script>
 			const socket = new WebSocket('wss://cindyandher3goons.me/ws/');
@@ -15,11 +15,11 @@
 				console.log("connected to WS server");
 			}
 
-			socket.onmessage = (event) => {
-				let data = event.data;
+      socket.onmessage = (event) => {
+        let data = event.data;
 
-				console.log(data);
-			}
+        console.log(data);
+      }
 		</script>
 	</body>
 

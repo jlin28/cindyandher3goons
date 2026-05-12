@@ -10,8 +10,12 @@ const ws = new WebSocket.Server({
 
 ws.on('error', console.error);
 
-ws.on('connection', function connect(client) {
+ws.on('connection', function connect(client, req) {
   console.log("client has connected");
+  client.id = genID();
+  client.url = req.url;
+
+  client.send(client.url);
 
   client.on('message', message => {
     console.log(`Received '${message}' from client`);
@@ -21,3 +25,20 @@ ws.on('connection', function connect(client) {
     console.log("Client has disconnected");
   });
 });
+
+function genID() {
+  let id = "";
+
+  for (let x = 0; x < 10; x++) {
+    id += Math.floor(Math.random()*10);
+  }
+
+  for (const client of ws.clients) {
+    if (client.id == id) {
+      return genID();
+      break;
+    };
+  }
+
+  return id;
+}

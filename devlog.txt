@@ -133,3 +133,7 @@ JAVASCRIPT STYLE
   - The overusage of `var`s pollute the global scope (be careful!) so stick to `let` for variables subject to change and `const` otherwise
   - You shouldn't be using implicit type coercions like "" + int to turn the int into a string :(
     - Instead you should be using String() and Number()!!!!!!!!!!!
+
+carrieK -- 2026-05-12 19:25
+README
+* added project summary for future deliverables before i forget lol

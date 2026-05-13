@@ -154,3 +154,10 @@ cindyL -- 2026-05-13 10:57
 * reorganized imports
 * login and register methods
 * tables for db created
+
+carrieK -- 2026-05-13 11:01
+HTML
+* starscreen
+
+jiefengO -- 2026-05-13 11:00
+* attempted to fix CSP errors on live site by modifying script-src or allowing unsafe-eval/unsafe-inline (did not work at allllllll)

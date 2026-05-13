@@ -13,10 +13,10 @@ ws.on('error', console.error);
 ws.on('connection', function connect(client, req) {
   console.log("client has connected");
   client.id = genID();
-  client.url = clientLocation(req.url);
+  client.route = req.url.replace('/ws/','');
 
   client.send(client.id);
-  client.send(client.url);
+  client.send(client.route);
 
   client.on('message', message => {
     console.log(`Received '${message}' from client`);
@@ -42,19 +42,4 @@ function genID() {
   }
 
   return id;
-}
-
-function clientLocation(url) {
-  if (url === '/start') {
-    return 'start';
-  }
-  else if (url === '/login') {
-    return 'login';
-  }
-  else if (url === '/register') {
-    return 'register';
-  }
-  else {
-    return 'game';
-  }
 }

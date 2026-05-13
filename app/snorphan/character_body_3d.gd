@@ -1,5 +1,8 @@
 extends CharacterBody3D
 
+@export var facing = Vector3.ZERO
+@export var directionFacing = Vector3.ZERO
+
 var speed = 14
 var fall_acceleration = 75
 var jump_velocity = 20
@@ -25,8 +28,13 @@ func _physics_process(delta):
 		# look_at rotates your object so it faces a point (look_at(target_position, up_direction))
 		# global_position is your character's position in the world
 		# Vector3.UP gives you a point pointing upwards vs Vector3.Zero which has no direction
-		look_at(global_position - direction, Vector3.UP)
+		var point = global_position - direction
+		
+		look_at(point, Vector3.UP)
 		direction = direction.normalized()
+		
+		facing = point
+		directionFacing = direction
 	# Normalizing a vector maintains the original direction while changing the magnitute to 1.
 	# This way diagonal movement isn't faster!
 
@@ -41,3 +49,4 @@ func _physics_process(delta):
 		velocity.y = jump_velocity
 	
 	move_and_slide()
+	

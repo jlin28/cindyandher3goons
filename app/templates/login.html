@@ -7,7 +7,14 @@
 
 	<body>
 		i am login
-
+		<form action="{{url_for('login')}}" method="POST">
+			<label>Username</label>
+			<br> <input type="text" name="username" required>
+			<br> <label>Password</label>
+			<br> <input type="password" name="password" required>
+			<br> <button type="submit">Login</button>
+		</form>
+		{{text}}
 		<script>
 			const socket = new WebSocket('wss://cindyandher3goons.me/ws/login');
 

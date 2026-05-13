@@ -154,3 +154,7 @@ cindyL -- 2026-05-13 10:57
 * reorganized imports
 * login and register methods
 * tables for db created
+
+carrieK -- 2026-05-13 11:01
+HTML
+* starscreen

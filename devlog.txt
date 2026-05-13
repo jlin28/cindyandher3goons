@@ -137,3 +137,9 @@ JAVASCRIPT STYLE
 carrieK -- 2026-05-12 19:25
 README
 * added project summary for future deliverables before i forget lol
+
+joyceL -- 2026-5-12 22:45
+WEBSOCKET AND GODOT
+* Set up some basics regarding godot app and websocket server
+* Made a preliminary landscape (subject to change regarding style, etc.)
+* Set up a preliminary camera for Godot but it needs improvement (basically an entire overhaul sigh)

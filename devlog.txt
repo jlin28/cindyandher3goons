@@ -143,3 +143,9 @@ WEBSOCKET AND GODOT
 * Set up some basics regarding godot app and websocket server
 * Made a preliminary landscape (subject to change regarding style, etc.)
 * Set up a preliminary camera for Godot but it needs improvement (basically an entire overhaul sigh)
+
+joyceL's Rat -- 2026-05-13 02:10
+WEBSOCKET MULTIPLAYER
+* Updated app.js to send JSON messages for multiplayer connection, movement, and disconnect
+* Added Godot multiplayer client script to spawn/remove remote players
+* Added local player position sending and remote player position updating for basic movement sync

@@ -149,3 +149,8 @@ WEBSOCKET MULTIPLAYER
 * Updated app.js to send JSON messages for multiplayer connection, movement, and disconnect
 * Added Godot multiplayer client script to spawn/remove remote players
 * Added local player position sending and remote player position updating for basic movement sync
+
+cindyL -- 2026-05-13 10:57
+* reorganized imports
+* login and register methods
+* tables for db created

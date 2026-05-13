@@ -20,7 +20,7 @@ def start():
 
 @app.route("/login", methods=["GET", "POST"])
 def login():
-    if request.method="POST":
+    if request.method=="POST":
         username = request.form['username']
         password = request.form['password']
         db = sqlite3.connect(DB_FILE)
@@ -30,7 +30,7 @@ def login():
         db.close()
 
         if user_data:
-            if password = user_data[1]:
+            if password == user_data[1]:
                 session["username"] = username
             else:
                 text = 'login failed'
@@ -43,7 +43,7 @@ def login():
 
 @app.route("/register", methods=["GET", "POST"])
 def register():
-    if request.method="POST":
+    if request.method=="POST":
         username = request.form['username']
         password = request.form['password']
         db = sqlite3.connect(DB_FILE)

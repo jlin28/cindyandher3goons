@@ -2,6 +2,8 @@
 
 [ext_resource type="PackedScene" uid="uid://6eok38y3bfyh" path="res://character_body_3d.tscn" id="1_a202f"]
 [ext_resource type="PackedScene" uid="uid://c4ccls14txbif" path="res://landscape-col.blend" id="2_noarx"]
+[ext_resource type="Script" uid="uid://bc57ope5deafr" path="res://multiplayer_client.gd" id="3_r3fl7"]
+[ext_resource type="PackedScene" uid="uid://bifhuaitnfy3p" path="res://remote_player.tscn" id="4_jka67"]
 
 [node name="Node3D" type="Node3D" unique_id=1689037102]
 
@@ -22,5 +24,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4162788, 6)
 transform = Transform3D(0.7071068, 0.5, -0.5, 0, 0.7071068, 0.70710677, 0.7071068, -0.5, 0.5, -232.13849, 164.8535, 3)
 
 [node name="landscape-col" parent="." unique_id=2092684995 instance=ExtResource("2_noarx")]
+
+[node name="MultiplayerClient" type="Node" parent="." unique_id=430003472 node_paths=PackedStringArray("local_player")]
+script = ExtResource("3_r3fl7")
+remote_player_scene = ExtResource("4_jka67")
+local_player = NodePath("../CharacterBody3D")
 
 [editable path="landscape-col"]

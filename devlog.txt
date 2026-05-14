@@ -166,3 +166,9 @@ CSP ERROR
 joyceL -- 2026-5-13 22:15
 CSP ERROR
 * CSP error has been fixed with a add_header line in server block !!!
+* What is there to do????
+  - Begin setting up UI for Godot
+  - Logout button (set up godot send interactions with WebSocketPeer)
+  - Update terrain (probably with an online model)
+  - Begin importing Sky's character models
+  - Fix camera -- camera direction follows mouse, character direction snaps to camera direction when movement is made

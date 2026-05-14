@@ -74,6 +74,7 @@ DESIGN DOC
 * Continued on Godot kb addition
 
 cindyL -- 2026-05-08 23:37
+DROPLET MANAGEMENT
 * wet-rats droplet destroyed with memory issue unresolved
 * new droplet dry-rats up and running fetacheese.me
 
@@ -174,11 +175,13 @@ CSP ERROR
   - Fix camera -- camera direction follows mouse, character direction snaps to camera direction when movement is made
 
 cindyL -- 2026-05-14 10:47
-  * errors in authentication removed
-  * added session.clear() at startup
+IMPLEMENTING AUTH
+* errors in authentication removed
+* added session.clear() at startup
 
 jiefengO -- 2026-05-14 11:00
-  * removed node frontend because we're using a mix of node + flask (will need to update DD)
+UPDATING REPO TREE
+* removed node frontend because we're using a mix of node + flask (will need to update DD)
 
 carrieK -- 2026-05-14 11:01
 HTML

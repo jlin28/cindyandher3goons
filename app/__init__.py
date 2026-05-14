@@ -16,10 +16,12 @@ db.close()
 
 @app.route("/", methods=["GET", "POST"])
 def start():
+    session.clear()
     return render_template('start.html')
 
 @app.route("/login", methods=["GET", "POST"])
 def login():
+    text = ''
     if request.method=="POST":
         username = request.form['username']
         password = request.form['password']
@@ -27,22 +29,26 @@ def login():
         c = db.cursor()
         c.execute("SELECT * FROM user WHERE username = ?", (username,))
         user_data = c.fetchone()
+        db.commit()
         db.close()
 
         if user_data:
             if password == user_data[1]:
                 session["username"] = username
+                return render_template('game.html')
             else:
                 text = 'login failed'
-                return render_template('login.html', text)
+                return render_template('login.html', text=text)
         else:
             text = 'login failed'
-            return render_template('login.html', text)
-        return render_template('game.html')
-    return render_template('login.html', text)
+            return render_template('login.html', text=text)
+
+        return render_template('login.html', text='')
+    return render_template('login.html', text=text)
 
 @app.route("/register", methods=["GET", "POST"])
 def register():
+    text = ''
     if request.method=="POST":
         username = request.form['username']
         password = request.form['password']
@@ -54,16 +60,16 @@ def register():
 
         if user_data:
             text='this username is taken'
-            return render_template('register.html', text)
+            return render_template('register.html', text=text)
         else:
             db = sqlite3.connect(DB_FILE)
             c = db.cursor()
-            c.execute("INSERT into user VALUES (?, ?, 100, 100)", (username, password))
+            c.execute("INSERT into user VALUES (?, ?, 100, 100, '', '', '', '', '', '', 0, 0, 0, 0, 0, 0)", (username, password))
             db.commit()
             db.close()
             session['username'] = username
             return render_template('game.html')
-    return render_template('register.html', text)
+    return render_template('register.html', text=text)
 
 @app.route("/game", methods=["GET", "POST"])
 def game():

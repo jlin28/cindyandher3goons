@@ -160,4 +160,9 @@ HTML
 * starscreen
 
 jiefengO -- 2026-05-13 11:00
+CSP ERROR
 * attempted to fix CSP errors on live site by modifying script-src or allowing unsafe-eval/unsafe-inline (did not work at allllllll)
+
+joyceL -- 2026-5-13 22:15
+CSP ERROR
+* CSP error has been fixed with a add_header line in server block !!!

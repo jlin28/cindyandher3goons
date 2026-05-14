@@ -135,3 +135,6 @@ ehthumbs.db
 wsgi.py
 *env/
 *.csv
+
+# Node
+node_modules/

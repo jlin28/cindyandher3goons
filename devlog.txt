@@ -176,3 +176,7 @@ CSP ERROR
 cindyL -- 2026-05-14 10:47
   * errors in authentication removed
   * added session.clear() at startup
+
+carrieK -- 2026-05-14 11:01
+HTML
+* starscreden

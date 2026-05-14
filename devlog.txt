@@ -176,3 +176,6 @@ CSP ERROR
 cindyL -- 2026-05-14 10:47
   * errors in authentication removed
   * added session.clear() at startup
+
+jiefengO -- 2026-05-14 11:00
+  * removed node frontend because we're using a mix of node + flask (will need to update DD)

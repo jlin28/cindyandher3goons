@@ -3,12 +3,13 @@
 <html>
 	<head>
     <title> CINDY'S START </title>
+ <link rel="stylesheet" href="/static/style.css">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Rubik+Puddles&display=swap" rel="stylesheet">
 	<style>
-		body{
-    font-family: "Rubik Puddles", system-ui;
+		*{
+    font-family: font;
 }
 
      #bg {
@@ -38,16 +39,16 @@ filter: blur(4px);
 
 	}
          .center{
-	color: white;
+    color: white;
          padding-top: 6vh;
          padding-bottom: 0vh;
-         padding-left: 6vw;
+         padding-left: 10vw;
          font-size: 900%;
          }
          .center2{
-         text-align: center;
          font-size: 400%;
          padding-top: 0vh;
+         padding-left: 10vw;
          }
          .button{
          border: none;
@@ -58,9 +59,6 @@ filter: blur(4px);
          button:hover{
          cursor: pointer;
          }
-         #blink {
-         transition: 0.2s;
-         }
 	</style>
 	</head>
 
@@ -68,7 +66,7 @@ filter: blur(4px);
 	<div id="bg"></div>
 	<div id="e"></div>
         <h1 class="center">snorphan</h1>
-<h3 class="center2" id="blink">
+<h3 class="center2">
          <a href = "{{url_for('login')}}"> <button class="button">&lt; press to start &gt;</button> </a>
       </h3>
 		<script>
@@ -83,8 +81,6 @@ filter: blur(4px);
 	
         console.log(data);
       }
-var blink = document.getElementById('blink');
-         setInterval(function(){blink.style.opacity = (blink.style.opacity == 0 ? 1 : 0);}, 600);
 		</script>
 	</body>
 

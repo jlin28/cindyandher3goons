@@ -172,3 +172,7 @@ CSP ERROR
   - Update terrain (probably with an online model)
   - Begin importing Sky's character models
   - Fix camera -- camera direction follows mouse, character direction snaps to camera direction when movement is made
+
+cindyL -- 2026-05-14 10:47
+  * errors in authentication removed
+  * added session.clear() at startup

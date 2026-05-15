@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://6eok38y3bfyh"]
+
+[ext_resource type="Script" uid="uid://ddxc7483pjlrx" path="res://gd/character_body_3d.gd" id="1_iwpo4"]
+[ext_resource type="Script" uid="uid://qa3rhp2ugtgw" path="res://gd/node_3d.gd" id="2_vd578"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_bu0v1"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_iwpo4"]
+
+[node name="CharacterBody3D" type="CharacterBody3D" unique_id=966699921]
+script = ExtResource("1_iwpo4")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=66231845]
+mesh = SubResource("BoxMesh_bu0v1")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=142855461]
+shape = SubResource("BoxShape3D_iwpo4")
+
+[node name="pivot" type="Node3D" parent="." unique_id=399842475]
+unique_name_in_owner = true
+top_level = true
+script = ExtResource("2_vd578")
+
+[node name="SpringArm3D" type="SpringArm3D" parent="pivot" unique_id=1018245845]
+spring_length = 1.5
+
+[node name="Camera3D" type="Camera3D" parent="pivot/SpringArm3D" unique_id=1394461198]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.6340203)

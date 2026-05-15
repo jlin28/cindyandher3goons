@@ -1,0 +1,46 @@
+[gd_scene format=3 uid="uid://dhwuwrgj0xoop"]
+
+[ext_resource type="PackedScene" uid="uid://6eok38y3bfyh" path="res://tscn/character_body_3d.tscn" id="1_a202f"]
+[ext_resource type="Script" uid="uid://bc57ope5deafr" path="res://gd/multiplayer_client.gd" id="3_r3fl7"]
+[ext_resource type="PackedScene" uid="uid://bifhuaitnfy3p" path="res://tscn/remote_player.tscn" id="4_jka67"]
+[ext_resource type="PackedScene" uid="uid://5ncldmmbyy3c" path="res://blend/landscape2-col.blend" id="4_r3fl7"]
+[ext_resource type="Shader" uid="uid://bheieniktxvry" path="res://node_3d.gdshader" id="5_jka67"]
+[ext_resource type="Texture2D" uid="uid://dvhc10v0t6iae" path="res://static/citrus_orchard_road_puresky_4k.exr" id="6_i5arm"]
+[ext_resource type="Texture2D" uid="uid://xgbj7bu362cy" path="res://static/clouds.jpg" id="6_jsk3o"]
+[ext_resource type="Texture2D" uid="uid://b1ujnu3gm2tp3" path="res://static/blue.webp" id="9_4arys"]
+[ext_resource type="PackedScene" uid="uid://cxo150m2m6bob" path="res://tscn/control.tscn" id="9_6iypd"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_i5arm"]
+shader = ExtResource("5_jka67")
+shader_parameter/hdri_background = ExtResource("6_i5arm")
+shader_parameter/sky_background = ExtResource("9_4arys")
+shader_parameter/clouds = ExtResource("6_jsk3o")
+shader_parameter/exposure = 1.0
+
+[sub_resource type="Sky" id="Sky_wc5p8"]
+sky_material = SubResource("ShaderMaterial_i5arm")
+
+[sub_resource type="Environment" id="Environment_jsk3o"]
+background_mode = 2
+sky = SubResource("Sky_wc5p8")
+
+[node name="Node3D" type="Node3D" unique_id=1689037102]
+
+[node name="CharacterBody3D" parent="." unique_id=966699921 instance=ExtResource("1_a202f")]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 1.2661138, -16.149754, 3.327261)
+
+[node name="MultiplayerClient" type="Node" parent="." unique_id=430003472 node_paths=PackedStringArray("local_player")]
+script = ExtResource("3_r3fl7")
+remote_player_scene = ExtResource("4_jka67")
+local_player = NodePath("../CharacterBody3D")
+
+[node name="landscape2-col" parent="." unique_id=818814787 instance=ExtResource("4_r3fl7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.2616577, 0.0004272461, 0.92126465)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1541247748]
+environment = SubResource("Environment_jsk3o")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=614408343]
+
+[node name="Control" parent="CanvasLayer" unique_id=1355566499 instance=ExtResource("9_6iypd")]
+mouse_filter = 1

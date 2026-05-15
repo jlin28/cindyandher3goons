@@ -74,6 +74,7 @@ DESIGN DOC
 * Continued on Godot kb addition
 
 cindyL -- 2026-05-08 23:37
+DROPLET MANAGEMENT
 * wet-rats droplet destroyed with memory issue unresolved
 * new droplet dry-rats up and running fetacheese.me
 
@@ -174,9 +175,40 @@ CSP ERROR
   - Fix camera -- camera direction follows mouse, character direction snaps to camera direction when movement is made
 
 cindyL -- 2026-05-14 10:47
-  * errors in authentication removed
-  * added session.clear() at startup
+IMPLEMENTING AUTH
+* errors in authentication removed
+* added session.clear() at startup
+
+jiefengO -- 2026-05-14 11:00
+UPDATING REPO TREE
+* removed node frontend because we're using a mix of node + flask (will need to update DD)
 
 carrieK -- 2026-05-14 11:01
 HTML
 * starscreden
+
+carrieK -- 2026-05-14 22:44
+HTML & CSS
+* starscreden
+* login
+* rgietr
+* extras....
+
+joyceL -- 2026-5-14 23:06
+GODOTING MY LIFE AWAY
+* Terrain has been updated
+* Shaders included and a sky now exists
+* Began on ui
+* Fixed camera work
+* DD changes
+* What is there to do????
+  - in-game menu
+    - features log out button and whatever else we are adding
+  - snowman creating feature
+  - Inventory system
+  - General server-godot communication
+
+joyceL -- 2026-5-15 01:56
+SOME MORE GODOT BEFORE BED
+* Tried my hand at physics (model now moves in the direction corresponding with camera)
+* Imported sprite sheet (stole from google) and filled in ui containers

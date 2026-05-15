@@ -21,20 +21,6 @@
       src="/static/godot/index.html"
       style="width: 100vw; height: 100vh; border: none;">
     </iframe>
-
-		<script>
-      const socket = new WebSocket('wss://cindyandher3goons.me/ws/game');
-
-			socket.onopen = () => {
-				console.log("connected to WS server");
-			}
-
-      socket.onmessage = (event) => {
-        let data = event.data;
-
-        console.log(data);
-      }
-		</script>
 	</body>
 
 </html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+    <title> CINDY'S START </title>
+ <link rel="stylesheet" href="/static/style.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Rubik+Puddles&display=swap" rel="stylesheet">
+	<style>
+		*{
+    font-family: font;
+	overflow: hidden;
+}
+body{
+	background-image: url("/static/hehe.jpg");
+       background-size: auto;
+}
+         .button{
+         border: none;
+         background: none;
+font-size: 200%;
+         }
+	</style>
+	</head>
+
+	<body style="text-align: center; font-size: 400%;">
+leaving is not allowed. return right now.
+<br>
+<a href = "{{url_for('start')}}"><button class="button"> click to return </button></a>
+		<script>
+			const socket = new WebSocket('wss://cindyandher3goons.me/ws/start');
+
+			socket.onopen = () => {
+				console.log("connected to WS server");
+			}
+
+      socket.onmessage = (event) => {
+        let data = event.data;
+	
+        console.log(data);
+      }
+
+		</script>
+	</body>
+
+</html>

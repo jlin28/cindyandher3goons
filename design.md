@@ -49,17 +49,17 @@ Features intentionally **excluded**
 ## TECHNOLOGY STACK
 | Layer | Selected Tool |
 | ----- | ------------- |
-| Backend Framework | Node.js |
+| Backend Framework | Node.js and Flask |
 | Frontend Framework | none |
 | Database | SQLite |
-| Authentication | Node Sessions |
+| Authentication | Flask Sessions |
 | ORM / DB Library | none |
 
 ### Why This Stack Was Chosen
-* `Backend Framework`: Node allows for easy set up of WebSocket servers as it supports it natively as opposed to Flask. This makes it more convenient when attempting to set up multiplayer features (though main story quests are player specific)!
+* `Backend Framework`: Node allows for easy set up of WebSocket servers as it supports it natively as opposed to Flask. This makes it more convenient when attempting to set up multiplayer features (though main story quests are player specific)! However, using Flask in addition to Node makes it easier to route our pages as well as manage SQLite3 interactions without extra research!!
 * `Frontend Framework`: We will not be utilizing a Frontend Framework as we prefer manually doing CSS :D
 * `Database`: As most members of our group are more accustomed to SQLite and there is no particular reason why we would need document-oriented databasing
-* `Authentication`: Node supports sessions which is what we will be using to set up our authentication system!!
+* `Authentication`: We will be utilizing Flask sessions as we have always done!
 
 <br>
 
@@ -156,6 +156,17 @@ As a snowman lover, I want to be able to make lots of snowmen so that I can sati
 
 <br>
 
+### _SETTINGS_
+
+| TYPE | VALUE | ADDITIONAL SPECIFICATIONS |
+|------|-------|-------------------------- |
+| TEXT | setting | PK |
+| TEXT | user | FK |
+| BOOLEAN | boolValue |  |
+| INTEGER | intValue |  |
+
+<br>
+
 ### _NPC_
 
 | TYPE | VALUE | ADDITIONAL SPECIFICATIONS |
@@ -182,7 +193,7 @@ Components such as backend server handling will be debugged as it always has bee
 
 ## TIMELINE
 ### WEEK 1:
-* Inserted models and animations (* Models will be acquired through the internet but rigging will be done through blender)
+* Inserted models (* Models will be acquired through the internet but rigging will be done through blender)
 * Working movement system
 * Terrain created
 * Server connections and multiplayer set up
@@ -192,9 +203,9 @@ Components such as backend server handling will be debugged as it always has bee
 * Inventory system
 * Snowman creation system
 * NPC interaction (dialogue system)
-* Cave systems created (with purpose!)
+* Cave systems created (with purpose!) --- MAY BE CUT
 * Puzzles set up and planned out
-* Itsm usage system
+* Item usage system
 * Item encyclopedia
 
 ### WEEK 3:
@@ -202,6 +213,7 @@ Components such as backend server handling will be debugged as it always has bee
 * Cross player interaction (snowball throwing)
 * Puzzles all implemented
 * Final boss/disaster sequence implemented
+* animations
 
 ### INTERNAL DEADLINES:
 1) `Working movement system` ~ 5/12
@@ -211,12 +223,12 @@ Components such as backend server handling will be debugged as it always has bee
 5) `inventory system` ~ 5/18
 6) `dialogue system` ~ 5/19
 7) `puzzles set up` ~ 5/20
-8) `snowman creation system` ~ 5/22
+8) `snowman creation system` ~ 5/21
 9) `item usage system and encyclopedia` ~ 5/22
 10) `story quests set up` ~ 5/26
-11) `puzzles all implemented` ~ 5/28
-12) `cross player interaction` ~ 5/29
-13) `final boss/disaster completion` ~ 5/31
+11) `puzzles all implemented` ~ 5/26
+12) `final boss/disaster completion` ~ 5/26
+13) `cross player interaction` ~ 5/30 (Not the most important feature!)
 
 <br>
 

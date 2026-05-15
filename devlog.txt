@@ -224,3 +224,7 @@ MULTIPLAYER IMPROVEMENTS
 
   cindyL -- 2026-05-15 10:47
   * tentative items added
+
+carrieK -- 2026-05-15 11:01
+CSS
+* i hate sliders

@@ -26,7 +26,6 @@ ws.on('connection', function connect(client, req) {
   send(client, {
     type: "assign_id",
     id: client.id,
-    route: client.route
   });
 
   send(client, {

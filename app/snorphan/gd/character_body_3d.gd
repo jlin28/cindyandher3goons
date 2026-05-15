@@ -3,6 +3,7 @@ extends CharacterBody3D
 var speed = 14
 var fall_acceleration = 75
 var jump_velocity = 20
+@export var current_angle: float
 
 @onready var cam := %pivot
 

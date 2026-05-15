@@ -122,11 +122,10 @@ func spawn_remote_player(player_id):
 	remote_players[player_id] = remote_copy
 
 	# I have no idea what this means but I couldn't get it to spawn and searched it up and now my brain is too fried!
-	get_tree().current_scene.call_deferred("add_child", remote_copy)
+	get_tree().current_scene.add_child(remote_copy)
 
 func remove_remote_player(player_id):
 	if remote_players.has(player_id):
-		var remote_player = remote_players[player_id]
-		remote_player.queue_free()
+		remote_players[player_id].queue_free()
 		remote_players.erase(player_id)
 		print("Removed remote player ", player_id)

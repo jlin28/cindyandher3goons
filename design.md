@@ -49,17 +49,17 @@ Features intentionally **excluded**
 ## TECHNOLOGY STACK
 | Layer | Selected Tool |
 | ----- | ------------- |
-| Backend Framework | Node.js |
+| Backend Framework | Node.js and Flask |
 | Frontend Framework | none |
 | Database | SQLite |
-| Authentication | Node Sessions |
+| Authentication | Flask Sessions |
 | ORM / DB Library | none |
 
 ### Why This Stack Was Chosen
-* `Backend Framework`: Node allows for easy set up of WebSocket servers as it supports it natively as opposed to Flask. This makes it more convenient when attempting to set up multiplayer features (though main story quests are player specific)!
+* `Backend Framework`: Node allows for easy set up of WebSocket servers as it supports it natively as opposed to Flask. This makes it more convenient when attempting to set up multiplayer features (though main story quests are player specific)! However, using Flask in addition to Node makes it easier to route our pages as well as manage SQLite3 interactions without extra research!!
 * `Frontend Framework`: We will not be utilizing a Frontend Framework as we prefer manually doing CSS :D
 * `Database`: As most members of our group are more accustomed to SQLite and there is no particular reason why we would need document-oriented databasing
-* `Authentication`: Node supports sessions which is what we will be using to set up our authentication system!!
+* `Authentication`: We will be utilizing Flask sessions as we have always done!
 
 <br>
 

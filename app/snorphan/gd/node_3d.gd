@@ -1,6 +1,7 @@
 extends Node3D
 
 @export var mouse_sensitivity:= 0.005
+@export var facing = Vector3.ZERO
 
 func _ready() -> void:
 	# makes mouse invisible
@@ -14,3 +15,5 @@ func _unhandled_input(event: InputEvent) -> void:
 		
 		rotation.x -= event.relative.y * mouse_sensitivity
 		rotation.x = clampf(rotation.x, -deg_to_rad(90), deg_to_rad(90))
+		
+		facing = rotation

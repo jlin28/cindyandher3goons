@@ -34,7 +34,7 @@ script = ExtResource("3_r3fl7")
 remote_player_scene = ExtResource("4_jka67")
 local_player = NodePath("../CharacterBody3D")
 
-[node name="landscape2-col" parent="." unique_id=1503838628 instance=ExtResource("4_r3fl7")]
+[node name="landscape2-col" parent="." unique_id=818814787 instance=ExtResource("4_r3fl7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.2616577, 0.0004272461, 0.92126465)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1541247748]

@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://ddxc7483pjlrx" path="res://gd/character_body_3d.gd" id="1_iwpo4"]
 [ext_resource type="Script" uid="uid://qa3rhp2ugtgw" path="res://gd/cam_pivot.gd" id="2_vd578"]
-[ext_resource type="PackedScene" uid="uid://doxed6lwhjm22" path="res://glb/fox-col.glb" id="3_a63tl"]
+[ext_resource type="PackedScene" uid="uid://kuistb665d3x" path="res://glb/fox.glb" id="3_a63tl"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_a63tl"]
 size = Vector3(0.48724365, 1, 1.1230469)
@@ -12,18 +12,16 @@ script = ExtResource("1_iwpo4")
 
 [node name="pivot" type="Node3D" parent="." unique_id=399842475]
 unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.7755785, 0)
 top_level = true
 script = ExtResource("2_vd578")
 
 [node name="SpringArm3D" type="SpringArm3D" parent="pivot" unique_id=1018245845]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0)
-spring_length = 1.5
+spring_length = 2.0
 
 [node name="Camera3D" type="Camera3D" parent="pivot/SpringArm3D" unique_id=1394461198]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 2.6340203)
-
-[node name="fox-col" parent="." unique_id=298609330 instance=ExtResource("3_a63tl")]
-transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=296489695]
 transform = Transform3D(1.2773366, 0, 0, 0, 1.8893056, 0, 0, 0, 0.8585242, 0, 0, 0.20497404)
@@ -52,3 +50,6 @@ shape = SubResource("BoxShape3D_a63tl")
 [node name="CollisionShape3D7" type="CollisionShape3D" parent="." unique_id=65181083]
 transform = Transform3D(2.7084167, 0, 0, 0, 1.4469483, 0, 0, 0, 1.3477137, 0.9299016, 5.097495, 1.2072897)
 shape = SubResource("BoxShape3D_a63tl")
+
+[node name="fox" parent="." unique_id=831645704 instance=ExtResource("3_a63tl")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0)

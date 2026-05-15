@@ -18,6 +18,7 @@ ws.on('connection', function connect(client, req) {
   client.x = 0;
   client.y = 0;
   client.z = 0;
+  client.ry = 0;
 
   // client.send(client.id);
   // client.send(client.route);
@@ -39,10 +40,11 @@ ws.on('connection', function connect(client, req) {
     x: client.x,
     y: client.y,
     z: client.z,
+    ry: client.ry
   }, client);
 
   client.on('message', message => {
-    
+
     let data;
     try {
       data = JSON.parse(message.toString());
@@ -58,13 +60,15 @@ ws.on('connection', function connect(client, req) {
       client.x = Number(data.x);
       client.y = Number(data.y);
       client.z = Number(data.z);
+      client.ry = Number(data.ry);
 
       broadcast({
         type: "player_state",
         id: client.id,
         x: client.x,
         y: client.y,
-        z: client.z
+        z: client.z,
+        ry: client.ry
       }, client);
     }
   });
@@ -121,7 +125,8 @@ function getOtherPlayers(currentClient) {
         id: client.id,
         x: client.x || 0,
         y: client.y || 0,
-        z: client.z || 0
+        z: client.z || 0,
+        ry: client.ry || 0
       });
     }
   }

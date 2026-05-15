@@ -3,6 +3,7 @@ extends Node
 @export var remote_player_scene: PackedScene
 @export var local_player: Node3D
 
+#var server_url := "ws://127.0.0.1:3030/ws/game"
 var server_url := "wss://cindyandher3goons.me/ws/game"
 
 var socket := WebSocketPeer.new()
@@ -10,6 +11,11 @@ var connected := false
 
 var my_id := ""
 var remote_players := {}
+
+var send_timer = 0.0
+const send_interval = 0.05
+var last_sent_pos = Vector3.ZERO
+var last_sent_rot_y = 0.0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -42,8 +48,11 @@ func _process(delta: float) -> void:
 			handle_msg(data)
 
 		if my_id != "":
-			send_position()
-
+			send_timer += delta
+			if send_timer >= send_interval:
+				send_timer = 0.0
+				send_position()
+			
 	elif state == WebSocketPeer.STATE_CLOSED:
 		if connected:
 			print("Disconnected!")
@@ -71,11 +80,23 @@ func handle_msg(data):
 
 func send_position():
 	var pos = local_player.global_position
+	var rot_y = local_player.global_rotation.y
+	
+	var moved = pos.distance_to(last_sent_pos) > 0.01
+	var rotated = abs(rot_y - last_sent_rot_y) > 0.01
+	
+	if not moved and not rotated:
+		return
+
+	last_sent_pos = pos
+	last_sent_rot_y = rot_y
+	
 	var data = {
 		"type": "position",
 		"x": pos.x,
 		"y": pos.y,
-		"z": pos.z
+		"z": pos.z,
+		"ry": local_player.global_rotation.y
 	}
 	socket.send_text(JSON.stringify(data))
 
@@ -94,6 +115,7 @@ func update_remote_player(data):
 		float(data.get("y", 0)),
 		float(data.get("z", 0))
 	)
+	remote_player.global_rotation.y = float(data.get("ry", 0))
 
 func spawn_remote_player(player_id):
 	var remote_copy = remote_player_scene.instantiate()

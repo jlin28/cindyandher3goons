@@ -78,6 +78,15 @@ def register():
 def game():
     return render_template('game.html')
 
+@app.route("/exit", methods=["GET", "POST"])
+def exit():
+    return render_template('exit.html')
+
+@app.route("/credit", methods=["GET", "POST"])
+def credit():
+    return render_template('credit.html')
+
+
 if __name__ == "__main__":
-    app.debug = False
+    app.debug = True
     app.run()

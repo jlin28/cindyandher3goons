@@ -1,15 +1,15 @@
-[gd_scene format=3 uid="uid://djksrxg3s0xql"]
+[gd_scene format=3 uid="uid://c774vxpvuvf7k"]
 
-[sub_resource type="SphereMesh" id="SphereMesh_sewlv"]
+[sub_resource type="SphereShape3D" id="SphereShape3D_j0whi"]
 
-[sub_resource type="SphereShape3D" id="SphereShape3D_srvs4"]
+[sub_resource type="SphereMesh" id="SphereMesh_ji0xw"]
 
-[node name="RigidBody3D" type="RigidBody3D" unique_id=1789495223]
+[node name="RigidBody3D" type="RigidBody3D" unique_id=489085763]
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=519314999]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=978138933]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
-mesh = SubResource("SphereMesh_sewlv")
+shape = SubResource("SphereShape3D_j0whi")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=2141512206]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=551565723]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
-shape = SubResource("SphereShape3D_srvs4")
+mesh = SubResource("SphereMesh_ji0xw")

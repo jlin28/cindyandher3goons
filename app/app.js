@@ -23,11 +23,11 @@ ws.on('connection', function connect(client, req) {
   // client.send(client.id);
   // client.send(client.route);
 
-  send(client, JSON.stringify({
+  send(client, {
     type: "assign_id",
     id: client.id,
     route: client.route
-  }));
+  });
 
   send(client, {
     type: "world_state",

@@ -207,3 +207,8 @@ GODOTING MY LIFE AWAY
   - snowman creating feature
   - Inventory system
   - General server-godot communication
+
+joyceL -- 2026-5-15 01:56
+SOME MORE GODOT BEFORE BED
+* Tried my hand at physics (model now moves in the direction corresponding with camera)
+* Imported sprite sheet (stole from google) and filled in ui containers

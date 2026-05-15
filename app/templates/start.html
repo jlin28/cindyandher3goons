@@ -10,6 +10,7 @@
 	<style>
 		*{
     font-family: font;
+	overflow: hidden;
 }
 
      #bg {
@@ -55,20 +56,46 @@ filter: blur(4px);
          background: none;
          font-size: 50%;
          color: white;
+	transition: transform 0.3s ease;
          }
          button:hover{
          cursor: pointer;
+transform: scale(1.2);
          }
+	span{
+display: inline-block;
+transition: transform 0.3s ease;
+	}
+	span:hover{
+	transform: scale(1.2);
+}
+#help{
+position: absolute; 
+bottom: 0; 
+right: 0;
+margin-right: 20px;
+margin-bottom: 20px;
+}
 	</style>
 	</head>
 
 	<body>
 	<div id="bg"></div>
 	<div id="e"></div>
-        <h1 class="center">snorphan</h1>
-<h3 class="center2">
-         <a href = "{{url_for('login')}}"> <button class="button">&lt; press to start &gt;</button> </a>
-      </h3>
+        <h1 class="center"><span>s</span><span>n</span><span>o</span><span>r</span><span>p</span><span>h</span><span>a</span><span>n</span></h1>
+<br>
+<div class="center2" style="line-height: 0.5;">
+         <a href = "{{url_for('login')}}"> <button class="button">&lt; start &gt;</button> </a>
+        <br>
+ <button class="button">&lt; options &gt;</button>
+<br>
+<button class="button">&lt; credits &gt;</button>
+<br>
+<button class="button">&lt; exit game &gt;</button>
+      </div>
+<div id="help">
+<img src="/static/snowflake.png" style="width: 100px; height: 100px; opacity: 0.7; filter: invert(100%);">
+</div>
 		<script>
 			const socket = new WebSocket('wss://cindyandher3goons.me/ws/start');
 
@@ -81,6 +108,80 @@ filter: blur(4px);
 	
         console.log(data);
       }
+
+
+dragElement(document.getElementById("help"));
+
+let fallSpeed = 0;
+let g = 0;
+
+function dragElement(s) {
+  var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
+  if (document.getElementById(s.id + "header")) {
+    document.getElementById(s.id + "header").onmousedown = dragMouseDown;
+  } else {
+    s.onmousedown = dragMouseDown;
+  }
+
+  function dragMouseDown(e) {
+    fallSpeed = 0;
+    g = 0;
+    e = e || window.event;
+    e.preventDefault();
+    // get the mouse cursor position at startup:
+    pos3 = e.clientX;
+    pos4 = e.clientY;
+    document.onmouseup = closeDragElement;
+    // call a function whenever the cursor moves:
+    document.onmousemove = elementDrag;
+  }
+
+  function elementDrag(e) {
+    e = e || window.event;
+    e.preventDefault();
+    // calculate the new cursor position:
+    pos1 = pos3 - e.clientX;
+    pos2 = pos4 - e.clientY;
+    pos3 = e.clientX;
+    pos4 = e.clientY;
+    // set the element's new position:
+    s.style.top = (s.offsetTop - pos2) + "px";
+    s.style.left = (s.offsetLeft - pos1) + "px";
+  }
+
+  function closeDragElement() {
+    // stop moving when mouse button is released:
+    fallSpeed = 1;
+    g = 0.2;
+    document.onmouseup = null;
+    document.onmousemove = null;
+  }
+}
+
+const element   = document.querySelector("#help");
+let distance    = 0; 
+let bounceLoss = 0.75;
+requestAnimationFrame(tick);
+
+function tick(){
+    const floor = window.innerHeight;	
+    fallSpeed += g;
+    if (element.offsetTop + element.offsetHeight < innerHeight) {
+        element.style.top = (element.offsetTop + fallSpeed) + "px";
+    }
+const bottom = element.offsetTop + element.offsetHeight;
+
+    if (bottom >= floor) {
+        element.style.top =
+            (floor - element.offsetHeight) + "px";
+
+        // reverse + lose energy
+        fallSpeed = -fallSpeed * bounceLoss;
+    }
+
+requestAnimationFrame(tick);
+}
+
 		</script>
 	</body>
 

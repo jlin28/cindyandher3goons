@@ -9,4 +9,4 @@ func _unhandled_input(event: InputEvent) -> void:
 		var snowball = Snowball.instantiate()
 		
 		get_tree().current_scene.add_child(snowball)
-		snowball.position = player.position + Vector3(sin(player.current_angle), 0, cos(player.current_angle))
+		snowball.position = player.position - Vector3(sin(player.current_angle), 0, cos(player.current_angle))

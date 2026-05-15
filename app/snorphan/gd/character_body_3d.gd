@@ -10,7 +10,7 @@ var jump_velocity = 20
 func _physics_process(delta):
 	var direction = Vector3.ZERO
 	var rotation = Vector3.ZERO
-	var current_angle = cam.facing.y
+	current_angle = cam.facing.y
 	
 	if Input.is_action_pressed("move_right"):
 		direction += Vector3(cos(current_angle), 0, -sin(current_angle))

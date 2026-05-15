@@ -9,19 +9,19 @@ var jump_velocity = 20
 func _physics_process(delta):
 	var direction = Vector3.ZERO
 	var rotation = Vector3.ZERO
-	var currently_facing = cam.facing
+	var current_angle = cam.facing.y
 	
 	if Input.is_action_pressed("move_right"):
-		direction.x += cos(currently_facing.y - deg_to_rad(90))
+		direction.x += Vector3(cos(current_angle), 0, -sin(current_angle))
 		
 	if Input.is_action_pressed("move_left"):
-		direction.x -= cos(currently_facing.y + deg_to_rad(90))
+		direction.x -= Vector3(cos(current_angle), 0, -sin(current_angle))
 		
 	if Input.is_action_pressed("move_forward"):
-		direction.z -= sin(currently_facing.x)  # Forward is negative!
+		direction.z -= Vector3(sin(current_angle), 0, cos(current_angle))  # Forward is negative!
 		
 	if Input.is_action_pressed("move_back"):
-		direction.z += sin(currently_facing.x)
+		direction.z += Vector3(sin(current_angle), 0, cos(current_angle)) 
 		
 	if direction != Vector3.ZERO: 
 		# look_at rotates your object so it faces a point (look_at(target_position, up_direction))

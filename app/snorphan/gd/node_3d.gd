@@ -17,3 +17,9 @@ func _unhandled_input(event: InputEvent) -> void:
 		rotation.x = clampf(rotation.x, -deg_to_rad(90), deg_to_rad(90))
 		
 		facing = rotation
+	
+	elif Input.is_action_pressed("mouse_mode"):
+		if Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
+			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+		else:
+			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)

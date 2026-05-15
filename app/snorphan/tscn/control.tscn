@@ -1,5 +1,15 @@
 [gd_scene format=3 uid="uid://cxo150m2m6bob"]
 
+[ext_resource type="Texture2D" uid="uid://n70tnighps5u" path="res://static/sprite_sheet.png" id="1_vpxtf"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vpxtf"]
+texture = ExtResource("1_vpxtf")
+region_rect = Rect2(645, 68, 22, 24)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_y35ns"]
+texture = ExtResource("1_vpxtf")
+region_rect = Rect2(677, 70, 22, 22)
+
 [node name="Control" type="Control" unique_id=1355566499]
 layout_mode = 3
 anchors_preset = 15
@@ -28,6 +38,12 @@ size_flags_vertical = 8
 [node name="NinePatchRect" type="NinePatchRect" parent="default ui/inventory cont/inventory" unique_id=2144094287]
 custom_minimum_size = Vector2(600, 50)
 layout_mode = 2
+texture = ExtResource("1_vpxtf")
+region_rect = Rect2(163, 178, 90, 27)
+patch_margin_left = 6
+patch_margin_top = 6
+patch_margin_right = 6
+patch_margin_bottom = 6
 
 [node name="menu button cont" type="MarginContainer" parent="default ui" unique_id=102850280]
 layout_mode = 2
@@ -42,6 +58,9 @@ size_flags_vertical = 0
 [node name="MenuButton" type="MenuButton" parent="default ui/menu button cont/menu button" unique_id=596337737]
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxTexture_vpxtf")
+theme_override_styles/hover = SubResource("StyleBoxTexture_y35ns")
+flat = false
 
 [node name="quests cont" type="MarginContainer" parent="default ui" unique_id=1246153911]
 layout_mode = 2
@@ -55,6 +74,12 @@ size_flags_vertical = 4
 [node name="NinePatchRect" type="NinePatchRect" parent="default ui/quests cont/quests" unique_id=781921796]
 custom_minimum_size = Vector2(175, 250)
 layout_mode = 2
+texture = ExtResource("1_vpxtf")
+region_rect = Rect2(163, 178, 90, 27)
+patch_margin_left = 6
+patch_margin_top = 6
+patch_margin_right = 6
+patch_margin_bottom = 6
 
 [node name="MarginContainer2" type="MarginContainer" parent="." unique_id=317398461]
 layout_mode = 0

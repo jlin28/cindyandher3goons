@@ -3,19 +3,96 @@
 <html>
 	<head>
     <title> CINDY'S register </title>
+ <link rel="stylesheet" href="/static/style.css">
+<style>
+		*{
+    font-family: font;
+	overflow: hidden;
+}
+
+     #bg {
+    	 filter: blur(4px);
+       width: 100%;
+    	 height: 100%;
+    	 background-image: url("/static/start.jpg");
+       background-repeat: no-repeat;
+       background-size: cover;
+    	 background-attachment: fixed;
+    	 position: absolute;
+       top: 0;
+    	 left: 0;
+    	 z-index: -10000;
+     }
+     #e{
+filter: blur(4px);
+       width: 100%;
+         height: 100%;
+         background-image: url("/static/help.gif");
+       background-repeat: repeat;
+       background-size: auto;
+         position: absolute;
+       top: 0;
+         left: 0;
+         z-index: -10;
+
+	}
+         .hold{
+         margin-top: 4vh;
+         text-align: center;
+         margin-left: 10vw;
+         margin-right: 10vw;
+         padding-top: 10vh;
+         color: white;
+         }
+         h1{
+         font-size: 600%
+         }
+         .a{
+            font-size: 100%;
+            padding-top: 0.5vh;
+         	padding-bottom: 0.5vh;
+         	padding-left: 1vw;
+         	padding-right: 1vw;
+	   border-radius: 6px;
+	 border-color: #8de0f7;
+         }
+         .b{
+         padding-top: 0.75vh;
+         	padding-bottom: 0.75vh;
+         	padding-left: 1.25vw;
+         	padding-right: 1.25vw;
+         	background-color: white;
+         	border: none;
+         	border-radius: 6px;
+         	color: #8de0f7;
+         }
+         .b:hover{
+         background-color: #e4ebed;
+         color: #7dc7db;
+         }
+</style>
 	</head>
 
 	<body>
-    i am register
-		<br> <a href="{{url_for('login')}}">login</a> <br>
+<div id="bg"></div>
+	<div id="e"></div>
+	<div class="hold">
+<h1>
+            Register
+         </h1>
 		<form action="{{url_for('register')}}" method="POST">
-			<label>Username</label>
-			<br> <input type="text" name="username" required>
-			<br> <label>Password</label>
-			<br> <input type="password" name="password" required>
-			<br> <button type="submit">Register</button>
+			<h2>Username:</h2>
+			<input class="a" type="text" name="username" required>
+			<br> 
+			<h2>Password:</h2>
+			<input class="a"  type="password" name="password" required>
+			<br> <br> <button class="b" type="submit">Register</button>
 		</form>
 		{{text}}
+<div>
+            <p style="font-size: 110%; color: white;"> If you already have an account, click the button below to login. </p>
+            <a href="{{url_for('login')}}"> <button class="b">login</button> </a>
+         </div>
 		<script>
       const socket = new WebSocket('wss://cindyandher3goons.me/ws/register');
 

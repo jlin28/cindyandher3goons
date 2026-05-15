@@ -221,3 +221,6 @@ MULTIPLAYER IMPROVEMENTS
 * Bugs to Fix or Ignore...
   - Falling through the ground, floating...
   - Remote players looking reallyyy big
+
+  cindyL -- 2026-05-15 10:47
+  * tentative items added

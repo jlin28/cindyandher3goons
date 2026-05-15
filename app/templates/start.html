@@ -73,6 +73,26 @@ right: 0;
 margin-right: 20px;
 margin-bottom: 20px;
 }
+.menu{
+    left: 30vw;
+    background-color: white;
+    position: absolute;
+    bottom: 20vh;
+}
+.slider{
+    appearance: none;
+    background-color: #abe3f2;
+    outline: none;
+    width: 400px;
+    border-radius: 50px;
+}
+#why{
+    color: black;
+    display: inline-block;
+}
+.slide{
+    display: inline-block;
+}
 	</style>
 	</head>
 
@@ -93,6 +113,24 @@ margin-bottom: 20px;
 <div id="help">
 <img src="/static/snowflake.png" style="width: 100px; height: 100px; opacity: 0.7; filter: invert(100%);">
 </div>
+<div class="menu">
+    <h1 style="text-align: center;">menu</h1>
+    <p>master volume</p> <span id="why"></span>
+<div class="slide">
+  <input type="range" min="0" max="100" value="50" class="slider" id="kms">
+</div>
+    <p>sfx volume</p>
+<span id="why1"></span>
+<div class="slide">
+  <input type="range" min="0" max="100" value="50" class="slider" id="kms1">
+</div>
+    <p>music volume</p>
+<span id="why2"></span>
+<div class="slide">
+  <input type="range" min="0" max="100" value="50" class="slider" id="kms2">
+</div>
+    <p>time</p>
+</div>
 		<script>
 			const socket = new WebSocket('wss://cindyandher3goons.me/ws/start');
 
@@ -106,6 +144,30 @@ margin-bottom: 20px;
         console.log(data);
       }
 
+
+var slider = document.getElementById("kms");
+var output = document.getElementById("why");
+output.innerHTML = slider.value; 
+
+slider.oninput = function() {
+  output.innerHTML = this.value;
+} 
+
+var slider1 = document.getElementById("kms1");
+var output1 = document.getElementById("why1");
+output1.innerHTML = slider1.value; 
+
+slider1.oninput = function() {
+  output1.innerHTML = this.value;
+} 
+
+var slider2 = document.getElementById("kms2");
+var output2 = document.getElementById("why2");
+output2.innerHTML = slider2.value; 
+
+slider2.oninput = function() {
+  output2.innerHTML = this.value;
+} 
 
 dragElement(document.getElementById("help"));
 

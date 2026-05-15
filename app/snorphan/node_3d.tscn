@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://dvhc10v0t6iae" path="res://citrus_orchard_road_puresky_4k.exr" id="6_i5arm"]
 [ext_resource type="Texture2D" uid="uid://xgbj7bu362cy" path="res://clouds.jpg" id="6_jsk3o"]
 [ext_resource type="Texture2D" uid="uid://b1ujnu3gm2tp3" path="res://blue.webp" id="9_4arys"]
+[ext_resource type="PackedScene" uid="uid://cxo150m2m6bob" path="res://control.tscn" id="9_6iypd"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_i5arm"]
 shader = ExtResource("5_jka67")
@@ -28,16 +29,6 @@ sky = SubResource("Sky_wc5p8")
 [node name="CharacterBody3D" parent="." unique_id=966699921 instance=ExtResource("1_a202f")]
 transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 1.2661138, -16.149754, 3.327261)
 
-[node name="CameraPivot" type="Node3D" parent="CharacterBody3D" unique_id=1602436611]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-
-[node name="SpringArm3D" type="SpringArm3D" parent="CharacterBody3D/CameraPivot" unique_id=1443440549]
-transform = Transform3D(-0.99940896, 0, -0.034376197, 0, 1, 0, 0.034376197, 0, -0.99940896, 0, 0, 0)
-spring_length = 3.0
-
-[node name="Camera3D" type="Camera3D" parent="CharacterBody3D/CameraPivot/SpringArm3D" unique_id=1718204206]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4162788, 6)
-
 [node name="MultiplayerClient" type="Node" parent="." unique_id=430003472 node_paths=PackedStringArray("local_player")]
 script = ExtResource("3_r3fl7")
 remote_player_scene = ExtResource("4_jka67")
@@ -48,3 +39,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.2616577, 0.0004272461, 0.9
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1541247748]
 environment = SubResource("Environment_jsk3o")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=614408343]
+
+[node name="Control" parent="CanvasLayer" unique_id=1355566499 instance=ExtResource("9_6iypd")]
+mouse_filter = 1

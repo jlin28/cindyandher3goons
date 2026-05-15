@@ -1,11 +1,10 @@
 extends CharacterBody3D
 
-@export var facing = Vector3.ZERO
-@export var directionFacing = Vector3.ZERO
-
 var speed = 14
 var fall_acceleration = 75
 var jump_velocity = 20
+
+@onready var cam_pivot := %pivot as Node3D
 
 func _physics_process(delta):
 	var direction = Vector3.ZERO
@@ -32,9 +31,6 @@ func _physics_process(delta):
 		
 		look_at(point, Vector3.UP)
 		direction = direction.normalized()
-		
-		facing = point
-		directionFacing = direction
 	# Normalizing a vector maintains the original direction while changing the magnitute to 1.
 	# This way diagonal movement isn't faster!
 
@@ -49,4 +45,6 @@ func _physics_process(delta):
 		velocity.y = jump_velocity
 	
 	move_and_slide()
-	
+
+func _process(delta: float) -> void:
+	cam_pivot.position = position

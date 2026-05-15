@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://b1ujnu3gm2tp3"
-path.s3tc="res://.godot/imported/blue.webp-2f9df4b1c110b16bbc0ba895cde104cd.s3tc.ctex"
+path.s3tc="res://.godot/imported/blue.webp-1ecba0bd871c56f8fcf5d90969f658b3.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://blue.webp"
-dest_files=["res://.godot/imported/blue.webp-2f9df4b1c110b16bbc0ba895cde104cd.s3tc.ctex"]
+source_file="res://static/blue.webp"
+dest_files=["res://.godot/imported/blue.webp-1ecba0bd871c56f8fcf5d90969f658b3.s3tc.ctex"]
 
 [params]
 

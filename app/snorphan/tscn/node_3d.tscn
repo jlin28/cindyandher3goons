@@ -1,14 +1,14 @@
 [gd_scene format=3 uid="uid://dhwuwrgj0xoop"]
 
-[ext_resource type="PackedScene" uid="uid://6eok38y3bfyh" path="res://character_body_3d.tscn" id="1_a202f"]
-[ext_resource type="Script" uid="uid://bc57ope5deafr" path="res://multiplayer_client.gd" id="3_r3fl7"]
-[ext_resource type="PackedScene" uid="uid://bifhuaitnfy3p" path="res://remote_player.tscn" id="4_jka67"]
-[ext_resource type="PackedScene" uid="uid://5ncldmmbyy3c" path="res://landscape2-col.blend" id="4_r3fl7"]
+[ext_resource type="PackedScene" uid="uid://6eok38y3bfyh" path="res://tscn/character_body_3d.tscn" id="1_a202f"]
+[ext_resource type="Script" uid="uid://bc57ope5deafr" path="res://gd/multiplayer_client.gd" id="3_r3fl7"]
+[ext_resource type="PackedScene" uid="uid://bifhuaitnfy3p" path="res://tscn/remote_player.tscn" id="4_jka67"]
+[ext_resource type="PackedScene" uid="uid://5ncldmmbyy3c" path="res://blend/landscape2-col.blend" id="4_r3fl7"]
 [ext_resource type="Shader" uid="uid://bheieniktxvry" path="res://node_3d.gdshader" id="5_jka67"]
-[ext_resource type="Texture2D" uid="uid://dvhc10v0t6iae" path="res://citrus_orchard_road_puresky_4k.exr" id="6_i5arm"]
-[ext_resource type="Texture2D" uid="uid://xgbj7bu362cy" path="res://clouds.jpg" id="6_jsk3o"]
-[ext_resource type="Texture2D" uid="uid://b1ujnu3gm2tp3" path="res://blue.webp" id="9_4arys"]
-[ext_resource type="PackedScene" uid="uid://cxo150m2m6bob" path="res://control.tscn" id="9_6iypd"]
+[ext_resource type="Texture2D" uid="uid://dvhc10v0t6iae" path="res://static/citrus_orchard_road_puresky_4k.exr" id="6_i5arm"]
+[ext_resource type="Texture2D" uid="uid://xgbj7bu362cy" path="res://static/clouds.jpg" id="6_jsk3o"]
+[ext_resource type="Texture2D" uid="uid://b1ujnu3gm2tp3" path="res://static/blue.webp" id="9_4arys"]
+[ext_resource type="PackedScene" uid="uid://cxo150m2m6bob" path="res://tscn/control.tscn" id="9_6iypd"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_i5arm"]
 shader = ExtResource("5_jka67")

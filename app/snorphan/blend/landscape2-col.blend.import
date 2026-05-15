@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://5ncldmmbyy3c"
-path="res://.godot/imported/landscape2-col.blend-32118c6e1d5adbc73b64387bef1eba91.scn"
+path="res://.godot/imported/landscape2-col.blend-5cf509a18ac245435b7ee59deded3d4e.scn"
 
 [deps]
 
-source_file="res://landscape2-col.blend"
-dest_files=["res://.godot/imported/landscape2-col.blend-32118c6e1d5adbc73b64387bef1eba91.scn"]
+source_file="res://blend/landscape2-col.blend"
+dest_files=["res://.godot/imported/landscape2-col.blend-5cf509a18ac245435b7ee59deded3d4e.scn"]
 
 [params]
 

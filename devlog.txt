@@ -194,7 +194,7 @@ HTML & CSS
 * rgietr
 * extras....
 
-joyceL -- 2026-5-14 23:06
+joyceL -- 2026-05-14 23:06
 GODOTING MY LIFE AWAY
 * Terrain has been updated
 * Shaders included and a sky now exists
@@ -208,7 +208,16 @@ GODOTING MY LIFE AWAY
   - Inventory system
   - General server-godot communication
 
-joyceL -- 2026-5-15 01:56
+joyceL -- 2026-05-15 01:56
 SOME MORE GODOT BEFORE BED
 * Tried my hand at physics (model now moves in the direction corresponding with camera)
 * Imported sprite sheet (stole from google) and filled in ui containers
+
+joyceL's Rat -- 2026-05-15 03:06
+MULTIPLAYER IMPROVEMENTS
+* Added y-axis rotation syncing for remote players
+* Added basic send throttling so player position is not sent every frame
+* Added movement/rotation checks player states are not repeatedly sent to the server when not changed
+* Bugs to Fix or Ignore...
+  - Falling through the ground, floating...
+  - Remote players looking reallyyy big

@@ -44,3 +44,6 @@ func _physics_process(delta):
 		velocity.y = jump_velocity
 	
 	move_and_slide()
+	
+func _process(delta: float) -> void:
+	cam.position = position

@@ -193,3 +193,17 @@ HTML & CSS
 * login
 * rgietr
 * extras....
+
+joyceL -- 2026-5-14 23:06
+GODOTING MY LIFE AWAY
+* Terrain has been updated
+* Shaders included and a sky now exists
+* Began on ui
+* Fixed camera work
+* DD changes
+* What is there to do????
+  - in-game menu
+    - features log out button and whatever else we are adding
+  - snowman creating feature
+  - Inventory system
+  - General server-godot communication

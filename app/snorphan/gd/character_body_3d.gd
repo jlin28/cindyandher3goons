@@ -3,6 +3,8 @@ extends CharacterBody3D
 var speed = 14
 var fall_acceleration = 75
 var jump_velocity = 20
+var time = 0.0; 
+
 @export var current_angle: float
 
 @onready var cam := %pivot
@@ -14,6 +16,7 @@ var jump_velocity = 20
 func _physics_process(delta):
 	var direction = Vector3.ZERO
 	var rotation = Vector3.ZERO
+	time += delta
 	current_angle = cam.facing.y
 	
 	if Input.is_action_pressed("move_right"):

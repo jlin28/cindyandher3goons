@@ -241,3 +241,17 @@ ASSETS
 * Completed main ui
 * implemented sprint
 * Imported main character model 
+
+carrieK -- 2026-05-16 1:33
+HTMLJSCSS
+* i hate toggle switches
+* i hate grid
+* i hate div
+* i hate span
+* i hate css
+* i hate html
+* i love cats
+* start is completely done basically at least we just need functionality for:
+  - volume controls
+  - day/night toggle
+  - mouse sensitivity

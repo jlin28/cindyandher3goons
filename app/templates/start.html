@@ -88,6 +88,7 @@ display: none;
 bottom: 0;
 right: 0;
 color: #245b7c;
+backdrop-filter: blur(4px);
 }
 .slider{
     appearance: none;
@@ -167,10 +168,13 @@ margin-left: 1vw;
 clear: none;
 }
 .exit{
-	position: absolute; font-size: 150%; margin-left: 2vw;
+	position: absolute; font-size: 175%; margin-left: 2vw;
+transition: transform 0.3s ease;
 }
 .exit:hover{
 	cursor: pointer;
+filter: brightness(0.9);
+transform: scale(1.1);
 }
 #sound{
 	color: white;
@@ -180,6 +184,9 @@ clear: none;
 	display: none;
 }
 #scats{
+	display: none;
+}
+#scats2{
 	display: none;
 }
 
@@ -233,7 +240,16 @@ input:checked + .slider1:before {
   transform: translateX(26px);
 }
 
-
+.grid{
+margin-bottom: 10px;
+width: 46.3vw;
+padding-top: 18px;
+padding-bottom: 10px;
+padding-left: 5px;
+padding-right: 5px;
+background-color: rgba(255, 255, 255, 0.6);
+border-radius: 5px;
+}
 	</style>
 	</head>
 
@@ -256,7 +272,7 @@ input:checked + .slider1:before {
 </div>
 <div class="menu" id="menu">
     <div style="margin-left: 2vw; margin-top: 2vh; display: inline-block; font-size: 300%; margin-right: 41vw;">options</div>
-<div class="exit" onclick="hide()">exit</div>
+<div class="exit" onclick="hide()">&lt; exit &gt;</div>
 <div class="whatamidoing" id="sound" onclick="pSound()">sound</div>
 <div class="whatamidoing" id="graphics" onclick="pGraphics()">graphics</div>
 <div class="whatamidoing" id="cats" onclick="pCats()">cats</div>
@@ -280,6 +296,7 @@ input:checked + .slider1:before {
 </div>
 </span>
 </div>
+
 <div class="bleh">
     <span class="st">music volume</span>
 <span class="bro">
@@ -295,7 +312,7 @@ input:checked + .slider1:before {
 
 <div class="umm" id="sgraphics">
 <div class="bleh">
-    <span class="st">Toggle Time</span> 
+    <span class="st">Time</span> 
 
 <span class="bro">
 <div class = "why" style="width: 75px;">day</div>
@@ -309,11 +326,70 @@ input:checked + .slider1:before {
 </span>
 
 </div>
+
+<div class="bleh">
+    <span class="st">mouse sensitivity</span>
+<span class="bro">
+<div class = "why" id="why3"></div>
+<div class="slide">
+  <input type="range" min="0" max="100" value="50" class="slider" id="kms3">
+</div>
+</span>
 </div>
 
+</div>
+
+<div id="scats2" style="height: 225px; position: absolute; width: 300px; margin-top: 25vh; margin-left: 20vw;">
+    <img src="/static/uni.jpg" style="height: 80%; object-fit: contain;">
+    <p> uni </p>
+	</div>
+
 <div class="umm" id="scats">
-<div class="bleh">
-    <span class="st">cats</span> 
+<div class="grid" style="font-size: 100%; display: grid; grid-template-columns: auto auto auto; text-align: center;">
+    <div style="height: 225px;">
+    <img src="/static/aaaammmmmm.jpg" style="height: 80%; object-fit: contain;">
+    <p> aaaammmmmm </p>
+	</div>
+<div style="height: 225px;">
+    <img src="/static/birday.jpg" style="height: 80%; object-fit: contain;">
+    <p> birday </p>
+	</div>
+
+<div style="height: 225px; ">
+    <img src="/static/blep.jpg" style="height: 80%; object-fit: contain;">
+    <p> blep </p>
+	</div>
+
+<div style="height: 225px; ">
+    <img src="/static/enraged.jpg" style="height: 80%; object-fit: contain;">
+    <p> enraged </p>
+	</div>
+
+<div style="height: 225px;">
+    <img src="/static/gildcheese.jpg" style="height: 80%; object-fit: contain;">
+    <p> gildcheese </p>
+	</div>
+
+<div style="height: 225px;">
+    <img src="/static/guh.jpg" style="height: 80%; object-fit: contain;">
+    <p> guh </p>
+	</div>
+
+<div style="height: 225px; ">
+    <img src="/static/hegh.jpg" style="height: 80%; object-fit: contain;">
+    <p> hegh </p>
+	</div>
+
+<div style="height: 225px;">
+    <img src="/static/hi.jpg" style="height: 80%; object-fit: contain;">
+    <p> hi </p>
+	</div>
+
+<div style="height: 225px; ">
+    <img src="/static/lockedin.gif" style="height: 80%; object-fit: contain;">
+    <p> locked in </p>
+	</div>
+
 </div>
 </div>
 
@@ -342,6 +418,7 @@ input:checked + .slider1:before {
 		document.getElementById("ssound").style.display = "block";
 		document.getElementById("sgraphics").style.display = "none";
 		document.getElementById("scats").style.display = "none";
+		document.getElementById("scats2").style.display = "none";
 		document.getElementById("sound").style.background = "#245b7c";
 		document.getElementById("sound").style.color = "white";
 		document.getElementById("graphics").style.background = "white";
@@ -353,6 +430,7 @@ input:checked + .slider1:before {
 		document.getElementById("sgraphics").style.display = "block";
 		document.getElementById("ssound").style.display = "none";
 		document.getElementById("scats").style.display = "none";
+		document.getElementById("scats2").style.display = "none";
 		document.getElementById("graphics").style.background = "#245b7c";
 		document.getElementById("graphics").style.color = "white";
 		document.getElementById("sound").style.background = "white";
@@ -362,6 +440,7 @@ input:checked + .slider1:before {
 	}
 	function pCats(){
 		document.getElementById("scats").style.display = "block";
+		document.getElementById("scats2").style.display = "block";
 		document.getElementById("ssound").style.display = "none";
 		document.getElementById("sgraphics").style.display = "none";
 		document.getElementById("cats").style.background = "#245b7c";
@@ -394,6 +473,14 @@ output2.innerHTML = slider2.value;
 
 slider2.oninput = function() {
   output2.innerHTML = this.value;
+} 
+
+var slider3 = document.getElementById("kms3");
+var output3 = document.getElementById("why3");
+output3.innerHTML = slider3.value; 
+
+slider3.oninput = function() {
+  output3.innerHTML = this.value;
 } 
 
 dragElement(document.getElementById("help"));

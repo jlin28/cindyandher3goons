@@ -1,4 +1,4 @@
-# $${\color{red}Cindy's}$$ [insert game here]! by $${\color{orange}cindyandher3goons}$$
+# $${\color{red}Cindy's}$$ snorphan! by $${\color{orange}cindyandher3goons}$$
 ## $${\color{yellow}Cindy's}$$ Roster
 - ### $${\color{green}Cindy \space Liu}$$ - $${\color{blue}Cindy}$$ ($${\color{purple}Cindy}$$)  
 - Joyce Lin - Goon 1 (Goon 1)  

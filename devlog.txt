@@ -234,3 +234,10 @@ GOTDOT
 * Got snowball node to instantiate on e presses
 * Continued filling out ui
 * Why does hover not work for some buttons??????
+
+joyceL -- 2026-05-16 12:05
+ASSETS
+* set up sprinting and normal walking animation cycles
+* Completed main ui
+* implemented sprint
+* Imported main character model 

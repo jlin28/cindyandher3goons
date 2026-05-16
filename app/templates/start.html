@@ -297,12 +297,14 @@ border-radius: 5px;
 </span>
 </div>
 
+
+
 <div class="bleh">
     <span class="st">music volume</span>
 <span class="bro">
 <div class = "why" id="why2"></div>
 <div class="slide">
-  <input type="range" min="0" max="100" value="50" class="slider" id="kms2">
+  <input type="range" onclick="sou()" min="0" max="100" value="0" class="slider" id="kms2">
 </div>
 </span>
 </div>
@@ -394,6 +396,7 @@ border-radius: 5px;
 </div>
 
 </div>
+<audio loop id="yes" src="/static/bgm.mp3"> </audio>
 		<script>
 			const socket = new WebSocket('wss://cindyandher3goons.me/ws/start');
 
@@ -406,6 +409,21 @@ border-radius: 5px;
 	
         console.log(data);
       }
+
+const a = document.getElementById("yes");
+
+const sli = document.getElementById("kms2");
+
+sli.addEventListener('mousedown', function(){
+	if(a.paused){
+		a.play();
+	}
+});
+
+sli.addEventListener('input', (event) => {
+	a.volume = event.target.value/100;
+});
+
 
 
 	function show(){

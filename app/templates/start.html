@@ -59,12 +59,15 @@ filter: blur(4px);
          cursor: pointer;
 transform: scale(1.2);
          }
-	span{
+	t{
 display: inline-block;
 transition: transform 0.3s ease;
 	}
-	span:hover{
+	t:hover{
 	transform: scale(1.2);
+}
+span{
+	display: inline-block;
 }
 #help{
 position: absolute; 
@@ -72,26 +75,97 @@ bottom: 0;
 right: 0;
 margin-right: 20px;
 margin-bottom: 20px;
+z-index: 10000;
 }
 .menu{
-    left: 30vw;
-    background-color: white;
+    background-color: rgba(255, 255, 255, 0.4);
     position: absolute;
-    bottom: 20vh;
+	width: 100%
+	height: 100%;
+top: 0;
+display: none;
+         left: 0;
+bottom: 0;
+right: 0;
 }
 .slider{
     appearance: none;
     background-color: #abe3f2;
     outline: none;
-    width: 400px;
+    width: 200px;
+	height: 10px;
     border-radius: 50px;
+	overflow: visible;
 }
-#why{
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%; 
+	background: white;
+  cursor: pointer;
+}
+
+.why{
     color: black;
     display: inline-block;
+	background-color: rgba(255, 255, 255, 1);
+    width: 50px;
+	text-align: center;
+	margin-bottom: 2px;
+margin-left: 50px;
+border-radius: 5px;
+margin-right: 10px;
 }
-.slide{
-    display: inline-block;
+    .slide{
+    	display: inline-block;
+	margin-bottom: 7px;
+	margin-right: 0;
+}
+.bro{
+float: right;
+margin-right: 1vw;
+}
+.whatamidoing{
+margin-top: 2vh; display: inline-block; font-size: 150%;
+background-color: rgba(255, 255, 255, 0.6);
+padding-bottom: 4.5px;
+padding-top: 4.5px;
+margin-bottom: 10px;
+border-radius: 5px;
+width: 15vw;
+text-align: center;
+margin-left: 5px;
+margin-right: 5px;
+}
+.whatamidoing:hover{
+	cursor: pointer;
+}
+.umm{
+margin-top: 2vh;
+margin-left: 51.3vw;
+}
+.bleh{
+background-color: rgba(255, 255, 255, 0.6); 
+margin-bottom: 10px;
+width: 46.3vw;
+padding-top: 18px;
+padding-bottom: 10px;
+font-size: 150%;
+border-radius: 5px;
+clear: none;
+}
+.st{
+margin-top: 2px;
+margin-left: 1vw;
+clear: none;
+}
+.exit{
+	position: absolute; font-size: 150%; margin-left: 2vw;
+}
+.exit:hover{
+	cursor: pointer;
 }
 	</style>
 	</head>
@@ -99,12 +173,12 @@ margin-bottom: 20px;
 	<body>
 	<div id="bg"></div>
 	<div id="e"></div>
-        <h1 class="center"><span>s</span><span>n</span><span>o</span><span>r</span><span>p</span><span>h</span><span>a</span><span>n</span></h1>
+        <h1 class="center"><span class="t">s</span><span class="t">n</span><span class="t">o</span><span class="t">r</span><span class="t">p</span><span class="t">h</span><span class="t">a</span><span class="t">n</span></h1>
 <br>
 <div class="center2" style="line-height: 0.5;">
          <a href = "{{url_for('login')}}"> <button class="button">&lt; start &gt;</button> </a>
         <br>
- <button class="button">&lt; options &gt;</button>
+ <button class="button" onclick="show()">&lt; options &gt;</button>
 <br>
 <a href = "{{url_for('credit')}}"><button class="button">&lt; credits &gt;</button></a>
 <br>
@@ -113,23 +187,43 @@ margin-bottom: 20px;
 <div id="help">
 <img src="/static/snowflake.png" style="width: 100px; height: 100px; opacity: 0.7; filter: invert(100%);">
 </div>
-<div class="menu">
-    <h1 style="text-align: center;">menu</h1>
-    <p>master volume</p> <span id="why"></span>
+<div class="menu" id="menu">
+    <div style="margin-left: 2vw; margin-top: 2vh; display: inline-block; font-size: 300%; margin-right: 41vw;">options</div>
+<div class="exit" onclick="hide()">exit</div>
+<div class="whatamidoing">sound</div>
+<div class="whatamidoing">graphics</div>
+<div class="whatamidoing">cats</div>
+<br>
+<div class="umm">
+<div class="bleh">
+    <span class="st">master volume</span> 
+<span class="bro">
+<div class = "why" id="why"></div>
 <div class="slide">
   <input type="range" min="0" max="100" value="50" class="slider" id="kms">
 </div>
-    <p>sfx volume</p>
-<span id="why1"></span>
+</span>
+</div>
+<div class="bleh">
+    <span class="st">sfx volume</span>
+<span class="bro">
+<div class = "why" id="why1"></div>
 <div class="slide">
   <input type="range" min="0" max="100" value="50" class="slider" id="kms1">
 </div>
-    <p>music volume</p>
-<span id="why2"></span>
+</span>
+</div>
+<div class="bleh">
+    <span class="st">music volume</span>
+<span class="bro">
+<div class = "why" id="why2"></div>
 <div class="slide">
   <input type="range" min="0" max="100" value="50" class="slider" id="kms2">
 </div>
-    <p>time</p>
+</span>
+</div>
+
+</div>
 </div>
 		<script>
 			const socket = new WebSocket('wss://cindyandher3goons.me/ws/start');
@@ -144,6 +238,13 @@ margin-bottom: 20px;
         console.log(data);
       }
 
+
+	function show(){
+		document.getElementById("menu").style.display = "block";
+	}
+	function hide(){
+		document.getElementById("menu").style.display = "none";
+	}
 
 var slider = document.getElementById("kms");
 var output = document.getElementById("why");

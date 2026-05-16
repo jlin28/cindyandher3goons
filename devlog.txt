@@ -255,3 +255,7 @@ HTMLJSCSS
   - volume controls
   - day/night toggle
   - mouse sensitivity
+
+carrieK -- 2026-05-16 14:50
+AUDIO
+* music slider works 👍👍👍👍👍

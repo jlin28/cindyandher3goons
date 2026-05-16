@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://dqtrb1h3t2qkr"]
+
+[ext_resource type="PackedScene" uid="uid://bx0mmupubjp0p" path="res://glb/walk_cycle.glb" id="1_4n4jm"]
+
+[node name="walk_cycle" unique_id=669228454 instance=ExtResource("1_4n4jm")]
+
+[node name="Skeleton3D" parent="metarig" parent_id_path=PackedInt32Array(1022522992) index="0" unique_id=1833215211]
+bones/8/rotation = Quaternion(-0.028104477, 0.53293216, -0.5835978, 0.6120516)
+bones/12/rotation = Quaternion(-0.0260874, -0.8124276, 0.39991778, 0.4234937)
+bones/19/rotation = Quaternion(0.99965113, 4.8070596e-09, 2.2943121e-07, 0.026412666)
+bones/24/rotation = Quaternion(0.931808, 7.3904474e-09, 2.0992658e-07, 0.3629517)
+bones/28/rotation = Quaternion(-0.6786185, 0.6786186, -0.19868815, -0.1986877)

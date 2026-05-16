@@ -7,6 +7,10 @@ var jump_velocity = 20
 
 @onready var cam := %pivot
 
+@onready var idle := %fox
+@onready var anim_cont := %walk_cycle
+@onready var walk := %walk_cycle/AnimationPlayer
+
 func _physics_process(delta):
 	var direction = Vector3.ZERO
 	var rotation = Vector3.ZERO
@@ -47,4 +51,13 @@ func _physics_process(delta):
 	move_and_slide()
 	
 func _process(delta: float) -> void:
+	if Input.is_action_pressed("move_right") or Input.is_action_pressed("move_left") or Input.is_action_pressed("move_forward") or Input.is_action_pressed("move_back"):
+		idle.visible = false
+		anim_cont.visible = true
+		walk.play("walk")
+	else: 
+		idle.visible = true
+		anim_cont.visible = false
+		walk.stop()
+		
 	cam.position = position

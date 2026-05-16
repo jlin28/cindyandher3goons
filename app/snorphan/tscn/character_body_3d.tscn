@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://ddxc7483pjlrx" path="res://gd/character_body_3d.gd" id="1_iwpo4"]
 [ext_resource type="Script" uid="uid://qa3rhp2ugtgw" path="res://gd/cam_pivot.gd" id="2_vd578"]
 [ext_resource type="PackedScene" uid="uid://kuistb665d3x" path="res://glb/fox.glb" id="3_a63tl"]
+[ext_resource type="PackedScene" uid="uid://dqtrb1h3t2qkr" path="res://tscn/walk_cycle.tscn" id="4_eciny"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_a63tl"]
 size = Vector3(0.48724365, 1, 1.1230469)
@@ -52,4 +53,10 @@ transform = Transform3D(2.7084167, 0, 0, 0, 1.4469483, 0, 0, 0, 1.3477137, 0.929
 shape = SubResource("BoxShape3D_a63tl")
 
 [node name="fox" parent="." unique_id=831645704 instance=ExtResource("3_a63tl")]
+unique_name_in_owner = true
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0)
+
+[node name="walk_cycle" parent="." unique_id=669228454 instance=ExtResource("4_eciny")]
+unique_name_in_owner = true
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0)
+visible = false

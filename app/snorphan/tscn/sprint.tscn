@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://bx4i8mfwdfxh8"]
+
+[ext_resource type="PackedScene" uid="uid://dlbm6t1wkk7yl" path="res://glb/animation.glb" id="1_ipvgv"]
+
+[node name="animation" unique_id=1211855713 instance=ExtResource("1_ipvgv")]
+
+[node name="Skeleton3D" parent="metarig" parent_id_path=PackedInt32Array(13894164) index="0" unique_id=1621555416]
+bones/8/rotation = Quaternion(0.081690334, 0.5028461, -0.67682636, 0.53139305)
+bones/12/rotation = Quaternion(-0.20815912, -0.8408937, 0.19534689, 0.45979047)
+bones/19/rotation = Quaternion(0.9987629, 5.470625e-09, 2.29611e-07, -0.049727157)
+bones/24/rotation = Quaternion(0.8818214, 0.0015055058, 0.046783864, 0.4692549)
+bones/28/rotation = Quaternion(-0.6786185, 0.6786186, -0.19868816, -0.1986877)
+
+[node name="AnimationPlayer" parent="." index="1" unique_id=464679882]
+speed_scale = 1.5

@@ -11,7 +11,9 @@ var time = 0.0;
 
 @onready var idle := %fox
 @onready var anim_cont := %walk_cycle
+@onready var anim_cont2 := %sprint_cycle
 @onready var walk := %walk_cycle/AnimationPlayer
+@onready var sprint := %sprint_cycle/AnimationPlayer
 
 func _physics_process(delta):
 	var direction = Vector3.ZERO
@@ -56,11 +58,21 @@ func _physics_process(delta):
 func _process(delta: float) -> void:
 	if Input.is_action_pressed("move_right") or Input.is_action_pressed("move_left") or Input.is_action_pressed("move_forward") or Input.is_action_pressed("move_back"):
 		idle.visible = false
-		anim_cont.visible = true
-		walk.play("walk")
+		if Input.is_action_pressed("sprint"):
+			speed = 30
+			anim_cont2.visible = true
+			anim_cont.visible = false
+			sprint.play("walk")
+		else:
+			speed = 14
+			anim_cont2.visible = false
+			anim_cont.visible = true
+			walk.play("walk")
 	else: 
 		idle.visible = true
+		anim_cont2.visible = false
 		anim_cont.visible = false
 		walk.stop()
+		sprint.stop()
 		
 	cam.position = position

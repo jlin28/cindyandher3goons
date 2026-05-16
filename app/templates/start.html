@@ -87,10 +87,11 @@ display: none;
          left: 0;
 bottom: 0;
 right: 0;
+color: #245b7c;
 }
 .slider{
     appearance: none;
-    background-color: #abe3f2;
+    background-color: #245b7c;
     outline: none;
     width: 200px;
 	height: 10px;
@@ -103,12 +104,12 @@ right: 0;
   width: 20px;
   height: 20px;
   border-radius: 50%; 
-	background: white;
+	background: #abe3f2;
   cursor: pointer;
 }
 
 .why{
-    color: black;
+    color: #245b7c;
     display: inline-block;
 	background-color: rgba(255, 255, 255, 1);
     width: 50px;
@@ -122,6 +123,9 @@ margin-right: 10px;
     	display: inline-block;
 	margin-bottom: 7px;
 	margin-right: 0;
+}
+.slide:hover{
+filter: brightness(0.9);
 }
 .bro{
 float: right;
@@ -141,6 +145,7 @@ margin-right: 5px;
 }
 .whatamidoing:hover{
 	cursor: pointer;
+filter: brightness(0.9);
 }
 .umm{
 margin-top: 2vh;
@@ -167,6 +172,68 @@ clear: none;
 .exit:hover{
 	cursor: pointer;
 }
+#sound{
+	color: white;
+	background-color: #245b7c;
+}
+#sgraphics{
+	display: none;
+}
+#scats{
+	display: none;
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+overflow: visible;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider1 {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #abe3f2;
+  -webkit-transition: .4s;
+  transition: .4s;
+border-radius: 34px;
+}
+
+.slider1:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+border-radius: 50%;
+}
+
+input:checked + .slider1 {
+  background-color: #245b7c;
+}
+
+input:checked + .slider1:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+
 	</style>
 	</head>
 
@@ -190,11 +257,11 @@ clear: none;
 <div class="menu" id="menu">
     <div style="margin-left: 2vw; margin-top: 2vh; display: inline-block; font-size: 300%; margin-right: 41vw;">options</div>
 <div class="exit" onclick="hide()">exit</div>
-<div class="whatamidoing">sound</div>
-<div class="whatamidoing">graphics</div>
-<div class="whatamidoing">cats</div>
+<div class="whatamidoing" id="sound" onclick="pSound()">sound</div>
+<div class="whatamidoing" id="graphics" onclick="pGraphics()">graphics</div>
+<div class="whatamidoing" id="cats" onclick="pCats()">cats</div>
 <br>
-<div class="umm">
+<div class="umm" id="ssound">
 <div class="bleh">
     <span class="st">master volume</span> 
 <span class="bro">
@@ -224,6 +291,32 @@ clear: none;
 </div>
 
 </div>
+
+
+<div class="umm" id="sgraphics">
+<div class="bleh">
+    <span class="st">Toggle Time</span> 
+
+<span class="bro">
+<div class = "why" style="width: 75px;">day</div>
+<span class="flick">
+<label class="switch">
+  <input type="checkbox">
+  <span class="slider1"></span>
+</label>
+</span>
+<div class = "why" style="margin-left: 10px; margin-right: 0; width: 75px;">night</div>
+</span>
+
+</div>
+</div>
+
+<div class="umm" id="scats">
+<div class="bleh">
+    <span class="st">cats</span> 
+</div>
+</div>
+
 </div>
 		<script>
 			const socket = new WebSocket('wss://cindyandher3goons.me/ws/start');
@@ -244,6 +337,39 @@ clear: none;
 	}
 	function hide(){
 		document.getElementById("menu").style.display = "none";
+	}
+	function pSound(){
+		document.getElementById("ssound").style.display = "block";
+		document.getElementById("sgraphics").style.display = "none";
+		document.getElementById("scats").style.display = "none";
+		document.getElementById("sound").style.background = "#245b7c";
+		document.getElementById("sound").style.color = "white";
+		document.getElementById("graphics").style.background = "white";
+		document.getElementById("graphics").style.color = "#245b7c";
+		document.getElementById("cats").style.background = "white";
+		document.getElementById("cats").style.color = "#245b7c";
+	}
+	function pGraphics(){
+		document.getElementById("sgraphics").style.display = "block";
+		document.getElementById("ssound").style.display = "none";
+		document.getElementById("scats").style.display = "none";
+		document.getElementById("graphics").style.background = "#245b7c";
+		document.getElementById("graphics").style.color = "white";
+		document.getElementById("sound").style.background = "white";
+		document.getElementById("sound").style.color = "#245b7c";
+		document.getElementById("cats").style.background = "white";
+		document.getElementById("cats").style.color = "#245b7c";
+	}
+	function pCats(){
+		document.getElementById("scats").style.display = "block";
+		document.getElementById("ssound").style.display = "none";
+		document.getElementById("sgraphics").style.display = "none";
+		document.getElementById("cats").style.background = "#245b7c";
+		document.getElementById("cats").style.color = "white";
+		document.getElementById("sound").style.background = "white";
+		document.getElementById("sound").style.color = "#245b7c";
+		document.getElementById("graphics").style.background = "white";
+		document.getElementById("graphics").style.color = "#245b7c";
 	}
 
 var slider = document.getElementById("kms");

@@ -9,6 +9,8 @@
 ------------------------------
  Snorphan is an open world puzzle-adventure game. You're a lonely orphan who has no friends and in order to cure your insatiable loneliness, you spend your life building snowmen. But, oh no! Your snowmen are all sad and naked! Thus, as a last resort, you finally decide to socialize and look to the town's villagers for help. And boy do they have some work for you to do.
 
+### View our live site at: [cindyandher3goons.me](https://cindyandher3goons.me/)!!!
+
 ## Install Guide
 1) Open your terminal and clone the repository into a local directory:
 ```

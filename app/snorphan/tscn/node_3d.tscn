@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://dk4wydotfxrj5" path="res://glb/house1.glb" id="10_oycpi"]
 [ext_resource type="PackedScene" uid="uid://bemhyaf0leh7h" path="res://glb/archhouse1.glb" id="12_y4xl3"]
 [ext_resource type="PackedScene" uid="uid://b2acd6oqhabr" path="res://glb/fence.glb" id="13_ppss0"]
+[ext_resource type="PackedScene" uid="uid://bt4w2wdmc86gt" path="res://glb/skinnyhouse1.glb" id="14_5rhs8"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_i5arm"]
 shader = ExtResource("5_jka67")
@@ -52,29 +53,26 @@ mouse_filter = 1
 [node name="house1" parent="buildings" unique_id=610060168 instance=ExtResource("10_oycpi")]
 transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -21.633549, -12.466211, 9.666206)
 
-[node name="house4" parent="buildings" unique_id=784265280 instance=ExtResource("10_oycpi")]
-transform = Transform3D(0.033193495, 0, 1.4996327, 0, 1.5, 0, -1.4996327, 0, 0.033193495, -59.876797, -12.466211, 61.05519)
-
 [node name="house5" parent="buildings" unique_id=965775008 instance=ExtResource("10_oycpi")]
 transform = Transform3D(-1.4992872, 0, 0.04622637, 0, 1.4999998, 0, -0.04622637, 0, -1.4992872, -28.617062, -12.466211, 154.90955)
 
-[node name="house2" parent="buildings" unique_id=1075629522 instance=ExtResource("10_oycpi")]
-transform = Transform3D(1.4999205, 0, -0.01544586, 0, 1.5, 0, 0.01544586, 0, 1.4999205, 34.941383, -12.466211, 9.556931)
-
 [node name="house3" parent="buildings" unique_id=962096520 instance=ExtResource("10_oycpi")]
 transform = Transform3D(1.4999658, 0, -0.010131666, 0, 1.5, 0, 0.010131666, 0, 1.4999658, 172.12843, -12.466211, -7.5569)
-
-[node name="house6" parent="buildings" unique_id=583902574 instance=ExtResource("10_oycpi")]
-transform = Transform3D(0.7122609, -0.0002569575, -1.3201077, 0.0022085574, 1.4999981, 0.0008996545, 1.3201058, -0.0023708811, 0.7122604, 198.92786, -12.466211, 45.682228)
-
-[node name="landscape-col" parent="buildings" unique_id=13252416 instance=ExtResource("9_7lhp4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3082714, 0.018119812, 1.0917263)
 
 [node name="archhouse1" parent="buildings" unique_id=1639795686 instance=ExtResource("12_y4xl3")]
 transform = Transform3D(0.014032332, 0, -1.4999344, 0, 1.5, 0, 1.4999344, 0, 0.014032332, 129.07576, -10.920583, 84.01862)
 
 [node name="archhouse2" parent="buildings" unique_id=2053014599 instance=ExtResource("12_y4xl3")]
 transform = Transform3D(0.39709717, 0, 1.4464834, 0, 1.4999999, 0, -1.4464834, 0, 0.39709717, 24.300667, -11.066723, 103.97597)
+
+[node name="skinnyhouse1" parent="buildings" unique_id=200705801 instance=ExtResource("14_5rhs8")]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 32.86203, -12.853378, 9.557)
+
+[node name="skinnyhouse2" parent="buildings" unique_id=219530407 instance=ExtResource("14_5rhs8")]
+transform = Transform3D(-1.4999479, 7.162021e-05, 0.012498829, 6.656582e-05, 1.4999999, -0.0006066999, -0.0124988565, -0.000606124, -1.4999478, -71.78859, -12.853, 84.09379)
+
+[node name="skinnyhouse3" parent="buildings" unique_id=123307047 instance=ExtResource("14_5rhs8")]
+transform = Transform3D(1.4500908, 9.08476e-05, 0.3837148, 6.656577e-05, 1.4999999, -0.0006066999, -0.38371468, 0.00060354156, 1.4500905, 198.928, -12.853, 46.832336)
 
 [node name="fences" type="Node3D" parent="." unique_id=88815879]
 
@@ -152,3 +150,6 @@ transform = Transform3D(-0.99077237, -0.011703679, 0.13503116, -0.011600935, 0.9
 
 [node name="fence25" parent="fences" unique_id=1961568099 instance=ExtResource("13_ppss0")]
 transform = Transform3D(-0.9908282, 0, 0.13512738, 0, 1, 0, -0.13512738, 0, -0.9908282, 180.97311, -14.030967, -74.64419)
+
+[node name="landscape-col" parent="." unique_id=13252416 instance=ExtResource("9_7lhp4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.092695236, 0.0181427, 1.4536648)

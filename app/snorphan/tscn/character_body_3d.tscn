@@ -14,13 +14,13 @@ script = ExtResource("1_iwpo4")
 
 [node name="pivot" type="Node3D" parent="." unique_id=399842475]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.7755785, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.39373, 0)
 top_level = true
 script = ExtResource("2_vd578")
 
 [node name="SpringArm3D" type="SpringArm3D" parent="pivot" unique_id=1018245845]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0)
-spring_length = 2.0
+spring_length = 2.5
 
 [node name="Camera3D" type="Camera3D" parent="pivot/SpringArm3D" unique_id=1394461198]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 2.6340203)

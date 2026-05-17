@@ -1,6 +1,6 @@
 extends Node3D
 
-@onready var player:= $CharacterBody3D
+@onready var player:= %player
 const Snowball:= preload("res://tscn/snowball.tscn")
 
 func _unhandled_input(event: InputEvent) -> void:

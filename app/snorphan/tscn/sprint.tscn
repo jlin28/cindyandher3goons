@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bx4i8mfwdfxh8"]
 
-[ext_resource type="PackedScene" uid="uid://dlbm6t1wkk7yl" path="res://glb/animation.glb" id="1_ipvgv"]
+[ext_resource type="PackedScene" uid="uid://dlbm6t1wkk7yl" path="res://glb/actions/animation.glb" id="1_ipvgv"]
 
 [node name="animation" unique_id=1211855713 instance=ExtResource("1_ipvgv")]
 

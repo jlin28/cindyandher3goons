@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dqtrb1h3t2qkr"]
 
-[ext_resource type="PackedScene" uid="uid://bx0mmupubjp0p" path="res://glb/walk_cycle.glb" id="1_4n4jm"]
+[ext_resource type="PackedScene" uid="uid://dta3de542ymo8" path="res://glb/actions/walk_cycle.glb" id="1_4n4jm"]
 
 [node name="walk_cycle" unique_id=669228454 instance=ExtResource("1_4n4jm")]
 

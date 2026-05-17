@@ -1,0 +1,44 @@
+[gd_scene format=3 uid="uid://2lnq4kvnv37b"]
+
+[ext_resource type="PackedScene" uid="uid://dm682h51w5ux7" path="res://glb/characters/seal.glb" id="1_qhh3q"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_a63tl"]
+size = Vector3(0.9288845, 1.5340431, 1.2844238)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_1s6pg"]
+size = Vector3(1, 1.7792969, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_x6dem"]
+size = Vector3(0.61657715, 1, 0.48449707)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_4drvx"]
+size = Vector3(1, 2.3769531, 0.6062012)
+
+[node name="NPC1" type="CharacterBody3D" unique_id=725019478]
+
+[node name="seal" parent="." unique_id=1244435354 instance=ExtResource("1_qhh3q")]
+transform = Transform3D(3.0460532, 0, 0, 0, 3.0460532, 0, 0, 0, 3.0460532, 0, 0, 0)
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="." unique_id=975549761]
+transform = Transform3D(1.2773366, 0, 0, 0, 1.8893056, 0, 0, 0, 0.6566652, -0.4639277, -2.0953436, 0.15832132)
+shape = SubResource("BoxShape3D_a63tl")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="." unique_id=1302430353]
+transform = Transform3D(1.2773366, 0, 0, 0, 1.8893056, 0, 0, 0, 0.6566652, 0.44670033, -2.185879, 0.21130663)
+shape = SubResource("BoxShape3D_a63tl")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1480659666]
+transform = Transform3D(3.3563025, 0, 0, 0, 1.9113982, 0, 0, 0, 2.998008, 0, 3.1137662, 0.21980858)
+shape = SubResource("BoxShape3D_1s6pg")
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="." unique_id=660181695]
+transform = Transform3D(3.3563578, 0, 0, 0, 1.9113995, 0, 0, 0, 2.998008, -0.01331456, 0.46134543, 0.18559057)
+shape = SubResource("BoxShape3D_x6dem")
+
+[node name="CollisionShape3D5" type="CollisionShape3D" parent="." unique_id=1777414276]
+transform = Transform3D(0.72064793, 0.6933012, 0, -0.6933012, 0.72064793, 0, 0, 0, 1, -1.6262298, 0.18181318, 0.13122559)
+shape = SubResource("BoxShape3D_4drvx")
+
+[node name="CollisionShape3D6" type="CollisionShape3D" parent="." unique_id=1872051198]
+transform = Transform3D(-0.72055113, -0.6934018, -8.742278e-08, -0.6934018, 0.72055113, 0, 6.2992584e-08, 6.0619115e-08, -1, 1.513377, 0.18181318, 0.06567383)
+shape = SubResource("BoxShape3D_4drvx")

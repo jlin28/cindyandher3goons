@@ -269,3 +269,11 @@ ASSETS
 joyceL -- 2026-05-17 00:47
 NPC
 * Created first npc model and placed into game
+
+joyceL -- 2026-05-17 22:17
+SNOWBALLS
+* Snowball now only moves when pushed by player (and when not on a floor)
+* Mesh instance slowly scales up when being pushed
+* WHAT IS BROKEN??
+  - Collision shape is not scaling up when mesh is (player clips into snowball and snowball clips into floor)
+    - When scaling up collision, player sometimes get stuck in the snowball and snowball eventually gets stuck in the floor

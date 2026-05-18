@@ -30,6 +30,33 @@ sky_material = SubResource("ShaderMaterial_i5arm")
 background_mode = 2
 sky = SubResource("Sky_wc5p8")
 
+[sub_resource type="Curve" id="Curve_eu483"]
+_data = [Vector2(0.015936255, 1), 0.0, 0.0, 0, 0, Vector2(0.90438247, 0.13260138), -1.5113069, -1.5113069, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_pum07"]
+curve = SubResource("Curve_eu483")
+
+[sub_resource type="Gradient" id="Gradient_yiuqw"]
+offsets = PackedFloat32Array(0.40444446, 0.6577778)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0.17254902)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_eh2cu"]
+gradient = SubResource("Gradient_yiuqw")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_fp1dq"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(500, 1, 1)
+gravity = Vector3(30, 98, 0)
+scale_max = 4.0
+color_ramp = SubResource("GradientTexture1D_eh2cu")
+alpha_curve = SubResource("CurveTexture_pum07")
+turbulence_enabled = true
+turbulence_noise_speed_random = 0.0
+turbulence_influence_min = 0.020000001
+turbulence_influence_max = 0.080000006
+
 [node name="Node3D" type="Node3D" unique_id=1689037102]
 script = ExtResource("1_7lhp4")
 
@@ -153,11 +180,26 @@ transform = Transform3D(-0.99077237, -0.011703679, 0.13503116, -0.011600935, 0.9
 [node name="fence25" parent="fences" unique_id=1823749148 instance=ExtResource("13_ppss0")]
 transform = Transform3D(-0.9908282, 0, 0.13512738, 0, 1, 0, -0.13512738, 0, -0.9908282, 180.97311, -14.030967, -74.64419)
 
-[node name="landscape-col" parent="." unique_id=13252416 instance=ExtResource("9_7lhp4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.092695236, 0.0181427, 1.4536648)
+[node name="landscape" parent="." unique_id=2118959507 instance=ExtResource("9_7lhp4")]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.030033588, -0.1080246, 1.4149761)
+
+[node name="StaticBody3D" parent="landscape/Landscape" parent_id_path=PackedInt32Array(2118959507, 111973863) index="0" unique_id=1427548147 groups=["floor"]]
+
+[node name="StaticBody3D2" parent="landscape/Landscape" parent_id_path=PackedInt32Array(2118959507, 111973863) index="1" unique_id=567208282 groups=["floor"]]
 
 [node name="npcs" type="Node3D" parent="." unique_id=1090715944]
 transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 1.2661138, -16.149754, 35.854744)
 
 [node name="NPC1" parent="npcs" unique_id=725019478 instance=ExtResource("15_eu483")]
 transform = Transform3D(1.4999998, 0, 0, 0, 1.4999998, 0, 0, 0, 1.4999998, -70.673325, 0.34555054, -64.2581)
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="." unique_id=786734225]
+position = Vector2(500, 3)
+scale = Vector2(2, 2)
+amount = 200
+lifetime = 10.0
+preprocess = 30.0
+process_material = SubResource("ParticleProcessMaterial_fp1dq")
+
+[editable path="landscape"]

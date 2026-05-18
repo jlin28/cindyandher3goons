@@ -1,15 +1,21 @@
 [gd_scene format=3 uid="uid://c774vxpvuvf7k"]
 
+[ext_resource type="Script" uid="uid://bolqcpxhfq5ws" path="res://gd/snowball.gd" id="1_ji0xw"]
+
 [sub_resource type="SphereShape3D" id="SphereShape3D_j0whi"]
 
 [sub_resource type="SphereMesh" id="SphereMesh_ji0xw"]
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_j0whi"]
+albedo_color = Color(0.95686275, 1, 1, 1)
+
 [node name="RigidBody3D" type="RigidBody3D" unique_id=489085763]
+linear_damp = 2.1
+script = ExtResource("1_ji0xw")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=978138933]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 shape = SubResource("SphereShape3D_j0whi")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=551565723]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 mesh = SubResource("SphereMesh_ji0xw")
+surface_material_override/0 = SubResource("StandardMaterial3D_j0whi")

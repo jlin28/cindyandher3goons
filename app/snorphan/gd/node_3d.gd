@@ -4,7 +4,7 @@ extends Node3D
 const Snowball:= preload("res://tscn/snowball.tscn")
 
 func _unhandled_input(event: InputEvent) -> void:
-	if Input.is_action_just_pressed("interact"):
+	if Input.is_action_just_pressed("interact") and player.is_on_floor():
 		# will set up interactable groups later, for now we make snowball
 		var snowball = Snowball.instantiate()
 		

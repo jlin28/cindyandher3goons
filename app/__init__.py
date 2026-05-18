@@ -36,7 +36,7 @@ c.execute("""CREATE TABLE IF NOT EXISTS item(
 c.execute("INSERT into item VALUES ('button', 'a circle to make your bestie feel dapper.', '', 3)")
 c.execute("INSERT into item VALUES ('carrot', 'an orange vegetable grown by an aspiring botanist.', '', 1)")
 c.execute("INSERT into item VALUES ('hat', 'a lid to make your bestie feel dapper.', '', 1)")
-c.execute("INSERT into item VALUES ('scarf', 'knitted by a village grandma. it's red and warm.', '', 1)")
+c.execute("INSERT into item VALUES ('scarf', 'knitted by a village grandma. it''s red and warm.', '', 1)")
 c.execute("INSERT into item VALUES ('snowball_S', 'a small bundle of joy.', '', 99)")
 c.execute("INSERT into item VALUES ('snowball_M', 'a bundle of joy.', '', 99)")
 c.execute("INSERT into item VALUES ('snowball_L', 'a big fat bundle of joy.', '', 99)")

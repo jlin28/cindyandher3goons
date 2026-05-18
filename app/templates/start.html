@@ -413,7 +413,11 @@ border-radius: 5px;
 
 const a = document.getElementById("yes");
 
+const b = document.getElementById("click");
+
 const sli = document.getElementById("kms2");
+const sli1 = document.getElementById("kms1");
+const sli2 = document.getElementById("kms");
 
 sli.addEventListener('mousedown', function(){
 	if(a.paused){
@@ -422,23 +426,31 @@ sli.addEventListener('mousedown', function(){
 });
 
 function cli(){
-    document.getElementById("click").play();
+    b.play();
 }
 function cli1(){
-    document.getElementById("click").play();
+    b.play();
 setTimeout(function(){window.location.href="game";},200)
 }
 function cli2(){
-    document.getElementById("click").play();
+    b.play();
 setTimeout(function(){window.location.href="credit";},200)
 }
 function cli3(){
-    document.getElementById("click").play();
+    b.play();
 setTimeout(function(){window.location.href="exit";},200)
 }
 
+sli2.addEventListener('input', (event) => {
+	a.volume = (event.target.value/100) * (sli.value/100);
+	b.volume = (event.target.value/100) * (sli1.value/100);
+});
+
 sli.addEventListener('input', (event) => {
-	a.volume = event.target.value/100;
+	a.volume = (event.target.value/100) * (sli2.value/100);
+});
+sli1.addEventListener('input', (event) => {
+	b.volume = (event.target.value/100) * (sli2.value/100);
 });
 
 

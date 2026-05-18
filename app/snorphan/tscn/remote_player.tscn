@@ -1,13 +1,59 @@
 [gd_scene format=3 uid="uid://bifhuaitnfy3p"]
 
-[sub_resource type="BoxMesh" id="BoxMesh_bu0v1"]
+[ext_resource type="PackedScene" uid="uid://pfjxshufor15" path="res://glb/characters/fox.glb" id="1_mj1cd"]
+[ext_resource type="PackedScene" uid="uid://dqtrb1h3t2qkr" path="res://tscn/walk_cycle.tscn" id="2_lb4qp"]
+[ext_resource type="PackedScene" uid="uid://bx4i8mfwdfxh8" path="res://tscn/sprint.tscn" id="3_qd0g7"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_iwpo4"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_a63tl"]
+size = Vector3(0.9288845, 1.6221123, 1.2651367)
 
-[node name="CharacterBody3D" type="CharacterBody3D" unique_id=966699921]
+[node name="remote_player" type="CharacterBody3D" unique_id=966699921]
+unique_name_in_owner = true
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 1.2661138, -16.149754, 35.854744)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=66231845]
-mesh = SubResource("BoxMesh_bu0v1")
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=296489695]
+transform = Transform3D(1.2773366, 0, 0, 0, 1.8893056, 0, 0, 0, 0.8585242, 0, 0, 0.20497404)
+shape = SubResource("BoxShape3D_a63tl")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=142855461]
-shape = SubResource("BoxShape3D_iwpo4")
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="." unique_id=2085069260]
+transform = Transform3D(1.039514, 0, 0, 0, 1.1288614, 0, 0, 0, 0.6566652, -0.38369215, -1.5246947, 0.20497404)
+shape = SubResource("BoxShape3D_a63tl")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="." unique_id=711995048]
+transform = Transform3D(0.99071604, 0, 0, 0, 1.170447, 0, 0, 0, 0.6566652, 0.37632167, -1.5246947, 0.20497404)
+shape = SubResource("BoxShape3D_a63tl")
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="." unique_id=807505594]
+transform = Transform3D(4.10831, 0, 0, 0, 2.6400967, 0, 0, 0, 2.7037213, 0.0054160357, 3.3210819, 0.20497404)
+shape = SubResource("BoxShape3D_a63tl")
+
+[node name="CollisionShape3D6" type="CollisionShape3D" parent="." unique_id=1698096152]
+transform = Transform3D(2.7084167, 0, 0, 0, 1.4469483, 0, 0, 0, 1.3477137, -0.87820673, 5.097495, 1.2072897)
+shape = SubResource("BoxShape3D_a63tl")
+
+[node name="CollisionShape3D7" type="CollisionShape3D" parent="." unique_id=65181083]
+transform = Transform3D(2.7084167, 0, 0, 0, 1.4469483, 0, 0, 0, 1.3477137, 0.9299016, 5.097495, 1.2072897)
+shape = SubResource("BoxShape3D_a63tl")
+
+[node name="fox" parent="." unique_id=831645704 instance=ExtResource("1_mj1cd")]
+unique_name_in_owner = true
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0)
+
+[node name="walk_cycle" parent="." unique_id=669228454 instance=ExtResource("2_lb4qp")]
+unique_name_in_owner = true
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0)
+visible = false
+
+[node name="sprint_cycle" parent="." unique_id=1211855713 instance=ExtResource("3_qd0g7")]
+unique_name_in_owner = true
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0)
+visible = false
+
+[node name="username" type="Label3D" parent="." unique_id=2016288181]
+transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, 0, 7, 0)
+pixel_size = 0.008
+billboard = 1
+text = "Player
+"
+font_size = 48
+outline_size = 8

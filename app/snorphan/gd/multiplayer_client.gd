@@ -2,6 +2,7 @@ extends Node
 
 @export var remote_player_scene: PackedScene
 @export var local_player: Node3D
+@export var username := "guest"
 
 #var server_url := "ws://127.0.0.1:3030/ws/game"
 var server_url := "wss://cindyandher3goons.me/ws/game"
@@ -19,6 +20,9 @@ var last_sent_rot_y = 0.0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	load_username()
+	set_local_username()
+	
 	var error = socket.connect_to_url(server_url)
 	if error != OK:
 		print("Could not connect to WebSocket server")
@@ -58,11 +62,40 @@ func _process(delta: float) -> void:
 			print("Disconnected!")
 			connected = false
 
+func load_username() -> void:
+	if OS.has_feature("web"):
+		var page_username = JavaScriptBridge.eval("window.parent.USERNAME", true)
+		if page_username != null:
+			username = str(page_username)
+
+# does this even belong here..!
+func set_local_username() -> void:
+	if local_player == null:
+		return
+	var label = local_player.get_node_or_null("username")
+	if label != null:
+		label.text = username
+
+func set_remote_username(player_id: String, username_text: String) -> void:
+	if not remote_players.has(player_id):
+		return
+		
+	var remote_player = remote_players[player_id]
+	var label = remote_player.get_node_or_null("username")
+	if label != null:
+		label.text = username_text
+
 func handle_msg(data):
 	var msg_type = data.get("type", "")
 
 	if msg_type == "assign_id":
 		my_id = str(data.get("id", ""))
+		send_username()
+		
+	elif msg_type == "player_name":
+		var player_id = str(data.get("id", ""))
+		var username_text = str(data.get("username", ""))
+		set_remote_username(player_id, username_text)
 
 	elif msg_type == "world_state":
 		for player_data in data.get("players", []):
@@ -78,6 +111,13 @@ func handle_msg(data):
 		var player_id = str(data.get("id", ""))
 		remove_remote_player(player_id)
 
+func send_username():
+	var data = {
+		"type": "set_username",
+		"username": username
+	}
+	socket.send_text(JSON.stringify(data))
+	
 func send_position():
 	var pos = local_player.global_position
 	var rot_y = local_player.global_rotation.y
@@ -116,6 +156,10 @@ func update_remote_player(data):
 		float(data.get("z", 0))
 	)
 	remote_player.global_rotation.y = float(data.get("ry", 0))
+	
+	var username_text = str(data.get("username", ""))
+	if username_text != "":
+		set_remote_username(player_id, username_text)
 
 func spawn_remote_player(player_id):
 	var remote_copy = remote_player_scene.instantiate()

@@ -240,7 +240,7 @@ ASSETS
 * set up sprinting and normal walking animation cycles
 * Completed main ui
 * implemented sprint
-* Imported main character model 
+* Imported main character model
 
 carrieK -- 2026-05-16 1:33
 HTMLJSCSS
@@ -277,3 +277,23 @@ SNOWBALLS
 * WHAT IS BROKEN??
   - Collision shape is not scaling up when mesh is (player clips into snowball and snowball clips into floor)
     - When scaling up collision, player sometimes get stuck in the snowball and snowball eventually gets stuck in the floor
+
+jiefengO -- 2026-05-17 02:28
+ALSO SNOWBALLS
+* lowkey wrote a bunch of code that ended up being obselete buttt
+* Stopped the scaling before the collision becomes noticible + ccd check
+* Pointer Lock error should be fixed on live domain
+
+joyceL's Rat -- 2026-05-18 02:36
+USERNAME DISPLAY
+* Connected Flask username to Godot using JavaScriptBridge and updated websocket msgs to send username data
+* Added Label3D username labels in Godot!
+* Modified remote player to use new fox model and label
+
+cindyL -- 2026-05-18 11:01
+* more tentative items added
+* tried to figure out structure of dialogue storage
+
+carrieK -- 2026-05-18 10:58
+SOUND
+* sound effects exist yay

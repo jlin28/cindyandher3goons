@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://dhwuwrgj0xoop"]
 
-[ext_resource type="Script" uid="uid://b6yjo386ho4ca" path="res://gd/node_3d.gd" id="1_7lhp4"]
+[ext_resource type="Script" uid="uid://b6spxjesfr4ti" path="res://gd/node_3d.gd" id="1_7lhp4"]
 [ext_resource type="PackedScene" uid="uid://6eok38y3bfyh" path="res://tscn/character_body_3d.tscn" id="1_a202f"]
-[ext_resource type="Script" uid="uid://bc57ope5deafr" path="res://gd/multiplayer_client.gd" id="3_r3fl7"]
+[ext_resource type="Script" uid="uid://jut82us73bwq" path="res://gd/multiplayer_client.gd" id="3_r3fl7"]
 [ext_resource type="PackedScene" uid="uid://bifhuaitnfy3p" path="res://tscn/remote_player.tscn" id="4_jka67"]
 [ext_resource type="Shader" uid="uid://cxjghkmx57hr4" path="res://node_3d.gdshader" id="5_jka67"]
 [ext_resource type="Texture2D" uid="uid://b0i2ljk60x3w7" path="res://static/citrus_orchard_road_puresky_4k.exr" id="6_i5arm"]
@@ -10,11 +10,12 @@
 [ext_resource type="Texture2D" uid="uid://c3f4752vwh53n" path="res://static/blue.webp" id="9_4arys"]
 [ext_resource type="PackedScene" uid="uid://cxo150m2m6bob" path="res://tscn/control.tscn" id="9_6iypd"]
 [ext_resource type="PackedScene" uid="uid://d552wf5u3x3a" path="res://glb/landscape-col.glb" id="9_7lhp4"]
-[ext_resource type="PackedScene" uid="uid://dk4wydotfxrj5" path="res://glb/architecture/house1.glb" id="10_oycpi"]
-[ext_resource type="PackedScene" uid="uid://bemhyaf0leh7h" path="res://glb/architecture/archhouse1.glb" id="12_y4xl3"]
-[ext_resource type="PackedScene" uid="uid://b2acd6oqhabr" path="res://glb/architecture/fence.glb" id="13_ppss0"]
-[ext_resource type="PackedScene" uid="uid://bt4w2wdmc86gt" path="res://glb/architecture/skinnyhouse1.glb" id="14_5rhs8"]
+[ext_resource type="PackedScene" uid="uid://c45q1qrt5rdxb" path="res://glb/architecture/house1.glb" id="10_oycpi"]
+[ext_resource type="PackedScene" uid="uid://eeckngvfa3lc" path="res://glb/architecture/archhouse1.glb" id="12_y4xl3"]
+[ext_resource type="PackedScene" uid="uid://b0mkv3rsjlu5s" path="res://glb/architecture/fence.glb" id="13_ppss0"]
+[ext_resource type="PackedScene" uid="uid://c4m8bct1d0d3s" path="res://glb/architecture/skinnyhouse1.glb" id="14_5rhs8"]
 [ext_resource type="PackedScene" uid="uid://2lnq4kvnv37b" path="res://tscn/npc_1.tscn" id="15_eu483"]
+[ext_resource type="Script" uid="uid://dqhsobhw8b7ms" path="res://tscn/npc.gd" id="16_pum07"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_i5arm"]
 shader = ExtResource("5_jka67")
@@ -62,7 +63,16 @@ script = ExtResource("1_7lhp4")
 
 [node name="player" parent="." unique_id=966699921 groups=["player"] instance=ExtResource("1_a202f")]
 unique_name_in_owner = true
-transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 1.2661138, -16.149754, 35.854744)
+transform = Transform3D(0.29999998, 0, 0, 0, 0.2999927, -0.002089142, 0, 0.002089142, 0.2999927, 1.2661138, -16.149754, 35.854744)
+
+[node name="username" type="Label3D" parent="player" unique_id=2058100187]
+transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, 0, 7, 0)
+pixel_size = 0.008
+billboard = 1
+text = "Player
+"
+font_size = 48
+outline_size = 8
 
 [node name="MultiplayerClient" type="Node" parent="." unique_id=430003472 node_paths=PackedStringArray("local_player")]
 script = ExtResource("3_r3fl7")
@@ -72,9 +82,9 @@ local_player = NodePath("../player")
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1541247748]
 environment = SubResource("Environment_jsk3o")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=614408343]
+[node name="main" type="CanvasLayer" parent="." unique_id=614408343]
 
-[node name="Control" parent="CanvasLayer" unique_id=1355566499 instance=ExtResource("9_6iypd")]
+[node name="Control" parent="main" unique_id=1355566499 instance=ExtResource("9_6iypd")]
 mouse_filter = 1
 
 [node name="buildings" type="Node3D" parent="." unique_id=1568504284]
@@ -184,15 +194,14 @@ transform = Transform3D(-0.9908282, 0, 0.13512738, 0, 1, 0, -0.13512738, 0, -0.9
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.030033588, -0.1080246, 1.4149761)
 
-[node name="StaticBody3D" parent="landscape/Landscape" parent_id_path=PackedInt32Array(2118959507, 845164961) index="0" unique_id=1821667772 groups=["floor"]]
-
-[node name="StaticBody3D2" parent="landscape/Landscape" parent_id_path=PackedInt32Array(2118959507, 845164961) index="1" unique_id=804776040 groups=["floor"]]
+[node name="StaticBody3D" parent="landscape/Landscape" parent_id_path=PackedInt32Array(2118959507, 1821258597) index="0" unique_id=1986833620 groups=["floor"]]
 
 [node name="npcs" type="Node3D" parent="." unique_id=1090715944]
 transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 1.2661138, -16.149754, 35.854744)
 
 [node name="NPC1" parent="npcs" unique_id=725019478 instance=ExtResource("15_eu483")]
 transform = Transform3D(1.4999998, 0, 0, 0, 1.4999998, 0, 0, 0, 1.4999998, -70.673325, 0.34555054, -64.2581)
+script = ExtResource("16_pum07")
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="." unique_id=786734225]
 position = Vector2(500, 3)

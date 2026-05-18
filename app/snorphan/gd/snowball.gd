@@ -15,9 +15,9 @@ func _physics_process(delta: float) -> void:
 	# snowball grows when moving on ground but grows less the larger it gets
 	# scale limit is disabled for now because big balls are cool
 	var growth_speed := linear_velocity.length() / 15
-	#const max_scale := 15
+	const max_scale := 15
 	
-	var can_grow := true #scale.length() < max_scale
+	var can_grow := scale.length() < max_scale
 	var is_on_ground := get_contact_count() > 0
 	
 	var space_state = get_world_3d().direct_space_state
@@ -41,6 +41,7 @@ func _physics_process(delta: float) -> void:
 	if pushed and direction != Vector3.ZERO:
 		direction = direction.normalized()
 		apply_central_force(-direction * 13 * mesh.scale.x)
+		print(direction)
 	elif is_on_ground:
 		freeze = true
 	

@@ -24,7 +24,10 @@ func _unhandled_input(event: InputEvent) -> void:
 		facing = rotation
 	
 	elif Input.is_action_pressed("mouse_mode"):
+		print("Esc Pressed")
 		if Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
 			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+			print("cam_pivot: captured -> visible")
 		else:
 			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+			print("cam_pivot: visible -> captured")

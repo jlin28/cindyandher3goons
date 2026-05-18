@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://2lnq4kvnv37b"]
 
-[ext_resource type="PackedScene" uid="uid://dm682h51w5ux7" path="res://glb/characters/seal.glb" id="1_qhh3q"]
+[ext_resource type="Script" uid="uid://dqhsobhw8b7ms" path="res://tscn/npc.gd" id="1_1s6pg"]
+[ext_resource type="PackedScene" uid="uid://63ilwbaxwr4v" path="res://glb/characters/seal.glb" id="1_qhh3q"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_a63tl"]
 size = Vector3(0.9288845, 1.5340431, 1.2844238)
@@ -15,6 +16,7 @@ size = Vector3(0.61657715, 1, 0.48449707)
 size = Vector3(1, 2.3769531, 0.6062012)
 
 [node name="NPC1" type="CharacterBody3D" unique_id=725019478]
+script = ExtResource("1_1s6pg")
 
 [node name="seal" parent="." unique_id=1244435354 instance=ExtResource("1_qhh3q")]
 transform = Transform3D(3.0460532, 0, 0, 0, 3.0460532, 0, 0, 0, 3.0460532, 0, 0, 0)

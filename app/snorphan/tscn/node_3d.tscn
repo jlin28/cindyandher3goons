@@ -60,7 +60,7 @@ turbulence_influence_max = 0.080000006
 [node name="Node3D" type="Node3D" unique_id=1689037102]
 script = ExtResource("1_7lhp4")
 
-[node name="player" parent="." unique_id=966699921 instance=ExtResource("1_a202f")]
+[node name="player" parent="." unique_id=966699921 groups=["player"] instance=ExtResource("1_a202f")]
 unique_name_in_owner = true
 transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 1.2661138, -16.149754, 35.854744)
 
@@ -184,9 +184,9 @@ transform = Transform3D(-0.9908282, 0, 0.13512738, 0, 1, 0, -0.13512738, 0, -0.9
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.030033588, -0.1080246, 1.4149761)
 
-[node name="StaticBody3D" parent="landscape/Landscape" parent_id_path=PackedInt32Array(2118959507, 111973863) index="0" unique_id=1427548147 groups=["floor"]]
+[node name="StaticBody3D" parent="landscape/Landscape" parent_id_path=PackedInt32Array(2118959507, 845164961) index="0" unique_id=1821667772 groups=["floor"]]
 
-[node name="StaticBody3D2" parent="landscape/Landscape" parent_id_path=PackedInt32Array(2118959507, 111973863) index="1" unique_id=567208282 groups=["floor"]]
+[node name="StaticBody3D2" parent="landscape/Landscape" parent_id_path=PackedInt32Array(2118959507, 845164961) index="1" unique_id=804776040 groups=["floor"]]
 
 [node name="npcs" type="Node3D" parent="." unique_id=1090715944]
 transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 1.2661138, -16.149754, 35.854744)

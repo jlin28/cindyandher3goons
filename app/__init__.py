@@ -8,14 +8,70 @@ app.secret_key = "cindy"
 DB_FILE="database.db"
 db = sqlite3.connect(DB_FILE, check_same_thread=False)
 c = db.cursor()
-c.execute("CREATE TABLE IF NOT EXISTS user(username TEXT, password TEXT, hp INTEGER NOT NULL, stamina INTEGER NOT NULL, item1 TEXT, item2 TEXT, item3 TEXT, item4 TEXT, item5 TEXT, item6 TEXT, item1Count INTEGER, item2Count INTEGER, item3Count INTEGER, item4Count INTEGER, item5Count INTEGER, item6Count INTEGER);")
-c.execute("CREATE TABLE IF NOT EXISTS item(name TEXT, desc TEXT NOT NULL, image TEXT NOT NULL, maxCount INTEGER NOT NULL)")
-c.execute("INSERT into item VALUES ('carrot', 'an orange vegetable', '', 1)")
-c.execute("INSERT into item VALUES ('button', 'a circle to make your bestie dapper', '', 3)")
-c.execute("INSERT into item VALUES ('snowball', 'a bundle of joy', '', 99)")
-c.execute("CREATE TABLE IF NOT EXISTS encyclopedia(item TEXT, userThatFound TEXT)")
-c.execute("CREATE TABLE IF NOT EXISTS npc(name TEXT, dialogue TEXT NOT NULL, completedQuestUsers TEXT)")
+c.execute("""CREATE TABLE IF NOT EXISTS user(
+    username TEXT,
+    password TEXT,
+    hp INTEGER NOT NULL,
+    stamina INTEGER NOT NULL,
+    item1 TEXT,
+    item2 TEXT,
+    item3 TEXT,
+    item4 TEXT,
+    item5 TEXT,
+    item6 TEXT,
+    item1Count INTEGER,
+    item2Count INTEGER,
+    item3Count INTEGER,
+    item4Count INTEGER,
+    item5Count INTEGER,
+    item6Count INTEGER);
+    """)
+
+c.execute("""CREATE TABLE IF NOT EXISTS item(
+    name TEXT,
+    desc TEXT NOT NULL,
+    image TEXT NOT NULL,
+    maxCount INTEGER NOT NULL);
+    """)
+c.execute("INSERT into item VALUES ('button', 'a circle to make your bestie feel dapper.', '', 3)")
+c.execute("INSERT into item VALUES ('carrot', 'an orange vegetable grown by an aspiring botanist.', '', 1)")
+c.execute("INSERT into item VALUES ('hat', 'a lid to make your bestie feel dapper.', '', 1)")
+c.execute("INSERT into item VALUES ('scarf', 'knitted by a village grandma. it's red and warm.', '', 1)")
+c.execute("INSERT into item VALUES ('snowball_S', 'a small bundle of joy.', '', 99)")
+c.execute("INSERT into item VALUES ('snowball_M', 'a bundle of joy.', '', 99)")
+c.execute("INSERT into item VALUES ('snowball_L', 'a big fat bundle of joy.', '', 99)")
+
+c.execute("""CREATE TABLE IF NOT EXISTS encyclopedia(
+    item TEXT,
+    userThatFound TEXT);
+    """)
+
+c.execute("""CREATE TABLE IF NOT EXISTS npc(
+    name TEXT,
+    dialogue TEXT NOT NULL,
+    completedQuestUsers TEXT);
+    """)
+c.execute("INSERT into npc VALUES ('village grandma', '', '')")
+db.commit()
 db.close()
+
+'''
+DICTIONARY "dialogue":
+    key: STRING "npc_name"; value: DICTIONARY "npc_name_dialogue"
+
+DICTIONARY "npc_name_dialogue"
+    key: STRING "conversation_number"; value: LIST "conversation"
+
+LIST "conversation"
+    [
+        npc_name_lines,
+        player_lines
+    ]
+
+DICTIONARY "npc_name_lines"
+
+?? lost the plot
+'''
 
 @app.route("/", methods=["GET", "POST"])
 def start():

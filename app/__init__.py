@@ -55,23 +55,30 @@ c.execute("INSERT into npc VALUES ('village grandma', '', '')")
 db.commit()
 db.close()
 
-'''
-DICTIONARY "dialogue":
-    key: STRING "npc_name"; value: DICTIONARY "npc_name_dialogue"
-
-DICTIONARY "npc_name_dialogue"
-    key: STRING "conversation_number"; value: LIST "conversation"
-
-LIST "conversation"
-    [
-        npc_name_lines,
-        player_lines
-    ]
-
-DICTIONARY "npc_name_lines"
-
-?? lost the plot
-'''
+npc_dialogue = {
+    "Sealius": {
+        'A': {
+            'dialogue': 'hey wazzup',
+            'dialogue_options': {
+                'who tf r u': 'B',
+                'hi': 'C',
+                '...': 'D'
+            }
+        },
+        'B': {
+            'dialogue': 'ok rude',
+            'dialogue_options': {}
+        },
+        'C': {
+            'dialogue': 'hihihiehe',
+            'dialogue_options': {}
+        },
+        'D': {
+            'dialogue': '...',
+            'dialogue_options': {}
+        }
+    }
+}
 
 @app.route("/", methods=["GET", "POST"])
 def start():

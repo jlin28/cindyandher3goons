@@ -86,12 +86,13 @@ filter: blur(4px);
 			<br> 
 			<h2>Password:</h2>
 			<input class="a"  type="password" name="password" required>
-			<br> <br> <button class="b" type="submit">Register</button>
+			<br> <br> <button class="b" onclick="cli1()" type="submit">Register</button>
 		</form>
 		{{text}}
+<audio id="click" src="/static/click.mp3"> </audio>
 <div>
             <p style="font-size: 110%; color: white;"> If you already have an account, click the button below to login. </p>
-            <a href="{{url_for('login')}}"> <button class="b">login</button> </a>
+            <button class="b" onclick="cli()">login</button>
          </div>
 		<script>
       const socket = new WebSocket('wss://cindyandher3goons.me/ws/register');
@@ -105,6 +106,15 @@ filter: blur(4px);
 
         console.log(data);
       }
+
+const a = document.getElementById("click");
+function cli(){
+    a.play();
+setTimeout(function(){window.location.href="login";},200)
+}
+function cli1(){
+    a.play();
+}
 		</script>
 	</body>
 

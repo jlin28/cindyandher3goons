@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dqhsobhw8b7ms" path="res://tscn/npc.gd" id="1_1s6pg"]
 [ext_resource type="PackedScene" uid="uid://63ilwbaxwr4v" path="res://glb/characters/seal.glb" id="1_qhh3q"]
+[ext_resource type="FontFile" uid="uid://pmi7qj0fh53v" path="res://static/PeaberryDoublespace.ttf" id="3_x6dem"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_a63tl"]
 size = Vector3(0.9288845, 1.5340431, 1.2844238)
@@ -48,12 +49,24 @@ shape = SubResource("BoxShape3D_4drvx")
 transform = Transform3D(-0.72055113, -0.6934018, -8.742278e-08, -0.6934018, 0.72055113, 0, 6.2992584e-08, 6.0619115e-08, -1, 1.513377, 0.18181318, 0.06567383)
 shape = SubResource("BoxShape3D_4drvx")
 
-[node name="Label3D" type="Label3D" parent="." unique_id=1084198283]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1.0116583, 0.048265696, 5.4558706, 0.10840124)
+[node name="Node3D" type="Node3D" parent="." unique_id=907478253]
 visible = false
+
+[node name="name" type="Label3D" parent="Node3D" unique_id=1813155553]
+transform = Transform3D(1, 0, -2.842171e-14, 0, 1, 7.1054274e-15, 0, 0, 1.0116583, 0.048265696, 5.9803033, 0.10840124)
+billboard = 2
+modulate = Color(0.5830141, 0.43512022, 0.32294494, 1)
+text = "Sealius
+"
+font = ExtResource("3_x6dem")
+font_size = 120
+
+[node name="Label3D" type="Label3D" parent="Node3D" unique_id=1084198283]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1.0116583, 0.048265696, 5.4558706, 0.10840124)
 billboard = 2
 modulate = Color(0.8561763, 0.7199919, 0.62328076, 1)
 text = "[e] to interact"
+font = ExtResource("3_x6dem")
 font_size = 100
 
 [node name="Area3D" type="Area3D" parent="." unique_id=491361706]

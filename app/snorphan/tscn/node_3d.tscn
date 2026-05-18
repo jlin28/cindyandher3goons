@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://b6yjo386ho4ca" path="res://gd/node_3d.gd" id="1_7lhp4"]
 [ext_resource type="PackedScene" uid="uid://6eok38y3bfyh" path="res://tscn/character_body_3d.tscn" id="1_a202f"]
+[ext_resource type="FontFile" uid="uid://pmi7qj0fh53v" path="res://static/PeaberryDoublespace.ttf" id="3_pum07"]
 [ext_resource type="Script" uid="uid://bc57ope5deafr" path="res://gd/multiplayer_client.gd" id="3_r3fl7"]
 [ext_resource type="PackedScene" uid="uid://bifhuaitnfy3p" path="res://tscn/remote_player.tscn" id="4_jka67"]
 [ext_resource type="Shader" uid="uid://cxjghkmx57hr4" path="res://node_3d.gdshader" id="5_jka67"]
@@ -70,6 +71,7 @@ pixel_size = 0.008
 billboard = 1
 text = "Player
 "
+font = ExtResource("3_pum07")
 font_size = 48
 outline_size = 8
 

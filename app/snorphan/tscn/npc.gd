@@ -1,6 +1,6 @@
 extends CharacterBody3D
 
-@onready var interactable_notification := $Label3D
+@onready var interactable_notification := $Node3D
 @onready var interactable_area := $Area3D
 
 func _ready() -> void:

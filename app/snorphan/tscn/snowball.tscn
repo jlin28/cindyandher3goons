@@ -1,10 +1,16 @@
 [gd_scene format=3 uid="uid://c774vxpvuvf7k"]
 
+[ext_resource type="Script" uid="uid://dnf85w52ddqwv" path="res://gd/snowball.gd" id="1_ji0xw"]
+
 [sub_resource type="SphereShape3D" id="SphereShape3D_j0whi"]
 
-[sub_resource type="SphereMesh" id="SphereMesh_ji0xw"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ji0xw"]
 
-[node name="RigidBody3D" type="RigidBody3D" unique_id=489085763]
+[sub_resource type="SphereMesh" id="SphereMesh_ji0xw"]
+material = SubResource("StandardMaterial3D_ji0xw")
+
+[node name="Snowball" type="RigidBody3D" unique_id=489085763]
+script = ExtResource("1_ji0xw")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=978138933]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)

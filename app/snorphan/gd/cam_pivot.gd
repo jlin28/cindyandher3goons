@@ -4,11 +4,16 @@ extends Node3D
 @export var facing = Vector3.ZERO
 
 func _ready() -> void:
-	# makes mouse invisible
-	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	# mouse starts off visible
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 
 # unhandled inputs are basically whatever isnt handled (like what the name suggests)
 func _unhandled_input(event: InputEvent) -> void:
+	# should maybe fix the browser's NotAllowedError
+	if event is InputEventMouseButton and event.pressed:
+		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+		print("cam_pivot.gd: Captured")
+
 	if event is InputEventMouseMotion:
 		# for some reason relative's x and y are flipped and mouse has no access to global axes sigh
 		rotation.y -= event.relative.x * mouse_sensitivity

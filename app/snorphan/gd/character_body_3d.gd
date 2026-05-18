@@ -55,6 +55,13 @@ func _physics_process(delta):
 	
 	move_and_slide()
 	
+	# For all (?) collisions
+	for i in range(get_slide_collision_count()):
+		var body = get_slide_collision(i).get_collider()
+		# For snowball collisions 
+		if body is Snowball:
+			body.apply_central_impulse(Vector3(velocity.x, 0, velocity.z).normalized())
+	
 func _process(delta: float) -> void:
 	if Input.is_action_pressed("move_right") or Input.is_action_pressed("move_left") or Input.is_action_pressed("move_forward") or Input.is_action_pressed("move_back"):
 		idle.visible = false

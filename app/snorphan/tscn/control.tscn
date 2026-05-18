@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://s34gaogg8s4i" path="res://gd/close_quests.gd" id="2_2mfya"]
 [ext_resource type="FontFile" uid="uid://pmi7qj0fh53v" path="res://static/PeaberryDoublespace.ttf" id="2_y35ns"]
 [ext_resource type="Script" uid="uid://dye1tiypsaay6" path="res://gd/open_quests.gd" id="4_6yxn8"]
+[ext_resource type="Script" uid="uid://d3ss06331ic7q" path="res://tscn/dialogue.gd" id="5_6mujo"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_2mfya"]
 texture = ExtResource("1_vpxtf")
@@ -337,6 +338,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/margin_bottom = 35
+script = ExtResource("5_6mujo")
 
 [node name="MarginContainer" type="MarginContainer" parent="dialogue" unique_id=2019477392]
 layout_mode = 2
@@ -364,6 +366,7 @@ theme_override_constants/margin_bottom = 10
 layout_mode = 2
 
 [node name="name" type="Label" parent="dialogue/MarginContainer/MarginContainer/VBoxContainer" unique_id=495972702]
+unique_name_in_owner = true
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 0.87916666, 0.75, 1)
 theme_override_colors/font_outline_color = Color(0.53, 0.46083498, 0.38689998, 1)

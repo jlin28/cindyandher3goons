@@ -30,7 +30,13 @@ func _process(delta: float) -> void:
 func _on_entered(body):
 	if body.is_in_group('player'):
 		interactable_notification.visible = true
+		body.npc_interactable = true
+		
+		body.current_interactable_npc = name
 
 func _on_exit(body):
 	if body.is_in_group('player'):
 		interactable_notification.visible = false
+		body.npc_interactable = false
+		
+		body.current_interactable_npc = null

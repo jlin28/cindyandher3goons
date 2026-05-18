@@ -259,23 +259,23 @@ border-radius: 5px;
         <h1 class="center"><span class="t">s</span><span class="t">n</span><span class="t">o</span><span class="t">r</span><span class="t">p</span><span class="t">h</span><span class="t">a</span><span class="t">n</span></h1>
 <br>
 <div class="center2" style="line-height: 0.5;">
-         <a href = "{{url_for('login')}}"> <button class="button">&lt; start &gt;</button> </a>
+         <button class="button" onclick="cli1()">&lt; start &gt;</button>
         <br>
- <button class="button" onclick="show()">&lt; options &gt;</button>
+ <button class="button" onclick="cli(); show()">&lt; options &gt;</button>
 <br>
-<a href = "{{url_for('credit')}}"><button class="button">&lt; credits &gt;</button></a>
+<button class="button" onclick="cli2();">&lt; credits &gt;</button>
 <br>
-<a href = "{{url_for('exit')}}"><button class="button">&lt; exit game &gt;</button></a>
+<button class="button" onclick="cli3();">&lt; exit game &gt;</button>
       </div>
 <div id="help">
 <img src="/static/snowflake.png" style="width: 100px; height: 100px; opacity: 0.7; filter: invert(100%);">
 </div>
 <div class="menu" id="menu">
     <div style="margin-left: 2vw; margin-top: 2vh; display: inline-block; font-size: 300%; margin-right: 41vw;">options</div>
-<div class="exit" onclick="hide()">&lt; exit &gt;</div>
-<div class="whatamidoing" id="sound" onclick="pSound()">sound</div>
-<div class="whatamidoing" id="graphics" onclick="pGraphics()">graphics</div>
-<div class="whatamidoing" id="cats" onclick="pCats()">cats</div>
+<div class="exit" onclick="cli(); hide();">&lt; exit &gt;</div>
+<div class="whatamidoing" id="sound" onclick="cli(); pSound()">sound</div>
+<div class="whatamidoing" id="graphics" onclick="cli(); pGraphics()">graphics</div>
+<div class="whatamidoing" id="cats" onclick="cli(); pCats()">cats</div>
 <br>
 <div class="umm" id="ssound">
 <div class="bleh">
@@ -283,7 +283,7 @@ border-radius: 5px;
 <span class="bro">
 <div class = "why" id="why"></div>
 <div class="slide">
-  <input type="range" min="0" max="100" value="50" class="slider" id="kms">
+  <input type="range" min="0" max="100" value="50" class="slider" id="kms" onmousedown="cli();">
 </div>
 </span>
 </div>
@@ -292,7 +292,7 @@ border-radius: 5px;
 <span class="bro">
 <div class = "why" id="why1"></div>
 <div class="slide">
-  <input type="range" min="0" max="100" value="50" class="slider" id="kms1">
+  <input type="range" min="0" max="100" value="50" class="slider" id="kms1" onmousedown="cli();">
 </div>
 </span>
 </div>
@@ -304,7 +304,7 @@ border-radius: 5px;
 <span class="bro">
 <div class = "why" id="why2"></div>
 <div class="slide">
-  <input type="range" onclick="sou()" min="0" max="100" value="0" class="slider" id="kms2">
+  <input type="range" onclick="sou()" min="0" max="100" value="0" class="slider" id="kms2" onmousedown="cli();">
 </div>
 </span>
 </div>
@@ -320,7 +320,7 @@ border-radius: 5px;
 <div class = "why" style="width: 75px;">day</div>
 <span class="flick">
 <label class="switch">
-  <input type="checkbox">
+  <input type="checkbox" onclick="cli();">
   <span class="slider1"></span>
 </label>
 </span>
@@ -334,7 +334,7 @@ border-radius: 5px;
 <span class="bro">
 <div class = "why" id="why3"></div>
 <div class="slide">
-  <input type="range" min="0" max="100" value="50" class="slider" id="kms3">
+  <input type="range" min="0" max="100" value="50" class="slider" id="kms3" onmousedown="cli();">
 </div>
 </span>
 </div>
@@ -397,6 +397,7 @@ border-radius: 5px;
 
 </div>
 <audio loop id="yes" src="/static/bgm.mp3"> </audio>
+<audio id="click" src="/static/click.mp3"> </audio>
 		<script>
 			const socket = new WebSocket('wss://cindyandher3goons.me/ws/start');
 
@@ -419,6 +420,22 @@ sli.addEventListener('mousedown', function(){
 		a.play();
 	}
 });
+
+function cli(){
+    document.getElementById("click").play();
+}
+function cli1(){
+    document.getElementById("click").play();
+setTimeout(function(){window.location.href="game";},200)
+}
+function cli2(){
+    document.getElementById("click").play();
+setTimeout(function(){window.location.href="credit";},200)
+}
+function cli3(){
+    document.getElementById("click").play();
+setTimeout(function(){window.location.href="exit";},200)
+}
 
 sli.addEventListener('input', (event) => {
 	a.volume = event.target.value/100;

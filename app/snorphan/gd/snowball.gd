@@ -27,23 +27,31 @@ func _physics_process(delta: float) -> void:
 	var pushed = false
 	
 	var direction = Vector3.ZERO
-	for i in range(8):
-		var angle = i * (PI * 2.0 / 8)
-		var target_direction = Vector3(sin(angle), 0, cos(angle)).normalized()
-		var push_query = PhysicsRayQueryParameters3D.create(origin, origin + target_direction*1.2)
-		push_query.exclude = [self]
-		
-		var push_result = space_state.intersect_ray(push_query)
-		if push_result:
-			direction += target_direction
+	for i in range(15):
+		var angle = i * (PI * 2.0 / 15)
+		var horizontal_target_direction = Vector3(sin(angle), 0, cos(angle)).normalized()
+		var vertical_target_direction = Vector3(sin(angle), tan(angle), cos(angle)).normalized()
+
+		var horizontal_query = PhysicsRayQueryParameters3D.create(origin, origin + horizontal_target_direction *5)
+		var vertical_query = PhysicsRayQueryParameters3D.create(origin, origin + vertical_target_direction * 5)
+		horizontal_query.exclude = [self]
+		vertical_query.exclude = [self]
+
+		var horizontal_result = space_state.intersect_ray(horizontal_query)
+		var vertical_result = space_state.intersect_ray(vertical_query)
+
+		if (!horizontal_result.is_empty() and horizontal_result.collider.is_in_group('player')) or (!vertical_result.is_empty() and vertical_result.collider.is_in_group('player')):
+			direction += horizontal_target_direction
 			if !pushed: pushed = true
 		
 	if pushed and direction != Vector3.ZERO:
 		direction = direction.normalized()
 		apply_central_force(-direction * 13 * mesh.scale.x)
 		print(direction)
+		
+		if can_grow and is_on_ground:
+			scale += Vector3(1,1,1) * growth_speed * delta
+			position.y += growth_speed * delta
 	elif is_on_ground:
 		freeze = true
 	
-	if can_grow and is_on_ground:
-		scale += Vector3(1,1,1) * growth_speed * delta

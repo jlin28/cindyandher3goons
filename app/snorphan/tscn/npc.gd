@@ -10,7 +10,7 @@ func _process(delta: float) -> void:
 		var horizontal_target_direction = Vector3(sin(angle), 0, cos(angle)).normalized()
 		var vertical_target_direction = Vector3(sin(angle), tan(angle), cos(angle)).normalized()
 
-		var horizontal_query = PhysicsRayQueryParameters3D.create(origin, origin + horizontal_target_direction *5 )
+		var horizontal_query = PhysicsRayQueryParameters3D.create(origin, origin + horizontal_target_direction *5)
 		var vertical_query = PhysicsRayQueryParameters3D.create(origin, origin + vertical_target_direction * 5)
 		horizontal_query.exclude = [self]
 		vertical_query.exclude = [self]

@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://c774vxpvuvf7k"]
 
-[ext_resource type="Script" uid="uid://7t3qgprts6ob" path="res://gd/snowball.gd" id="1_ji0xw"]
+[ext_resource type="Script" uid="uid://bolqcpxhfq5ws" path="res://gd/snowball.gd" id="1_ji0xw"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_j0whi"]
 

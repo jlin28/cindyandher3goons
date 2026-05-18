@@ -289,3 +289,8 @@ USERNAME DISPLAY
 * Connected Flask username to Godot using JavaScriptBridge and updated websocket msgs to send username data
 * Added Label3D username labels in Godot! 
 * Modified remote player to use new fox model and label
+
+
+carrieK -- 2026-05-18 10:58
+SOUND
+* sound effects exist yay

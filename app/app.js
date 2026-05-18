@@ -13,6 +13,7 @@ ws.on('error', console.error);
 ws.on('connection', function connect(client, req) {
   console.log("client has connected");
   client.id = genID();
+  client.username = "guest";
   client.route = req.url.replace('/ws/','');
 
   client.x = 0;
@@ -26,7 +27,8 @@ ws.on('connection', function connect(client, req) {
   send(client, {
     type: "assign_id",
     id: client.id,
-    route: client.route
+    route: client.route,
+    username: client.username
   });
 
   send(client, {
@@ -37,6 +39,7 @@ ws.on('connection', function connect(client, req) {
   broadcast({
     type: "player_joined",
     id: client.id,
+    username: client.username,
     x: client.x,
     y: client.y,
     z: client.z,
@@ -54,6 +57,18 @@ ws.on('connection', function connect(client, req) {
 
     if (data.type !== "position") {
       console.log("Received:", data);
+    }
+
+    if (data.type === "set_username") {
+      client.username = String(data.username);
+
+      broadcast({
+        type: "player_name",
+        id: client.id,
+        username: client.username
+      }, client);
+
+      return;
     }
 
     if (data.type === "position") {
@@ -123,6 +138,7 @@ function getOtherPlayers(currentClient) {
     if (client !== currentClient && client.readyState === WebSocket.OPEN && client.id) {
       players.push({
         id: client.id,
+        username: client.username,
         x: client.x || 0,
         y: client.y || 0,
         z: client.z || 0,

@@ -38,7 +38,7 @@ def login():
         if user_data:
             if password == user_data[1]:
                 session["username"] = username
-                return render_template('game.html')
+                return redirect(url_for("game"))
             else:
                 text = 'login failed'
                 return render_template('login.html', text=text)
@@ -71,12 +71,15 @@ def register():
             db.commit()
             db.close()
             session['username'] = username
-            return render_template('game.html')
+            return redirect(url_for("game"))
     return render_template('register.html', text=text)
 
 @app.route("/game", methods=["GET", "POST"])
 def game():
-    return render_template('game.html')
+    if "username" not in session:
+        return redirect(url_for("login"))
+
+    return render_template('game.html', username=session['username'])
 
 @app.route("/exit", methods=["GET", "POST"])
 def exit():

@@ -278,6 +278,12 @@ SNOWBALLS
   - Collision shape is not scaling up when mesh is (player clips into snowball and snowball clips into floor)
     - When scaling up collision, player sometimes get stuck in the snowball and snowball eventually gets stuck in the floor
 
+jiefengO -- 2026-05-17 02:28
+ALSO SNOWBALLS
+* lowkey wrote a bunch of code that ended up being obselete buttt
+* Stopped the scaling before the collision becomes noticible + ccd check
+* Pointer Lock error should be fixed on live domain
+
 joyceL's Rat -- 2026-05-18 02:36
 USERNAME DISPLAY
 * Connected Flask username to Godot using JavaScriptBridge and updated websocket msgs to send username data

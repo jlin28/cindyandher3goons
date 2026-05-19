@@ -88,12 +88,14 @@ ws.on('connection', function connect(client, req) {
     }
 
     if (data.type === "dialogue") {
+      console.log('i gott here');
       let res = await fetch("https://cindyandher3goons.me/" + client.route, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json'},
         body: JSON.stringify({ type: "dialogue", npc: data.npc })
       });
 
+      console.log(res)
       let dg = await res.json()
       send(
         client, {

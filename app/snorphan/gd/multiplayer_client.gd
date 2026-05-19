@@ -1,5 +1,7 @@
 extends Node
 
+@onready var dialogue_cont := get_tree().get_first_node_in_group('dialogue')
+
 @export var remote_player_scene: PackedScene
 @export var local_player: Node3D
 @export var username := "guest"
@@ -7,7 +9,6 @@ extends Node
 #var server_url := "ws://127.0.0.1:3030/ws/game"
 var server_url := "wss://cindyandher3goons.me/ws/game"
 
-signal dialogue_returned(dg)
 var socket := WebSocketPeer.new()
 var connected := false
 
@@ -45,7 +46,7 @@ func _process(delta: float) -> void:
 			print("From server: ", packet)
 
 			var data = JSON.parse_string(packet) # convert json from node into godot dict
-
+			
 			# ignore non-JSON msgs
 			if typeof(data) != TYPE_DICTIONARY:
 				continue
@@ -114,7 +115,7 @@ func handle_msg(data):
 	
 	elif msg_type == "dialogue":
 		print(data)
-		emit_signal("dialogue_returned", data)
+		send_dialogue(data)
 
 func send_username():
 	var data = {
@@ -187,7 +188,6 @@ func retrieve_dialogue(npc):
 	
 	print('i am here')
 	socket.send_text(JSON.stringify(data))
-	var dg = await dialogue_returned
-	print('i returned')
-	print(dg)
-	return(dg)
+	
+func send_dialogue(data):
+	dialogue_cont.apply_dialogue(data)

@@ -329,7 +329,7 @@ text = "quests"
 horizontal_alignment = 1
 uppercase = true
 
-[node name="dialogue" type="MarginContainer" parent="." unique_id=317398461]
+[node name="dialogue" type="MarginContainer" parent="." unique_id=317398461 groups=["dialogue"]]
 visible = false
 layout_mode = 1
 anchors_preset = 15

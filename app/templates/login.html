@@ -94,6 +94,7 @@ filter: blur(4px);
             <button class="b" onclick="cli()">Register</button>
          </div>
 <audio id="click" src="/static/click.mp3"> </audio>
+<audio loop id="yes" src="/static/bgm.mp3" autoplay> </audio>
 		<script>
 			const socket = new WebSocket('wss://cindyandher3goons.me/ws/login');
 
@@ -107,11 +108,23 @@ filter: blur(4px);
 				console.log(data);
 			}
 const a = document.getElementById("click");
+
+const b = document.getElementById("yes");
+
+window.onload = function(){
+	b.currentTime = localStorage.getItem("sTime");
+	b.volume = localStorage.getItem("sVol");
+}
+
 function cli(){
     a.play();
+localStorage.setItem("sTime", b.currentTime);
+localStorage.setItem("sVol", b.volume);
 setTimeout(function(){window.location.href="register";},200)
 }
 function cli1(){
+localStorage.setItem("sTime", b.currentTime);
+localStorage.setItem("sVol", b.volume);
     a.play();
 }
 		</script>

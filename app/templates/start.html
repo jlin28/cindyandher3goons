@@ -397,7 +397,7 @@ border-radius: 5px;
 
 </div>
 <audio loop id="yes" src="/static/bgm.mp3"> </audio>
-<audio id="click" src="/static/click.mp3"> </audio>
+<audio id="click" onloadeddata="this.volume=0.5" src="/static/click.mp3"> </audio>
 		<script>
 			const socket = new WebSocket('wss://cindyandher3goons.me/ws/start');
 
@@ -430,14 +430,20 @@ function cli(){
 }
 function cli1(){
     b.play();
+localStorage.setItem("sTime", a.currentTime);
+localStorage.setItem("sVol", a.volume);
 setTimeout(function(){window.location.href="game";},200)
 }
 function cli2(){
     b.play();
+localStorage.setItem("sTime", a.currentTime);
+localStorage.setItem("sVol", a.volume);
 setTimeout(function(){window.location.href="credit";},200)
 }
 function cli3(){
     b.play();
+localStorage.setItem("sTime", a.currentTime);
+localStorage.setItem("sVol", a.volume);
 setTimeout(function(){window.location.href="exit";},200)
 }
 

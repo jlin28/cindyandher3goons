@@ -94,6 +94,7 @@ filter: blur(4px);
             <p style="font-size: 110%; color: white;"> If you already have an account, click the button below to login. </p>
             <button class="b" onclick="cli()">login</button>
          </div>
+<audio loop id="yes" src="/static/bgm.mp3" autoplay> </audio>
 		<script>
       const socket = new WebSocket('wss://cindyandher3goons.me/ws/register');
 
@@ -108,8 +109,17 @@ filter: blur(4px);
       }
 
 const a = document.getElementById("click");
+const b = document.getElementById("yes");
+
+window.onload = function(){
+	b.currentTime = localStorage.getItem("sTime");
+	b.volume = localStorage.getItem("sVol");
+}
+
 function cli(){
     a.play();
+localStorage.setItem("sTime", b.currentTime);
+localStorage.setItem("sVol", b.volume);
 setTimeout(function(){window.location.href="login";},200)
 }
 function cli1(){

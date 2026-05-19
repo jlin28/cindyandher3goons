@@ -298,7 +298,8 @@ cindyL -- 2026-05-18 11:01
 * more tentative items added
 * tried to figure out structure of dialogue storage
 
-carrieK -- 2026-05-18 20:30
+carrieK -- 2026-05-18 21:12
 SOUND & HTML
 * bgm now continues through pages so that u can enjoy life all day every day
 * nvm no bug i stupid
+* life is actually done now for html i think html is doney done done

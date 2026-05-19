@@ -4,9 +4,9 @@
 [ext_resource type="Script" uid="uid://s34gaogg8s4i" path="res://gd/close_quests.gd" id="2_2mfya"]
 [ext_resource type="FontFile" uid="uid://pmi7qj0fh53v" path="res://static/PeaberryDoublespace.ttf" id="2_y35ns"]
 [ext_resource type="Script" uid="uid://dye1tiypsaay6" path="res://gd/open_quests.gd" id="4_6yxn8"]
-[ext_resource type="Script" uid="uid://d3ss06331ic7q" path="res://tscn/dialogue.gd" id="5_6mujo"]
-[ext_resource type="Script" uid="uid://digaxfgtigrwh" path="res://tscn/dgbutton.gd" id="6_1akbr"]
-[ext_resource type="Script" uid="uid://8b5fyjuw62nv" path="res://tscn/options.gd" id="6_dd40b"]
+[ext_resource type="Script" uid="uid://d3ss06331ic7q" path="res://gd/dialogue.gd" id="5_6mujo"]
+[ext_resource type="Script" uid="uid://digaxfgtigrwh" path="res://gd/dgbutton.gd" id="6_1akbr"]
+[ext_resource type="Script" uid="uid://8b5fyjuw62nv" path="res://gd/options.gd" id="6_dd40b"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_2mfya"]
 texture = ExtResource("1_vpxtf")

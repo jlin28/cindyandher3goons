@@ -142,12 +142,12 @@ def game():
     if "username" not in session:
         return redirect(url_for("login"))
 
-    # if request.method == "POST":
-    #     body = request.get_json()
-    #
-    #     if body.get('type') == 'dialogue':
-    #         npc = body.get('npc')
-    #         return jsonify(npc_dialogue[npc])
+    if request.method == "POST":
+        body = request.get_json()
+
+        if body.get('type') == 'dialogue':
+            npc = body.get('npc')
+            return jsonify(npc_dialogue[npc])
 
     return render_template('game.html', username=session['username'])
 

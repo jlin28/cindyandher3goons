@@ -19,8 +19,14 @@ func _pressed() -> void:
 		print(dialogue.current_dialogue_line)
 
 		dialogue.play_dialogue()
-	else:
+	else: # this runs when the dialogue ends
 		dialogue.visible = false
 		mainui.visible = true
 		
 		player.can_move = true
+		
+		dialogue.current_dialogue_line = null
+		dialogue.current_dialogue = null
+		dialogue.current_npc = null
+		
+		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)

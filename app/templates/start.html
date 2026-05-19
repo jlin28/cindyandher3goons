@@ -415,14 +415,27 @@ const a = document.getElementById("yes");
 
 const b = document.getElementById("click");
 
+const isReload = performance.getEntriesByType('navigation')[0]?.type === 'reload';
+
 if (document.referrer === "") {
+    if(isReload){
+        a.currentTime = localStorage.getItem("sTime");
+	    a.volume = localStorage.getItem("sVol");
+    }
+    else{
     a.pause();
     a.currentTime = 0;
     a.volume = 0;
+    }
 } else {
     	a.currentTime = localStorage.getItem("sTime");
 	a.volume = localStorage.getItem("sVol");
 }
+
+window.onpagehide = function(){
+    localStorage.setItem("sTime", a.currentTime);
+    localStorage.setItem("sVol", a.volume);
+};
 
 const sli = document.getElementById("kms2");
 const sli1 = document.getElementById("kms1");
@@ -439,20 +452,14 @@ function cli(){
 }
 function cli1(){
     b.play();
-localStorage.setItem("sTime", a.currentTime);
-localStorage.setItem("sVol", a.volume);
 setTimeout(function(){window.location.href="game";},200)
 }
 function cli2(){
     b.play();
-localStorage.setItem("sTime", a.currentTime);
-localStorage.setItem("sVol", a.volume);
 setTimeout(function(){window.location.href="credit";},200)
 }
 function cli3(){
     b.play();
-localStorage.setItem("sTime", a.currentTime);
-localStorage.setItem("sVol", a.volume);
 setTimeout(function(){window.location.href="exit";},200)
 }
 

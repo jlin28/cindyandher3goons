@@ -29,7 +29,9 @@ color: white;
 	<body style="text-align: center; font-size: 400%;">
 us!! we are the ones !!! cindyandher3goons!!! we did it!!! us!!!!!!!!!
 <br>
-<a href = "{{url_for('start')}}"><button class="button"> click to return </button></a>
+<audio id="click" src="/static/click.mp3"> </audio>
+<audio loop id="yes" src="/static/bgm.mp3" autoplay> </audio>
+<button class="button" onclick="cli()"> click to return </button>
 		<script>
 			const socket = new WebSocket('wss://cindyandher3goons.me/ws/start');
 
@@ -42,6 +44,21 @@ us!! we are the ones !!! cindyandher3goons!!! we did it!!! us!!!!!!!!!
 	
         console.log(data);
       }
+
+const a = document.getElementById("click");
+const b = document.getElementById("yes");
+
+window.onload = function(){
+	b.currentTime = localStorage.getItem("sTime");
+	b.volume = localStorage.getItem("sVol");
+}
+
+function cli(){
+    a.play();
+localStorage.setItem("sTime", b.currentTime);
+localStorage.setItem("sVol", b.volume);
+setTimeout(function(){window.location.href="/";},200)
+}
 
 		</script>
 	</body>

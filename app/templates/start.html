@@ -396,7 +396,7 @@ border-radius: 5px;
 </div>
 
 </div>
-<audio loop id="yes" src="/static/bgm.mp3"> </audio>
+<audio loop id="yes" src="/static/bgm.mp3" autoplay> </audio>
 <audio id="click" onloadeddata="this.volume=0.5" src="/static/click.mp3"> </audio>
 		<script>
 			const socket = new WebSocket('wss://cindyandher3goons.me/ws/start');
@@ -414,6 +414,15 @@ border-radius: 5px;
 const a = document.getElementById("yes");
 
 const b = document.getElementById("click");
+
+if (document.referrer === "") {
+    a.pause();
+    a.currentTime = 0;
+    a.volume = 0;
+} else {
+    	a.currentTime = localStorage.getItem("sTime");
+	a.volume = localStorage.getItem("sVol");
+}
 
 const sli = document.getElementById("kms2");
 const sli1 = document.getElementById("kms1");

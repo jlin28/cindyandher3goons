@@ -300,4 +300,5 @@ cindyL -- 2026-05-18 11:01
 
 carrieK -- 2026-05-18 20:30
 SOUND & HTML
-* bgm now continues through pages so that u can enjoy life all day every day oh shit tehres a bug hold on
+* bgm now continues through pages so that u can enjoy life all day every day
+* nvm no bug i stupid

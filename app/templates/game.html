@@ -17,9 +17,15 @@
 	</head>
 
 	<body>
-
+<audio loop id="yes" src="/static/bgm.mp3" autoplay> </audio>
 		<script>
 		  window.USERNAME = "{{ username }}";
+const b = document.getElementById("yes");
+
+window.onload = function(){
+	b.currentTime = localStorage.getItem("sTime");
+	b.volume = localStorage.getItem("sVol");
+}
 		</script>
 
     <iframe

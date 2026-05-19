@@ -82,7 +82,6 @@ npc_dialogue = {
 
 @app.route("/", methods=["GET", "POST"])
 def start():
-    session.clear()
     return render_template('start.html')
 
 @app.route("/login", methods=["GET", "POST"])
@@ -101,7 +100,7 @@ def login():
         if user_data:
             if password == user_data[1]:
                 session["username"] = username
-                return redirect(url_for("game"))
+                return redirect(url_for("start"))
             else:
                 text = 'login failed'
                 return render_template('login.html', text=text)
@@ -134,7 +133,7 @@ def register():
             db.commit()
             db.close()
             session['username'] = username
-            return redirect(url_for("game"))
+            return redirect(url_for("start"))
     return render_template('register.html', text=text)
 
 @app.route("/game", methods=["GET", "POST"])
@@ -146,6 +145,7 @@ def game():
 
 @app.route("/exit", methods=["GET", "POST"])
 def exit():
+    session.clear()
     return render_template('exit.html')
 
 @app.route("/credit", methods=["GET", "POST"])

@@ -7,6 +7,7 @@ extends Node
 #var server_url := "ws://127.0.0.1:3030/ws/game"
 var server_url := "wss://cindyandher3goons.me/ws/game"
 
+signal dialogue_returned(dg)
 var socket := WebSocketPeer.new()
 var connected := false
 
@@ -110,6 +111,10 @@ func handle_msg(data):
 	elif msg_type == "player_left":
 		var player_id = str(data.get("id", ""))
 		remove_remote_player(player_id)
+	
+	elif msg_type == "dialogue":
+		print(data)
+		emit_signal("dialogue_returned", data)
 
 func send_username():
 	var data = {
@@ -173,3 +178,16 @@ func remove_remote_player(player_id):
 		remote_players[player_id].queue_free()
 		remote_players.erase(player_id)
 		print("Removed remote player ", player_id)
+		
+func retrieve_dialogue(npc):
+	var data = {
+		"type": "dialogue",
+		"npc": npc
+	}
+	
+	print('i am here')
+	socket.send_text(JSON.stringify(data))
+	var dg = await dialogue_returned
+	print('i returned')
+	print(dg)
+	return(dg)

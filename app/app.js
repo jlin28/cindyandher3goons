@@ -46,7 +46,7 @@ ws.on('connection', function connect(client, req) {
     ry: client.ry
   }, client);
 
-  client.on('message', message => {
+  client.on('message', async message => {
 
     let data;
     try {
@@ -85,6 +85,22 @@ ws.on('connection', function connect(client, req) {
         z: client.z,
         ry: client.ry
       }, client);
+    }
+
+    if (data.type === "dialogue") {
+      let res = await fetch("https://cindyandher3goons.me/" + client.route, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json'},
+        body: JSON.stringify({ type: "dialogue", npc: data.npc })
+      });
+
+      let dg = await res.json()
+      send(
+        client, {
+          type: "dialogue",
+          dialogue: dg
+        }
+      )
     }
   });
 

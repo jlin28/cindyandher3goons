@@ -41,3 +41,4 @@ func play_dialogue():
 	else:
 		option_cont.visible = false
 		next_button.visible = true
+	

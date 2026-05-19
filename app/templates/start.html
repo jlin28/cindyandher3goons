@@ -422,6 +422,9 @@ if (document.referrer === "") {
     if(isReload || isBack){
         a.currentTime = localStorage.getItem("sTime");
 	    a.volume = localStorage.getItem("sVol");
+        document.getElementById("kms2").value = localStorage.getItem("aVol");
+        document.getElementById("kms1").value = localStorage.getItem("sfxVol");
+        document.getElementById("kms").value = localStorage.getItem("mVol");
     }
     else{
     a.pause();
@@ -436,6 +439,9 @@ if (document.referrer === "") {
 window.onpagehide = function(){
     localStorage.setItem("sTime", a.currentTime);
     localStorage.setItem("sVol", a.volume);
+    localStorage.setItem("aVol", document.getElementById("kms2").value);
+    localStorage.setItem("sfxVol", document.getElementById("kms1").value);
+    localStorage.setItem("mVol", document.getElementById("kms").value);
 };
 
 const sli = document.getElementById("kms2");

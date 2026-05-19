@@ -265,6 +265,7 @@ ASSETS
 * Imported building models
 * Created basic layout for town
 * fencing!
+* swap memory because droplet couldn't take it anymore
 
 joyceL -- 2026-05-17 00:47
 NPC
@@ -295,11 +296,23 @@ SOUND
 * sound effects exist yay
 
 cindyL -- 2026-05-18 11:01
+DATABASING AND BACKEND
 * more tentative items added
 * tried to figure out structure of dialogue storage
+
+joyceL -- 2026-05-18 11:30
+NPC AREA DETECTION
+* setting up npc proximity detection (if player nearby or not!)
 
 carrieK -- 2026-05-18 21:12
 SOUND & HTML
 * bgm now continues through pages so that u can enjoy life all day every day
 * nvm no bug i stupid
 * life is actually done now for html i think html is doney done done
+
+joyceL -- 2026-05-18 23:03
+SNOWBALL AND NPCS
+* Changed snowball code so it doesn't get stuck in the floor no more
+* Made sure snowball only scaled up if being pushed
+  - Set rays to only trigger event if collider is a player
+* Set up NPC interaction system (fetching dialogue from flask)

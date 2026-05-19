@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cxo150m2m6bob"]
 
-[ext_resource type="Texture2D" uid="uid://bw4pqk3x14f5n" path="res://static/sprite_sheet.png" id="1_vpxtf"]
+[ext_resource type="Texture2D" uid="uid://n70tnighps5u" path="res://static/sprite_sheet.png" id="1_vpxtf"]
 [ext_resource type="Script" uid="uid://ccvciv4awmrty" path="res://gd/close_quests.gd" id="2_2mfya"]
 [ext_resource type="FontFile" uid="uid://cjvg0evcqc7yp" path="res://static/PeaberryDoublespace.ttf" id="2_y35ns"]
 [ext_resource type="Script" uid="uid://ddxr4i33xhnew" path="res://gd/open_quests.gd" id="4_6yxn8"]
@@ -299,7 +299,7 @@ script = ExtResource("2_2mfya")
 
 [node name="Label" type="Label" parent="default/open_quests_cont/quests/MarginContainer/VBoxContainer/HBoxContainer" unique_id=1429323239]
 layout_mode = 2
-theme_override_colors/font_color = Color(0.76862746, 0.6039216, 0.42352942, 1)
+theme_override_colors/font_color = Color(0.77, 0.65835, 0.539, 1)
 theme_override_colors/font_outline_color = Color(0.654902, 0.46666667, 0.34509805, 1)
 theme_override_constants/outline_size = 2
 theme_override_fonts/font = ExtResource("2_y35ns")
@@ -411,7 +411,7 @@ layout_mode = 2
 [node name="name" type="Label" parent="dialogue/MarginContainer/MarginContainer/VBoxContainer" unique_id=495972702]
 unique_name_in_owner = true
 layout_mode = 2
-theme_override_colors/font_color = Color(1, 0.87916666, 0.75, 1)
+theme_override_colors/font_color = Color(0.91, 0.82082003, 0.7189, 1)
 theme_override_colors/font_outline_color = Color(0.53, 0.46083498, 0.38689998, 1)
 theme_override_constants/outline_size = 2
 theme_override_fonts/font = ExtResource("2_y35ns")
@@ -422,7 +422,7 @@ layout_mode = 2
 [node name="dialogue" type="Label" parent="dialogue/MarginContainer/MarginContainer/VBoxContainer" unique_id=366135866]
 unique_name_in_owner = true
 layout_mode = 2
-theme_override_colors/font_color = Color(0.6392157, 0.48235294, 0.34901962, 1)
+theme_override_colors/font_color = Color(0.59, 0.5074, 0.413, 1)
 theme_override_fonts/font = ExtResource("2_y35ns")
 theme_override_font_sizes/font_size = 14
 
@@ -444,7 +444,7 @@ theme_override_constants/separation = 15
 clip_contents = true
 custom_minimum_size = Vector2(150, 30)
 layout_mode = 2
-theme_override_colors/font_color = Color(0.5830141, 0.43512022, 0.32294494, 1)
+theme_override_colors/font_color = Color(0.82, 0.7052, 0.574, 1)
 theme_override_fonts/font = ExtResource("2_y35ns")
 theme_override_font_sizes/font_size = 10
 theme_override_styles/normal = SubResource("StyleBoxTexture_8i35t")

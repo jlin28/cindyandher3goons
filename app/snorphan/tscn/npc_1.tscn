@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://2lnq4kvnv37b"]
 
-[ext_resource type="Script" uid="uid://dqhsobhw8b7ms" path="res://gd/npc.gd" id="1_1s6pg"]
+[ext_resource type="Script" uid="uid://cxksh6skg15k7" path="res://gd/npc.gd" id="1_1s6pg"]
 [ext_resource type="PackedScene" uid="uid://63ilwbaxwr4v" path="res://glb/characters/seal.glb" id="1_qhh3q"]
-[ext_resource type="FontFile" uid="uid://pmi7qj0fh53v" path="res://static/PeaberryDoublespace.ttf" id="3_x6dem"]
+[ext_resource type="FontFile" uid="uid://cjvg0evcqc7yp" path="res://static/PeaberryDoublespace.ttf" id="3_x6dem"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_a63tl"]
 size = Vector3(0.9288845, 1.5340431, 1.2844238)
@@ -55,7 +55,7 @@ visible = false
 [node name="name" type="Label3D" parent="Node3D" unique_id=1813155553]
 transform = Transform3D(1, 0, -2.842171e-14, 0, 1, 7.1054274e-15, 0, 0, 1.0116583, 0.048265696, 5.9803033, 0.10840124)
 billboard = 2
-modulate = Color(0.5830141, 0.43512022, 0.32294494, 1)
+modulate = Color(0.58, 0.49126, 0.42339998, 1)
 text = "Sealius
 "
 font = ExtResource("3_x6dem")
@@ -64,7 +64,7 @@ font_size = 120
 [node name="Label3D" type="Label3D" parent="Node3D" unique_id=1084198283]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1.0116583, 0.048265696, 5.4558706, 0.10840124)
 billboard = 2
-modulate = Color(0.8561763, 0.7199919, 0.62328076, 1)
+modulate = Color(0.86, 0.77471673, 0.7138, 1)
 text = "[e] to interact"
 font = ExtResource("3_x6dem")
 font_size = 100

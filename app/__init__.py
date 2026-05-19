@@ -24,7 +24,9 @@ c.execute("""CREATE TABLE IF NOT EXISTS user(
     item3Count INTEGER,
     item4Count INTEGER,
     item5Count INTEGER,
-    item6Count INTEGER);
+    item6Count INTEGER
+    questsCompleted STRING
+    questsActive STRING);
     """)
 
 c.execute("""CREATE TABLE IF NOT EXISTS item(
@@ -48,8 +50,7 @@ c.execute("""CREATE TABLE IF NOT EXISTS encyclopedia(
 
 c.execute("""CREATE TABLE IF NOT EXISTS npc(
     name TEXT,
-    dialogue TEXT NOT NULL,
-    completedQuestUsers TEXT);
+    dialogue TEXT NOT NULL);
     """)
 c.execute("INSERT into npc VALUES ('village grandma', '', '')")
 db.commit()
@@ -79,6 +80,56 @@ npc_dialogue = {
         }
     }
 }
+
+# return list of quests completed for the logged in user
+def questsCompleted_list():
+    db = sqlite3.connect(DB_FILE)
+    c = db.cursor()
+    c.execute("SELECT questsCompleted FROM user WHERE username = ?", (username,))
+    questsCompleted_string = c.fetchone()
+    db.commit()
+    db.close()
+    return questsCompleted_string.split('&')
+
+# return list of quests active for the logged in user
+def questsActive_list():
+    db = sqlite3.connect(DB_FILE)
+    c = db.cursor()
+    c.execute("SELECT questsActive FROM user WHERE username = ?", (username,))
+    questsActive_string = c.fetchone()
+    db.commit()
+    db.close()
+    return questsActive_string.split('&')
+
+# return boolean (true if less than 3 active quests)
+def questsAvailable():
+    if len(questsActive_list()) == 3:
+        return False
+    return True
+
+# return boolean reflecting whether the inventory is full
+def inventory_full():
+    db = sqlite3.connect(DB_FILE)
+    c = db.cursor()
+    c.execute("""SELECT
+        item1Count,
+        item2Count,
+        item3Count,
+        item4Count,
+        item5Count,
+        item6Count
+        FROM user WHERE username = ?""", (username,))
+    item_counts = c.fetchone()
+    db.commit()
+    db.close()
+    # assumption is made that you cannot keep an inventiory space for zero of an item
+    for i in item_counts:
+        if i is None:
+            return False
+        else:
+            if i == 0:
+                return False
+        return True
 
 @app.route("/", methods=["GET", "POST"])
 def start():

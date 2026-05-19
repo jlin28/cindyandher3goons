@@ -317,3 +317,8 @@ SNOWBALL AND NPCS
   - Set rays to only trigger event if collider is a player
 * Set up NPC interaction system (fetching dialogue from flask)
 * Added NPC label (name + e to interact) and made it so they turn towards play (woo)
+
+cindyL -- 2026-05-19 10:59
+* changes made to user db structure to include quests
+* changes made to npc db to remove quests
+* relevant python functions drafted

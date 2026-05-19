@@ -51,14 +51,17 @@ func _physics_process(delta):
 		velocity.x = direction.x * speed
 		velocity.z = direction.z * speed
 		
-		if not is_on_floor():
-			velocity.y -= fall_acceleration * delta
-		# delta = time since last physics frame, multiplying by this makes gravity independent of frame rate
-		
 		if Input.is_action_just_pressed("jump") and is_on_floor():
 			velocity.y = jump_velocity
+	else:
+		velocity.x = 0
+		velocity.z = 0
 		
-		move_and_slide()
+	if not is_on_floor():
+		velocity.y -= fall_acceleration * delta
+	# delta = time since last physics frame, multiplying by this makes gravity independent of frame rate
+		
+	move_and_slide()
 	
 func _process(delta: float) -> void:
 	if can_move:

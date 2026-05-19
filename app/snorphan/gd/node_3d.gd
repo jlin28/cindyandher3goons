@@ -5,7 +5,7 @@ extends Node3D
 const Snowball:= preload("res://tscn/snowball.tscn")
 
 func _unhandled_input(event: InputEvent) -> void:
-	if Input.is_action_just_pressed("interact"):
+	if Input.is_action_just_pressed("interact") and player.can_move:
 		if player.npc_interactable == true:
 			var dialogue_box = ui.get_child(1)
 			
@@ -14,6 +14,11 @@ func _unhandled_input(event: InputEvent) -> void:
 			dialogue_box._set_npc_name(player.current_interactable_npc)
 			
 			player.can_move = false
+			
+			player.idle.visible = true
+			player.anim_cont2.visible = false
+			player.anim_cont.visible = false
+
 		elif player.is_on_floor():
 			var snowball = Snowball.instantiate()
 			snowball.scale = Vector3(1,1,1)

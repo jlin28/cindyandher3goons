@@ -490,3 +490,19 @@ theme_override_styles/normal = SubResource("StyleBoxTexture_b7d53")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_mmuml")
 theme_override_styles/hover = SubResource("StyleBoxTexture_6nd6i")
 script = ExtResource("6_1akbr")
+
+[node name="menu" type="MarginContainer" parent="." unique_id=456070877]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 150
+theme_override_constants/margin_top = 100
+theme_override_constants/margin_right = 150
+theme_override_constants/margin_bottom = 100
+
+[node name="MarginContainer" type="MarginContainer" parent="menu" unique_id=308328267]
+layout_mode = 2

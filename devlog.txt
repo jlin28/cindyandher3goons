@@ -316,3 +316,4 @@ SNOWBALL AND NPCS
 * Made sure snowball only scaled up if being pushed
   - Set rays to only trigger event if collider is a player
 * Set up NPC interaction system (fetching dialogue from flask)
+* Added NPC label (name + e to interact) and made it so they turn towards play (woo)

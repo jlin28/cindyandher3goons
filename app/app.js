@@ -87,20 +87,20 @@ ws.on('connection', async function connect(client, req) {
       }, client);
     }
 
-    if (data.type === "dialogue") {
-      let dg = await fetch("https://cindyandher3goons.me/" + client.route, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json'},
-        body: JSON.stringify({ type: "dialogue", npc: data.npc })
-      });
-
-      send(
-        client, {
-          type: "dialogue",
-          dialogue: dg
-        }
-      )
-    }
+    // if (data.type === "dialogue") {
+    //   let dg = await fetch("https://cindyandher3goons.me/" + client.route, {
+    //     method: 'POST',
+    //     headers: { 'Content-Type': 'application/json'},
+    //     body: JSON.stringify({ type: "dialogue", npc: data.npc })
+    //   });
+    //
+    //   send(
+    //     client, {
+    //       type: "dialogue",
+    //       dialogue: dg
+    //     }
+    //   )
+    // }
   });
 
   client.on('close', () => {

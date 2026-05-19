@@ -8,6 +8,6 @@ func _set_npc_name(npc_name):
 	_play_dialogue(npc_name)
 
 func _play_dialogue(npc_name):
-	var dg = MultiplayerClient.retrieve_dialogue(npc_name)
+	var dg = await MultiplayerClient.retrieve_dialogue(npc_name)
 	
 	print(dg)

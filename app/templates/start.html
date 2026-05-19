@@ -416,9 +416,10 @@ const a = document.getElementById("yes");
 const b = document.getElementById("click");
 
 const isReload = performance.getEntriesByType('navigation')[0]?.type === 'reload';
+const isBack = performance.getEntriesByType('navigation')[0]?.type === 'back_forward';
 
 if (document.referrer === "") {
-    if(isReload){
+    if(isReload || isBack){
         a.currentTime = localStorage.getItem("sTime");
 	    a.volume = localStorage.getItem("sVol");
     }

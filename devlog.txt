@@ -326,3 +326,8 @@ cindyL -- 2026-05-19 10:59
 jiefengO -- 2026-05-19 11:00
 NPC INTERACTION
 * When interacting with npcs, u can actually click the buttons and not move camera
+
+carrieK -- 2026-05-19 12:33
+ITEMS + MORE AUDIO
+* audio change wow
+* items wow

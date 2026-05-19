@@ -434,6 +434,9 @@ if (document.referrer === "") {
 } else {
     	a.currentTime = localStorage.getItem("sTime");
 	a.volume = localStorage.getItem("sVol");
+	        document.getElementById("kms2").value = localStorage.getItem("aVol");
+        document.getElementById("kms1").value = localStorage.getItem("sfxVol");
+        document.getElementById("kms").value = localStorage.getItem("mVol");
 }
 
 window.onpagehide = function(){

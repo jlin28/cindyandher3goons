@@ -5,6 +5,8 @@
 [ext_resource type="FontFile" uid="uid://pmi7qj0fh53v" path="res://static/PeaberryDoublespace.ttf" id="2_y35ns"]
 [ext_resource type="Script" uid="uid://dye1tiypsaay6" path="res://gd/open_quests.gd" id="4_6yxn8"]
 [ext_resource type="Script" uid="uid://d3ss06331ic7q" path="res://tscn/dialogue.gd" id="5_6mujo"]
+[ext_resource type="Script" uid="uid://digaxfgtigrwh" path="res://tscn/dgbutton.gd" id="6_1akbr"]
+[ext_resource type="Script" uid="uid://8b5fyjuw62nv" path="res://tscn/options.gd" id="6_dd40b"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_2mfya"]
 texture = ExtResource("1_vpxtf")
@@ -50,6 +52,46 @@ texture = ExtResource("1_vpxtf")
 region_rect = Rect2(610, 226, 12, 12)
 modulate_color = Color(0.5058824, 0.4, 0.3254902, 1)
 
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8i35t"]
+texture = ExtResource("1_vpxtf")
+region_rect = Rect2(163, 178, 90, 27)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_tv35b"]
+texture = ExtResource("1_vpxtf")
+region_rect = Rect2(259, 180, 90, 25)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_lorj1"]
+texture = ExtResource("1_vpxtf")
+region_rect = Rect2(259, 180, 90, 25)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3ukgg"]
+texture = ExtResource("1_vpxtf")
+region_rect = Rect2(259, 180, 90, 25)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_86puh"]
+texture = ExtResource("1_vpxtf")
+region_rect = Rect2(259, 180, 90, 25)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_bi2wt"]
+texture = ExtResource("1_vpxtf")
+region_rect = Rect2(259, 180, 90, 25)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_88clp"]
+texture = ExtResource("1_vpxtf")
+region_rect = Rect2(259, 180, 90, 25)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_b7d53"]
+texture = ExtResource("1_vpxtf")
+region_rect = Rect2(277, 2, 7, 12)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mmuml"]
+texture = ExtResource("1_vpxtf")
+region_rect = Rect2(293, 2, 7, 12)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6nd6i"]
+texture = ExtResource("1_vpxtf")
+region_rect = Rect2(293, 2, 7, 12)
+
 [node name="Control" type="Control" unique_id=1355566499]
 layout_mode = 3
 anchors_preset = 15
@@ -58,7 +100,8 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="default ui" type="MarginContainer" parent="." unique_id=1488287403]
+[node name="default" type="MarginContainer" parent="." unique_id=1488287403]
+unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -66,17 +109,17 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="inventory cont" type="MarginContainer" parent="default ui" unique_id=661928019]
+[node name="inventory cont" type="MarginContainer" parent="default" unique_id=661928019]
 layout_mode = 2
 mouse_filter = 2
 theme_override_constants/margin_bottom = 50
 
-[node name="inventory" type="MarginContainer" parent="default ui/inventory cont" unique_id=2008285260]
+[node name="inventory" type="MarginContainer" parent="default/inventory cont" unique_id=2008285260]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 8
 
-[node name="NinePatchRect" type="NinePatchRect" parent="default ui/inventory cont/inventory" unique_id=2144094287]
+[node name="NinePatchRect" type="NinePatchRect" parent="default/inventory cont/inventory" unique_id=2144094287]
 custom_minimum_size = Vector2(330, 56)
 layout_mode = 2
 mouse_filter = 1
@@ -87,7 +130,7 @@ patch_margin_top = 6
 patch_margin_right = 6
 patch_margin_bottom = 6
 
-[node name="MarginContainer" type="MarginContainer" parent="default ui/inventory cont/inventory/NinePatchRect" unique_id=724995629]
+[node name="MarginContainer" type="MarginContainer" parent="default/inventory cont/inventory/NinePatchRect" unique_id=724995629]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -99,14 +142,14 @@ theme_override_constants/margin_top = 8
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 8
 
-[node name="HBoxContainer" type="HBoxContainer" parent="default ui/inventory cont/inventory/NinePatchRect/MarginContainer" unique_id=436952028]
+[node name="HBoxContainer" type="HBoxContainer" parent="default/inventory cont/inventory/NinePatchRect/MarginContainer" unique_id=436952028]
 layout_mode = 2
 theme_override_constants/separation = 15
 
-[node name="1" type="MarginContainer" parent="default ui/inventory cont/inventory/NinePatchRect/MarginContainer/HBoxContainer" unique_id=2108598126]
+[node name="1" type="MarginContainer" parent="default/inventory cont/inventory/NinePatchRect/MarginContainer/HBoxContainer" unique_id=2108598126]
 layout_mode = 2
 
-[node name="NinePatchRect" type="NinePatchRect" parent="default ui/inventory cont/inventory/NinePatchRect/MarginContainer/HBoxContainer/1" unique_id=154174506]
+[node name="NinePatchRect" type="NinePatchRect" parent="default/inventory cont/inventory/NinePatchRect/MarginContainer/HBoxContainer/1" unique_id=154174506]
 custom_minimum_size = Vector2(40, 30)
 layout_mode = 2
 texture = ExtResource("1_vpxtf")
@@ -116,10 +159,10 @@ patch_margin_top = 3
 patch_margin_right = 3
 patch_margin_bottom = 3
 
-[node name="2" type="MarginContainer" parent="default ui/inventory cont/inventory/NinePatchRect/MarginContainer/HBoxContainer" unique_id=1276040957]
+[node name="2" type="MarginContainer" parent="default/inventory cont/inventory/NinePatchRect/MarginContainer/HBoxContainer" unique_id=1276040957]
 layout_mode = 2
 
-[node name="NinePatchRect2" type="NinePatchRect" parent="default ui/inventory cont/inventory/NinePatchRect/MarginContainer/HBoxContainer/2" unique_id=211451120]
+[node name="NinePatchRect2" type="NinePatchRect" parent="default/inventory cont/inventory/NinePatchRect/MarginContainer/HBoxContainer/2" unique_id=211451120]
 custom_minimum_size = Vector2(40, 30)
 layout_mode = 2
 texture = ExtResource("1_vpxtf")
@@ -129,10 +172,10 @@ patch_margin_top = 3
 patch_margin_right = 3
 patch_margin_bottom = 3
 
-[node name="3" type="MarginContainer" parent="default ui/inventory cont/inventory/NinePatchRect/MarginContainer/HBoxContainer" unique_id=1589090015]
+[node name="3" type="MarginContainer" parent="default/inventory cont/inventory/NinePatchRect/MarginContainer/HBoxContainer" unique_id=1589090015]
 layout_mode = 2
 
-[node name="NinePatchRect3" type="NinePatchRect" parent="default ui/inventory cont/inventory/NinePatchRect/MarginContainer/HBoxContainer/3" unique_id=1603290821]
+[node name="NinePatchRect3" type="NinePatchRect" parent="default/inventory cont/inventory/NinePatchRect/MarginContainer/HBoxContainer/3" unique_id=1603290821]
 custom_minimum_size = Vector2(40, 30)
 layout_mode = 2
 texture = ExtResource("1_vpxtf")
@@ -142,10 +185,10 @@ patch_margin_top = 3
 patch_margin_right = 3
 patch_margin_bottom = 3
 
-[node name="4" type="MarginContainer" parent="default ui/inventory cont/inventory/NinePatchRect/MarginContainer/HBoxContainer" unique_id=1452169722]
+[node name="4" type="MarginContainer" parent="default/inventory cont/inventory/NinePatchRect/MarginContainer/HBoxContainer" unique_id=1452169722]
 layout_mode = 2
 
-[node name="NinePatchRect4" type="NinePatchRect" parent="default ui/inventory cont/inventory/NinePatchRect/MarginContainer/HBoxContainer/4" unique_id=1298775219]
+[node name="NinePatchRect4" type="NinePatchRect" parent="default/inventory cont/inventory/NinePatchRect/MarginContainer/HBoxContainer/4" unique_id=1298775219]
 custom_minimum_size = Vector2(40, 30)
 layout_mode = 2
 texture = ExtResource("1_vpxtf")
@@ -155,10 +198,10 @@ patch_margin_top = 3
 patch_margin_right = 3
 patch_margin_bottom = 3
 
-[node name="5" type="MarginContainer" parent="default ui/inventory cont/inventory/NinePatchRect/MarginContainer/HBoxContainer" unique_id=1179035619]
+[node name="5" type="MarginContainer" parent="default/inventory cont/inventory/NinePatchRect/MarginContainer/HBoxContainer" unique_id=1179035619]
 layout_mode = 2
 
-[node name="NinePatchRect5" type="NinePatchRect" parent="default ui/inventory cont/inventory/NinePatchRect/MarginContainer/HBoxContainer/5" unique_id=604686048]
+[node name="NinePatchRect5" type="NinePatchRect" parent="default/inventory cont/inventory/NinePatchRect/MarginContainer/HBoxContainer/5" unique_id=604686048]
 custom_minimum_size = Vector2(40, 30)
 layout_mode = 2
 texture = ExtResource("1_vpxtf")
@@ -168,10 +211,10 @@ patch_margin_top = 3
 patch_margin_right = 3
 patch_margin_bottom = 3
 
-[node name="6" type="MarginContainer" parent="default ui/inventory cont/inventory/NinePatchRect/MarginContainer/HBoxContainer" unique_id=346512187]
+[node name="6" type="MarginContainer" parent="default/inventory cont/inventory/NinePatchRect/MarginContainer/HBoxContainer" unique_id=346512187]
 layout_mode = 2
 
-[node name="NinePatchRect6" type="NinePatchRect" parent="default ui/inventory cont/inventory/NinePatchRect/MarginContainer/HBoxContainer/6" unique_id=28188344]
+[node name="NinePatchRect6" type="NinePatchRect" parent="default/inventory cont/inventory/NinePatchRect/MarginContainer/HBoxContainer/6" unique_id=28188344]
 custom_minimum_size = Vector2(40, 30)
 layout_mode = 2
 texture = ExtResource("1_vpxtf")
@@ -181,44 +224,44 @@ patch_margin_top = 3
 patch_margin_right = 3
 patch_margin_bottom = 3
 
-[node name="button cont" type="MarginContainer" parent="default ui" unique_id=377183600]
+[node name="button cont" type="MarginContainer" parent="default" unique_id=377183600]
 layout_mode = 2
 mouse_filter = 2
 theme_override_constants/margin_top = 15
 theme_override_constants/margin_right = 15
 
-[node name="buttons" type="MarginContainer" parent="default ui/button cont" unique_id=1186704642]
+[node name="buttons" type="MarginContainer" parent="default/button cont" unique_id=1186704642]
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 0
 
-[node name="HBoxContainer" type="HBoxContainer" parent="default ui/button cont/buttons" unique_id=1664651060]
+[node name="HBoxContainer" type="HBoxContainer" parent="default/button cont/buttons" unique_id=1664651060]
 layout_mode = 2
 
-[node name="encyclopedia" type="Button" parent="default ui/button cont/buttons/HBoxContainer" unique_id=1355978464]
+[node name="encyclopedia" type="Button" parent="default/button cont/buttons/HBoxContainer" unique_id=1355978464]
 custom_minimum_size = Vector2(30, 30)
 layout_mode = 2
 theme_override_styles/normal = SubResource("StyleBoxTexture_2mfya")
 theme_override_styles/hover = SubResource("StyleBoxTexture_1akbr")
 
-[node name="settings" type="Button" parent="default ui/button cont/buttons/HBoxContainer" unique_id=828155724]
+[node name="settings" type="Button" parent="default/button cont/buttons/HBoxContainer" unique_id=828155724]
 custom_minimum_size = Vector2(30, 30)
 layout_mode = 2
 theme_override_styles/normal = SubResource("StyleBoxTexture_vpxtf")
 theme_override_styles/hover = SubResource("StyleBoxTexture_y35ns")
 
-[node name="open_quests_cont" type="MarginContainer" parent="default ui" unique_id=1246153911]
+[node name="open_quests_cont" type="MarginContainer" parent="default" unique_id=1246153911]
 unique_name_in_owner = true
 layout_mode = 2
 mouse_filter = 2
 theme_override_constants/margin_left = 25
 
-[node name="quests" type="MarginContainer" parent="default ui/open_quests_cont" unique_id=1061233998]
+[node name="quests" type="MarginContainer" parent="default/open_quests_cont" unique_id=1061233998]
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 4
 
-[node name="NinePatchRect" type="NinePatchRect" parent="default ui/open_quests_cont/quests" unique_id=781921796]
+[node name="NinePatchRect" type="NinePatchRect" parent="default/open_quests_cont/quests" unique_id=781921796]
 custom_minimum_size = Vector2(175, 250)
 layout_mode = 2
 mouse_filter = 1
@@ -229,22 +272,22 @@ patch_margin_top = 6
 patch_margin_right = 6
 patch_margin_bottom = 6
 
-[node name="MarginContainer" type="MarginContainer" parent="default ui/open_quests_cont/quests" unique_id=762314472]
+[node name="MarginContainer" type="MarginContainer" parent="default/open_quests_cont/quests" unique_id=762314472]
 layout_mode = 2
 size_flags_vertical = 0
 theme_override_constants/margin_left = 7
 theme_override_constants/margin_top = 7
 theme_override_constants/margin_right = 7
 
-[node name="VBoxContainer" type="VBoxContainer" parent="default ui/open_quests_cont/quests/MarginContainer" unique_id=981696905]
+[node name="VBoxContainer" type="VBoxContainer" parent="default/open_quests_cont/quests/MarginContainer" unique_id=981696905]
 layout_mode = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="default ui/open_quests_cont/quests/MarginContainer/VBoxContainer" unique_id=155363515]
+[node name="HBoxContainer" type="HBoxContainer" parent="default/open_quests_cont/quests/MarginContainer/VBoxContainer" unique_id=155363515]
 layout_mode = 2
 size_flags_vertical = 0
 theme_override_constants/separation = 38
 
-[node name="Button" type="Button" parent="default ui/open_quests_cont/quests/MarginContainer/VBoxContainer/HBoxContainer" unique_id=2078491840]
+[node name="Button" type="Button" parent="default/open_quests_cont/quests/MarginContainer/VBoxContainer/HBoxContainer" unique_id=2078491840]
 custom_minimum_size = Vector2(15, 10)
 layout_mode = 2
 size_flags_horizontal = 0
@@ -254,7 +297,7 @@ theme_override_styles/pressed = SubResource("StyleBoxTexture_tw3h4")
 theme_override_styles/hover = SubResource("StyleBoxTexture_6mujo")
 script = ExtResource("2_2mfya")
 
-[node name="Label" type="Label" parent="default ui/open_quests_cont/quests/MarginContainer/VBoxContainer/HBoxContainer" unique_id=1429323239]
+[node name="Label" type="Label" parent="default/open_quests_cont/quests/MarginContainer/VBoxContainer/HBoxContainer" unique_id=1429323239]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.76862746, 0.6039216, 0.42352942, 1)
 theme_override_colors/font_outline_color = Color(0.654902, 0.46666667, 0.34509805, 1)
@@ -265,7 +308,7 @@ text = "quests"
 horizontal_alignment = 1
 uppercase = true
 
-[node name="NinePatchRect" type="NinePatchRect" parent="default ui/open_quests_cont/quests/MarginContainer/VBoxContainer" unique_id=39026230]
+[node name="NinePatchRect" type="NinePatchRect" parent="default/open_quests_cont/quests/MarginContainer/VBoxContainer" unique_id=39026230]
 layout_mode = 2
 texture = ExtResource("1_vpxtf")
 region_rect = Rect2(866, 230, 12, 4)
@@ -274,7 +317,7 @@ patch_margin_top = 1
 patch_margin_right = 1
 patch_margin_bottom = 1
 
-[node name="closed_quests_cont" type="MarginContainer" parent="default ui" unique_id=233817167]
+[node name="closed_quests_cont" type="MarginContainer" parent="default" unique_id=233817167]
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
@@ -282,12 +325,12 @@ mouse_filter = 2
 theme_override_constants/margin_left = 25
 theme_override_constants/margin_top = 200
 
-[node name="quests" type="MarginContainer" parent="default ui/closed_quests_cont" unique_id=1795703036]
+[node name="quests" type="MarginContainer" parent="default/closed_quests_cont" unique_id=1795703036]
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
 
-[node name="NinePatchRect" type="NinePatchRect" parent="default ui/closed_quests_cont/quests" unique_id=1546488653]
+[node name="NinePatchRect" type="NinePatchRect" parent="default/closed_quests_cont/quests" unique_id=1546488653]
 custom_minimum_size = Vector2(175, 30)
 layout_mode = 2
 mouse_filter = 1
@@ -298,19 +341,19 @@ patch_margin_top = 6
 patch_margin_right = 6
 patch_margin_bottom = 6
 
-[node name="MarginContainer" type="MarginContainer" parent="default ui/closed_quests_cont/quests" unique_id=1746197158]
+[node name="MarginContainer" type="MarginContainer" parent="default/closed_quests_cont/quests" unique_id=1746197158]
 layout_mode = 2
 size_flags_vertical = 0
 theme_override_constants/margin_left = 7
 theme_override_constants/margin_top = 7
 theme_override_constants/margin_right = 7
 
-[node name="HBoxContainer" type="HBoxContainer" parent="default ui/closed_quests_cont/quests/MarginContainer" unique_id=1731451670]
+[node name="HBoxContainer" type="HBoxContainer" parent="default/closed_quests_cont/quests/MarginContainer" unique_id=1731451670]
 layout_mode = 2
 size_flags_vertical = 0
 theme_override_constants/separation = 38
 
-[node name="Button" type="Button" parent="default ui/closed_quests_cont/quests/MarginContainer/HBoxContainer" unique_id=696872711]
+[node name="Button" type="Button" parent="default/closed_quests_cont/quests/MarginContainer/HBoxContainer" unique_id=696872711]
 custom_minimum_size = Vector2(15, 10)
 layout_mode = 2
 theme_override_styles/normal = SubResource("StyleBoxTexture_dd40b")
@@ -318,7 +361,7 @@ theme_override_styles/pressed = SubResource("StyleBoxTexture_s2oxt")
 theme_override_styles/hover = SubResource("StyleBoxTexture_ykr62")
 script = ExtResource("4_6yxn8")
 
-[node name="Label" type="Label" parent="default ui/closed_quests_cont/quests/MarginContainer/HBoxContainer" unique_id=2026595375]
+[node name="Label" type="Label" parent="default/closed_quests_cont/quests/MarginContainer/HBoxContainer" unique_id=2026595375]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.76862746, 0.6039216, 0.42352942, 1)
 theme_override_colors/font_outline_color = Color(0.654902, 0.46666667, 0.34509805, 1)
@@ -372,7 +415,6 @@ theme_override_colors/font_color = Color(1, 0.87916666, 0.75, 1)
 theme_override_colors/font_outline_color = Color(0.53, 0.46083498, 0.38689998, 1)
 theme_override_constants/outline_size = 2
 theme_override_fonts/font = ExtResource("2_y35ns")
-text = "< NAME >"
 
 [node name="MarginContainer" type="MarginContainer" parent="dialogue/MarginContainer/MarginContainer/VBoxContainer" unique_id=491137195]
 layout_mode = 2
@@ -383,4 +425,68 @@ layout_mode = 2
 theme_override_colors/font_color = Color(0.6392157, 0.48235294, 0.34901962, 1)
 theme_override_fonts/font = ExtResource("2_y35ns")
 theme_override_font_sizes/font_size = 14
-text = "I am dialogue!!!!!!!!!!!!!!!!!!"
+
+[node name="MarginContainer3" type="MarginContainer" parent="dialogue/MarginContainer/MarginContainer/VBoxContainer" unique_id=1720255627]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+
+[node name="MarginContainer2" type="MarginContainer" parent="dialogue/MarginContainer/MarginContainer/VBoxContainer" unique_id=1671741932]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="optionscont" type="HBoxContainer" parent="dialogue/MarginContainer/MarginContainer/VBoxContainer/MarginContainer2" unique_id=2113730465]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="one" type="Button" parent="dialogue/MarginContainer/MarginContainer/VBoxContainer/MarginContainer2/optionscont" unique_id=1195461373]
+clip_contents = true
+custom_minimum_size = Vector2(150, 30)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.5830141, 0.43512022, 0.32294494, 1)
+theme_override_fonts/font = ExtResource("2_y35ns")
+theme_override_font_sizes/font_size = 10
+theme_override_styles/normal = SubResource("StyleBoxTexture_8i35t")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_tv35b")
+theme_override_styles/hover = SubResource("StyleBoxTexture_lorj1")
+script = ExtResource("6_dd40b")
+
+[node name="two" type="Button" parent="dialogue/MarginContainer/MarginContainer/VBoxContainer/MarginContainer2/optionscont" unique_id=1103440745]
+clip_contents = true
+custom_minimum_size = Vector2(150, 30)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.6392157, 0.48235294, 0.34901962, 1)
+theme_override_fonts/font = ExtResource("2_y35ns")
+theme_override_font_sizes/font_size = 10
+theme_override_styles/normal = SubResource("StyleBoxTexture_8i35t")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_3ukgg")
+theme_override_styles/hover = SubResource("StyleBoxTexture_86puh")
+script = ExtResource("6_dd40b")
+
+[node name="three" type="Button" parent="dialogue/MarginContainer/MarginContainer/VBoxContainer/MarginContainer2/optionscont" unique_id=1667823865]
+clip_contents = true
+custom_minimum_size = Vector2(150, 30)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.5830141, 0.43512022, 0.32294494, 1)
+theme_override_fonts/font = ExtResource("2_y35ns")
+theme_override_font_sizes/font_size = 10
+theme_override_styles/normal = SubResource("StyleBoxTexture_8i35t")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_bi2wt")
+theme_override_styles/hover = SubResource("StyleBoxTexture_88clp")
+script = ExtResource("6_dd40b")
+
+[node name="next" type="MarginContainer" parent="dialogue/MarginContainer/MarginContainer" unique_id=624000439]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+
+[node name="Button" type="Button" parent="dialogue/MarginContainer/MarginContainer/next" unique_id=1199037387]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxTexture_b7d53")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_mmuml")
+theme_override_styles/hover = SubResource("StyleBoxTexture_6nd6i")
+script = ExtResource("6_1akbr")

@@ -188,4 +188,4 @@ func retrieve_dialogue(npc):
 	var err = socket.send_text(JSON.stringify(data))
 	
 func send_dialogue(data):
-	dialogue_cont.apply_dialogue(data.dialogue)
+	dialogue_cont.receive_dialogue(data.dialogue)

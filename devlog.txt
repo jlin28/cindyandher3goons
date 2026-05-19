@@ -331,3 +331,5 @@ carrieK -- 2026-05-19 12:33
 ITEMS + MORE AUDIO
 * audio change wow
 * items wow
+* ALL FUNCTIONALITIES FOR AUDIO NOW WORK!!!!! CHEERS ALL AROUND
+* only things left to do for the html pages are changing mouse sensitivity with the slider and implementing the day/night toggle (which is a stretch feature at this point)

@@ -94,7 +94,7 @@ ws.on('connection', function connect(client, req) {
         body: JSON.stringify({ type: "dialogue", npc: data.npc })
       });
 
-      dg = await res.json()
+      let dg = await res.json()
       send(
         client, {
           type: "dialogue",

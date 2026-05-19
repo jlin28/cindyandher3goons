@@ -113,6 +113,7 @@ func handle_msg(data):
 		remove_remote_player(player_id)
 	
 	elif msg_type == "dialogue":
+		print(data)
 		emit_signal("dialogue_returned", data)
 
 func send_username():
@@ -184,7 +185,9 @@ func retrieve_dialogue(npc):
 		"npc": npc
 	}
 	
+	print('i am here')
 	socket.send_text(JSON.stringify(data))
 	var dg = await dialogue_returned
-	
+	print('i returned')
+	print(dg)
 	return(dg)

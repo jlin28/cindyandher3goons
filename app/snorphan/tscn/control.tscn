@@ -92,6 +92,18 @@ region_rect = Rect2(293, 2, 7, 12)
 texture = ExtResource("1_vpxtf")
 region_rect = Rect2(293, 2, 7, 12)
 
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_nq8cr"]
+texture = ExtResource("1_vpxtf")
+region_rect = Rect2(837, 100, 22, 24)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_atqym"]
+texture = ExtResource("1_vpxtf")
+region_rect = Rect2(869, 102, 22, 22)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_eky62"]
+texture = ExtResource("1_vpxtf")
+region_rect = Rect2(869, 102, 22, 22)
+
 [node name="Control" type="Control" unique_id=1355566499]
 layout_mode = 3
 anchors_preset = 15
@@ -505,4 +517,75 @@ theme_override_constants/margin_right = 150
 theme_override_constants/margin_bottom = 100
 
 [node name="MarginContainer" type="MarginContainer" parent="menu" unique_id=308328267]
+layout_mode = 2
+
+[node name="NinePatchRect" type="NinePatchRect" parent="menu/MarginContainer" unique_id=1338484044]
+layout_mode = 2
+texture = ExtResource("1_vpxtf")
+region_rect = Rect2(59, 107, 26, 26)
+patch_margin_left = 10
+patch_margin_top = 10
+patch_margin_right = 10
+patch_margin_bottom = 10
+
+[node name="MarginContainer" type="MarginContainer" parent="menu/MarginContainer" unique_id=1279777115]
+layout_mode = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 15
+
+[node name="VBoxContainer" type="VBoxContainer" parent="menu/MarginContainer/MarginContainer" unique_id=1627093539]
+layout_mode = 2
+
+[node name="MarginContainer3" type="MarginContainer" parent="menu/MarginContainer/MarginContainer/VBoxContainer" unique_id=181048636]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="menu/MarginContainer/MarginContainer/VBoxContainer/MarginContainer3" unique_id=462639710]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+
+[node name="Button" type="Button" parent="menu/MarginContainer/MarginContainer/VBoxContainer/MarginContainer3/MarginContainer" unique_id=2122086077]
+custom_minimum_size = Vector2(25, 25)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxTexture_nq8cr")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_atqym")
+theme_override_styles/hover = SubResource("StyleBoxTexture_eky62")
+
+[node name="MarginContainer2" type="MarginContainer" parent="menu/MarginContainer/MarginContainer/VBoxContainer/MarginContainer3" unique_id=585787066]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+
+[node name="Label" type="Label" parent="menu/MarginContainer/MarginContainer/VBoxContainer/MarginContainer3/MarginContainer2" unique_id=1043620806]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.5882353, 0.5058824, 0.4117647, 1)
+theme_override_colors/font_outline_color = Color(0.49, 0.4214, 0.343, 1)
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = ExtResource("2_y35ns")
+theme_override_font_sizes/font_size = 30
+text = "MENU"
+
+[node name="NinePatchRect" type="NinePatchRect" parent="menu/MarginContainer/MarginContainer/VBoxContainer" unique_id=1447351115]
+custom_minimum_size = Vector2(0, 3)
+layout_mode = 2
+texture = ExtResource("1_vpxtf")
+region_rect = Rect2(866, 230, 12, 4)
+patch_margin_left = 1
+patch_margin_top = 1
+patch_margin_right = 1
+patch_margin_bottom = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="menu/MarginContainer/MarginContainer/VBoxContainer" unique_id=2058952284]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="menu/MarginContainer/MarginContainer/VBoxContainer/MarginContainer" unique_id=1344792744]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="menu/MarginContainer/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer" unique_id=1348101798]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="HSlider" type="HSlider" parent="menu/MarginContainer/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer" unique_id=2110395990]
 layout_mode = 2

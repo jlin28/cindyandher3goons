@@ -32,8 +32,8 @@ func _physics_process(delta: float) -> void:
 		var horizontal_target_direction = Vector3(sin(angle), 0, cos(angle)).normalized()
 		var vertical_target_direction = Vector3(sin(angle), tan(angle), cos(angle)).normalized()
 
-		var horizontal_query = PhysicsRayQueryParameters3D.create(origin, origin + horizontal_target_direction *5)
-		var vertical_query = PhysicsRayQueryParameters3D.create(origin, origin + vertical_target_direction * 5)
+		var horizontal_query = PhysicsRayQueryParameters3D.create(origin, origin + horizontal_target_direction *3)
+		var vertical_query = PhysicsRayQueryParameters3D.create(origin, origin + vertical_target_direction * 3)
 		horizontal_query.exclude = [self]
 		vertical_query.exclude = [self]
 
@@ -46,7 +46,7 @@ func _physics_process(delta: float) -> void:
 		
 	if pushed and direction != Vector3.ZERO:
 		direction = direction.normalized()
-		apply_central_force(-direction * 13 * mesh.scale.x)
+		apply_central_force(-direction * 5 * mesh.scale.x)
 		print(direction)
 		
 		if can_grow and is_on_ground:

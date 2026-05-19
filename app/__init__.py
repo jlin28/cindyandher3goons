@@ -39,6 +39,9 @@ c.execute("INSERT into item VALUES ('button', 'a circle to make your bestie feel
 c.execute("INSERT into item VALUES ('carrot', 'an orange vegetable grown by an aspiring botanist.', '', 1)")
 c.execute("INSERT into item VALUES ('hat', 'a lid to make your bestie feel dapper.', '', 1)")
 c.execute("INSERT into item VALUES ('scarf', 'knitted by a village grandma. it''s red and warm.', '', 1)")
+c.execute("INSERT into item VALUES ('apple pie recipe', 'grandmas apple pie recipe. just looking at it makes your mouth water as you imagine the aroma and taste.', '', 1)")
+c.execute("INSERT into item VALUES ('ice sculpture', 'sculpture made of ice in the image of sealius. who knew he was hiding this talent all along?', '', 1)")
+c.execute("INSERT into item VALUES ('old plushie', 'a plushie worn out from years of love and hugs. a token of gratitude from a small child passing on that love.', '', 1)")
 c.execute("INSERT into item VALUES ('snowball_S', 'a small bundle of joy.', '', 99)")
 c.execute("INSERT into item VALUES ('snowball_M', 'a bundle of joy.', '', 99)")
 c.execute("INSERT into item VALUES ('snowball_L', 'a big fat bundle of joy.', '', 99)")
@@ -189,8 +192,8 @@ def register():
 
 @app.route("/game", methods=["GET", "POST"])
 def game():
-#    if "username" not in session:
-#        return redirect(url_for("login"))
+    if "username" not in session:
+        return redirect(url_for("login"))
 
     if request.method == "POST":
         body = request.get_json()

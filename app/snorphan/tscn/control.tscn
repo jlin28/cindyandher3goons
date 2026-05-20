@@ -1,14 +1,14 @@
 [gd_scene format=3 uid="uid://cxo150m2m6bob"]
 
 [ext_resource type="Texture2D" uid="uid://bw4pqk3x14f5n" path="res://static/sprite_sheet.png" id="1_vpxtf"]
-[ext_resource type="Script" uid="uid://s34gaogg8s4i" path="res://gd/close_quests.gd" id="2_2mfya"]
-[ext_resource type="FontFile" uid="uid://pmi7qj0fh53v" path="res://static/PeaberryDoublespace.ttf" id="2_y35ns"]
-[ext_resource type="Script" uid="uid://uq3o7oa4eti" path="res://gd/settings.gd" id="2_ykr62"]
-[ext_resource type="Script" uid="uid://dye1tiypsaay6" path="res://gd/open_quests.gd" id="4_6yxn8"]
-[ext_resource type="Script" uid="uid://d3ss06331ic7q" path="res://gd/dialogue.gd" id="5_6mujo"]
-[ext_resource type="Script" uid="uid://digaxfgtigrwh" path="res://gd/dgbutton.gd" id="6_1akbr"]
-[ext_resource type="Script" uid="uid://8b5fyjuw62nv" path="res://gd/options.gd" id="6_dd40b"]
-[ext_resource type="Script" uid="uid://vsgdnaj0o6c5" path="res://gd/close_settings.gd" id="9_tw3h4"]
+[ext_resource type="Script" uid="uid://ccvciv4awmrty" path="res://gd/close_quests.gd" id="2_2mfya"]
+[ext_resource type="FontFile" uid="uid://cjvg0evcqc7yp" path="res://static/PeaberryDoublespace.ttf" id="2_y35ns"]
+[ext_resource type="Script" uid="uid://bgcmwa750v7qy" path="res://gd/settings.gd" id="2_ykr62"]
+[ext_resource type="Script" uid="uid://ddxr4i33xhnew" path="res://gd/open_quests.gd" id="4_6yxn8"]
+[ext_resource type="Script" uid="uid://s52cj2qcinda" path="res://gd/dialogue.gd" id="5_6mujo"]
+[ext_resource type="Script" uid="uid://bv5u0aargk876" path="res://gd/dgbutton.gd" id="6_1akbr"]
+[ext_resource type="Script" uid="uid://444n1xmygkoi" path="res://gd/options.gd" id="6_dd40b"]
+[ext_resource type="Script" uid="uid://dw0rw8i8fmy12" path="res://gd/close_settings.gd" id="9_tw3h4"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_2mfya"]
 texture = ExtResource("1_vpxtf")

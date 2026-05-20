@@ -65,7 +65,7 @@ npc_dialogue = {
         'quest_inactive': {
             'dialogue': 'hey wazzup!!! nice cape you got there :)',
             'dialogue_options': {
-                'umm... hi?': 'A',
+                'umm... hi? thanks i guess...': 'A',
                 '': 'B',
                 '...': 'C'
             }

@@ -57,6 +57,7 @@ c.execute("""CREATE TABLE IF NOT EXISTS npc(
     name TEXT,
     dialogue TEXT NOT NULL);
     """)
+c.execute("INSERT into npc VALUES ('village grandma', '', '')")
 db.commit()
 db.close()
 
@@ -65,7 +66,7 @@ npc_dialogue = {
         'quest_inactive': {
             'dialogue': 'hey wazzup!!! nice cape you got there :)',
             'dialogue_options': {
-                'umm... hi? thanks i guess...': 'A',
+                'umm... hi?': 'A',
                 '': 'B',
                 '...': 'C'
             }
@@ -279,7 +280,6 @@ def game():
 
         if body.get('type') == 'logout':
             session.pop('username')
-            return redirect(url_for("start"))
 
     return render_template('game.html', username=session['username'])
 

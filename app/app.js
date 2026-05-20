@@ -105,11 +105,13 @@ ws.on('connection', function connect(client, req) {
     }
 
     if (data.type === "logout") {
-      let res = fetch("https://cindyandher3goons.me/" + client.route, {
+      let res = await fetch("https://cindyandher3goons.me/" + client.route, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json'},
         body: JSON.stringify({ type: "logout" })
       });
+
+      window.location.replace("https://cindyandher3goons.me/")
     }
   });
 

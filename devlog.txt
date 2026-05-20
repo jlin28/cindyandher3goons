@@ -347,3 +347,7 @@ PATHS AND MODEL
   - Add a logout button
   - Confirm slider and settings consistency
   - Make settings actually send with an apply settings button
+
+carrieK -- 2026-05-20 10:41
+DIALOGUE
+* um.

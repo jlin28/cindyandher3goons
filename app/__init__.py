@@ -63,51 +63,101 @@ db.close()
 
 npc_dialogue = {
     "Sealius": {
-        'A': {
-            'dialogue': 'hey wazzup',
+        'quest_inactive': {
+            'dialogue': 'hey wazzup!!! nice cape you got there :)',
             'dialogue_options': {
-                'who tf r u': 'B',
-                'hi': 'C',
-                '...': 'D'
+                'umm... hi?': 'A',
+                '': 'B',
+                '...': 'C'
             }
         },
-        'B': {
+        'A': {
             'dialogue': 'ok rude',
             'dialogue_options': {}
         },
-        'C': {
+        'B': {
             'dialogue': 'hihihiehe',
             'dialogue_options': {}
         },
-        'D': {
+        'C': {
             'dialogue': '...',
             'dialogue_options': {}
         }
     },
     "Town Chief": {
-        'A': {
+        'quest_in_progress': {
+            'dialogue': "Come back when you've found the house!",
+            'dialogue_options': {}
+        },
+        'quest_completed': {
+            'dialogue': "You look just like my son when he was little...",
+            'dialogue_options': {}
+        },
+        'quest_inactive': {
             'dialogue': "Hey kid, I've never seen you around before... Are you new?",
             'dialogue_options': {
-                "No. I don't know what you're talking about.": 'B',
-                'Yeah... Do you have somewhere I can stay?': 'C',
-                'Run away!': 'D'
+                "No. I don't know what you're talking about.": 'A',
+                'Yeah... Do you have somewhere I can stay?': 'B',
+                'Run away!': 'C'
+            }
+        },
+        'A': {
+            'dialogue': "Hohoho! Don't worry kid, we won't kick you out. I know you're not from here.",
+            'dialogue_options': {
+                "How?": "B",
+                "Run away!": "C"
             }
         },
         'B': {
-            'dialogue': "Hohoho! Don't worry kid, we won't kick you out. I know you're not from here.",
+            'dialogue': "It's been a long time since we've had anyone new in the village. If my memory serves me right, there should be one empty house. Once you've found it, come back to me!",
             'dialogue_options': {
-                ""
+                "Okay...": "D",
+                "Maybe later...": "E"
             }
         },
         'C': {
-            'dialogue': "It's been a long time since we've had anyone new in the village. If my memory serves me right, there should be one empty house. Once you've found it, come back to me!",
+            'dialogue': 'Wait, where are you going?!',
+            'dialogue_options': {}
+        },
+        'D':{
+            'dialogue': "I'll be waiting with a gift hohoho...",
+            'dialogue_options': {}
+        },
+        'E':{
+            'dialogue': "Take your time kid.",
+            'dialogue_options': {}
+        }
+    },
+    "": {
+        'quest_in_progress': {
+            'dialogue': "",
+            'dialogue_options': {}
+        },
+        'quest_completed': {
+            'dialogue': "",
+            'dialogue_options': {}
+        },
+        'quest_inactive': {
+            'dialogue': '',
+            'dialogue_options': {
+                '': 'B',
+                '': 'C',
+                '': 'D'
+            }
+        },
+        'B': {
+            'dialogue': '',
+            'dialogue_options': {}
+        },
+        'C': {
+            'dialogue': '',
             'dialogue_options': {}
         },
         'D': {
-            'dialogue': 'Wait, where are you going?!',
+            'dialogue': '',
             'dialogue_options': {}
         }
-    }
+    },
 }
 
 # return list of quests completed for the logged in user

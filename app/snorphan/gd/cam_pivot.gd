@@ -21,7 +21,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 		print("cam_pivot.gd: Captured")
 
-	if event is InputEventMouseMotion and dialogue.current_npc == null:
+	if event is InputEventMouseMotion and Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
 		# for some reason relative's x and y are flipped and mouse has no access to global axes sigh
 		rotation.y -= event.relative.x * mouse_sensitivity
 

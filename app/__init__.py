@@ -57,7 +57,6 @@ c.execute("""CREATE TABLE IF NOT EXISTS npc(
     name TEXT,
     dialogue TEXT NOT NULL);
     """)
-c.execute("INSERT into npc VALUES ('village grandma', '', '')")
 db.commit()
 db.close()
 

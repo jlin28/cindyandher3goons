@@ -16,6 +16,8 @@
 [ext_resource type="PackedScene" uid="uid://b2acd6oqhabr" path="res://glb/architecture/fence.glb" id="13_ppss0"]
 [ext_resource type="PackedScene" uid="uid://bt4w2wdmc86gt" path="res://glb/architecture/skinnyhouse1.glb" id="14_5rhs8"]
 [ext_resource type="PackedScene" uid="uid://2lnq4kvnv37b" path="res://tscn/npc_1.tscn" id="15_eu483"]
+[ext_resource type="PackedScene" uid="uid://c1dbprdspf5dt" path="res://tscn/npc_2.tscn" id="17_eh2cu"]
+[ext_resource type="Script" uid="uid://dqhsobhw8b7ms" path="res://gd/npc.gd" id="18_eh2cu"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_i5arm"]
 shader = ExtResource("5_jka67")
@@ -243,6 +245,11 @@ transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 1.2661138, -16.149754, 
 [node name="Sealius" parent="npcs" unique_id=725019478 instance=ExtResource("15_eu483")]
 unique_name_in_owner = true
 transform = Transform3D(1.4999998, 0, 0, 0, 1.4999998, 0, 0, 0, 1.4999998, -70.673325, 0.34555054, -64.2581)
+
+[node name="Chief" parent="npcs" unique_id=1762828805 instance=ExtResource("17_eh2cu")]
+unique_name_in_owner = true
+transform = Transform3D(0.8296292, 0, 1.249686, 0, 1.4999999, 0, -1.249686, 0, 0.8296292, 86.20523, 0.16427612, 257.36548)
+script = ExtResource("18_eh2cu")
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="." unique_id=786734225]
 position = Vector2(500, 3)

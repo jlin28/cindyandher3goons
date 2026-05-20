@@ -95,7 +95,6 @@ ws.on('connection', function connect(client, req) {
         body: JSON.stringify({ type: "dialogue", npc: data.npc })
       });
 
-      console.log(res)
       let dg = await res.json()
       send(
         client, {
@@ -103,6 +102,14 @@ ws.on('connection', function connect(client, req) {
           dialogue: dg
         }
       )
+    }
+
+    if (data.type === "logout") {
+      let res = fetch("https://cindyandher3goons.me/" + client.route, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json'},
+        body: JSON.stringify({ type: "logout" })
+      });
     }
   });
 

@@ -25,8 +25,9 @@ func receive_dialogue(dg):
 	play_dialogue()
 	
 func play_dialogue():
+	var quest_status = 'quest_inactive'
 	if not current_dialogue_line:
-		current_dialogue_line = 'A'
+		current_dialogue_line = quest_status
 	
 	dialogue_box.text = current_dialogue[current_dialogue_line].dialogue
 	print(current_dialogue_line)
@@ -34,10 +35,13 @@ func play_dialogue():
 	var dialogue_options = current_dialogue[current_dialogue_line].dialogue_options
 	if dialogue_options.size() > 0:
 		var i = 0
+		for option in options:
+			option.visible = false
+			
 		for dialogue_option in dialogue_options:
 			options[i].text = dialogue_option
-			i+=1
 			options[i].visible = true
+			i+=1
 		
 		next_button.visible = false
 	else:

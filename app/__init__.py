@@ -278,6 +278,10 @@ def game():
             npc = body.get('npc')
             return jsonify(npc_dialogue[npc])
 
+        if body.get('type') == 'logout':
+            session.pop('username')
+            return redirect(url_for("start"))
+
     return render_template('game.html', username=session['username'])
 
 @app.route("/exit", methods=["GET", "POST"])

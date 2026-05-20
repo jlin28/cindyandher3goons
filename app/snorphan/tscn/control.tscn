@@ -9,6 +9,7 @@
 [ext_resource type="Script" uid="uid://bv5u0aargk876" path="res://gd/dgbutton.gd" id="6_1akbr"]
 [ext_resource type="Script" uid="uid://444n1xmygkoi" path="res://gd/options.gd" id="6_dd40b"]
 [ext_resource type="Script" uid="uid://dw0rw8i8fmy12" path="res://gd/close_settings.gd" id="9_tw3h4"]
+[ext_resource type="Script" uid="uid://cnfxca6207021" path="res://gd/logout.gd" id="10_s2oxt"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_2mfya"]
 texture = ExtResource("1_vpxtf")
@@ -477,6 +478,7 @@ layout_mode = 2
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+theme_override_constants/margin_bottom = 15
 
 [node name="optionscont" type="HBoxContainer" parent="dialogue/MarginContainer/MarginContainer/VBoxContainer/MarginContainer2" unique_id=2113730465]
 unique_name_in_owner = true
@@ -486,7 +488,7 @@ theme_override_constants/separation = 15
 [node name="one" type="Button" parent="dialogue/MarginContainer/MarginContainer/VBoxContainer/MarginContainer2/optionscont" unique_id=1195461373]
 visible = false
 clip_contents = true
-custom_minimum_size = Vector2(150, 30)
+custom_minimum_size = Vector2(150, 40)
 layout_mode = 2
 theme_override_colors/font_color = Color(0.6392157, 0.48235294, 0.34901962, 1)
 theme_override_fonts/font = ExtResource("2_y35ns")
@@ -494,12 +496,13 @@ theme_override_font_sizes/font_size = 10
 theme_override_styles/normal = SubResource("StyleBoxTexture_8i35t")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_tv35b")
 theme_override_styles/hover = SubResource("StyleBoxTexture_lorj1")
+autowrap_mode = 3
 script = ExtResource("6_dd40b")
 
 [node name="two" type="Button" parent="dialogue/MarginContainer/MarginContainer/VBoxContainer/MarginContainer2/optionscont" unique_id=1103440745]
 visible = false
 clip_contents = true
-custom_minimum_size = Vector2(150, 30)
+custom_minimum_size = Vector2(150, 40)
 layout_mode = 2
 theme_override_colors/font_color = Color(0.6392157, 0.48235294, 0.34901962, 1)
 theme_override_fonts/font = ExtResource("2_y35ns")
@@ -507,12 +510,13 @@ theme_override_font_sizes/font_size = 10
 theme_override_styles/normal = SubResource("StyleBoxTexture_8i35t")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_3ukgg")
 theme_override_styles/hover = SubResource("StyleBoxTexture_86puh")
+autowrap_mode = 3
 script = ExtResource("6_dd40b")
 
 [node name="three" type="Button" parent="dialogue/MarginContainer/MarginContainer/VBoxContainer/MarginContainer2/optionscont" unique_id=1667823865]
 visible = false
 clip_contents = true
-custom_minimum_size = Vector2(150, 30)
+custom_minimum_size = Vector2(150, 40)
 layout_mode = 2
 theme_override_colors/font_color = Color(0.6392157, 0.48235294, 0.34901962, 1)
 theme_override_fonts/font = ExtResource("2_y35ns")
@@ -520,6 +524,7 @@ theme_override_font_sizes/font_size = 10
 theme_override_styles/normal = SubResource("StyleBoxTexture_8i35t")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_bi2wt")
 theme_override_styles/hover = SubResource("StyleBoxTexture_88clp")
+autowrap_mode = 3
 script = ExtResource("6_dd40b")
 
 [node name="next" type="MarginContainer" parent="dialogue/MarginContainer/MarginContainer" unique_id=624000439]
@@ -762,7 +767,7 @@ size_flags_vertical = 8
 layout_mode = 2
 theme_override_constants/separation = 150
 
-[node name="Button" type="Button" parent="settings/MarginContainer/MarginContainer/MarginContainer/HBoxContainer" unique_id=1014891978]
+[node name="logout" type="Button" parent="settings/MarginContainer/MarginContainer/MarginContainer/HBoxContainer" unique_id=1014891978]
 custom_minimum_size = Vector2(250, 45)
 layout_mode = 2
 theme_override_colors/font_color = Color(0.68, 0.5784533, 0.46240002, 1)
@@ -774,6 +779,7 @@ theme_override_styles/normal = SubResource("StyleBoxTexture_cms2p")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_ui7db")
 theme_override_styles/hover = SubResource("StyleBoxTexture_gklhr")
 text = "LOGOUT"
+script = ExtResource("10_s2oxt")
 
 [node name="Button2" type="Button" parent="settings/MarginContainer/MarginContainer/MarginContainer/HBoxContainer" unique_id=845935821]
 custom_minimum_size = Vector2(250, 45)

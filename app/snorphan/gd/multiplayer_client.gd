@@ -190,3 +190,10 @@ func retrieve_dialogue(npc):
 func send_dialogue(data):
 	dialogue_cont.receive_dialogue(data.dialogue)
 	print(data)
+	
+func logout():
+	var data = {
+		"type": "logout",
+	}
+	
+	socket.send_text(JSON.stringify(data))

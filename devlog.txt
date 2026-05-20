@@ -342,3 +342,8 @@ joyceL -- 2026-05-19 23:15
 PATHS AND MODEL
 * Created and imported town chief model
 * Created village paths
+* continued on settings ui
+* COMPLETE FOR SETTINGS:
+  - Add a logout button
+  - Confirm slider and settings consistency
+  - Make settings actually send with an apply settings button

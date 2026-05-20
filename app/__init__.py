@@ -137,28 +137,28 @@ def questsAvailable():
     return True
 
 # return boolean reflecting whether the inventory is full
-def inventory_full():
-    db = sqlite3.connect(DB_FILE)
-    c = db.cursor()
-    c.execute("""SELECT
-        item1Count,
-        item2Count,
-        item3Count,
-        item4Count,
-        item5Count,
-        item6Count
-        FROM user WHERE username = ?""", (username,))
-    item_counts = c.fetchone()
-    db.commit()
-    db.close()
-    # assumption is made that you cannot keep an inventiory space for zero of an item
-    for i in item_counts:
-        if i is None:
-            return False
-        else:
-            if i == 0:
-                return False
-        return True
+# def inventory_full():
+#     db = sqlite3.connect(DB_FILE)
+#     c = db.cursor()
+#     c.execute("""SELECT
+#         item1Count,
+#         item2Count,
+#         item3Count,
+#         item4Count,
+#         item5Count,
+#         item6Count
+#         FROM user WHERE username = ?""", (username,))
+#     item_counts = c.fetchone()
+#     db.commit()
+#     db.close()
+#     # assumption is made that you cannot keep an inventiory space for zero of an item
+#     for i in item_counts:
+#         if i is None:
+#             return False
+#         else:
+#             if i == 0:
+#                 return False
+#         return True
 
 @app.route("/", methods=["GET", "POST"])
 def start():

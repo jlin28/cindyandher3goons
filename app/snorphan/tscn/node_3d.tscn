@@ -1,20 +1,20 @@
 [gd_scene format=3 uid="uid://dhwuwrgj0xoop"]
 
-[ext_resource type="Script" uid="uid://b6spxjesfr4ti" path="res://gd/node_3d.gd" id="1_7lhp4"]
+[ext_resource type="Script" uid="uid://b6yjo386ho4ca" path="res://gd/node_3d.gd" id="1_7lhp4"]
 [ext_resource type="PackedScene" uid="uid://6eok38y3bfyh" path="res://tscn/character_body_3d.tscn" id="1_a202f"]
-[ext_resource type="FontFile" uid="uid://cjvg0evcqc7yp" path="res://static/PeaberryDoublespace.ttf" id="3_pum07"]
-[ext_resource type="Script" uid="uid://jut82us73bwq" path="res://gd/multiplayer_client.gd" id="3_r3fl7"]
+[ext_resource type="FontFile" uid="uid://pmi7qj0fh53v" path="res://static/PeaberryDoublespace.ttf" id="3_pum07"]
+[ext_resource type="Script" uid="uid://bc57ope5deafr" path="res://gd/multiplayer_client.gd" id="3_r3fl7"]
 [ext_resource type="PackedScene" uid="uid://bifhuaitnfy3p" path="res://tscn/remote_player.tscn" id="4_jka67"]
-[ext_resource type="Shader" uid="uid://bheieniktxvry" path="res://node_3d.gdshader" id="5_jka67"]
+[ext_resource type="Shader" uid="uid://cxjghkmx57hr4" path="res://node_3d.gdshader" id="5_jka67"]
 [ext_resource type="Texture2D" uid="uid://b0i2ljk60x3w7" path="res://static/citrus_orchard_road_puresky_4k.exr" id="6_i5arm"]
 [ext_resource type="Texture2D" uid="uid://dvfqtlkwt0ma2" path="res://static/clouds.jpg" id="6_jsk3o"]
 [ext_resource type="Texture2D" uid="uid://c3f4752vwh53n" path="res://static/blue.webp" id="9_4arys"]
 [ext_resource type="PackedScene" uid="uid://cxo150m2m6bob" path="res://tscn/control.tscn" id="9_6iypd"]
 [ext_resource type="PackedScene" uid="uid://d552wf5u3x3a" path="res://glb/landscape-col.glb" id="9_7lhp4"]
-[ext_resource type="PackedScene" uid="uid://c45q1qrt5rdxb" path="res://glb/architecture/house1.glb" id="10_oycpi"]
-[ext_resource type="PackedScene" uid="uid://eeckngvfa3lc" path="res://glb/architecture/archhouse1.glb" id="12_y4xl3"]
-[ext_resource type="PackedScene" uid="uid://b0mkv3rsjlu5s" path="res://glb/architecture/fence.glb" id="13_ppss0"]
-[ext_resource type="PackedScene" uid="uid://c4m8bct1d0d3s" path="res://glb/architecture/skinnyhouse1.glb" id="14_5rhs8"]
+[ext_resource type="PackedScene" uid="uid://dk4wydotfxrj5" path="res://glb/architecture/house1.glb" id="10_oycpi"]
+[ext_resource type="PackedScene" uid="uid://bemhyaf0leh7h" path="res://glb/architecture/archhouse1.glb" id="12_y4xl3"]
+[ext_resource type="PackedScene" uid="uid://b2acd6oqhabr" path="res://glb/architecture/fence.glb" id="13_ppss0"]
+[ext_resource type="PackedScene" uid="uid://bt4w2wdmc86gt" path="res://glb/architecture/skinnyhouse1.glb" id="14_5rhs8"]
 [ext_resource type="PackedScene" uid="uid://2lnq4kvnv37b" path="res://tscn/npc_1.tscn" id="15_eu483"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_i5arm"]
@@ -58,6 +58,42 @@ turbulence_noise_speed_random = 0.0
 turbulence_influence_min = 0.020000001
 turbulence_influence_max = 0.080000006
 
+[sub_resource type="Curve3D" id="Curve3D_pum07"]
+bake_interval = 0.01
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0, 0, -10, 0, 0, 10, 0, 0, 5.271591, 0, 36.61544, -10, 0, 0, 0, 0, 0, 28.202257, 0.04743576, 79.47033, 0, 0, 0, 10, 0, 0, 91.39949, 0.061077118, 86.12015, -10, 0, 0, 0, 0, 0, 115.555435, 0.15332031, 48.86924, 0, 0, 0, 10, 0, 0, 185.24384, 0.051437378, 38.30371, -10, 0, 0, 10, 0, 0, 204.50943, 0.15289307, 8.19445, 0, 0, 0, 0, 0, 0, 223.78137, 0.09065819, -1.0101318),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0)
+}
+point_count = 8
+
+[sub_resource type="Curve3D" id="Curve3D_yiuqw"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 55.15376, 0, -9.124005, 0, 0, 0, -10, 0, 0, 35.102383, 0, -1.4891272, 0, 0, 0, 0, 0, 0, 38.195286, 0.020349503, 73.6386),
+"tilts": PackedFloat32Array(0, 0, 0)
+}
+point_count = 3
+
+[sub_resource type="Curve3D" id="Curve3D_eh2cu"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -1.9161835, 0, -0.119766235, 0, 0, -20, 0, 0, 0, 58.0244, -0.029863358, 9.204887),
+"tilts": PackedFloat32Array(0, 0)
+}
+point_count = 2
+
+[sub_resource type="Curve3D" id="Curve3D_fp1dq"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0, 0, -10, 0, 0, 10, 0, 0, 43.491188, 0, -6.383194, 20, 0, 0, 0, 0, 0, 73.0518, -0.10632515, 17.923847),
+"tilts": PackedFloat32Array(0, 0, 0)
+}
+point_count = 3
+
+[sub_resource type="Curve3D" id="Curve3D_byo66"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3.8322911, 0.0038062334, -0.22418213),
+"tilts": PackedFloat32Array(0, 0)
+}
+point_count = 2
+
 [node name="Node3D" type="Node3D" unique_id=1689037102]
 script = ExtResource("1_7lhp4")
 
@@ -91,7 +127,7 @@ mouse_filter = 1
 [node name="buildings" type="Node3D" parent="." unique_id=1568504284]
 
 [node name="house1" parent="buildings" unique_id=277096914 instance=ExtResource("10_oycpi")]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -21.633549, -12.545856, 9.666206)
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -21.633549, -12.761167, 9.666206)
 
 [node name="house5" parent="buildings" unique_id=1932267710 instance=ExtResource("10_oycpi")]
 transform = Transform3D(-1.4992872, 0, 0.04622637, 0, 1.4999998, 0, -0.04622637, 0, -1.4992872, -28.617062, -12.466211, 154.90955)
@@ -195,6 +231,12 @@ transform = Transform3D(-0.9908282, 0, 0.13512738, 0, 1, 0, -0.13512738, 0, -0.9
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.030033588, -0.1080246, 1.4149761)
 
+[node name="Landscape" parent="landscape" index="0" unique_id=845164961]
+transform = Transform3D(17.71466, -0.0029094922, 0.017167607, 0.0028964176, 17.714664, 0.013368785, -0.017169818, -0.013365945, 17.714655, -0.0062122345, 0.06770897, -0.060983658)
+
+[node name="CollisionShape3D" parent="landscape/Landscape/StaticBody3D2" parent_id_path=PackedInt32Array(2118959507, 804776040) index="0" unique_id=437108188]
+transform = Transform3D(1, -1.5688784e-11, 5.820766e-11, 1.5745627e-11, 1, 5.820766e-11, -5.820766e-11, -5.820766e-11, 0.99999994, 0.0092385635, 0.008848596, -0.0011596978)
+
 [node name="npcs" type="Node3D" parent="." unique_id=1090715944]
 transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 1.2661138, -16.149754, 35.854744)
 
@@ -209,5 +251,111 @@ amount = 200
 lifetime = 10.0
 preprocess = 30.0
 process_material = SubResource("ParticleProcessMaterial_fp1dq")
+
+[node name="paths" type="Node3D" parent="." unique_id=548787052]
+transform = Transform3D(17.71466, -0.0029094925, 0.017167607, 0.0028964179, 17.714664, 0.013368785, -0.01716982, -0.013365946, 17.714653, 0.12736654, 0.11644556, 1.333172)
+
+[node name="Node3D" type="Node3D" parent="paths" unique_id=342245704]
+transform = Transform3D(0.05574727, 9.230239e-06, -0.008881904, -1.581783e-05, 0.056450367, -4.061875e-05, 0.008881896, 4.2601514e-05, 0.05574726, -1.3678904, -1.0623544, 0.69084305)
+
+[node name="Path3D" type="Path3D" parent="paths/Node3D" unique_id=1444936756]
+curve = SubResource("Curve3D_pum07")
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="paths/Node3D" unique_id=2021702805]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.8240128, 0, -1.6225395)
+polygon = PackedVector2Array(1, 0, 0, 1, 5, 1, 5, 0)
+mode = 2
+path_node = NodePath("../Path3D")
+path_interval_type = 0
+path_interval = 1.0
+path_simplify_angle = 0.0
+path_rotation = 2
+path_rotation_accurate = false
+path_local = true
+path_continuous_u = true
+path_u_distance = 1.0
+path_joined = false
+
+[node name="Node3D2" type="Node3D" parent="paths" unique_id=1513623599]
+transform = Transform3D(0.052787513, 9.230239e-06, -0.020003123, -2.3726785e-05, 0.056450367, -3.6566733e-05, 0.020003114, 4.2601514e-05, 0.052787505, -1.1874034, -1.0620124, 0.19856073)
+
+[node name="Path3D" type="Path3D" parent="paths/Node3D2" unique_id=365693878]
+curve = SubResource("Curve3D_yiuqw")
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="paths/Node3D2" unique_id=695128872]
+polygon = PackedVector2Array(1, 0, 0, 1, 5, 1, 5, 0)
+mode = 2
+path_node = NodePath("../Path3D")
+path_interval_type = 0
+path_interval = 1.0
+path_simplify_angle = 0.0
+path_rotation = 2
+path_rotation_accurate = false
+path_local = true
+path_continuous_u = true
+path_u_distance = 1.0
+path_joined = false
+
+[node name="Node3D3" type="Node3D" parent="paths" unique_id=1990729759]
+transform = Transform3D(0.056450363, 9.230239e-06, -5.471408e-05, -9.271144e-06, 0.056450367, -4.2592634e-05, 5.4707176e-05, 4.2601514e-05, 0.056450352, -3.916573, -1.0627217, 4.3256927)
+
+[node name="Path3D" type="Path3D" parent="paths/Node3D3" unique_id=1429470314]
+curve = SubResource("Curve3D_eh2cu")
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="paths/Node3D3" unique_id=1772409085]
+polygon = PackedVector2Array(0, 0, 0, 1, 5, 1, 5, 0)
+mode = 2
+path_node = NodePath("../Path3D")
+path_interval_type = 0
+path_interval = 1.0
+path_simplify_angle = 0.0
+path_rotation = 2
+path_rotation_accurate = false
+path_local = true
+path_continuous_u = true
+path_u_distance = 1.0
+path_joined = false
+
+[node name="Node3D4" type="Node3D" parent="paths" unique_id=1222073984]
+transform = Transform3D(-0.0006640275, 9.229762e-06, 0.046389055, 4.2803666e-05, 0.05645028, -7.1739137e-06, -0.05657425, 4.2601136e-05, -0.000544486, -1.6587398, -1.063607, 8.504943)
+
+[node name="Path3D" type="Path3D" parent="paths/Node3D4" unique_id=950653490]
+curve = SubResource("Curve3D_fp1dq")
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="paths/Node3D4" unique_id=860816703]
+transform = Transform3D(0.9044777, -1.7550523e-18, -5.551115e-17, 3.303964e-18, 1, 5.551115e-17, -8.326673e-17, 0, 1.2600071, 0, 0, 0)
+polygon = PackedVector2Array(0, 0, 0, 1, 5, 1, 5, 0)
+mode = 2
+path_node = NodePath("../Path3D")
+path_interval_type = 0
+path_interval = 1.0
+path_simplify_angle = 0.0
+path_rotation = 2
+path_rotation_accurate = false
+path_local = true
+path_continuous_u = true
+path_u_distance = 1.0
+path_joined = false
+
+[node name="Node3D5" type="Node3D" parent="paths" unique_id=1444783396]
+transform = Transform3D(0.012339123, 0.00091610727, -0.9999233, -0.0005931292, 0.9999991, 0.00090885215, 0.9999234, 0.00058186107, 0.012339691, 9.720491, -1.0293012, -0.37870365)
+
+[node name="Path3D" type="Path3D" parent="paths/Node3D5" unique_id=2057032437]
+transform = Transform3D(1, 0, 9.313226e-10, 0, 1, 1.0140866e-10, -9.313226e-10, 1.72804e-11, 1.0000002, -0.012616143, 2.3841858e-06, -0.00016880035)
+curve = SubResource("Curve3D_byo66")
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="paths/Node3D5" unique_id=1408258137]
+transform = Transform3D(1.0040352, -2.2737368e-12, 4.656613e-10, -4.3655746e-11, 0.02307945, -4.0813575e-11, -9.313226e-10, 1.10134124e-13, 0.26051378, 0, 0, 0)
+mode = 2
+path_node = NodePath("../Path3D")
+path_interval_type = 0
+path_interval = 1.0
+path_simplify_angle = 0.0
+path_rotation = 2
+path_rotation_accurate = false
+path_local = true
+path_continuous_u = true
+path_u_distance = 1.0
+path_joined = false
 
 [editable path="landscape"]

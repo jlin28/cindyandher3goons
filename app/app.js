@@ -110,8 +110,6 @@ ws.on('connection', function connect(client, req) {
         headers: { 'Content-Type': 'application/json'},
         body: JSON.stringify({ type: "logout" })
       });
-
-      window.location.replace("https://cindyandher3goons.me/")
     }
   });
 

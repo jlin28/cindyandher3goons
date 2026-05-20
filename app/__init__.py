@@ -280,6 +280,7 @@ def game():
 
         if body.get('type') == 'logout':
             session.pop('username')
+            return redirect(url_for("login"))
 
     return render_template('game.html', username=session['username'])
 

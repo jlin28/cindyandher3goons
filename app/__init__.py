@@ -83,6 +83,30 @@ npc_dialogue = {
             'dialogue': '...',
             'dialogue_options': {}
         }
+    },
+    "Town Chief": {
+        'A': {
+            'dialogue': "Hey kid, I've never seen you around before... Are you new?",
+            'dialogue_options': {
+                "No. I don't know what you're talking about.": 'B',
+                'Yeah... Do you have somewhere I can stay?': 'C',
+                'Run away!': 'D'
+            }
+        },
+        'B': {
+            'dialogue': "Hohoho! Don't worry kid, we won't kick you out. I know you're not from here.",
+            'dialogue_options': {
+                ""
+            }
+        },
+        'C': {
+            'dialogue': "It's been a long time since we've had anyone new in the village. If my memory serves me right, there should be one empty house. Once you've found it, come back to me!",
+            'dialogue_options': {}
+        },
+        'D': {
+            'dialogue': 'Wait, where are you going?!',
+            'dialogue_options': {}
+        }
     }
 }
 

@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://c1dbprdspf5dt"]
 
 [ext_resource type="PackedScene" uid="uid://dj30hdc4jarvm" path="res://glb/characters/chief.glb" id="1_mf3co"]
-[ext_resource type="FontFile" uid="uid://pmi7qj0fh53v" path="res://static/PeaberryDoublespace.ttf" id="2_cql7x"]
+[ext_resource type="FontFile" uid="uid://cjvg0evcqc7yp" path="res://static/PeaberryDoublespace.ttf" id="2_cql7x"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_pjqt2"]
 size = Vector3(0.9288845, 1.3036768, 1.2844238)
@@ -57,7 +57,7 @@ visible = false
 transform = Transform3D(1, 0, -2.842171e-14, 0, 1, 7.1054274e-15, 0, 0, 1.0116583, 0.048265696, 5.9803033, 0.10840124)
 billboard = 2
 modulate = Color(0.58, 0.49126, 0.42339998, 1)
-text = "Chief"
+text = "Town Chief"
 font = ExtResource("2_cql7x")
 font_size = 120
 

@@ -10,6 +10,7 @@ extends Button
 func _pressed() -> void:
 	options.visible = true
 	
+	
 	if name_label.text != "< %s >" %dialogue.current_npc:
 		name_label.text = "< %s >" %dialogue.current_npc
 		

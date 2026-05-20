@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://dhwuwrgj0xoop"]
 
-[ext_resource type="Script" uid="uid://b6yjo386ho4ca" path="res://gd/node_3d.gd" id="1_7lhp4"]
+[ext_resource type="Script" uid="uid://b6spxjesfr4ti" path="res://gd/node_3d.gd" id="1_7lhp4"]
 [ext_resource type="PackedScene" uid="uid://6eok38y3bfyh" path="res://tscn/character_body_3d.tscn" id="1_a202f"]
-[ext_resource type="FontFile" uid="uid://pmi7qj0fh53v" path="res://static/PeaberryDoublespace.ttf" id="3_pum07"]
-[ext_resource type="Script" uid="uid://bc57ope5deafr" path="res://gd/multiplayer_client.gd" id="3_r3fl7"]
+[ext_resource type="FontFile" uid="uid://cjvg0evcqc7yp" path="res://static/PeaberryDoublespace.ttf" id="3_pum07"]
+[ext_resource type="Script" uid="uid://jut82us73bwq" path="res://gd/multiplayer_client.gd" id="3_r3fl7"]
 [ext_resource type="PackedScene" uid="uid://bifhuaitnfy3p" path="res://tscn/remote_player.tscn" id="4_jka67"]
 [ext_resource type="Shader" uid="uid://cxjghkmx57hr4" path="res://node_3d.gdshader" id="5_jka67"]
 [ext_resource type="Texture2D" uid="uid://b0i2ljk60x3w7" path="res://static/citrus_orchard_road_puresky_4k.exr" id="6_i5arm"]
@@ -11,13 +11,13 @@
 [ext_resource type="Texture2D" uid="uid://c3f4752vwh53n" path="res://static/blue.webp" id="9_4arys"]
 [ext_resource type="PackedScene" uid="uid://cxo150m2m6bob" path="res://tscn/control.tscn" id="9_6iypd"]
 [ext_resource type="PackedScene" uid="uid://d552wf5u3x3a" path="res://glb/landscape-col.glb" id="9_7lhp4"]
-[ext_resource type="PackedScene" uid="uid://dk4wydotfxrj5" path="res://glb/architecture/house1.glb" id="10_oycpi"]
-[ext_resource type="PackedScene" uid="uid://bemhyaf0leh7h" path="res://glb/architecture/archhouse1.glb" id="12_y4xl3"]
-[ext_resource type="PackedScene" uid="uid://b2acd6oqhabr" path="res://glb/architecture/fence.glb" id="13_ppss0"]
-[ext_resource type="PackedScene" uid="uid://bt4w2wdmc86gt" path="res://glb/architecture/skinnyhouse1.glb" id="14_5rhs8"]
+[ext_resource type="PackedScene" uid="uid://c45q1qrt5rdxb" path="res://glb/architecture/house1.glb" id="10_oycpi"]
+[ext_resource type="PackedScene" uid="uid://eeckngvfa3lc" path="res://glb/architecture/archhouse1.glb" id="12_y4xl3"]
+[ext_resource type="PackedScene" uid="uid://b0mkv3rsjlu5s" path="res://glb/architecture/fence.glb" id="13_ppss0"]
+[ext_resource type="PackedScene" uid="uid://c4m8bct1d0d3s" path="res://glb/architecture/skinnyhouse1.glb" id="14_5rhs8"]
 [ext_resource type="PackedScene" uid="uid://2lnq4kvnv37b" path="res://tscn/npc_1.tscn" id="15_eu483"]
 [ext_resource type="PackedScene" uid="uid://c1dbprdspf5dt" path="res://tscn/npc_2.tscn" id="17_eh2cu"]
-[ext_resource type="Script" uid="uid://dqhsobhw8b7ms" path="res://gd/npc.gd" id="18_eh2cu"]
+[ext_resource type="Script" uid="uid://cxksh6skg15k7" path="res://gd/npc.gd" id="18_eh2cu"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_i5arm"]
 shader = ExtResource("5_jka67")
@@ -233,11 +233,8 @@ transform = Transform3D(-0.9908282, 0, 0.13512738, 0, 1, 0, -0.13512738, 0, -0.9
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.030033588, -0.1080246, 1.4149761)
 
-[node name="Landscape" parent="landscape" index="0" unique_id=845164961]
+[node name="Landscape" parent="landscape" index="0" unique_id=791988927]
 transform = Transform3D(17.71466, -0.0029094922, 0.017167607, 0.0028964176, 17.714664, 0.013368785, -0.017169818, -0.013365945, 17.714655, -0.0062122345, 0.06770897, -0.060983658)
-
-[node name="CollisionShape3D" parent="landscape/Landscape/StaticBody3D2" parent_id_path=PackedInt32Array(2118959507, 804776040) index="0" unique_id=437108188]
-transform = Transform3D(1, -1.5688784e-11, 5.820766e-11, 1.5745627e-11, 1, 5.820766e-11, -5.820766e-11, -5.820766e-11, 0.99999994, 0.0092385635, 0.008848596, -0.0011596978)
 
 [node name="npcs" type="Node3D" parent="." unique_id=1090715944]
 transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 1.2661138, -16.149754, 35.854744)
@@ -246,7 +243,7 @@ transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 1.2661138, -16.149754, 
 unique_name_in_owner = true
 transform = Transform3D(1.4999998, 0, 0, 0, 1.4999998, 0, 0, 0, 1.4999998, -70.673325, 0.34555054, -64.2581)
 
-[node name="Chief" parent="npcs" unique_id=1762828805 instance=ExtResource("17_eh2cu")]
+[node name="Town Chief" parent="npcs" unique_id=1762828805 instance=ExtResource("17_eh2cu")]
 unique_name_in_owner = true
 transform = Transform3D(0.8296292, 0, 1.249686, 0, 1.4999999, 0, -1.249686, 0, 0.8296292, 86.20523, 0.16427612, 257.36548)
 script = ExtResource("18_eh2cu")

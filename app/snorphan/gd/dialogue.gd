@@ -37,6 +37,8 @@ func play_dialogue():
 		for dialogue_option in dialogue_options:
 			options[i].text = dialogue_option
 			i+=1
+			options[i].visible = true
+		
 		next_button.visible = false
 	else:
 		option_cont.visible = false

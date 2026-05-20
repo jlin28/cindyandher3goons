@@ -182,10 +182,11 @@ func remove_remote_player(player_id):
 func retrieve_dialogue(npc):
 	var data = {
 		"type": "dialogue",
-		"npc": npc
+		"npc": npc,
 	}
 	
-	var err = socket.send_text(JSON.stringify(data))
+	socket.send_text(JSON.stringify(data))
 	
 func send_dialogue(data):
 	dialogue_cont.receive_dialogue(data.dialogue)
+	print(data)

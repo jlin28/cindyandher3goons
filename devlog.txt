@@ -351,3 +351,13 @@ PATHS AND MODEL
 carrieK -- 2026-05-20 10:41
 DIALOGUE
 * um.
+
+joyceL's Rat -- 2026-05-21 04:56
+SETTINGS MENU
+* Connect in-game setting sliders to browser localStorage vals in start screen!
+* Connect mouse sens slider to camera pivot
+* Logout button redirects to exit
+* Change `Input` to `event` yayy for nicer mouse
+* AUDIO NOTE:
+  - Add Godot audio bus volume logic for Master/SFX/Music sliders
+  - Need in-game AudioStreamPlayer nodes routed to SFX/Music buses to work!

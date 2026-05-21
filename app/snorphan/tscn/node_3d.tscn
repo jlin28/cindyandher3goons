@@ -1,11 +1,11 @@
 [gd_scene format=3 uid="uid://dhwuwrgj0xoop"]
 
-[ext_resource type="Script" uid="uid://b6spxjesfr4ti" path="res://gd/node_3d.gd" id="1_7lhp4"]
+[ext_resource type="Script" uid="uid://bw7vwtif4dytf" path="res://gd/node_3d.gd" id="1_7lhp4"]
 [ext_resource type="PackedScene" uid="uid://6eok38y3bfyh" path="res://tscn/character_body_3d.tscn" id="1_a202f"]
 [ext_resource type="FontFile" uid="uid://cjvg0evcqc7yp" path="res://static/PeaberryDoublespace.ttf" id="3_pum07"]
-[ext_resource type="Script" uid="uid://jut82us73bwq" path="res://gd/multiplayer_client.gd" id="3_r3fl7"]
+[ext_resource type="Script" uid="uid://duc7pkwd4qlnp" path="res://gd/multiplayer_client.gd" id="3_r3fl7"]
 [ext_resource type="PackedScene" uid="uid://bifhuaitnfy3p" path="res://tscn/remote_player.tscn" id="4_jka67"]
-[ext_resource type="Shader" uid="uid://cxjghkmx57hr4" path="res://node_3d.gdshader" id="5_jka67"]
+[ext_resource type="Shader" uid="uid://bheieniktxvry" path="res://node_3d.gdshader" id="5_jka67"]
 [ext_resource type="Texture2D" uid="uid://b0i2ljk60x3w7" path="res://static/citrus_orchard_road_puresky_4k.exr" id="6_i5arm"]
 [ext_resource type="Texture2D" uid="uid://dvfqtlkwt0ma2" path="res://static/clouds.jpg" id="6_jsk3o"]
 [ext_resource type="Texture2D" uid="uid://c3f4752vwh53n" path="res://static/blue.webp" id="9_4arys"]
@@ -233,7 +233,7 @@ transform = Transform3D(-0.9908282, 0, 0.13512738, 0, 1, 0, -0.13512738, 0, -0.9
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.030033588, -0.1080246, 1.4149761)
 
-[node name="Landscape" parent="landscape" index="0" unique_id=791988927]
+[node name="Landscape" parent="landscape" index="0" unique_id=102632207]
 transform = Transform3D(17.71466, -0.0029094922, 0.017167607, 0.0028964176, 17.714664, 0.013368785, -0.017169818, -0.013365945, 17.714655, -0.0062122345, 0.06770897, -0.060983658)
 
 [node name="npcs" type="Node3D" parent="." unique_id=1090715944]

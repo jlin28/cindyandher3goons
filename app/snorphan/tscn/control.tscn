@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cxo150m2m6bob"]
 
-[ext_resource type="Texture2D" uid="uid://n70tnighps5u" path="res://static/sprite_sheet.png" id="1_vpxtf"]
+[ext_resource type="Texture2D" uid="uid://bw4pqk3x14f5n" path="res://static/sprite_sheet.png" id="1_vpxtf"]
 [ext_resource type="Script" uid="uid://ccvciv4awmrty" path="res://gd/close_quests.gd" id="2_2mfya"]
 [ext_resource type="FontFile" uid="uid://cjvg0evcqc7yp" path="res://static/PeaberryDoublespace.ttf" id="2_y35ns"]
 [ext_resource type="Script" uid="uid://bgcmwa750v7qy" path="res://gd/settings.gd" id="2_ykr62"]
@@ -8,8 +8,9 @@
 [ext_resource type="Script" uid="uid://s52cj2qcinda" path="res://gd/dialogue.gd" id="5_6mujo"]
 [ext_resource type="Script" uid="uid://bv5u0aargk876" path="res://gd/dgbutton.gd" id="6_1akbr"]
 [ext_resource type="Script" uid="uid://444n1xmygkoi" path="res://gd/options.gd" id="6_dd40b"]
+[ext_resource type="Script" uid="uid://6bcs3kcjl8c4" path="res://tscn/settings_menu.gd" id="9_b7d53"]
 [ext_resource type="Script" uid="uid://dw0rw8i8fmy12" path="res://gd/close_settings.gd" id="9_tw3h4"]
-[ext_resource type="Script" uid="uid://cnfxca6207021" path="res://gd/logout.gd" id="10_s2oxt"]
+[ext_resource type="Script" uid="uid://bw0ucpjxwy4b2" path="res://gd/logout.gd" id="10_s2oxt"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_2mfya"]
 texture = ExtResource("1_vpxtf")
@@ -555,6 +556,7 @@ theme_override_constants/margin_left = 150
 theme_override_constants/margin_top = 100
 theme_override_constants/margin_right = 150
 theme_override_constants/margin_bottom = 100
+script = ExtResource("9_b7d53")
 
 [node name="MarginContainer" type="MarginContainer" parent="settings" unique_id=308328267]
 layout_mode = 2
@@ -647,7 +649,8 @@ theme_override_fonts/font = ExtResource("2_y35ns")
 theme_override_font_sizes/font_size = 18
 text = "MASTER VOLUME"
 
-[node name="HSlider" type="HSlider" parent="settings/MarginContainer/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/MarginContainer5/HBoxContainer" unique_id=2110395990]
+[node name="master_vol_slider" type="HSlider" parent="settings/MarginContainer/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/MarginContainer5/HBoxContainer" unique_id=2110395990]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(400, 0)
 layout_mode = 2
 
@@ -674,7 +677,8 @@ theme_override_fonts/font = ExtResource("2_y35ns")
 theme_override_font_sizes/font_size = 18
 text = "SFX VOLUME"
 
-[node name="HSlider" type="HSlider" parent="settings/MarginContainer/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/MarginContainer6/HBoxContainer2" unique_id=850172818]
+[node name="sfx_vol_slider" type="HSlider" parent="settings/MarginContainer/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/MarginContainer6/HBoxContainer2" unique_id=850172818]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(400, 0)
 layout_mode = 2
 
@@ -701,7 +705,8 @@ theme_override_fonts/font = ExtResource("2_y35ns")
 theme_override_font_sizes/font_size = 18
 text = "MUSIC VOLUME"
 
-[node name="HSlider" type="HSlider" parent="settings/MarginContainer/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/MarginContainer7/HBoxContainer3" unique_id=1901815569]
+[node name="music_vol_slider" type="HSlider" parent="settings/MarginContainer/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/MarginContainer7/HBoxContainer3" unique_id=1901815569]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(400, 0)
 layout_mode = 2
 
@@ -754,7 +759,8 @@ theme_override_fonts/font = ExtResource("2_y35ns")
 theme_override_font_sizes/font_size = 18
 text = "MOUSE SENS"
 
-[node name="HSlider" type="HSlider" parent="settings/MarginContainer/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/MarginContainer8/HBoxContainer4" unique_id=1440527913]
+[node name="mouse_sens_slider" type="HSlider" parent="settings/MarginContainer/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/MarginContainer8/HBoxContainer4" unique_id=1440527913]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(400, 0)
 layout_mode = 2
 
@@ -781,7 +787,8 @@ theme_override_styles/hover = SubResource("StyleBoxTexture_gklhr")
 text = "LOGOUT"
 script = ExtResource("10_s2oxt")
 
-[node name="Button2" type="Button" parent="settings/MarginContainer/MarginContainer/MarginContainer/HBoxContainer" unique_id=845935821]
+[node name="apply_button" type="Button" parent="settings/MarginContainer/MarginContainer/MarginContainer/HBoxContainer" unique_id=845935821]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(250, 45)
 layout_mode = 2
 theme_override_colors/font_color = Color(0.68, 0.5784533, 0.46240002, 1)

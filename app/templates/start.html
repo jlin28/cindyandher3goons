@@ -70,8 +70,8 @@ transition: transform 0.3s ease;
 	transform: scale(1.2);
 }
 #help{
-position: absolute; 
-bottom: 0; 
+position: absolute;
+bottom: 0;
 right: 0;
 margin-right: 20px;
 margin-bottom: 20px;
@@ -104,7 +104,7 @@ backdrop-filter: blur(4px);
   appearance: none;
   width: 20px;
   height: 20px;
-  border-radius: 50%; 
+  border-radius: 50%;
 	background: #abe3f2;
   cursor: pointer;
 }
@@ -153,7 +153,7 @@ margin-top: 2vh;
 margin-left: 51.3vw;
 }
 .bleh{
-background-color: rgba(255, 255, 255, 0.6); 
+background-color: rgba(255, 255, 255, 0.6);
 margin-bottom: 10px;
 width: 46.3vw;
 padding-top: 18px;
@@ -279,7 +279,7 @@ border-radius: 5px;
 <br>
 <div class="umm" id="ssound">
 <div class="bleh">
-    <span class="st">master volume</span> 
+    <span class="st">master volume</span>
 <span class="bro">
 <div class = "why" id="why"></div>
 <div class="slide">
@@ -314,7 +314,7 @@ border-radius: 5px;
 
 <div class="umm" id="sgraphics">
 <div class="bleh">
-    <span class="st">Time</span> 
+    <span class="st">Time</span>
 
 <span class="bro">
 <div class = "why" style="width: 75px;">day</div>
@@ -407,7 +407,7 @@ border-radius: 5px;
 
       socket.onmessage = (event) => {
         let data = event.data;
-	
+
         console.log(data);
       }
 
@@ -425,6 +425,7 @@ if (document.referrer === "") {
         document.getElementById("kms2").value = localStorage.getItem("aVol");
         document.getElementById("kms1").value = localStorage.getItem("sfxVol");
         document.getElementById("kms").value = localStorage.getItem("mVol");
+				document.getElementById("kms3").value = localStorage.getItem("mouseSens") || 50;
     }
     else{
     a.pause();
@@ -437,6 +438,7 @@ if (document.referrer === "") {
 	        document.getElementById("kms2").value = localStorage.getItem("aVol");
         document.getElementById("kms1").value = localStorage.getItem("sfxVol");
         document.getElementById("kms").value = localStorage.getItem("mVol");
+				document.getElementById("kms3").value = localStorage.getItem("mouseSens") || 50;
 }
 
 window.onpagehide = function(){
@@ -445,6 +447,7 @@ window.onpagehide = function(){
     localStorage.setItem("aVol", document.getElementById("kms2").value);
     localStorage.setItem("sfxVol", document.getElementById("kms1").value);
     localStorage.setItem("mVol", document.getElementById("kms").value);
+		localStorage.setItem("mouseSens", document.getElementById("kms3").value);
 };
 
 const sli = document.getElementById("kms2");
@@ -532,35 +535,35 @@ sli1.addEventListener('input', (event) => {
 
 var slider = document.getElementById("kms");
 var output = document.getElementById("why");
-output.innerHTML = slider.value; 
+output.innerHTML = slider.value;
 
 slider.oninput = function() {
   output.innerHTML = this.value;
-} 
+}
 
 var slider1 = document.getElementById("kms1");
 var output1 = document.getElementById("why1");
-output1.innerHTML = slider1.value; 
+output1.innerHTML = slider1.value;
 
 slider1.oninput = function() {
   output1.innerHTML = this.value;
-} 
+}
 
 var slider2 = document.getElementById("kms2");
 var output2 = document.getElementById("why2");
-output2.innerHTML = slider2.value; 
+output2.innerHTML = slider2.value;
 
 slider2.oninput = function() {
   output2.innerHTML = this.value;
-} 
+}
 
 var slider3 = document.getElementById("kms3");
 var output3 = document.getElementById("why3");
-output3.innerHTML = slider3.value; 
+output3.innerHTML = slider3.value;
 
 slider3.oninput = function() {
   output3.innerHTML = this.value;
-} 
+}
 
 dragElement(document.getElementById("help"));
 
@@ -606,12 +609,12 @@ function dragElement(s) {
 }
 
 const element   = document.querySelector("#help");
-let distance    = 0; 
+let distance    = 0;
 let bounceLoss = 0.75;
 requestAnimationFrame(tick);
 
 function tick(){
-    const floor = window.innerHeight;	
+    const floor = window.innerHeight;
     fallSpeed += g;
     if (element.offsetTop + element.offsetHeight < innerHeight) {
         element.style.top = (element.offsetTop + fallSpeed) + "px";

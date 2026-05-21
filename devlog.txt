@@ -361,3 +361,9 @@ SETTINGS MENU
 * AUDIO NOTE:
   - Add Godot audio bus volume logic for Master/SFX/Music sliders
   - Need in-game AudioStreamPlayer nodes routed to SFX/Music buses to work!
+
+cindyL -- 2026-05-21 11:01
+* function to add item to inventory
+* fixed up foreign keys?
+* changes to npc db to joyce's specifications
+* fixed broken function previously commented out

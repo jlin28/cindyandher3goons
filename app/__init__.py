@@ -8,8 +8,9 @@ app.secret_key = "cindy"
 DB_FILE="database.db"
 db = sqlite3.connect(DB_FILE, check_same_thread=False)
 c = db.cursor()
+c.execute("PRAGMA foreign_keys = ON;")
 c.execute("""CREATE TABLE IF NOT EXISTS user(
-    username TEXT,
+    username TEXT PRIMARY KEY,
     password TEXT,
     hp INTEGER NOT NULL,
     stamina INTEGER NOT NULL,
@@ -24,16 +25,24 @@ c.execute("""CREATE TABLE IF NOT EXISTS user(
     item3Count INTEGER,
     item4Count INTEGER,
     item5Count INTEGER,
-    item6Count INTEGER
-    questsCompleted STRING
-    questsActive STRING);
+    item6Count INTEGER,
+    questsCompleted STRING,
+    questsActive STRING,
+    FOREIGN KEY (item1) references item(name),
+    FOREIGN KEY (item2) references item(name),
+    FOREIGN KEY (item3) references item(name),
+    FOREIGN KEY (item4) references item(name),
+    FOREIGN KEY (item5) references item(name),
+    FOREIGN KEY (item6) references item(name)
+    );
     """)
 
 c.execute("""CREATE TABLE IF NOT EXISTS item(
-    name TEXT,
+    name TEXT PRIMARY KEY,
     desc TEXT NOT NULL,
     image TEXT NOT NULL,
-    maxCount INTEGER NOT NULL);
+    maxCount INTEGER NOT NULL
+    );
     """)
 c.execute("INSERT into item VALUES ('button', 'a circle to make your bestie feel dapper.', '', 3)")
 c.execute("INSERT into item VALUES ('carrot', 'an orange vegetable grown by an aspiring botanist. it looks crunchy and tasty, though you''re not sure if you should eat it.', '', 1)")
@@ -50,12 +59,17 @@ c.execute("INSERT into item VALUES ('snowball_L', 'a big fat bundle of joy.', ''
 
 c.execute("""CREATE TABLE IF NOT EXISTS encyclopedia(
     item TEXT,
-    userThatFound TEXT);
+    userThatFound TEXT,
+    FOREIGN KEY (item) references items(name),
+    FOREIGN KEY (userThatFound) references user(username)
+    );
     """)
 
 c.execute("""CREATE TABLE IF NOT EXISTS npc(
-    name TEXT,
-    dialogue TEXT NOT NULL);
+    name TEXT PRIMARY KEY,
+    questName TEXT,
+    questReq TEXT
+    );
     """)
 c.execute("INSERT into npc VALUES ('village grandma', '', '')")
 db.commit()
@@ -187,28 +201,32 @@ def questsAvailable():
     return True
 
 # return boolean reflecting whether the inventory is full
-# def inventory_full():
-#     db = sqlite3.connect(DB_FILE)
-#     c = db.cursor()
-#     c.execute("""SELECT
-#         item1Count,
-#         item2Count,
-#         item3Count,
-#         item4Count,
-#         item5Count,
-#         item6Count
-#         FROM user WHERE username = ?""", (username,))
-#     item_counts = c.fetchone()
-#     db.commit()
-#     db.close()
-#     # assumption is made that you cannot keep an inventiory space for zero of an item
-#     for i in item_counts:
-#         if i is None:
-#             return False
-#         else:
-#             if i == 0:
-#                 return False
-#         return True
+def stash_to_inventory(item_name, item_number):
+    db = sqlite3.connect(DB_FILE)
+    c = db.cursor()
+    c.execute("""SELECT
+        item1Count,
+        item2Count,
+        item3Count,
+        item4Count,
+        item5Count,
+        item6Count
+        FROM user WHERE username = ?""", (username,))
+    item_counts = c.fetchone()
+    # assumption is made that you cannot keep an inventory space for zero of an item
+    for n in range(0,6):
+        if item_counts[n] == 0:
+            c.execute("""UPDATE user
+                SET ? = ?,
+                SET ? = ?
+                """, (f"item{n}", item_name, f"item{n}Count", item_number)
+            )
+            db.commit()
+            db.close()
+            return True
+    db.commit()
+    db.close()
+    return False
 
 @app.route("/", methods=["GET", "POST"])
 def start():

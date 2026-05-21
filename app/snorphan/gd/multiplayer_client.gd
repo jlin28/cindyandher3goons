@@ -197,3 +197,5 @@ func logout():
 	}
 	
 	socket.send_text(JSON.stringify(data))
+	if OS.has_feature("web"):
+		JavaScriptBridge.eval("window.parent.location.href = '/exit'", true)

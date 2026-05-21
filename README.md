@@ -7,7 +7,7 @@
 
 **Project Summary**:
 ------------------------------
- Snorphan is an open world puzzle-adventure game. You're a lonely orphan who has no friends and in order to cure your insatiable loneliness, you spend your life building snowmen. But, oh no! Your snowmen are all sad and naked! Thus, as a last resort, you finally decide to socialize and look to the town's villagers for help. And boy do they have some work for you to do.
+ Snorphan is an open world adventure game. You're a lonely orphan who has no friends and in order to cure your insatiable loneliness, you spend your life building snowmen. But something about your snowmen always seemed lifeless and empty. Thus, on your way to fix your snowmen, you stumbled upon this village. The villagers seem nice enough, but will they be able to solve your problem? 
 
 ### View our live site at: [cindyandher3goons.me](https://cindyandher3goons.me/)!!!
 

@@ -6,8 +6,8 @@ extends Node
 @export var local_player: Node3D
 @export var username := "guest"
 
-var server_url := "ws://127.0.0.1:3030/ws/game"
-#var server_url := "wss://cindyandher3goons.me/ws/game"
+#var server_url := "ws://127.0.0.1:3030/ws/game"
+var server_url := "wss://cindyandher3goons.me/ws/game"
 
 var socket := WebSocketPeer.new()
 var connected := false

@@ -30,7 +30,7 @@ func _unhandled_input(event: InputEvent) -> void:
 
 		facing = rotation
 
-	elif Input.is_action_pressed("mouse_mode"):
+	elif event.is_action_pressed("mouse_mode"):
 		print("Esc Pressed")
 		if Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED or Input.get_mouse_mode() == Input.MOUSE_MODE_CONFINED:
 			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)

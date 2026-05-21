@@ -78,9 +78,12 @@ _Each member must own meaningful deliverables_
 ## Program Components + Explanation
 <ins>_Backend_</ins>
 - `SQLITE`: db storage for all our storage needs
+- `__init.py__`: serves our html pages and declares all dbs and helper functions
 
 <ins>_HTML (frontend display)_</ins>
 - `start.html`: startscreen for all your starts
+- `exit.html`: exit for all your exits (logs you out)
+- `credit.html`: we get recognition (yay!)
 - `login.html`: you can login as a user wow amazing 10/10
 - `register.html`: wow you can register up and actually play our game wow amazing 11/10
 - `index.html`: contains exported Godot app and allows for embedding

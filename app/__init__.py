@@ -268,9 +268,8 @@ def register():
 
 @app.route("/game", methods=["GET", "POST"])
 def game():
-    # uncomment this if exit/logout cooks you!
-    # if "username" not in session:
-    #    return redirect(url_for("login"))
+    if "username" not in session:
+        return redirect(url_for("login"))
 
     if request.method == "POST":
         body = request.get_json()

@@ -78,9 +78,12 @@ _Each member must own meaningful deliverables_
 ## Program Components + Explanation
 <ins>_Backend_</ins>
 - `SQLITE`: db storage for all our storage needs
+- `__init.py__`: serves our html pages and declares all dbs and helper functions
 
 <ins>_HTML (frontend display)_</ins>
 - `start.html`: startscreen for all your starts
+- `exit.html`: exit for all your exits (logs you out)
+- `credit.html`: we get recognition (yay!)
 - `login.html`: you can login as a user wow amazing 10/10
 - `register.html`: wow you can register up and actually play our game wow amazing 11/10
 - `index.html`: contains exported Godot app and allows for embedding
@@ -99,7 +102,7 @@ _Each member must own meaningful deliverables_
 <br>
 
 ## Site Map (front end)
-[![](https://mermaid.ink/img/pako:eNpVUMtqwzAQ_BWzJxccY1l2lIhQSOwee-up-CKi9QMsKcgSfZj8e2UbQrqnnZmdGdgZrkYicGhH83XthXXRR93oKMw5nlzAae_U-BLtdq_RJR5NN-iN2Y4u0WlRqthiN0wO7X9x0eq4Ewqf-WrjN1Cv4G2JNv657QwJdHaQwFsxTpiAQqvEgmFerA24HhU2wMMqsRV-dA00-h58N6E_jVHAnfXBaY3v-keOv0nhsB5EZ4V6sBa1RFsZrx1wUrI1BPgM38ApO6TH4khJRrOc0aJI4Gc5Ssm-ZIQGPi8Iuyfwu5Zm6Z7l5SFMQcs8y0qSAMrBGfu-PXv9-f0PdoBvvg?type=png)](https://mermaid.live/edit#pako:eNpVUMtqwzAQ_BWzJxccY1l2lIhQSOwee-up-CKi9QMsKcgSfZj8e2UbQrqnnZmdGdgZrkYicGhH83XthXXRR93oKMw5nlzAae_U-BLtdq_RJR5NN-iN2Y4u0WlRqthiN0wO7X9x0eq4Ewqf-WrjN1Cv4G2JNv657QwJdHaQwFsxTpiAQqvEgmFerA24HhU2wMMqsRV-dA00-h58N6E_jVHAnfXBaY3v-keOv0nhsB5EZ4V6sBa1RFsZrx1wUrI1BPgM38ApO6TH4khJRrOc0aJI4Gc5Ssm-ZIQGPi8Iuyfwu5Zm6Z7l5SFMQcs8y0qSAMrBGfu-PXv9-f0PdoBvvg)
+[![](https://mermaid.ink/img/pako:eNptkc1qwzAQhF9F7MkFx0T-iW1RCq2d3nrrqfgiorUssKQgyzRtknevHEPIoXvSzux8C9ozHKxAYNCP9vswcOfJZ9sZEuo1wpPyyeD1-ESeN5sX0qzGW3RwKP61mmjygfHotNFopTKrtE61q7OPHEo1eXSP5p488pbmonoSGBIFUeZC3iPJNa4RiEE6JYD1fJwwBo1O86WH8wLowA-osQMWngJ7Po--g85cQ-7IzZe1Gph3c0g6O8vhzpmPgntsFZeO67vq0Ah0jZ2NB1bm9Q0C7AwnYFlZJXVeZ3SbbdMyy_MYfoDRIqG7oqRZ0NOcltcYfm9Lt8muTIuqqmq6q4qcpgG2_Kl1H-s9bme5_gFA1Hs-?type=png)](https://mermaid.live/edit#pako:eNptkc1qwzAQhF9F7MkFx0T-iW1RCq2d3nrrqfgiorUssKQgyzRtknevHEPIoXvSzux8C9ozHKxAYNCP9vswcOfJZ9sZEuo1wpPyyeD1-ESeN5sX0qzGW3RwKP61mmjygfHotNFopTKrtE61q7OPHEo1eXSP5p488pbmonoSGBIFUeZC3iPJNa4RiEE6JYD1fJwwBo1O86WH8wLowA-osQMWngJ7Po--g85cQ-7IzZe1Gph3c0g6O8vhzpmPgntsFZeO67vq0Ah0jZ2NB1bm9Q0C7AwnYFlZJXVeZ3SbbdMyy_MYfoDRIqG7oqRZ0NOcltcYfm9Lt8muTIuqqmq6q4qcpgG2_Kl1H-s9bme5_gFA1Hs-)
 
 <br>
 

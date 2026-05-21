@@ -111,6 +111,22 @@ ws.on('connection', function connect(client, req) {
         body: JSON.stringify({ type: "logout" })
       });
     }
+
+    if (data.type === "add_item") {
+      let res = await fetch("https://cindyandher3goons.me/" + client.route, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json'},
+        body: JSON.stringify({ type: "add_item", item: data.item, quantity: data.quantity })
+      });
+
+      let success = await res.json()
+      send(
+        client, {
+          type: "add_item",
+          success: success
+        }
+      )
+    }
   });
 
   client.on('close', () => {

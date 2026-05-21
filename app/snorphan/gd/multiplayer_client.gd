@@ -199,3 +199,12 @@ func logout():
 	socket.send_text(JSON.stringify(data))
 	if OS.has_feature("web"):
 		JavaScriptBridge.eval("window.parent.location.href = '/exit'", true)
+
+func add_item(item, quantity):
+	var data = {
+		"type": "add_item",
+		"item": item,
+		"quantity": quantity
+	}
+	
+	socket.send_text(JSON.stringify(data))

@@ -4,6 +4,8 @@ extends Node3D
 @onready var ui := $main/Control
 const Snowball:= preload("res://tscn/snowball.tscn")
 
+@onready var MultiplayerClient := get_tree().get_first_node_in_group('socket')
+
 func _unhandled_input(event: InputEvent) -> void:
 	if Input.is_action_just_pressed("interact") and player.can_move:
 		if player.npc_interactable == true:
@@ -19,6 +21,11 @@ func _unhandled_input(event: InputEvent) -> void:
 			player.idle.visible = true
 			player.anim_cont2.visible = false
 			player.anim_cont.visible = false
+		
+		elif player.item_interactable == true:
+			MultiplayerClient.add_item(player.current_interactable_item.label, 1)
+			
+			player.current_interactable_item.queue_free()
 
 		elif player.is_on_floor():
 			var snowball = Snowball.instantiate()

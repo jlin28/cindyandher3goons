@@ -27,6 +27,7 @@ func _process(delta: float) -> void:
 				rotation.y = angle
 	else: 
 		rotation.y = 0
+		
 func _on_entered(body):
 	if body.is_in_group('player'):
 		interactable_notification.visible = true

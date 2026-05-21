@@ -19,6 +19,9 @@ var time = 0.0;
 @export var can_move = true
 @export var current_interactable_npc = null
 
+@export var item_interactable = false
+@export var current_interactable_item = null
+
 func _physics_process(delta):
 	var direction = Vector3.ZERO
 	var rotation = Vector3.ZERO

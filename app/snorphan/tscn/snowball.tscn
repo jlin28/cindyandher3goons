@@ -16,6 +16,18 @@ albedo_color = Color(0.95686275, 1, 1, 1)
 linear_damp = 2.1
 script = ExtResource("1_ji0xw")
 
+[node name="Node3D" type="Node3D" parent="." unique_id=1556884133]
+transform = Transform3D(1.25, 0, 0, 0, 1.25, 0, 0, 0, 1.25, 0, -5.4872713, 0)
+
+[node name="Label3D" type="Label3D" parent="Node3D" unique_id=54530025]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1.0116583, 0.048265696, 4.922655, 0.023157502)
+billboard = 1
+modulate = Color(0.86, 0.77471673, 0.7138, 1)
+text = "[e] to pick up"
+font = ExtResource("2_gwyic")
+font_size = 25
+outline_size = 5
+
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=978138933]
 shape = SubResource("SphereShape3D_j0whi")
 
@@ -23,20 +35,8 @@ shape = SubResource("SphereShape3D_j0whi")
 mesh = SubResource("SphereMesh_ji0xw")
 surface_material_override/0 = SubResource("StandardMaterial3D_j0whi")
 
-[node name="Node3D" type="Node3D" parent="." unique_id=1556884133]
-transform = Transform3D(1.25, 0, 0, 0, 1.25, 0, 0, 0, 1.25, 0, -5.4872713, 0)
-
-[node name="Label3D" type="Label3D" parent="Node3D" unique_id=54530025]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1.0116583, 0.048265696, 4.9226546, -0.53461355)
-billboard = 2
-modulate = Color(0.86, 0.77471673, 0.7138, 1)
-text = "[e] to interact"
-font = ExtResource("2_gwyic")
-font_size = 25
-outline_size = 5
-
 [node name="Area3D" type="Area3D" parent="." unique_id=1523617957]
-transform = Transform3D(1.25, 0, 0, 0, 1.25, 0, 0, 0, 1.25, 0, 0, 0)
+transform = Transform3D(1.75, 0, 0, 0, 1.75, 0, 0, 0, 1.75, 0, 0, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=2046604986]
 shape = SubResource("SphereShape3D_38wua")

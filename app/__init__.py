@@ -204,6 +204,7 @@ def questsAvailable():
 def stash_to_inventory(item_name, item_number):
     db = sqlite3.connect(DB_FILE)
     c = db.cursor()
+
     c.execute("""SELECT
         item1Count,
         item2Count,
@@ -213,6 +214,29 @@ def stash_to_inventory(item_name, item_number):
         item6Count
         FROM user WHERE username = ?""", (username,))
     item_counts = c.fetchone()
+
+    c.execute("""SELECT
+        item1,
+        item2,
+        item3,
+        item4,
+        item5,
+        item6
+        FROM user WHERE username = ?""", (username,))
+    items = c.fetchone()
+
+    if item_name in items:
+        index = items.index(item_name)
+        c.execute(f"SELECT item{index}Count FROM user WHERE username = ?", (username,))
+        current_item_count = c.fetchone()
+
+        c.execute("SELECT maxCount FROM item WHERE name = ?", (item_name,))
+        max_item_count = c.fetchone()
+
+        if current_item_count + item_number <= max_item_count:
+            c.execute("UPDATE user SET ? = ? WHERE username = ?", (f"item{index}Count", current_item_count + item_number, username))
+            return True
+
     # assumption is made that you cannot keep an inventory space for zero of an item
     for n in range(0,6):
         if item_counts[n] == 0:
@@ -224,6 +248,7 @@ def stash_to_inventory(item_name, item_number):
             db.commit()
             db.close()
             return True
+
     db.commit()
     db.close()
     return False
@@ -299,6 +324,12 @@ def game():
         if body.get('type') == 'logout':
             session.pop('username')
             return redirect(url_for("login"))
+
+        if body.get('type') == 'add_item':
+            item = body.get('item')
+            quantity = body.get('quantity')
+
+            return stash_to_inventory(item, quantity)
 
     return render_template('game.html', username=session['username'])
 

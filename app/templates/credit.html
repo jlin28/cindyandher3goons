@@ -48,6 +48,19 @@ us!! we are the ones !!! cindyandher3goons!!! we did it!!! us!!!!!!!!!
 const a = document.getElementById("click");
 const b = document.getElementById("yes");
 
+const isReload = performance.getEntriesByType('navigation')[0]?.type === 'reload';
+const isBack = performance.getEntriesByType('navigation')[0]?.type === 'back_forward';
+
+if(isReload || isBack){
+        b.currentTime = localStorage.getItem("sTime");
+	    b.volume = localStorage.getItem("sVol");
+}
+
+window.onpagehide = function(){
+    localStorage.setItem("sTime", b.currentTime);
+    localStorage.setItem("sVol", b.volume);
+};
+
 window.onload = function(){
 	b.currentTime = localStorage.getItem("sTime");
 	b.volume = localStorage.getItem("sVol");

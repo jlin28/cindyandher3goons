@@ -36,9 +36,14 @@ c.execute("""CREATE TABLE IF NOT EXISTS item(
     maxCount INTEGER NOT NULL);
     """)
 c.execute("INSERT into item VALUES ('button', 'a circle to make your bestie feel dapper.', '', 3)")
-c.execute("INSERT into item VALUES ('carrot', 'an orange vegetable grown by an aspiring botanist.', '', 1)")
+c.execute("INSERT into item VALUES ('carrot', 'an orange vegetable grown by an aspiring botanist. it looks crunchy and tasty, though you''re not sure if you should eat it.', '', 1)")
 c.execute("INSERT into item VALUES ('hat', 'a lid to make your bestie feel dapper.', '', 1)")
-c.execute("INSERT into item VALUES ('scarf', 'knitted by a village grandma. it''s red and warm.', '', 1)")
+c.execute("INSERT into item VALUES ('red scarf', 'a scarf knitted by someone''s grandma. it''s fuzzy and warm.', '', 1)")
+c.execute("INSERT into item VALUES ('apple pie recipe', 'grandmas apple pie recipe. just looking at it makes your mouth water as you imagine the aroma and taste.', '', 1)")
+c.execute("INSERT into item VALUES ('ice sculpture', 'sculpture made of ice in the image of sealius. who knew he was hiding this talent all along?', '', 1)")
+c.execute("INSERT into item VALUES ('old plushie', 'a plushie worn out from years of love and hugs. a token of gratitude from a small child in hopes it will bring you the same joy.', '', 1)")
+c.execute("INSERT into item VALUES ('stick', 'a brown stick. its very sticky and looks like a stick. perhaps the most stick stick youve ever sticked.', '', 2)")
+c.execute("INSERT into item VALUES ('slightly worn out cape', 'a welcoming gift from the village chief. he hopes it will keep you warm in this frosty climate.', '', 1)")
 c.execute("INSERT into item VALUES ('snowball_S', 'a small bundle of joy.', '', 99)")
 c.execute("INSERT into item VALUES ('snowball_M', 'a bundle of joy.', '', 99)")
 c.execute("INSERT into item VALUES ('snowball_L', 'a big fat bundle of joy.', '', 99)")
@@ -58,27 +63,101 @@ db.close()
 
 npc_dialogue = {
     "Sealius": {
-        'A': {
-            'dialogue': 'hey wazzup',
+        'quest_inactive': {
+            'dialogue': 'hey wazzup!!! nice cape you got there :)',
             'dialogue_options': {
-                'who tf r u': 'B',
-                'hi': 'C',
-                '...': 'D'
+                'umm... hi?': 'A',
+                '': 'B',
+                '...': 'C'
             }
         },
-        'B': {
+        'A': {
             'dialogue': 'ok rude',
             'dialogue_options': {}
         },
-        'C': {
+        'B': {
             'dialogue': 'hihihiehe',
             'dialogue_options': {}
         },
-        'D': {
+        'C': {
             'dialogue': '...',
             'dialogue_options': {}
         }
-    }
+    },
+    "Town Chief": {
+        'quest_in_progress': {
+            'dialogue': "Come back when you've found the house!",
+            'dialogue_options': {}
+        },
+        'quest_completed': {
+            'dialogue': "You look just like my son when he was little...",
+            'dialogue_options': {}
+        },
+        'quest_inactive': {
+            'dialogue': "Hey kid, I've never seen you around before... Are you new?",
+            'dialogue_options': {
+                "No. I don't know what you're talking about.": 'A',
+                'Yeah... Do you have somewhere I can stay?': 'B',
+                'Run away!': 'C'
+            }
+        },
+        'A': {
+            'dialogue': "Hohoho! Don't worry kid, we won't kick you out. I know you're not from here.",
+            'dialogue_options': {
+                "How?": "B",
+                "Run away!": "C"
+            }
+        },
+        'B': {
+            'dialogue': "It's been a long time since we've had anyone new in the village. If my memory serves me right, there should be one empty house. Once you've found it, come back to me!",
+            'dialogue_options': {
+                "Okay...": "D",
+                "Maybe later...": "E"
+            }
+        },
+        'C': {
+            'dialogue': 'Wait, where are you going?!',
+            'dialogue_options': {}
+        },
+        'D':{
+            'dialogue': "I'll be waiting with a gift hohoho...",
+            'dialogue_options': {}
+        },
+        'E':{
+            'dialogue': "Take your time kid.",
+            'dialogue_options': {}
+        }
+    },
+    "": {
+        'quest_in_progress': {
+            'dialogue': "",
+            'dialogue_options': {}
+        },
+        'quest_completed': {
+            'dialogue': "",
+            'dialogue_options': {}
+        },
+        'quest_inactive': {
+            'dialogue': '',
+            'dialogue_options': {
+                '': 'B',
+                '': 'C',
+                '': 'D'
+            }
+        },
+        'B': {
+            'dialogue': '',
+            'dialogue_options': {}
+        },
+        'C': {
+            'dialogue': '',
+            'dialogue_options': {}
+        },
+        'D': {
+            'dialogue': '',
+            'dialogue_options': {}
+        }
+    },
 }
 
 # return list of quests completed for the logged in user
@@ -108,28 +187,28 @@ def questsAvailable():
     return True
 
 # return boolean reflecting whether the inventory is full
-def inventory_full():
-    db = sqlite3.connect(DB_FILE)
-    c = db.cursor()
-    c.execute("""SELECT
-        item1Count,
-        item2Count,
-        item3Count,
-        item4Count,
-        item5Count,
-        item6Count
-        FROM user WHERE username = ?""", (username,))
-    item_counts = c.fetchone()
-    db.commit()
-    db.close()
-    # assumption is made that you cannot keep an inventiory space for zero of an item
-    for i in item_counts:
-        if i is None:
-            return False
-        else:
-            if i == 0:
-                return False
-        return True
+# def inventory_full():
+#     db = sqlite3.connect(DB_FILE)
+#     c = db.cursor()
+#     c.execute("""SELECT
+#         item1Count,
+#         item2Count,
+#         item3Count,
+#         item4Count,
+#         item5Count,
+#         item6Count
+#         FROM user WHERE username = ?""", (username,))
+#     item_counts = c.fetchone()
+#     db.commit()
+#     db.close()
+#     # assumption is made that you cannot keep an inventiory space for zero of an item
+#     for i in item_counts:
+#         if i is None:
+#             return False
+#         else:
+#             if i == 0:
+#                 return False
+#         return True
 
 @app.route("/", methods=["GET", "POST"])
 def start():
@@ -198,6 +277,10 @@ def game():
         if body.get('type') == 'dialogue':
             npc = body.get('npc')
             return jsonify(npc_dialogue[npc])
+
+        if body.get('type') == 'logout':
+            session.pop('username')
+            return redirect(url_for("login"))
 
     return render_template('game.html', username=session['username'])
 

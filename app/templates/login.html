@@ -111,6 +111,19 @@ const a = document.getElementById("click");
 
 const b = document.getElementById("yes");
 
+const isReload = performance.getEntriesByType('navigation')[0]?.type === 'reload';
+const isBack = performance.getEntriesByType('navigation')[0]?.type === 'back_forward';
+
+if(isReload || isBack){
+        b.currentTime = localStorage.getItem("sTime");
+	    b.volume = localStorage.getItem("sVol");
+}
+
+window.onpagehide = function(){
+    localStorage.setItem("sTime", b.currentTime);
+    localStorage.setItem("sVol", b.volume);
+};
+
 window.onload = function(){
 	b.currentTime = localStorage.getItem("sTime");
 	b.volume = localStorage.getItem("sVol");
@@ -118,13 +131,9 @@ window.onload = function(){
 
 function cli(){
     a.play();
-localStorage.setItem("sTime", b.currentTime);
-localStorage.setItem("sVol", b.volume);
 setTimeout(function(){window.location.href="register";},200)
 }
 function cli1(){
-localStorage.setItem("sTime", b.currentTime);
-localStorage.setItem("sVol", b.volume);
     a.play();
 }
 		</script>

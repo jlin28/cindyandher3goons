@@ -1,12 +1,16 @@
 [gd_scene format=3 uid="uid://cxo150m2m6bob"]
 
-[ext_resource type="Texture2D" uid="uid://n70tnighps5u" path="res://static/sprite_sheet.png" id="1_vpxtf"]
+[ext_resource type="Texture2D" uid="uid://bw4pqk3x14f5n" path="res://static/sprite_sheet.png" id="1_vpxtf"]
 [ext_resource type="Script" uid="uid://ccvciv4awmrty" path="res://gd/close_quests.gd" id="2_2mfya"]
 [ext_resource type="FontFile" uid="uid://cjvg0evcqc7yp" path="res://static/PeaberryDoublespace.ttf" id="2_y35ns"]
+[ext_resource type="Script" uid="uid://bgcmwa750v7qy" path="res://gd/settings.gd" id="2_ykr62"]
 [ext_resource type="Script" uid="uid://ddxr4i33xhnew" path="res://gd/open_quests.gd" id="4_6yxn8"]
 [ext_resource type="Script" uid="uid://s52cj2qcinda" path="res://gd/dialogue.gd" id="5_6mujo"]
 [ext_resource type="Script" uid="uid://bv5u0aargk876" path="res://gd/dgbutton.gd" id="6_1akbr"]
 [ext_resource type="Script" uid="uid://444n1xmygkoi" path="res://gd/options.gd" id="6_dd40b"]
+[ext_resource type="Script" uid="uid://6bcs3kcjl8c4" path="res://tscn/settings_menu.gd" id="9_b7d53"]
+[ext_resource type="Script" uid="uid://dw0rw8i8fmy12" path="res://gd/close_settings.gd" id="9_tw3h4"]
+[ext_resource type="Script" uid="uid://bw0ucpjxwy4b2" path="res://gd/logout.gd" id="10_s2oxt"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_2mfya"]
 texture = ExtResource("1_vpxtf")
@@ -103,6 +107,33 @@ region_rect = Rect2(869, 102, 22, 22)
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_eky62"]
 texture = ExtResource("1_vpxtf")
 region_rect = Rect2(869, 102, 22, 22)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_cms2p"]
+texture = ExtResource("1_vpxtf")
+region_rect = Rect2(163, 178, 90, 27)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_0l1b7"]
+load_path = "res://.godot/imported/sprite_sheet.png-4997c364986464c7e6391b141a5bc03e.ctex"
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ui7db"]
+texture = SubResource("CompressedTexture2D_0l1b7")
+region_rect = Rect2(259, 180, 90, 25)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_gklhr"]
+texture = ExtResource("1_vpxtf")
+region_rect = Rect2(259, 180, 90, 25)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4t52g"]
+texture = ExtResource("1_vpxtf")
+region_rect = Rect2(163, 178, 90, 27)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_yja5o"]
+texture = ExtResource("1_vpxtf")
+region_rect = Rect2(259, 180, 90, 25)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ub5f1"]
+texture = ExtResource("1_vpxtf")
+region_rect = Rect2(259, 180, 90, 25)
 
 [node name="Control" type="Control" unique_id=1355566499]
 layout_mode = 3
@@ -261,6 +292,7 @@ custom_minimum_size = Vector2(30, 30)
 layout_mode = 2
 theme_override_styles/normal = SubResource("StyleBoxTexture_vpxtf")
 theme_override_styles/hover = SubResource("StyleBoxTexture_y35ns")
+script = ExtResource("2_ykr62")
 
 [node name="open_quests_cont" type="MarginContainer" parent="default" unique_id=1246153911]
 unique_name_in_owner = true
@@ -437,6 +469,7 @@ layout_mode = 2
 theme_override_colors/font_color = Color(0.59, 0.5074, 0.413, 1)
 theme_override_fonts/font = ExtResource("2_y35ns")
 theme_override_font_sizes/font_size = 14
+autowrap_mode = 3
 
 [node name="MarginContainer3" type="MarginContainer" parent="dialogue/MarginContainer/MarginContainer/VBoxContainer" unique_id=1720255627]
 custom_minimum_size = Vector2(0, 30)
@@ -446,6 +479,7 @@ layout_mode = 2
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+theme_override_constants/margin_bottom = 15
 
 [node name="optionscont" type="HBoxContainer" parent="dialogue/MarginContainer/MarginContainer/VBoxContainer/MarginContainer2" unique_id=2113730465]
 unique_name_in_owner = true
@@ -453,20 +487,23 @@ layout_mode = 2
 theme_override_constants/separation = 15
 
 [node name="one" type="Button" parent="dialogue/MarginContainer/MarginContainer/VBoxContainer/MarginContainer2/optionscont" unique_id=1195461373]
+visible = false
 clip_contents = true
-custom_minimum_size = Vector2(150, 30)
+custom_minimum_size = Vector2(150, 40)
 layout_mode = 2
-theme_override_colors/font_color = Color(0.82, 0.7052, 0.574, 1)
+theme_override_colors/font_color = Color(0.6392157, 0.48235294, 0.34901962, 1)
 theme_override_fonts/font = ExtResource("2_y35ns")
 theme_override_font_sizes/font_size = 10
 theme_override_styles/normal = SubResource("StyleBoxTexture_8i35t")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_tv35b")
 theme_override_styles/hover = SubResource("StyleBoxTexture_lorj1")
+autowrap_mode = 3
 script = ExtResource("6_dd40b")
 
 [node name="two" type="Button" parent="dialogue/MarginContainer/MarginContainer/VBoxContainer/MarginContainer2/optionscont" unique_id=1103440745]
+visible = false
 clip_contents = true
-custom_minimum_size = Vector2(150, 30)
+custom_minimum_size = Vector2(150, 40)
 layout_mode = 2
 theme_override_colors/font_color = Color(0.6392157, 0.48235294, 0.34901962, 1)
 theme_override_fonts/font = ExtResource("2_y35ns")
@@ -474,18 +511,21 @@ theme_override_font_sizes/font_size = 10
 theme_override_styles/normal = SubResource("StyleBoxTexture_8i35t")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_3ukgg")
 theme_override_styles/hover = SubResource("StyleBoxTexture_86puh")
+autowrap_mode = 3
 script = ExtResource("6_dd40b")
 
 [node name="three" type="Button" parent="dialogue/MarginContainer/MarginContainer/VBoxContainer/MarginContainer2/optionscont" unique_id=1667823865]
+visible = false
 clip_contents = true
-custom_minimum_size = Vector2(150, 30)
+custom_minimum_size = Vector2(150, 40)
 layout_mode = 2
-theme_override_colors/font_color = Color(0.5830141, 0.43512022, 0.32294494, 1)
+theme_override_colors/font_color = Color(0.6392157, 0.48235294, 0.34901962, 1)
 theme_override_fonts/font = ExtResource("2_y35ns")
 theme_override_font_sizes/font_size = 10
 theme_override_styles/normal = SubResource("StyleBoxTexture_8i35t")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_bi2wt")
 theme_override_styles/hover = SubResource("StyleBoxTexture_88clp")
+autowrap_mode = 3
 script = ExtResource("6_dd40b")
 
 [node name="next" type="MarginContainer" parent="dialogue/MarginContainer/MarginContainer" unique_id=624000439]
@@ -503,7 +543,8 @@ theme_override_styles/pressed = SubResource("StyleBoxTexture_mmuml")
 theme_override_styles/hover = SubResource("StyleBoxTexture_6nd6i")
 script = ExtResource("6_1akbr")
 
-[node name="menu" type="MarginContainer" parent="." unique_id=456070877]
+[node name="settings" type="MarginContainer" parent="." unique_id=456070877]
+unique_name_in_owner = true
 visible = false
 layout_mode = 1
 anchors_preset = 15
@@ -515,11 +556,12 @@ theme_override_constants/margin_left = 150
 theme_override_constants/margin_top = 100
 theme_override_constants/margin_right = 150
 theme_override_constants/margin_bottom = 100
+script = ExtResource("9_b7d53")
 
-[node name="MarginContainer" type="MarginContainer" parent="menu" unique_id=308328267]
+[node name="MarginContainer" type="MarginContainer" parent="settings" unique_id=308328267]
 layout_mode = 2
 
-[node name="NinePatchRect" type="NinePatchRect" parent="menu/MarginContainer" unique_id=1338484044]
+[node name="NinePatchRect" type="NinePatchRect" parent="settings/MarginContainer" unique_id=1338484044]
 layout_mode = 2
 texture = ExtResource("1_vpxtf")
 region_rect = Rect2(59, 107, 26, 26)
@@ -528,46 +570,47 @@ patch_margin_top = 10
 patch_margin_right = 10
 patch_margin_bottom = 10
 
-[node name="MarginContainer" type="MarginContainer" parent="menu/MarginContainer" unique_id=1279777115]
+[node name="MarginContainer" type="MarginContainer" parent="settings/MarginContainer" unique_id=1279777115]
 layout_mode = 2
 theme_override_constants/margin_left = 15
 theme_override_constants/margin_top = 15
 theme_override_constants/margin_right = 15
 theme_override_constants/margin_bottom = 15
 
-[node name="VBoxContainer" type="VBoxContainer" parent="menu/MarginContainer/MarginContainer" unique_id=1627093539]
+[node name="VBoxContainer" type="VBoxContainer" parent="settings/MarginContainer/MarginContainer" unique_id=1627093539]
 layout_mode = 2
 
-[node name="MarginContainer3" type="MarginContainer" parent="menu/MarginContainer/MarginContainer/VBoxContainer" unique_id=181048636]
+[node name="MarginContainer3" type="MarginContainer" parent="settings/MarginContainer/MarginContainer/VBoxContainer" unique_id=181048636]
 layout_mode = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="menu/MarginContainer/MarginContainer/VBoxContainer/MarginContainer3" unique_id=462639710]
+[node name="MarginContainer" type="MarginContainer" parent="settings/MarginContainer/MarginContainer/VBoxContainer/MarginContainer3" unique_id=462639710]
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 0
 
-[node name="Button" type="Button" parent="menu/MarginContainer/MarginContainer/VBoxContainer/MarginContainer3/MarginContainer" unique_id=2122086077]
+[node name="Button" type="Button" parent="settings/MarginContainer/MarginContainer/VBoxContainer/MarginContainer3/MarginContainer" unique_id=2122086077]
 custom_minimum_size = Vector2(25, 25)
 layout_mode = 2
 theme_override_styles/normal = SubResource("StyleBoxTexture_nq8cr")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_atqym")
 theme_override_styles/hover = SubResource("StyleBoxTexture_eky62")
+script = ExtResource("9_tw3h4")
 
-[node name="MarginContainer2" type="MarginContainer" parent="menu/MarginContainer/MarginContainer/VBoxContainer/MarginContainer3" unique_id=585787066]
+[node name="MarginContainer2" type="MarginContainer" parent="settings/MarginContainer/MarginContainer/VBoxContainer/MarginContainer3" unique_id=585787066]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 0
 
-[node name="Label" type="Label" parent="menu/MarginContainer/MarginContainer/VBoxContainer/MarginContainer3/MarginContainer2" unique_id=1043620806]
+[node name="Label" type="Label" parent="settings/MarginContainer/MarginContainer/VBoxContainer/MarginContainer3/MarginContainer2" unique_id=1043620806]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.5882353, 0.5058824, 0.4117647, 1)
 theme_override_colors/font_outline_color = Color(0.49, 0.4214, 0.343, 1)
 theme_override_constants/outline_size = 2
 theme_override_fonts/font = ExtResource("2_y35ns")
 theme_override_font_sizes/font_size = 30
-text = "MENU"
+text = "SETTINGS"
 
-[node name="NinePatchRect" type="NinePatchRect" parent="menu/MarginContainer/MarginContainer/VBoxContainer" unique_id=1447351115]
+[node name="NinePatchRect" type="NinePatchRect" parent="settings/MarginContainer/MarginContainer/VBoxContainer" unique_id=1447351115]
 custom_minimum_size = Vector2(0, 3)
 layout_mode = 2
 texture = ExtResource("1_vpxtf")
@@ -577,15 +620,183 @@ patch_margin_top = 1
 patch_margin_right = 1
 patch_margin_bottom = 1
 
-[node name="MarginContainer" type="MarginContainer" parent="menu/MarginContainer/MarginContainer/VBoxContainer" unique_id=2058952284]
+[node name="MarginContainer" type="MarginContainer" parent="settings/MarginContainer/MarginContainer/VBoxContainer" unique_id=2058952284]
 layout_mode = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="menu/MarginContainer/MarginContainer/VBoxContainer/MarginContainer" unique_id=1344792744]
+[node name="VBoxContainer" type="VBoxContainer" parent="settings/MarginContainer/MarginContainer/VBoxContainer/MarginContainer" unique_id=1344792744]
 layout_mode = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="menu/MarginContainer/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer" unique_id=1348101798]
+[node name="MarginContainer" type="MarginContainer" parent="settings/MarginContainer/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer" unique_id=1348101798]
 custom_minimum_size = Vector2(0, 20)
 layout_mode = 2
 
-[node name="HSlider" type="HSlider" parent="menu/MarginContainer/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer" unique_id=2110395990]
+[node name="MarginContainer5" type="MarginContainer" parent="settings/MarginContainer/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer" unique_id=705934592]
 layout_mode = 2
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_right = 30
+
+[node name="HBoxContainer" type="HBoxContainer" parent="settings/MarginContainer/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/MarginContainer5" unique_id=105280055]
+layout_mode = 2
+theme_override_constants/separation = 200
+
+[node name="Label" type="Label" parent="settings/MarginContainer/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/MarginContainer5/HBoxContainer" unique_id=786722743]
+custom_minimum_size = Vector2(180, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.39, 0.29055, 0.2145, 1)
+theme_override_colors/font_outline_color = Color(0.5830141, 0.43512022, 0.32294494, 1)
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = ExtResource("2_y35ns")
+theme_override_font_sizes/font_size = 18
+text = "MASTER VOLUME"
+
+[node name="master_vol_slider" type="HSlider" parent="settings/MarginContainer/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/MarginContainer5/HBoxContainer" unique_id=2110395990]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+
+[node name="MarginContainer2" type="MarginContainer" parent="settings/MarginContainer/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer" unique_id=114913531]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+
+[node name="MarginContainer6" type="MarginContainer" parent="settings/MarginContainer/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer" unique_id=134454091]
+layout_mode = 2
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_right = 30
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="settings/MarginContainer/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/MarginContainer6" unique_id=965893384]
+layout_mode = 2
+theme_override_constants/separation = 200
+
+[node name="Label" type="Label" parent="settings/MarginContainer/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/MarginContainer6/HBoxContainer2" unique_id=2064171306]
+custom_minimum_size = Vector2(180, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.39, 0.29055, 0.2145, 1)
+theme_override_colors/font_outline_color = Color(0.5830141, 0.43512022, 0.32294494, 1)
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = ExtResource("2_y35ns")
+theme_override_font_sizes/font_size = 18
+text = "SFX VOLUME"
+
+[node name="sfx_vol_slider" type="HSlider" parent="settings/MarginContainer/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/MarginContainer6/HBoxContainer2" unique_id=850172818]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+
+[node name="MarginContainer3" type="MarginContainer" parent="settings/MarginContainer/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer" unique_id=493761284]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+
+[node name="MarginContainer7" type="MarginContainer" parent="settings/MarginContainer/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer" unique_id=16949402]
+layout_mode = 2
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_right = 30
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="settings/MarginContainer/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/MarginContainer7" unique_id=1574284511]
+layout_mode = 2
+theme_override_constants/separation = 200
+
+[node name="Label" type="Label" parent="settings/MarginContainer/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/MarginContainer7/HBoxContainer3" unique_id=344577973]
+custom_minimum_size = Vector2(180, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.39, 0.29055, 0.2145, 1)
+theme_override_colors/font_outline_color = Color(0.5830141, 0.43512022, 0.32294494, 1)
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = ExtResource("2_y35ns")
+theme_override_font_sizes/font_size = 18
+text = "MUSIC VOLUME"
+
+[node name="music_vol_slider" type="HSlider" parent="settings/MarginContainer/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/MarginContainer7/HBoxContainer3" unique_id=1901815569]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+
+[node name="MarginContainer4" type="MarginContainer" parent="settings/MarginContainer/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer" unique_id=763017179]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+
+[node name="MarginContainer9" type="MarginContainer" parent="settings/MarginContainer/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer" unique_id=1765700519]
+layout_mode = 2
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_right = 30
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="settings/MarginContainer/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/MarginContainer9" unique_id=599799840]
+layout_mode = 2
+theme_override_constants/separation = 550
+
+[node name="Label" type="Label" parent="settings/MarginContainer/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/MarginContainer9/HBoxContainer4" unique_id=510734932]
+custom_minimum_size = Vector2(180, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.39, 0.29055, 0.2145, 1)
+theme_override_colors/font_outline_color = Color(0.5830141, 0.43512022, 0.32294494, 1)
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = ExtResource("2_y35ns")
+theme_override_font_sizes/font_size = 18
+text = "MOUSE SENS"
+
+[node name="CheckButton" type="CheckButton" parent="settings/MarginContainer/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/MarginContainer9/HBoxContainer4" unique_id=2128771631]
+layout_mode = 2
+
+[node name="MarginContainer10" type="MarginContainer" parent="settings/MarginContainer/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer" unique_id=154316075]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+
+[node name="MarginContainer8" type="MarginContainer" parent="settings/MarginContainer/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer" unique_id=237093838]
+layout_mode = 2
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_right = 30
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="settings/MarginContainer/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/MarginContainer8" unique_id=1743066693]
+layout_mode = 2
+theme_override_constants/separation = 200
+
+[node name="Label" type="Label" parent="settings/MarginContainer/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/MarginContainer8/HBoxContainer4" unique_id=1106110126]
+custom_minimum_size = Vector2(180, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.39, 0.29055, 0.2145, 1)
+theme_override_colors/font_outline_color = Color(0.5830141, 0.43512022, 0.32294494, 1)
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = ExtResource("2_y35ns")
+theme_override_font_sizes/font_size = 18
+text = "MOUSE SENS"
+
+[node name="mouse_sens_slider" type="HSlider" parent="settings/MarginContainer/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/MarginContainer8/HBoxContainer4" unique_id=1440527913]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="settings/MarginContainer/MarginContainer" unique_id=826115358]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+
+[node name="HBoxContainer" type="HBoxContainer" parent="settings/MarginContainer/MarginContainer/MarginContainer" unique_id=1792427125]
+layout_mode = 2
+theme_override_constants/separation = 150
+
+[node name="logout" type="Button" parent="settings/MarginContainer/MarginContainer/MarginContainer/HBoxContainer" unique_id=1014891978]
+custom_minimum_size = Vector2(250, 45)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.68, 0.5784533, 0.46240002, 1)
+theme_override_colors/font_outline_color = Color(0.34, 0.27177334, 0.1938, 1)
+theme_override_constants/outline_size = 3
+theme_override_fonts/font = ExtResource("2_y35ns")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxTexture_cms2p")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_ui7db")
+theme_override_styles/hover = SubResource("StyleBoxTexture_gklhr")
+text = "LOGOUT"
+script = ExtResource("10_s2oxt")
+
+[node name="apply_button" type="Button" parent="settings/MarginContainer/MarginContainer/MarginContainer/HBoxContainer" unique_id=845935821]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(250, 45)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.68, 0.5784533, 0.46240002, 1)
+theme_override_colors/font_outline_color = Color(0.34, 0.27177334, 0.1938, 1)
+theme_override_constants/outline_size = 3
+theme_override_fonts/font = ExtResource("2_y35ns")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxTexture_4t52g")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_yja5o")
+theme_override_styles/hover = SubResource("StyleBoxTexture_ub5f1")
+text = "APPLY CHANGES"

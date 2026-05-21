@@ -182,10 +182,20 @@ func remove_remote_player(player_id):
 func retrieve_dialogue(npc):
 	var data = {
 		"type": "dialogue",
-		"npc": npc
+		"npc": npc,
 	}
 	
-	var err = socket.send_text(JSON.stringify(data))
+	socket.send_text(JSON.stringify(data))
 	
 func send_dialogue(data):
 	dialogue_cont.receive_dialogue(data.dialogue)
+	print(data)
+	
+func logout():
+	var data = {
+		"type": "logout",
+	}
+	
+	socket.send_text(JSON.stringify(data))
+	if OS.has_feature("web"):
+		JavaScriptBridge.eval("window.parent.location.href = '/exit'", true)

@@ -326,3 +326,38 @@ cindyL -- 2026-05-19 10:59
 jiefengO -- 2026-05-19 11:00
 NPC INTERACTION
 * When interacting with npcs, u can actually click the buttons and not move camera
+
+joyceL -- 2026-05-19 11:33
+UI
+* Begin working on settings ui
+
+carrieK -- 2026-05-19 12:33
+ITEMS + MORE AUDIO
+* audio change wow
+* items wow
+* ALL FUNCTIONALITIES FOR AUDIO NOW WORK!!!!! CHEERS ALL AROUND
+* only things left to do for the html pages are changing mouse sensitivity with the slider and implementing the day/night toggle (which is a stretch feature at this point)
+
+joyceL -- 2026-05-19 23:15
+PATHS AND MODEL
+* Created and imported town chief model
+* Created village paths
+* continued on settings ui
+* COMPLETE FOR SETTINGS:
+  - Add a logout button
+  - Confirm slider and settings consistency
+  - Make settings actually send with an apply settings button
+
+carrieK -- 2026-05-20 10:41
+DIALOGUE
+* um.
+
+joyceL's Rat -- 2026-05-21 04:56
+SETTINGS MENU
+* Connect in-game setting sliders to browser localStorage vals in start screen!
+* Connect mouse sens slider to camera pivot
+* Logout button redirects to exit
+* Change `Input` to `event` yayy for nicer mouse
+* AUDIO NOTE:
+  - Add Godot audio bus volume logic for Master/SFX/Music sliders
+  - Need in-game AudioStreamPlayer nodes routed to SFX/Music buses to work!

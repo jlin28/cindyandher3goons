@@ -90,12 +90,16 @@ npc_dialogue = {
         'A': {
             'dialogue_type': "normal",
             'dialogue': 'haha, no need to be in awe! i know its a great honor to recieve a compliment from me.',
-            'dialogue_options': {}
+            'dialogue_options': {
+                
+            }
         },
         'B': {
-            'dialogue_type': "normal",
-            'dialogue': 'hihihiehe',
-            'dialogue_options': {}
+            'dialogue_type': "quest",
+            'dialogue': "oh, you're friendlier than i thought! you wouldn't mind finding something for me, would you? i promise i'll give you something you'll love~~~ :)",
+            'dialogue_options': {
+                
+            }
         },
         'C': {
             'dialogue_type': "normal",
@@ -116,7 +120,7 @@ npc_dialogue = {
             'dialogue_options': {}
         },
         'quest_inactive': {
-            'dialogue_type': "quest",
+            'dialogue_type': "normal",
             'dialogue': "Hey kid, I've never seen you around before... Are you new?",
             'dialogue_options': {
                 "No. I don't know what you're talking about.": 'A',
@@ -133,7 +137,7 @@ npc_dialogue = {
             }
         },
         'B': {
-            'dialogue_type': "normal",
+            'dialogue_type': "quest",
             'dialogue': "It's been a long time since we've had anyone new in the village. If my memory serves me right, there should be one empty house. Once you've found it, come back to me!",
             'dialogue_options': {
                 "Okay...": "D",

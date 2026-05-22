@@ -77,52 +77,67 @@ db.close()
 
 npc_dialogue = {
     "Sealius": {
+        'quest_cap': "your aura is really suffocating me right now... i think you need to do something about that before i talk to you..............",
         'quest_inactive': {
+            'dialogue_type': "normal",
             'dialogue': 'hey wazzup!!! nice cape you got there :)',
             'dialogue_options': {
-                'umm... hi?': 'A',
-                '': 'B',
-                '...': 'C'
+                'umm... hi? thanks..?': 'A',
+                'thanks! the village chief gave it to me.': 'B',
+                '*You grab your cloak in suspicion*': 'C'
             }
         },
         'A': {
-            'dialogue': 'ok rude',
-            'dialogue_options': {}
+            'dialogue_type': "normal",
+            'dialogue': 'haha, no need to be in awe! i know its a great honor to recieve a compliment from me.',
+            'dialogue_options': {
+                
+            }
         },
         'B': {
-            'dialogue': 'hihihiehe',
-            'dialogue_options': {}
+            'dialogue_type': "quest",
+            'dialogue': "oh, you're friendlier than i thought! you wouldn't mind finding something for me, would you? i promise i'll give you something you'll love~~~ :)",
+            'dialogue_options': {
+                "sure!! what is it?": "D"
+            }
         },
         'C': {
+            'dialogue_type': "normal",
             'dialogue': '...',
             'dialogue_options': {}
         }
     },
     "Town Chief": {
+        'quest_cap': "Child, you look like you have too much going on right now. I won't go anywhere, so take care of what you have first.",
         'quest_in_progress': {
+            'dialogue_type': "normal",
             'dialogue': "Come back when you've found the house!",
             'dialogue_options': {}
         },
         'quest_completed': {
+            'dialogue_type': "normal",
             'dialogue': "You look just like my son when he was little...",
             'dialogue_options': {}
         },
         'quest_inactive': {
+            'dialogue_type': "normal",
             'dialogue': "Hey kid, I've never seen you around before... Are you new?",
             'dialogue_options': {
                 "No. I don't know what you're talking about.": 'A',
                 'Yeah... Do you have somewhere I can stay?': 'B',
-                'Run away!': 'C'
+                '*Run away!*': 'C'
             }
         },
         'A': {
+            'dialogue_type': "normal",
             'dialogue': "Hohoho! Don't worry kid, we won't kick you out. I know you're not from here.",
             'dialogue_options': {
                 "How?": "B",
-                "Run away!": "C"
+                "*Run away!*": "C"
             }
         },
         'B': {
+            'dialogue_type': "quest",
             'dialogue': "It's been a long time since we've had anyone new in the village. If my memory serves me right, there should be one empty house. Once you've found it, come back to me!",
             'dialogue_options': {
                 "Okay...": "D",
@@ -130,28 +145,34 @@ npc_dialogue = {
             }
         },
         'C': {
+            'dialogue_type': "normal",
             'dialogue': 'Wait, where are you going?!',
             'dialogue_options': {}
         },
         'D':{
+            'dialogue_type': "normal",
             'dialogue': "I'll be waiting with a gift hohoho...",
             'dialogue_options': {}
         },
         'E':{
+            'dialogue_type': "normal",
             'dialogue': "Take your time kid.",
             'dialogue_options': {}
         }
     },
     "": {
         'quest_in_progress': {
+            'dialogue_type': "normal",
             'dialogue': "",
             'dialogue_options': {}
         },
         'quest_completed': {
+            'dialogue_type': "normal",
             'dialogue': "",
             'dialogue_options': {}
         },
         'quest_inactive': {
+            'dialogue_type': "quest",
             'dialogue': '',
             'dialogue_options': {
                 '': 'B',
@@ -160,14 +181,17 @@ npc_dialogue = {
             }
         },
         'B': {
+            'dialogue_type': "normal",
             'dialogue': '',
             'dialogue_options': {}
         },
         'C': {
+            'dialogue_type': "normal",
             'dialogue': '',
             'dialogue_options': {}
         },
         'D': {
+            'dialogue_type': "normal",
             'dialogue': '',
             'dialogue_options': {}
         }

@@ -78,7 +78,6 @@ db.close()
 npc_dialogue = {
     "Sealius": {
         'quest_inactive': {
-            'dialogue_type': "normal",
             'dialogue': 'hey wazzup!!! nice cape you got there :)',
             'dialogue_options': {
                 'umm... hi?': 'A',
@@ -87,34 +86,28 @@ npc_dialogue = {
             }
         },
         'A': {
-            'dialogue_type': "normal",
             'dialogue': 'ok rude',
             'dialogue_options': {}
         },
         'B': {
-            'dialogue_type': "normal",
             'dialogue': 'hihihiehe',
             'dialogue_options': {}
         },
         'C': {
-            'dialogue_type': "normal",
             'dialogue': '...',
             'dialogue_options': {}
         }
     },
     "Town Chief": {
         'quest_in_progress': {
-            'dialogue_type': "normal",
             'dialogue': "Come back when you've found the house!",
             'dialogue_options': {}
         },
         'quest_completed': {
-            'dialogue_type': "normal",
             'dialogue': "You look just like my son when he was little...",
             'dialogue_options': {}
         },
         'quest_inactive': {
-            'dialogue_type': "quest",
             'dialogue': "Hey kid, I've never seen you around before... Are you new?",
             'dialogue_options': {
                 "No. I don't know what you're talking about.": 'A',
@@ -123,7 +116,6 @@ npc_dialogue = {
             }
         },
         'A': {
-            'dialogue_type': "normal",
             'dialogue': "Hohoho! Don't worry kid, we won't kick you out. I know you're not from here.",
             'dialogue_options': {
                 "How?": "B",
@@ -131,7 +123,6 @@ npc_dialogue = {
             }
         },
         'B': {
-            'dialogue_type': "normal",
             'dialogue': "It's been a long time since we've had anyone new in the village. If my memory serves me right, there should be one empty house. Once you've found it, come back to me!",
             'dialogue_options': {
                 "Okay...": "D",
@@ -139,34 +130,28 @@ npc_dialogue = {
             }
         },
         'C': {
-            'dialogue_type': "normal",
             'dialogue': 'Wait, where are you going?!',
             'dialogue_options': {}
         },
         'D':{
-            'dialogue_type': "normal",
             'dialogue': "I'll be waiting with a gift hohoho...",
             'dialogue_options': {}
         },
         'E':{
-            'dialogue_type': "normal",
             'dialogue': "Take your time kid.",
             'dialogue_options': {}
         }
     },
     "": {
         'quest_in_progress': {
-            'dialogue_type': "normal",
             'dialogue': "",
             'dialogue_options': {}
         },
         'quest_completed': {
-            'dialogue_type': "normal",
             'dialogue': "",
             'dialogue_options': {}
         },
         'quest_inactive': {
-            'dialogue_type': "quest",
             'dialogue': '',
             'dialogue_options': {
                 '': 'B',
@@ -175,17 +160,14 @@ npc_dialogue = {
             }
         },
         'B': {
-            'dialogue_type': "normal",
             'dialogue': '',
             'dialogue_options': {}
         },
         'C': {
-            'dialogue_type': "normal",
             'dialogue': '',
             'dialogue_options': {}
         },
         'D': {
-            'dialogue_type': "normal",
             'dialogue': '',
             'dialogue_options': {}
         }
@@ -244,7 +226,7 @@ def stash_to_inventory(item_name, item_number):
     items = c.fetchone()
 
     if item_name in items:
-        index = items.index(item_name)
+        index = items.index(item_name) + 1
         c.execute("SELECT ? FROM user WHERE username = ?", (f"item{index}Count", username,))
         current_item_count = c.fetchone()
 
@@ -269,6 +251,56 @@ def stash_to_inventory(item_name, item_number):
                 SET ? = ?
                 """, (f"item{n}", item_name, f"item{n}Count", item_number)
             )
+            db.commit()
+            db.close()
+            return True
+
+    db.commit()
+    db.close()
+    return False
+
+# return boolean reflecting whether item is successfully removed
+def remove_from_inventory(item_name, item_number):
+    db = sqlite3.connect(DB_FILE)
+    c = db.cursor()
+
+    c.execute("""SELECT
+        item1Count,
+        item2Count,
+        item3Count,
+        item4Count,
+        item5Count,
+        item6Count
+        FROM user WHERE username = ?""", (username,))
+    item_counts = c.fetchone()
+
+    c.execute("""SELECT
+        item1,
+        item2,
+        item3,
+        item4,
+        item5,
+        item6
+        FROM user WHERE username = ?""", (username,))
+    items = c.fetchone()
+
+    if item_name in items:
+        index = items.index(item_name) + 1
+        c.execute("SELECT ? FROM user WHERE username = ?", (f"item{index}Count", username,))
+        current_item_count = c.fetchone()
+
+        if current_item_count - item_number < 0:
+            db.commit()
+            db.close()
+            return False
+        elif current_item_count - item_number == 0:
+            c.execute("UPDATE user SET ? = 0 WHERE username = ?", (f"item{index}Count", username))
+            c.execute("UPDATE user SET ? = ? WHERE username = ?", (f"item{index}", '', username))
+            db.commit()
+            db.close()
+            return True
+        else:
+            c.execute("UPDATE user SET ? = ? WHERE username = ?", (f"item{index}Count", current_item_count - item_number, username))
             db.commit()
             db.close()
             return True
@@ -335,7 +367,9 @@ def register():
 
 @app.route("/game", methods=["GET", "POST"])
 def game():
-    
+    if "username" not in session:
+        return redirect(url_for("login"))
+
     if request.method == "POST":
         body = request.get_json()
 
@@ -352,9 +386,6 @@ def game():
             quantity = body.get('quantity')
 
             return stash_to_inventory(item, quantity)
-
-    if "username" not in session:
-        return redirect(url_for("login"))
 
     return render_template('game.html', username=session['username'])
 

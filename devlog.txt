@@ -380,6 +380,11 @@ jiefengO -- 2026-05-22 05:35
 DIALOGUE ANIMATION
 * dialogue has typing animation + skip + option popup
 
+carrieK -- 2026-05-21 10:58
+DESIGN DOC & DIALOGUE
+* new design.pdf in place
+* more dialogue in place
+
 cindyL -- 2026-05-22 11:00
 * added removal from inventory
 * fixed stashing to inventory

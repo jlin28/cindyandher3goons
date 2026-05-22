@@ -390,3 +390,8 @@ cindyL -- 2026-05-22 11:00
 * fixed stashing to inventory
 BUGS:
 * register/login/exit not working in perfect coordination on myk machine
+
+carrieK -- 2026-05-21 18:52
+DIALOGUE
+* seal and bunny down
+* dialogue lowk melts my brain

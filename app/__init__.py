@@ -78,6 +78,7 @@ db.close()
 npc_dialogue = {
     "Sealius": {
         'quest_inactive': {
+            'dialogue_type': "normal",
             'dialogue': 'hey wazzup!!! nice cape you got there :)',
             'dialogue_options': {
                 'umm... hi?': 'A',
@@ -86,28 +87,34 @@ npc_dialogue = {
             }
         },
         'A': {
+            'dialogue_type': "normal",
             'dialogue': 'ok rude',
             'dialogue_options': {}
         },
         'B': {
+            'dialogue_type': "normal",
             'dialogue': 'hihihiehe',
             'dialogue_options': {}
         },
         'C': {
+            'dialogue_type': "normal",
             'dialogue': '...',
             'dialogue_options': {}
         }
     },
     "Town Chief": {
         'quest_in_progress': {
+            'dialogue_type': "normal",
             'dialogue': "Come back when you've found the house!",
             'dialogue_options': {}
         },
         'quest_completed': {
+            'dialogue_type': "normal",
             'dialogue': "You look just like my son when he was little...",
             'dialogue_options': {}
         },
         'quest_inactive': {
+            'dialogue_type': "quest",
             'dialogue': "Hey kid, I've never seen you around before... Are you new?",
             'dialogue_options': {
                 "No. I don't know what you're talking about.": 'A',
@@ -116,6 +123,7 @@ npc_dialogue = {
             }
         },
         'A': {
+            'dialogue_type': "normal",
             'dialogue': "Hohoho! Don't worry kid, we won't kick you out. I know you're not from here.",
             'dialogue_options': {
                 "How?": "B",
@@ -123,6 +131,7 @@ npc_dialogue = {
             }
         },
         'B': {
+            'dialogue_type': "normal",
             'dialogue': "It's been a long time since we've had anyone new in the village. If my memory serves me right, there should be one empty house. Once you've found it, come back to me!",
             'dialogue_options': {
                 "Okay...": "D",
@@ -130,14 +139,17 @@ npc_dialogue = {
             }
         },
         'C': {
+            'dialogue_type': "normal",
             'dialogue': 'Wait, where are you going?!',
             'dialogue_options': {}
         },
         'D':{
+            'dialogue_type': "normal",
             'dialogue': "I'll be waiting with a gift hohoho...",
             'dialogue_options': {}
         },
         'E':{
+            'dialogue_type': "normal",
             'dialogue': "Take your time kid.",
             'dialogue_options': {}
         }

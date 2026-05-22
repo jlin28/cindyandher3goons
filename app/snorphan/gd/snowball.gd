@@ -72,7 +72,6 @@ func _on_entered(body):
 		body.item_interactable = true
 		
 		body.current_interactable_item = self
-		print('wah')
 
 func _on_exit(body):
 	if body.is_in_group('player'):
@@ -80,5 +79,4 @@ func _on_exit(body):
 		body.item_interactable = false
 		
 		body.current_interactable_item = null
-		print('bye')
 	

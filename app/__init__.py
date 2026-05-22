@@ -311,9 +311,7 @@ def register():
 
 @app.route("/game", methods=["GET", "POST"])
 def game():
-    if "username" not in session:
-        return redirect(url_for("login"))
-
+    
     if request.method == "POST":
         body = request.get_json()
 
@@ -330,6 +328,9 @@ def game():
             quantity = body.get('quantity')
 
             return stash_to_inventory(item, quantity)
+
+    if "username" not in session:
+        return redirect(url_for("login"))
 
     return render_template('game.html', username=session['username'])
 

@@ -200,7 +200,7 @@ def questsAvailable():
         return False
     return True
 
-# return boolean reflecting whether the inventory is full
+# return boolean reflecting whether item is successfully stashed
 def stash_to_inventory(item_name, item_number):
     db = sqlite3.connect(DB_FILE)
     c = db.cursor()
@@ -227,7 +227,7 @@ def stash_to_inventory(item_name, item_number):
 
     if item_name in items:
         index = items.index(item_name)
-        c.execute(f"SELECT item{index}Count FROM user WHERE username = ?", (username,))
+        c.execute("SELECT ? FROM user WHERE username = ?", (f"item{index}Count", username,))
         current_item_count = c.fetchone()
 
         c.execute("SELECT maxCount FROM item WHERE name = ?", (item_name,))
@@ -235,7 +235,13 @@ def stash_to_inventory(item_name, item_number):
 
         if current_item_count + item_number <= max_item_count:
             c.execute("UPDATE user SET ? = ? WHERE username = ?", (f"item{index}Count", current_item_count + item_number, username))
+            db.commit()
+            db.close()
             return True
+
+        db.commit()
+        db.close()
+        return False
 
     # assumption is made that you cannot keep an inventory space for zero of an item
     for n in range(0,6):

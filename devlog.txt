@@ -372,3 +372,10 @@ cindyL -- 2026-05-21 11:01
 * fixed up foreign keys?
 * changes to npc db to joyce's specifications
 * fixed broken function previously commented out
+
+joyceL -- 2026-05-21 basically all night
+* inventory and maps and cool new npc
+
+jiefengO -- 2026-05-22 05:35
+DIALOGUE ANIMATION
+* dialogue has typing animation + skip + option popup

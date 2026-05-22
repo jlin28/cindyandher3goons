@@ -98,7 +98,7 @@ npc_dialogue = {
             'dialogue_type': "quest",
             'dialogue': "oh, you're friendlier than i thought! you wouldn't mind finding something for me, would you? i promise i'll give you something you'll love~~~ :)",
             'dialogue_options': {
-                
+                "sure!! what is it?": "D"
             }
         },
         'C': {

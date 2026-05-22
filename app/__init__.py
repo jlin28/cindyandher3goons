@@ -45,11 +45,11 @@ c.execute("""CREATE TABLE IF NOT EXISTS item(
     );
     """)
 c.execute("INSERT into item VALUES ('button', 'a circle to make your bestie feel dapper.', '', 3)")
-c.execute("INSERT into item VALUES ('carrot', 'an orange vegetable grown by an aspiring botanist. it looks crunchy and tasty, though you''re not sure if you should eat it.', '', 1)")
+c.execute("INSERT into item VALUES ('carrot', 'the lifes work of an aspiring botanist. it looks incredibly crunchy and irresistably tasty, taking everything in you just to not take a bite.', '', 1)")
 c.execute("INSERT into item VALUES ('hat', 'a lid to make your bestie feel dapper.', '', 1)")
-c.execute("INSERT into item VALUES ('red scarf', 'a scarf knitted by someone''s grandma. it''s fuzzy and warm.', '', 1)")
+c.execute("INSERT into item VALUES ('red scarf', 'a scarf knitted by someone''s grandma. it''s fuzzy, warm and made with lots of love.', '', 1)")
 c.execute("INSERT into item VALUES ('apple pie recipe', 'grandmas apple pie recipe. just looking at it makes your mouth water as you imagine the aroma and taste.', '', 1)")
-c.execute("INSERT into item VALUES ('ice sculpture', 'sculpture made of ice in the image of sealius. who knew he was hiding this talent all along?', '', 1)")
+c.execute("INSERT into item VALUES ('ice sculpture', 'sculpture made of ice in the image of sealius. it carries a strange aura. who knew he was hiding this talent all along?', '', 1)")
 c.execute("INSERT into item VALUES ('old plushie', 'a plushie worn out from years of love and hugs. a token of gratitude from a small child in hopes it will bring you the same joy.', '', 1)")
 c.execute("INSERT into item VALUES ('stick', 'a brown stick. its very sticky and looks like a stick. perhaps the most stick stick youve ever sticked.', '', 2)")
 c.execute("INSERT into item VALUES ('slightly worn out cape', 'a welcoming gift from the village chief. he hopes it will keep you warm in this frosty climate.', '', 1)")
@@ -79,6 +79,16 @@ npc_dialogue = {
     "Sealius": {
         'item_cap': "woah kid! you have so many items sticking out of your bag right now... i think i'll give this to you later.",
         'quest_cap': "your aura is really suffocating me right now... i think you need to do something about that before i talk to you..............",
+        'quest_in_progress': {
+            'dialogue_type': "normal",
+            'dialogue': "i can already tell you don't have the inspiration yet... please hurry and find it.",
+            'dialogue_options': {}
+        },
+        'quest_completed': {
+            'dialogue_type': "normal",
+            'dialogue': "i hope you're enjoying that sculpture of me :) it carries immense aura, i know. no need to thank me.",
+            'dialogue_options': {}
+        },
         'quest_inactive': {
             'dialogue_type': "normal",
             'dialogue': 'hey wazzup!!! nice cape you got there :)',
@@ -99,7 +109,7 @@ npc_dialogue = {
         },
         'B': {
             'dialogue_type': "normal",
-            'dialogue': 'oh, you're friendlier than i thought!',
+            'dialogue': "oh, you're friendlier than i thought!",
             'dialogue_options': {
                 "hmph": "C",
                 "and you're a lot weirder than i thought.": "C",
@@ -114,7 +124,7 @@ npc_dialogue = {
             }
         },
         'D': {
-            'dialogue_type': "quest",
+            'dialogue_type': "normal",
             'dialogue': "you wouldn't mind finding something for me, would you? i promise i'll give you something you'll love~~~ :)",
             'dialogue_options': {
                 "sure!! what is it?": "E",
@@ -136,12 +146,13 @@ npc_dialogue = {
             'dialogue_options': {}
         },
         'G': {
-            'dialogue_type': "normal",
+            'dialogue_type': "quest",
             'dialogue': "thanks kid! i'll be waiting here for you.",
             'dialogue_options': {}
         },
     },
     "Town Chief": {
+        'item_cap': "Someone as little as you carrying so much around already? You should see me when you've lightened that load, it could stunt your growth.",
         'quest_cap': "Child, you look like you have too much going on right now. I won't go anywhere, so take care of what you have first.",
         'quest_in_progress': {
             'dialogue_type': "normal",
@@ -171,7 +182,7 @@ npc_dialogue = {
             }
         },
         'B': {
-            'dialogue_type': "quest",
+            'dialogue_type': "normal",
             'dialogue': "It's been a long time since we've had anyone new in the village. If my memory serves me right, there should be one empty house. Once you've found it, come back to me!",
             'dialogue_options': {
                 "Okay...": "D",
@@ -184,7 +195,7 @@ npc_dialogue = {
             'dialogue_options': {}
         },
         'D':{
-            'dialogue_type': "normal",
+            'dialogue_type': "quest",
             'dialogue': "I'll be waiting with a gift hohoho...",
             'dialogue_options': {}
         },
@@ -194,7 +205,9 @@ npc_dialogue = {
             'dialogue_options': {}
         }
     },
-    "": {
+    "Buntanist": {
+        'item_cap': "eep! don't put my prized carrot in there! you'll ruin it immediately!!!",
+        'quest_cap': "i don't want to bother you with my request. you look just as busy as i do... ",
         'quest_in_progress': {
             'dialogue_type': "normal",
             'dialogue': "",
@@ -206,13 +219,95 @@ npc_dialogue = {
             'dialogue_options': {}
         },
         'quest_inactive': {
+            'dialogue_type': "normal",
+            'dialogue': "hi... um, do you need something? i'm swamped right now, so i don't think i can help you...",
+            'dialogue_options': {
+                "hi!! i just wanted to know more about plants. i see you grow a lot of them!": 'A',
+                "it's amazing how you can grow so many plants despite the cold!": 'B',
+                "i think your plants are dying...": 'C'
+            }
+        },
+        'A': {
+            'dialogue_type': "normal",
+            'dialogue': "omg, a fellow plant enjoyer! i'd love to tell you about them but as you can see, they're in such a sorry state right now. i don't know what to do...",
+            'dialogue_options': {
+                "aww, is there anything i can do to help?": "D",
+                "these poor plants :(": "C",
+                "i don't think i can help you here..": "G",
+            }
+        },
+        'B': {
+            'dialogue_type': "normal",
+            'dialogue': "not really... as you can see, they're all dying and i don't know why! at this rate, all these plants are done for...",
+            'dialogue_options': {
+                "you need to do something about this!": "C",
+                "nooooooo, not the plants! how can i help???": "D",
+                "i think they're already too far gone...": "E",
+            }
+        },
+        'C': {
+            'dialogue_type': "normal",
+            'dialogue': "i know... but i can't fix it! i'm such a failure of a botanist :(",
+            'dialogue_options': {
+                "don't worry, i'm sure we can find a way to fix it!": "D",
+                "sorry, but i can't fix it either.": "G",
+                "yeah, you kind of are a failure.": "E",
+            }
+        },
+        'D': {
+            'dialogue_type': "normal",
+            'dialogue': "i think i've heard of this thing you can sprinkle on your plants to revitalize them, but it's hidden in the mountains... do you think you can get it for me?",
+            'dialogue_options': {
+                "of course! leave it to me.": "F",
+                "i don't think i can.": "G",
+            }
+        },
+        'E': {
+            'dialogue_type': "normal",
+            'dialogue': '*sobs*',
+            'dialogue_options': {}
+        },
+        'F': {
             'dialogue_type': "quest",
+            'dialogue': 'thank you so much, how could i ever repay you? T-T',
+            'dialogue_options': {}
+        },
+        'G': {
+            'dialogue_type': "normal",
+            'dialogue': "it's okay... thank you for listening to my troubles...",
+            'dialogue_options': {}
+        }
+    },
+}
+
+"""
+template
+    "": {
+        'item_cap': "",
+        'quest_cap': "",
+        'quest_in_progress': {
+            'dialogue_type': "normal",
+            'dialogue': "",
+            'dialogue_options': {}
+        },
+        'quest_completed': {
+            'dialogue_type': "normal",
+            'dialogue': "",
+            'dialogue_options': {}
+        },
+        'quest_inactive': {
+            'dialogue_type': "normal",
             'dialogue': '',
             'dialogue_options': {
+                '': 'A',
                 '': 'B',
-                '': 'C',
-                '': 'D'
+                '': 'C'
             }
+        },
+        'A': {
+            'dialogue_type': "normal",
+            'dialogue': '',
+            'dialogue_options': {}
         },
         'B': {
             'dialogue_type': "normal",
@@ -223,14 +318,9 @@ npc_dialogue = {
             'dialogue_type': "normal",
             'dialogue': '',
             'dialogue_options': {}
-        },
-        'D': {
-            'dialogue_type': "normal",
-            'dialogue': '',
-            'dialogue_options': {}
         }
     },
-}
+"""
 
 # return list of quests completed for the logged in user
 def questsCompleted_list():

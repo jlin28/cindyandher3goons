@@ -62,8 +62,8 @@ func _unhandled_input(event: InputEvent) -> void:
 
 func tween_finished():
 	var i = 0;
-	var current_dialogue_line = current_dialogue[current_dialogue_line]
-	if current_dialogue_line:
+	if current_dialogue:
+		var current_dialogue_line = current_dialogue[current_dialogue_line]
 		var dialogue_options = current_dialogue_line.dialogue_options
 		for dialogue_option in dialogue_options:
 			options[i].text = dialogue_option

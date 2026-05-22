@@ -45,6 +45,7 @@ func save_all() -> void:
 	save_setting("sfxVol", sfx_slider.value)
 	save_setting("aVol", music_slider.value)
 	save_setting("mouseSens", mouse_slider.value)
+	print("all settings saved")
 
 func on_master_changed(value: float) -> void:
 	set_bus_volume("Master", value)

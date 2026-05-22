@@ -29,6 +29,7 @@ import/blender/enabled=false
 player=""
 socket=""
 dialogue=""
+inv=""
 
 [input]
 

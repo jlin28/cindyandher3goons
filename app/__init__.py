@@ -253,6 +253,41 @@ def stash_to_inventory(item_name, item_number):
     db.close()
     return False
 
+def fetch_inventory(username):
+    db = sqlite3.connect(DB_FILE)
+    c = db.cursor()
+
+    c.execute("""SELECT
+        item1Count,
+        item2Count,
+        item3Count,
+        item4Count,
+        item5Count,
+        item6Count
+        FROM user WHERE username = ?""", (username,))
+    item_counts = c.fetchone()
+
+    c.execute("""SELECT
+        item1,
+        item2,
+        item3,
+        item4,
+        item5,
+        item6
+        FROM user WHERE username = ?""", (username,))
+    items = c.fetchone()
+
+    inventory = {}
+    for count, item in zip(item_counts, items):
+        inventory[item_counts.index(count)] = {
+                "item": item,
+                "count": count
+            }
+
+    db.commit()
+    db.close()
+    return inventory
+
 @app.route("/", methods=["GET", "POST"])
 def start():
     return render_template('start.html')
@@ -311,7 +346,7 @@ def register():
 
 @app.route("/game", methods=["GET", "POST"])
 def game():
-    
+
     if request.method == "POST":
         body = request.get_json()
 
@@ -328,6 +363,11 @@ def game():
             quantity = body.get('quantity')
 
             return stash_to_inventory(item, quantity)
+
+        if body.get('type') == 'fetch_inventory':
+            user = body.get('user')
+
+            return fetch_inventory(user)
 
     if "username" not in session:
         return redirect(url_for("login"))

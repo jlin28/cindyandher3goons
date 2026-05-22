@@ -26,6 +26,7 @@ func _unhandled_input(event: InputEvent) -> void:
 			MultiplayerClient.add_item(player.current_interactable_item.label, 1)
 			
 			player.current_interactable_item.queue_free()
+			player.inventory_update = true
 
 		elif player.is_on_floor():
 			var snowball = Snowball.instantiate()

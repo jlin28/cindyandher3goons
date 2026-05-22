@@ -1,6 +1,7 @@
 extends Node
 
 @onready var dialogue_cont := get_tree().get_first_node_in_group('dialogue')
+@onready var inventory_cont := get_tree().get_first_node_in_group('inv')
 
 @export var remote_player_scene: PackedScene
 @export var local_player: Node3D
@@ -115,6 +116,9 @@ func handle_msg(data):
 	
 	elif msg_type == "dialogue":
 		send_dialogue(data)
+		
+	elif msg_type == "fetch_inventory":
+		send_inventory(data)
 
 func send_username():
 	var data = {
@@ -208,3 +212,14 @@ func add_item(item, quantity):
 	}
 	
 	socket.send_text(JSON.stringify(data))
+	
+func fetch_inventory(user):
+	var data = {
+		"type": "fetch_inventory",
+		"user": user
+	}
+	
+	socket.send_text(JSON.stringify(data))
+	
+func send_inventory(inv):
+	inventory_cont.update_inventory(inv.inv)

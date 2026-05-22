@@ -127,6 +127,22 @@ ws.on('connection', function connect(client, req) {
         }
       )
     }
+
+    if (data.type === "fetch_inventory") {
+      let res = await fetch("https://cindyandher3goons.me/" + client.route, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json'},
+        body: JSON.stringify({ type: "fetch_inventory", user: data.user })
+      });
+
+      let inventory = await res.json()
+      send(
+        client, {
+          type: "fetch_inventory",
+          inv: inventory
+        }
+      )
+    }
   });
 
   client.on('close', () => {

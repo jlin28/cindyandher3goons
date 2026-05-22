@@ -1,8 +1,8 @@
 extends Node3D
 
-# NOTE: MOUSE_MODE_CONFINED is used whenever a player is in dialogue
+# NOTE: --MOUSE_MODE_CONFINED is used whenever a player is in dialogue-- NOT ALLOWED IN LIVE DOMAIN
 # 		MOUSE_MODE_CAPTURED is for regular gameplay
-# 		MOUSE_MODE_VISIBLE is when the player presses esc or when they're first tabbing in
+# 		MOUSE_MODE_VISIBLE is when the player presses esc or when they're first tabbing in +dialogue
 @onready var dialogue := get_tree().get_first_node_in_group('dialogue')
 
 @export var mouse_sensitivity:= 0.005
@@ -32,9 +32,9 @@ func _unhandled_input(event: InputEvent) -> void:
 
 	elif event.is_action_pressed("mouse_mode"):
 		#print("Esc Pressed")
-		if Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED or Input.get_mouse_mode() == Input.MOUSE_MODE_CONFINED:
+		if Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
 			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-			#print("cam_pivot: captured/confined -> visible")
+			#print("cam_pivot: captured -> visible")
 		else:
 			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 			#print("cam_pivot: visible -> captured")

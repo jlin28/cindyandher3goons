@@ -379,3 +379,9 @@ joyceL -- 2026-05-21 basically all night
 jiefengO -- 2026-05-22 05:35
 DIALOGUE ANIMATION
 * dialogue has typing animation + skip + option popup
+
+cindyL -- 2026-05-22 11:00
+* added removal from inventory
+* fixed stashing to inventory
+BUGS:
+* register/login/exit not working in perfect coordination on myk machine

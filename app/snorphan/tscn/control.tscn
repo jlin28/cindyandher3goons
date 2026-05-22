@@ -1,17 +1,17 @@
 [gd_scene format=3 uid="uid://cxo150m2m6bob"]
 
-[ext_resource type="Script" uid="uid://w6562cdo3mjf" path="res://gd/inventory.gd" id="1_mmuml"]
-[ext_resource type="Texture2D" uid="uid://n70tnighps5u" path="res://static/sprite_sheet.png" id="1_vpxtf"]
+[ext_resource type="Script" uid="uid://bwa44xskogq58" path="res://gd/inventory.gd" id="1_mmuml"]
+[ext_resource type="Texture2D" uid="uid://c7owgffciyof0" path="res://static/sprite_sheet.png" id="1_vpxtf"]
 [ext_resource type="Script" uid="uid://ccvciv4awmrty" path="res://gd/close_quests.gd" id="2_2mfya"]
 [ext_resource type="FontFile" uid="uid://cjvg0evcqc7yp" path="res://static/PeaberryDoublespace.ttf" id="2_y35ns"]
 [ext_resource type="Script" uid="uid://bgcmwa750v7qy" path="res://gd/settings.gd" id="2_ykr62"]
 [ext_resource type="Script" uid="uid://ddxr4i33xhnew" path="res://gd/open_quests.gd" id="4_6yxn8"]
-[ext_resource type="Script" uid="uid://s52cj2qcinda" path="res://gd/dialogue.gd" id="5_6mujo"]
-[ext_resource type="Script" uid="uid://bv5u0aargk876" path="res://gd/dgbutton.gd" id="6_1akbr"]
+[ext_resource type="Script" uid="uid://kxk0iw7qdyup" path="res://gd/dialogue.gd" id="5_6mujo"]
+[ext_resource type="Script" uid="uid://dqauae4kyv8y5" path="res://gd/dgbutton.gd" id="6_1akbr"]
 [ext_resource type="Script" uid="uid://444n1xmygkoi" path="res://gd/options.gd" id="6_dd40b"]
 [ext_resource type="Script" uid="uid://dw0rw8i8fmy12" path="res://gd/close_settings.gd" id="9_tw3h4"]
 [ext_resource type="Script" uid="uid://chq8goy7bvsau" path="res://gd/settings_menu.gd" id="10_6nd6i"]
-[ext_resource type="Script" uid="uid://cnfxca6207021" path="res://gd/logout.gd" id="10_s2oxt"]
+[ext_resource type="Script" uid="uid://bw0ucpjxwy4b2" path="res://gd/logout.gd" id="10_s2oxt"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_2mfya"]
 texture = ExtResource("1_vpxtf")
@@ -158,7 +158,7 @@ layout_mode = 2
 mouse_filter = 2
 theme_override_constants/margin_bottom = 50
 
-[node name="inventory" type="MarginContainer" parent="default/inventory cont" unique_id=2008285260 groups=["inv"]]
+[node name="inventory" type="MarginContainer" parent="default/inventory cont" unique_id=2008285260]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 8
@@ -206,16 +206,6 @@ patch_margin_top = 3
 patch_margin_right = 3
 patch_margin_bottom = 3
 
-[node name="Label" type="Label" parent="default/inventory cont/inventory/NinePatchRect/MarginContainer/inventory_slots/1" unique_id=1522117376]
-custom_minimum_size = Vector2(10, 0)
-layout_mode = 2
-theme_override_constants/line_spacing = -10
-theme_override_fonts/font = ExtResource("2_y35ns")
-theme_override_font_sizes/font_size = 8
-text = "a"
-horizontal_alignment = 1
-autowrap_mode = 3
-
 [node name="2" type="MarginContainer" parent="default/inventory cont/inventory/NinePatchRect/MarginContainer/inventory_slots" unique_id=1276040957]
 layout_mode = 2
 
@@ -228,16 +218,6 @@ patch_margin_left = 3
 patch_margin_top = 3
 patch_margin_right = 3
 patch_margin_bottom = 3
-
-[node name="Label" type="Label" parent="default/inventory cont/inventory/NinePatchRect/MarginContainer/inventory_slots/2" unique_id=1779148187]
-custom_minimum_size = Vector2(10, 0)
-layout_mode = 2
-theme_override_constants/line_spacing = -10
-theme_override_fonts/font = ExtResource("2_y35ns")
-theme_override_font_sizes/font_size = 8
-text = "a"
-horizontal_alignment = 1
-autowrap_mode = 3
 
 [node name="3" type="MarginContainer" parent="default/inventory cont/inventory/NinePatchRect/MarginContainer/inventory_slots" unique_id=1589090015]
 layout_mode = 2
@@ -252,16 +232,6 @@ patch_margin_top = 3
 patch_margin_right = 3
 patch_margin_bottom = 3
 
-[node name="Label" type="Label" parent="default/inventory cont/inventory/NinePatchRect/MarginContainer/inventory_slots/3" unique_id=1549129204]
-custom_minimum_size = Vector2(10, 0)
-layout_mode = 2
-theme_override_constants/line_spacing = -10
-theme_override_fonts/font = ExtResource("2_y35ns")
-theme_override_font_sizes/font_size = 8
-text = "a"
-horizontal_alignment = 1
-autowrap_mode = 3
-
 [node name="4" type="MarginContainer" parent="default/inventory cont/inventory/NinePatchRect/MarginContainer/inventory_slots" unique_id=1452169722]
 layout_mode = 2
 
@@ -274,16 +244,6 @@ patch_margin_left = 3
 patch_margin_top = 3
 patch_margin_right = 3
 patch_margin_bottom = 3
-
-[node name="Label" type="Label" parent="default/inventory cont/inventory/NinePatchRect/MarginContainer/inventory_slots/4" unique_id=1349404273]
-custom_minimum_size = Vector2(10, 0)
-layout_mode = 2
-theme_override_constants/line_spacing = -10
-theme_override_fonts/font = ExtResource("2_y35ns")
-theme_override_font_sizes/font_size = 8
-text = "a"
-horizontal_alignment = 1
-autowrap_mode = 3
 
 [node name="5" type="MarginContainer" parent="default/inventory cont/inventory/NinePatchRect/MarginContainer/inventory_slots" unique_id=1179035619]
 layout_mode = 2
@@ -298,16 +258,6 @@ patch_margin_top = 3
 patch_margin_right = 3
 patch_margin_bottom = 3
 
-[node name="Label" type="Label" parent="default/inventory cont/inventory/NinePatchRect/MarginContainer/inventory_slots/5" unique_id=219429577]
-custom_minimum_size = Vector2(10, 0)
-layout_mode = 2
-theme_override_constants/line_spacing = -10
-theme_override_fonts/font = ExtResource("2_y35ns")
-theme_override_font_sizes/font_size = 8
-text = "a"
-horizontal_alignment = 1
-autowrap_mode = 3
-
 [node name="6" type="MarginContainer" parent="default/inventory cont/inventory/NinePatchRect/MarginContainer/inventory_slots" unique_id=346512187]
 layout_mode = 2
 
@@ -320,16 +270,6 @@ patch_margin_left = 3
 patch_margin_top = 3
 patch_margin_right = 3
 patch_margin_bottom = 3
-
-[node name="Label" type="Label" parent="default/inventory cont/inventory/NinePatchRect/MarginContainer/inventory_slots/6" unique_id=786074158]
-custom_minimum_size = Vector2(10, 0)
-layout_mode = 2
-theme_override_constants/line_spacing = -10
-theme_override_fonts/font = ExtResource("2_y35ns")
-theme_override_font_sizes/font_size = 8
-text = "a"
-horizontal_alignment = 1
-autowrap_mode = 3
 
 [node name="button cont" type="MarginContainer" parent="default" unique_id=377183600]
 layout_mode = 2

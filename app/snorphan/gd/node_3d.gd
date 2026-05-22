@@ -14,7 +14,7 @@ func _unhandled_input(event: InputEvent) -> void:
 			ui.get_child(0).visible = false
 			dialogue_box.visible = true
 			dialogue_box._set_npc_name(player.current_interactable_npc)
-			Input.set_mouse_mode(Input.MOUSE_MODE_CONFINED)
+			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 			
 			player.can_move = false
 			

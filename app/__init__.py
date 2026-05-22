@@ -77,6 +77,7 @@ db.close()
 
 npc_dialogue = {
     "Sealius": {
+        'item_cap': "woah kid! you have so many items sticking out of your bag right now... i think i'll give this to you later.",
         'quest_cap': "your aura is really suffocating me right now... i think you need to do something about that before i talk to you..............",
         'quest_inactive': {
             'dialogue_type': "normal",
@@ -89,23 +90,56 @@ npc_dialogue = {
         },
         'A': {
             'dialogue_type': "normal",
-            'dialogue': 'haha, no need to be in awe! i know its a great honor to recieve a compliment from me.',
+            'dialogue': 'haha, no need to be shy! i know its a great honor to recieve a compliment from me.',
             'dialogue_options': {
-                
-            }
+                "uh... sure.....": "C",
+                "i'm honored to even be breathing the same air as you!": "B",
+                "what do you want from me..": "D"
+            } 
         },
         'B': {
-            'dialogue_type': "quest",
-            'dialogue': "oh, you're friendlier than i thought! you wouldn't mind finding something for me, would you? i promise i'll give you something you'll love~~~ :)",
+            'dialogue_type': "normal",
+            'dialogue': 'oh, you're friendlier than i thought!',
             'dialogue_options': {
-                "sure!! what is it?": "D"
+                "hmph": "C",
+                "and you're a lot weirder than i thought.": "C",
+                "you want something from me don't you": "D",
             }
         },
         'C': {
             'dialogue_type': "normal",
-            'dialogue': '...',
+            'dialogue': "hey, don't be like that! i just wanted to ask you for a favor :(",
+            'dialogue_options': {
+                
+            }
+        },
+        'D': {
+            'dialogue_type': "quest",
+            'dialogue': "you wouldn't mind finding something for me, would you? i promise i'll give you something you'll love~~~ :)",
+            'dialogue_options': {
+                "sure!! what is it?": "E",
+                "sure.. but um, you're not gonna kidnap me are you...": "C",
+                "*Run away!*": "F"
+            }
+        },
+        'E': {
+            'dialogue_type': "normal",
+            'dialogue': "i've been feeling really uninspired lately :( hit a bit of a block, if you will. if you could find me things that would spark my imagination, i'll reward you greatly!",
+            'dialogue_options': {
+                "okay, i'll be back soon.": "G",
+                "nope, i'm out.": "F"
+            }
+        },
+        'F': {
+            'dialogue_type': "normal",
+            'dialogue': "hey kid! come back :(",
             'dialogue_options': {}
-        }
+        },
+        'G': {
+            'dialogue_type': "normal",
+            'dialogue': "thanks kid! i'll be waiting here for you.",
+            'dialogue_options': {}
+        },
     },
     "Town Chief": {
         'quest_cap': "Child, you look like you have too much going on right now. I won't go anywhere, so take care of what you have first.",

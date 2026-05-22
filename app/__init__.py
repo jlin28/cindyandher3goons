@@ -156,14 +156,17 @@ npc_dialogue = {
     },
     "": {
         'quest_in_progress': {
+            'dialogue_type': "normal",
             'dialogue': "",
             'dialogue_options': {}
         },
         'quest_completed': {
+            'dialogue_type': "normal",
             'dialogue': "",
             'dialogue_options': {}
         },
         'quest_inactive': {
+            'dialogue_type': "quest",
             'dialogue': '',
             'dialogue_options': {
                 '': 'B',
@@ -172,14 +175,17 @@ npc_dialogue = {
             }
         },
         'B': {
+            'dialogue_type': "normal",
             'dialogue': '',
             'dialogue_options': {}
         },
         'C': {
+            'dialogue_type': "normal",
             'dialogue': '',
             'dialogue_options': {}
         },
         'D': {
+            'dialogue_type': "normal",
             'dialogue': '',
             'dialogue_options': {}
         }

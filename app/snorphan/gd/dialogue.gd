@@ -23,14 +23,19 @@ func request_dialogue(npc_name):
 func receive_dialogue(dg):
 	current_dialogue = dg
 	play_dialogue()
-	
+
+var tween;
 func play_dialogue():
 	var quest_status = 'quest_inactive'
 	if not current_dialogue_line:
 		current_dialogue_line = quest_status
 	
 	dialogue_box.text = current_dialogue[current_dialogue_line].dialogue
-	print(current_dialogue_line)
+	dialogue_box.visible_characters = 0
+	tween = create_tween()
+	tween.tween_property(dialogue_box, "visible_characters", dialogue_box.text.length(), 2.0)
+	print(dialogue_box.text)
+	tween.finished.connect(tween_finished)
 	
 	var dialogue_options = current_dialogue[current_dialogue_line].dialogue_options
 	if dialogue_options.size() > 0:
@@ -38,13 +43,29 @@ func play_dialogue():
 		for option in options:
 			option.visible = false
 			
-		for dialogue_option in dialogue_options:
-			options[i].text = dialogue_option
-			options[i].visible = true
-			i+=1
+		#for dialogue_option in dialogue_options:
+			#options[i].text = dialogue_option
+			#options[i].visible = true
+			#i+=1
 		
 		next_button.visible = false
 	else:
 		option_cont.visible = false
 		next_button.visible = true
-	
+
+func _unhandled_input(event: InputEvent) -> void:
+	if event is InputEventMouseButton and event.pressed and tween:
+		tween.kill()
+		tween_finished()
+		tween = null;
+		dialogue_box.visible_characters = -1
+
+func tween_finished():
+	var i = 0;
+	var current_dialogue_line = current_dialogue[current_dialogue_line]
+	if current_dialogue_line:
+		var dialogue_options = current_dialogue_line.dialogue_options
+		for dialogue_option in dialogue_options:
+			options[i].text = dialogue_option
+			options[i].visible = true
+			i+=1

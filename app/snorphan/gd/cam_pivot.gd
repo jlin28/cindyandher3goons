@@ -19,7 +19,7 @@ func _unhandled_input(event: InputEvent) -> void:
 	# should maybe fix the browser's NotAllowedError
 	if event is InputEventMouseButton and event.pressed and Input.get_mouse_mode() == Input.MOUSE_MODE_VISIBLE and player.can_move:
 		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-		print("cam_pivot.gd: Captured")
+		#print("cam_pivot.gd: Captured")
 
 	if event is InputEventMouseMotion and Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
 		# for some reason relative's x and y are flipped and mouse has no access to global axes sigh
@@ -31,10 +31,10 @@ func _unhandled_input(event: InputEvent) -> void:
 		facing = rotation
 
 	elif event.is_action_pressed("mouse_mode"):
-		print("Esc Pressed")
+		#print("Esc Pressed")
 		if Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED or Input.get_mouse_mode() == Input.MOUSE_MODE_CONFINED:
 			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-			print("cam_pivot: captured/confined -> visible")
+			#print("cam_pivot: captured/confined -> visible")
 		else:
 			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-			print("cam_pivot: visible -> captured")
+			#print("cam_pivot: visible -> captured")

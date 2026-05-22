@@ -1,16 +1,16 @@
 [gd_scene format=3 uid="uid://cxo150m2m6bob"]
 
-[ext_resource type="Script" uid="uid://dj6isp5g2ckgu" path="res://gd/inventory.gd" id="1_mmuml"]
+[ext_resource type="Script" uid="uid://b1gfio04fwxhi" path="res://gd/inventory.gd" id="1_mmuml"]
 [ext_resource type="Texture2D" uid="uid://bw4pqk3x14f5n" path="res://static/sprite_sheet.png" id="1_vpxtf"]
-[ext_resource type="Script" uid="uid://ccvciv4awmrty" path="res://gd/close_quests.gd" id="2_2mfya"]
-[ext_resource type="FontFile" uid="uid://cjvg0evcqc7yp" path="res://static/PeaberryDoublespace.ttf" id="2_y35ns"]
-[ext_resource type="Script" uid="uid://bgcmwa750v7qy" path="res://gd/settings.gd" id="2_ykr62"]
-[ext_resource type="Script" uid="uid://ddxr4i33xhnew" path="res://gd/open_quests.gd" id="4_6yxn8"]
-[ext_resource type="Script" uid="uid://s52cj2qcinda" path="res://gd/dialogue.gd" id="5_6mujo"]
-[ext_resource type="Script" uid="uid://bv5u0aargk876" path="res://gd/dgbutton.gd" id="6_1akbr"]
-[ext_resource type="Script" uid="uid://444n1xmygkoi" path="res://gd/options.gd" id="6_dd40b"]
-[ext_resource type="Script" uid="uid://dw0rw8i8fmy12" path="res://gd/close_settings.gd" id="9_tw3h4"]
-[ext_resource type="Script" uid="uid://cni42uy6gdqwl" path="res://gd/settings_menu.gd" id="10_6nd6i"]
+[ext_resource type="Script" uid="uid://s34gaogg8s4i" path="res://gd/close_quests.gd" id="2_2mfya"]
+[ext_resource type="FontFile" uid="uid://pmi7qj0fh53v" path="res://static/PeaberryDoublespace.ttf" id="2_y35ns"]
+[ext_resource type="Script" uid="uid://uq3o7oa4eti" path="res://gd/settings.gd" id="2_ykr62"]
+[ext_resource type="Script" uid="uid://dye1tiypsaay6" path="res://gd/open_quests.gd" id="4_6yxn8"]
+[ext_resource type="Script" uid="uid://d3ss06331ic7q" path="res://gd/dialogue.gd" id="5_6mujo"]
+[ext_resource type="Script" uid="uid://digaxfgtigrwh" path="res://gd/dgbutton.gd" id="6_1akbr"]
+[ext_resource type="Script" uid="uid://8b5fyjuw62nv" path="res://gd/options.gd" id="6_dd40b"]
+[ext_resource type="Script" uid="uid://vsgdnaj0o6c5" path="res://gd/close_settings.gd" id="9_tw3h4"]
+[ext_resource type="Script" uid="uid://chq8goy7bvsau" path="res://gd/settings_menu.gd" id="10_6nd6i"]
 [ext_resource type="Script" uid="uid://bw0ucpjxwy4b2" path="res://gd/logout.gd" id="10_s2oxt"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_2mfya"]
@@ -187,14 +187,16 @@ theme_override_constants/margin_top = 8
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 8
 
-[node name="HBoxContainer" type="HBoxContainer" parent="default/inventory cont/inventory/NinePatchRect/MarginContainer" unique_id=436952028]
+[node name="inventory_slots" type="HBoxContainer" parent="default/inventory cont/inventory/NinePatchRect/MarginContainer" unique_id=436952028]
+unique_name_in_owner = true
 layout_mode = 2
 theme_override_constants/separation = 15
 
-[node name="1" type="MarginContainer" parent="default/inventory cont/inventory/NinePatchRect/MarginContainer/HBoxContainer" unique_id=2108598126]
+[node name="1" type="MarginContainer" parent="default/inventory cont/inventory/NinePatchRect/MarginContainer/inventory_slots" unique_id=2108598126]
+custom_minimum_size = Vector2(10, 0)
 layout_mode = 2
 
-[node name="NinePatchRect" type="NinePatchRect" parent="default/inventory cont/inventory/NinePatchRect/MarginContainer/HBoxContainer/1" unique_id=154174506]
+[node name="NinePatchRect" type="NinePatchRect" parent="default/inventory cont/inventory/NinePatchRect/MarginContainer/inventory_slots/1" unique_id=154174506]
 custom_minimum_size = Vector2(40, 30)
 layout_mode = 2
 texture = ExtResource("1_vpxtf")
@@ -204,10 +206,10 @@ patch_margin_top = 3
 patch_margin_right = 3
 patch_margin_bottom = 3
 
-[node name="2" type="MarginContainer" parent="default/inventory cont/inventory/NinePatchRect/MarginContainer/HBoxContainer" unique_id=1276040957]
+[node name="2" type="MarginContainer" parent="default/inventory cont/inventory/NinePatchRect/MarginContainer/inventory_slots" unique_id=1276040957]
 layout_mode = 2
 
-[node name="NinePatchRect2" type="NinePatchRect" parent="default/inventory cont/inventory/NinePatchRect/MarginContainer/HBoxContainer/2" unique_id=211451120]
+[node name="NinePatchRect2" type="NinePatchRect" parent="default/inventory cont/inventory/NinePatchRect/MarginContainer/inventory_slots/2" unique_id=211451120]
 custom_minimum_size = Vector2(40, 30)
 layout_mode = 2
 texture = ExtResource("1_vpxtf")
@@ -217,10 +219,10 @@ patch_margin_top = 3
 patch_margin_right = 3
 patch_margin_bottom = 3
 
-[node name="3" type="MarginContainer" parent="default/inventory cont/inventory/NinePatchRect/MarginContainer/HBoxContainer" unique_id=1589090015]
+[node name="3" type="MarginContainer" parent="default/inventory cont/inventory/NinePatchRect/MarginContainer/inventory_slots" unique_id=1589090015]
 layout_mode = 2
 
-[node name="NinePatchRect3" type="NinePatchRect" parent="default/inventory cont/inventory/NinePatchRect/MarginContainer/HBoxContainer/3" unique_id=1603290821]
+[node name="NinePatchRect3" type="NinePatchRect" parent="default/inventory cont/inventory/NinePatchRect/MarginContainer/inventory_slots/3" unique_id=1603290821]
 custom_minimum_size = Vector2(40, 30)
 layout_mode = 2
 texture = ExtResource("1_vpxtf")
@@ -230,10 +232,10 @@ patch_margin_top = 3
 patch_margin_right = 3
 patch_margin_bottom = 3
 
-[node name="4" type="MarginContainer" parent="default/inventory cont/inventory/NinePatchRect/MarginContainer/HBoxContainer" unique_id=1452169722]
+[node name="4" type="MarginContainer" parent="default/inventory cont/inventory/NinePatchRect/MarginContainer/inventory_slots" unique_id=1452169722]
 layout_mode = 2
 
-[node name="NinePatchRect4" type="NinePatchRect" parent="default/inventory cont/inventory/NinePatchRect/MarginContainer/HBoxContainer/4" unique_id=1298775219]
+[node name="NinePatchRect4" type="NinePatchRect" parent="default/inventory cont/inventory/NinePatchRect/MarginContainer/inventory_slots/4" unique_id=1298775219]
 custom_minimum_size = Vector2(40, 30)
 layout_mode = 2
 texture = ExtResource("1_vpxtf")
@@ -243,10 +245,10 @@ patch_margin_top = 3
 patch_margin_right = 3
 patch_margin_bottom = 3
 
-[node name="5" type="MarginContainer" parent="default/inventory cont/inventory/NinePatchRect/MarginContainer/HBoxContainer" unique_id=1179035619]
+[node name="5" type="MarginContainer" parent="default/inventory cont/inventory/NinePatchRect/MarginContainer/inventory_slots" unique_id=1179035619]
 layout_mode = 2
 
-[node name="NinePatchRect5" type="NinePatchRect" parent="default/inventory cont/inventory/NinePatchRect/MarginContainer/HBoxContainer/5" unique_id=604686048]
+[node name="NinePatchRect5" type="NinePatchRect" parent="default/inventory cont/inventory/NinePatchRect/MarginContainer/inventory_slots/5" unique_id=604686048]
 custom_minimum_size = Vector2(40, 30)
 layout_mode = 2
 texture = ExtResource("1_vpxtf")
@@ -256,10 +258,10 @@ patch_margin_top = 3
 patch_margin_right = 3
 patch_margin_bottom = 3
 
-[node name="6" type="MarginContainer" parent="default/inventory cont/inventory/NinePatchRect/MarginContainer/HBoxContainer" unique_id=346512187]
+[node name="6" type="MarginContainer" parent="default/inventory cont/inventory/NinePatchRect/MarginContainer/inventory_slots" unique_id=346512187]
 layout_mode = 2
 
-[node name="NinePatchRect6" type="NinePatchRect" parent="default/inventory cont/inventory/NinePatchRect/MarginContainer/HBoxContainer/6" unique_id=28188344]
+[node name="NinePatchRect6" type="NinePatchRect" parent="default/inventory cont/inventory/NinePatchRect/MarginContainer/inventory_slots/6" unique_id=28188344]
 custom_minimum_size = Vector2(40, 30)
 layout_mode = 2
 texture = ExtResource("1_vpxtf")

@@ -82,14 +82,14 @@ npc_dialogue = {
             'dialogue_type': "normal",
             'dialogue': 'hey wazzup!!! nice cape you got there :)',
             'dialogue_options': {
-                'umm... hi?': 'A',
-                '': 'B',
-                '...': 'C'
+                'umm... hi? thanks..?': 'A',
+                'thanks! the village chief gave it to me.': 'B',
+                '*You grab your cloak in suspicion*': 'C'
             }
         },
         'A': {
             'dialogue_type': "normal",
-            'dialogue': 'ok rude',
+            'dialogue': 'haha, no need to be in awe! i know its a great honor to recieve a compliment from me.',
             'dialogue_options': {}
         },
         'B': {
@@ -121,7 +121,7 @@ npc_dialogue = {
             'dialogue_options': {
                 "No. I don't know what you're talking about.": 'A',
                 'Yeah... Do you have somewhere I can stay?': 'B',
-                'Run away!': 'C'
+                '*Run away!*': 'C'
             }
         },
         'A': {
@@ -129,7 +129,7 @@ npc_dialogue = {
             'dialogue': "Hohoho! Don't worry kid, we won't kick you out. I know you're not from here.",
             'dialogue_options': {
                 "How?": "B",
-                "Run away!": "C"
+                "*Run away!*": "C"
             }
         },
         'B': {

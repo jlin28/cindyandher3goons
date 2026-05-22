@@ -77,6 +77,7 @@ db.close()
 
 npc_dialogue = {
     "Sealius": {
+        'quest_cap': "your aura is really suffocating me right now... i think you need to do something about that before i talk to you..............",
         'quest_inactive': {
             'dialogue_type': "normal",
             'dialogue': 'hey wazzup!!! nice cape you got there :)',
@@ -103,6 +104,7 @@ npc_dialogue = {
         }
     },
     "Town Chief": {
+        'quest_cap': "Child, you look like you have too much going on right now. I won't go anywhere, so take care of what you have first.",
         'quest_in_progress': {
             'dialogue_type': "normal",
             'dialogue': "Come back when you've found the house!",

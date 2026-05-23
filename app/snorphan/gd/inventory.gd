@@ -5,6 +5,8 @@ extends MarginContainer
 @onready var inventory := %inventory_slots
 @onready var slots := inventory.get_children()
 
+var snowball_icon = preload("res://static/items/snowball.png")
+
 var inventory_index = -1
 
 func _process(delta: float) -> void:

@@ -39,6 +39,7 @@ func _process(delta: float) -> void:
 	var state = socket.get_ready_state()
 	if state == WebSocketPeer.STATE_OPEN:
 		if not connected:
+			inventory_cont._on_inventory_update()
 			connected = true
 			print("Connected!")
 

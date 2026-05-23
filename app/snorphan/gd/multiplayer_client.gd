@@ -213,10 +213,9 @@ func add_item(item, quantity):
 	
 	socket.send_text(JSON.stringify(data))
 	
-func fetch_inventory(user):
+func fetch_inventory():
 	var data = {
 		"type": "fetch_inventory",
-		"user": user
 	}
 	
 	socket.send_text(JSON.stringify(data))

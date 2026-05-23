@@ -105,7 +105,7 @@ npc_dialogue = {
                 "uh... sure.....": "C",
                 "i'm honored to even be breathing the same air as you!": "B",
                 "what do you want from me..": "D"
-            } 
+            }
         },
         'B': {
             'dialogue_type': "normal",
@@ -120,7 +120,7 @@ npc_dialogue = {
             'dialogue_type': "normal",
             'dialogue': "hey, don't be like that! i just wanted to ask you for a favor :(",
             'dialogue_options': {
-                
+
             }
         },
         'D': {
@@ -349,7 +349,7 @@ def questsAvailable():
     return True
 
 # return boolean reflecting whether the inventory is full
-def stash_to_inventory(item_name, item_number):
+def stash_to_inventory(user, item_name, item_number):
     db = sqlite3.connect(DB_FILE)
     c = db.cursor()
 
@@ -375,23 +375,25 @@ def stash_to_inventory(item_name, item_number):
 
     if item_name in items:
         index = items.index(item_name)
-        c.execute(f"SELECT item{index}Count FROM user WHERE username = ?", (username,))
-        current_item_count = c.fetchone()
+        c.execute(f"SELECT item{index+1}Count FROM user WHERE username = ?", (username,))
+        current_item_count = c.fetchone()[0]
 
         c.execute("SELECT maxCount FROM item WHERE name = ?", (item_name,))
-        max_item_count = c.fetchone()
+        max_item_count = c.fetchone()[0]
 
         if current_item_count + item_number <= max_item_count:
-            c.execute("UPDATE user SET ? = ? WHERE username = ?", (f"item{index}Count", current_item_count + item_number, username))
+            c.execute(f"UPDATE user SET item{index+1}Count = ? WHERE username = ?", (current_item_count + item_number, username))
+            db.commit()
+            db.close()
             return True
 
     # assumption is made that you cannot keep an inventory space for zero of an item
     for n in range(0,6):
         if item_counts[n] == 0:
-            c.execute("""UPDATE user
-                SET ? = ?,
-                SET ? = ?
-                """, (f"item{n}", item_name, f"item{n}Count", item_number)
+            c.execute(f"""UPDATE user
+                SET item{n+1} = ?, item{n+1}Count = ?
+                WHERE username = ?
+                """, (item_name, item_number, username)
             )
             db.commit()
             db.close()
@@ -426,10 +428,10 @@ def fetch_inventory(username):
     items = c.fetchone()
 
     inventory = {}
-    for count, item in zip(item_counts, items):
-        inventory[item_counts.index(count)] = {
-                "item": item,
-                "count": count
+    for n in range(0,6):
+        inventory[n] = {
+                "item": items[n],
+                "count": item_counts[n]
             }
 
     db.commit()
@@ -507,15 +509,16 @@ def game():
             return redirect(url_for("login"))
 
         if body.get('type') == 'add_item':
+            user = body.get('user')
             item = body.get('item')
             quantity = body.get('quantity')
 
-            return stash_to_inventory(item, quantity)
+            return jsonify(stash_to_inventory(user, item, quantity))
 
         if body.get('type') == 'fetch_inventory':
             user = body.get('user')
 
-            return fetch_inventory(user)
+            return jsonify(fetch_inventory(user))
 
     if "username" not in session:
         return redirect(url_for("login"))

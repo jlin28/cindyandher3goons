@@ -116,7 +116,7 @@ ws.on('connection', function connect(client, req) {
       let res = await fetch("https://cindyandher3goons.me/" + client.route, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json'},
-        body: JSON.stringify({ type: "add_item", item: data.item, quantity: data.quantity })
+        body: JSON.stringify({ type: "add_item", item: data.item, quantity: data.quantity, user: client.username })
       });
 
       let success = await res.json()
@@ -132,7 +132,7 @@ ws.on('connection', function connect(client, req) {
       let res = await fetch("https://cindyandher3goons.me/" + client.route, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json'},
-        body: JSON.stringify({ type: "fetch_inventory", user: data.user })
+        body: JSON.stringify({ type: "fetch_inventory", user: client.username })
       });
 
       let inventory = await res.json()

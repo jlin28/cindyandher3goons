@@ -9,14 +9,20 @@ var inventory_index = -1
 
 func _process(delta: float) -> void:
 	if player.inventory_update:
-		MultiplayerClient.fetch_inventory(player.get_child(0).text)
+		MultiplayerClient.fetch_inventory()
 		
 func update_inventory(new_inv):
-	for item in new_inv:
-		var i = new_inv.index(item)
-		
+	for i in range(slots.size()):
 		var text = slots[i].get_child(1)
-		text.text = item.item
+		var slot_data = new_inv.get(str(i), {"item": "", "count": 0})
+		
+		var item_name = slot_data.get("item", "")
+		var count = int(slot_data.get("count", 0))
+		
+		if item_name == "" or count <= 0:
+			text.text = ""
+		else:
+			text.text = "%s x%s" % [item_name, count]
 	
 	player.inventory_update = false
 		
@@ -28,7 +34,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		
 		inventory_index += 1
 		if inventory_index > 5:
-			inventory_index = 1
+			inventory_index = 0
 		highlight(inventory_index, true)
 			
 		
@@ -50,7 +56,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		inventory_index = -1
 		
 func highlight(index: int, focus: bool):
-	var current_slot = slots[inventory_index]
+	var current_slot = slots[index]
 	var image = current_slot.get_child(0)
 	
 	if focus:

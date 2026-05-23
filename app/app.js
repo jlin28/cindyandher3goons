@@ -90,6 +90,7 @@ ws.on('connection', function connect(client, req) {
     if (data.type === "dialogue") {
       console.log('i gott here');
       let res = await fetch("https://cindyandher3goons.me/" + client.route, {
+      // let res = await fetch("http://127.0.0.1:5000/" + client.route, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json'},
         body: JSON.stringify({ type: "dialogue", npc: data.npc })
@@ -106,6 +107,7 @@ ws.on('connection', function connect(client, req) {
 
     if (data.type === "logout") {
       let res = await fetch("https://cindyandher3goons.me/" + client.route, {
+      // let res = await fetch("http://127.0.0.1:5000/" + client.route, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json'},
         body: JSON.stringify({ type: "logout" })
@@ -113,7 +115,8 @@ ws.on('connection', function connect(client, req) {
     }
 
     if (data.type === "add_item") {
-      let res = await fetch("https://cindyandher3goons.me/" + client.route, {
+      // let res = await fetch("https://cindyandher3goons.me/" + client.route, {
+      let res = await fetch("http://127.0.0.1:5000/" + client.route, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json'},
         body: JSON.stringify({ type: "add_item", item: data.item, quantity: data.quantity, user: client.username })
@@ -129,7 +132,8 @@ ws.on('connection', function connect(client, req) {
     }
 
     if (data.type === "fetch_inventory") {
-      let res = await fetch("https://cindyandher3goons.me/" + client.route, {
+      // let res = await fetch("https://cindyandher3goons.me/" + client.route, {
+      let res = await fetch("http://127.0.0.1:5000/" + client.route, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json'},
         body: JSON.stringify({ type: "fetch_inventory", user: client.username })

@@ -8,26 +8,40 @@ extends MarginContainer
 var snowball_icon = preload("res://static/items/snowball.png")
 
 var inventory_index = -1
+var inventory_requesting = false
 
 func _process(delta: float) -> void:
-	if player.inventory_update:
+	if player.inventory_update and not inventory_requesting:
+		inventory_requesting = true
 		MultiplayerClient.fetch_inventory()
 		
+func get_item_icon(item_name):
+	if item_name == "snowball_S" or item_name == "snowball_M" or item_name == "snowball_L":
+		return snowball_icon
+	return null
+		
 func update_inventory(new_inv):
+	print("INVENTORY RECEIVED: ", new_inv)
+
 	for i in range(slots.size()):
-		var text = slots[i].get_child(1)
-		var slot_data = new_inv.get(str(i), {"item": "", "count": 0})
+		var background = slots[i].get_child(0)
+		var image = background.get_node("Icon")
+		var slot_data = new_inv.get(str(i), new_inv.get(i, {"item": "", "count": 0}))
 		
 		var item_name = slot_data.get("item", "")
 		var count = int(slot_data.get("count", 0))
+		var icon = get_item_icon(item_name)
+
+		print("slot ", i, " item=", item_name, " count=", count, " icon=", icon)
 		
 		if item_name == "" or count <= 0:
-			text.text = ""
+			image.texture = null
 		else:
-			text.text = "%s x%s" % [item_name, count]
-	
+			image.texture = icon
+
 	player.inventory_update = false
-		
+	inventory_requesting = false
+	
 func _unhandled_input(event: InputEvent) -> void:
 	# M3 Wheel Up --> inv goes from 1 to 6
 	if(Input.is_action_pressed("mouse_up")):
@@ -53,8 +67,9 @@ func _unhandled_input(event: InputEvent) -> void:
 		
 	#Right clicks will deselect
 	if(Input.is_action_pressed("right_click")):
-		highlight(inventory_index, false)
-		
+		if inventory_index != -1:
+			highlight(inventory_index, false)
+					
 		inventory_index = -1
 		
 func highlight(index: int, focus: bool):

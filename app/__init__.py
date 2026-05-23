@@ -349,7 +349,7 @@ def questsAvailable():
     return True
 
 # return boolean reflecting whether the inventory is full
-def stash_to_inventory(user, item_name, item_number):
+def stash_to_inventory(username, item_name, item_number):
     db = sqlite3.connect(DB_FILE)
     c = db.cursor()
 
@@ -372,6 +372,10 @@ def stash_to_inventory(user, item_name, item_number):
         item6
         FROM user WHERE username = ?""", (username,))
     items = c.fetchone()
+
+    if item_counts is None or items is None:
+        db.close()
+        return False
 
     if item_name in items:
         index = items.index(item_name)

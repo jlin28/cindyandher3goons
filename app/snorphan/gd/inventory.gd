@@ -10,6 +10,10 @@ var snowball_icon = preload("res://static/items/snowball.png")
 var inventory_index = -1
 var inventory_requesting = false
 
+func _ready() -> void:
+	inventory_requesting = true
+	MultiplayerClient.fetch_inventory()
+	
 func _process(delta: float) -> void:
 	if player.inventory_update and not inventory_requesting:
 		inventory_requesting = true

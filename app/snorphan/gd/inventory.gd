@@ -26,6 +26,7 @@ func update_inventory(new_inv):
 	for i in range(slots.size()):
 		var background = slots[i].get_child(0)
 		var image = background.get_node("Icon")
+		var label = background.get_node("Count")
 		var slot_data = new_inv.get(str(i), new_inv.get(i, {"item": "", "count": 0}))
 		
 		var item_name = slot_data.get("item", "")
@@ -36,11 +37,41 @@ func update_inventory(new_inv):
 		
 		if item_name == "" or count <= 0:
 			image.texture = null
+			image.visible = false 
+			label.text = ""
+			label.visible = false
 		else:
+			#Why am I doing it like this..?
+			image.anchor_left = 0
+			image.anchor_top = 0
+			image.anchor_right = 0
+			image.anchor_bottom = 0
+			image.offset_left = 3
+			image.offset_top = 1
+			image.offset_right = 23
+			image.offset_bottom = 21
+			image.size = Vector2(20, 20)
+			image.scale = Vector2(1, 1)
+			image.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+			image.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+			image.visible = true
 			image.texture = icon
+			
+			label.text = str(count)
+			label.visible = true
+			label.anchor_left = 0
+			label.anchor_top = 0
+			label.anchor_right = 1
+			label.anchor_bottom = 1
+			label.offset_left = 0
+			label.offset_top = 12
+			label.offset_right = -2
+			label.offset_bottom = -1
+			label.horizontal_alignment = HORIZONTAL_ALIGNMENT_RIGHT
+			label.vertical_alignment = VERTICAL_ALIGNMENT_BOTTOM
 
-	player.inventory_update = false
-	inventory_requesting = false
+		player.inventory_update = false
+		inventory_requesting = false
 	
 func _unhandled_input(event: InputEvent) -> void:
 	# M3 Wheel Up --> inv goes from 1 to 6

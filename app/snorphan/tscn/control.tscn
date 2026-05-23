@@ -207,12 +207,21 @@ patch_margin_right = 3
 patch_margin_bottom = 3
 
 [node name="Icon" type="TextureRect" parent="default/inventory cont/inventory/NinePatchRect/MarginContainer/inventory_slots/1/NinePatchRect" unique_id=899815793]
-custom_minimum_size = Vector2(32, 32)
+custom_minimum_size = Vector2(22, 22)
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = 2.0
+offset_top = 2.0
+offset_right = 24.0
+offset_bottom = 24.0
 mouse_filter = 2
 stretch_mode = 5
+
+[node name="Count" type="Label" parent="default/inventory cont/inventory/NinePatchRect/MarginContainer/inventory_slots/1/NinePatchRect" unique_id=75440164]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 2.0
+offset_right = 42.0
+offset_bottom = 25.0
 
 [node name="2" type="MarginContainer" parent="default/inventory cont/inventory/NinePatchRect/MarginContainer/inventory_slots" unique_id=1276040957]
 layout_mode = 2
@@ -235,6 +244,11 @@ offset_bottom = 40.0
 mouse_filter = 2
 stretch_mode = 5
 
+[node name="Count" type="Label" parent="default/inventory cont/inventory/NinePatchRect/MarginContainer/inventory_slots/2/NinePatchRect2" unique_id=1514807046]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+
 [node name="3" type="MarginContainer" parent="default/inventory cont/inventory/NinePatchRect/MarginContainer/inventory_slots" unique_id=1589090015]
 layout_mode = 2
 
@@ -252,6 +266,11 @@ patch_margin_bottom = 3
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
+
+[node name="Count" type="Label" parent="default/inventory cont/inventory/NinePatchRect/MarginContainer/inventory_slots/3/NinePatchRect3" unique_id=2062451865]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
 
 [node name="4" type="MarginContainer" parent="default/inventory cont/inventory/NinePatchRect/MarginContainer/inventory_slots" unique_id=1452169722]
 layout_mode = 2
@@ -271,6 +290,11 @@ layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
+[node name="Count" type="Label" parent="default/inventory cont/inventory/NinePatchRect/MarginContainer/inventory_slots/4/NinePatchRect4" unique_id=1083523332]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+
 [node name="5" type="MarginContainer" parent="default/inventory cont/inventory/NinePatchRect/MarginContainer/inventory_slots" unique_id=1179035619]
 layout_mode = 2
 
@@ -289,6 +313,11 @@ layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
+[node name="Count" type="Label" parent="default/inventory cont/inventory/NinePatchRect/MarginContainer/inventory_slots/5/NinePatchRect5" unique_id=2008300890]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+
 [node name="6" type="MarginContainer" parent="default/inventory cont/inventory/NinePatchRect/MarginContainer/inventory_slots" unique_id=346512187]
 layout_mode = 2
 
@@ -306,6 +335,11 @@ patch_margin_bottom = 3
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
+
+[node name="Count" type="Label" parent="default/inventory cont/inventory/NinePatchRect/MarginContainer/inventory_slots/6/NinePatchRect6" unique_id=1031311414]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
 
 [node name="button cont" type="MarginContainer" parent="default" unique_id=377183600]
 layout_mode = 2

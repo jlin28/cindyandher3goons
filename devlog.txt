@@ -391,7 +391,13 @@ cindyL -- 2026-05-22 11:00
 BUGS:
 * register/login/exit not working in perfect coordination on myk machine
 
-carrieK -- 2026-05-21 18:52
+carrieK -- 2026-05-22 18:52
 DIALOGUE
 * seal and bunny down
 * dialogue lowk melts my brain
+
+joyceL's Rat -- 2026-05-23 04:55
+INVENTORY
+* Very bad sad inventory working(..?)
+* Fixed some bugs
+* Drew snowball and shows 

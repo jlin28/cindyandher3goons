@@ -22,7 +22,7 @@ var time = 0.0;
 @export var item_interactable = false
 @export var current_interactable_item = null
 
-@export var inventory_update = false
+@export var inventory_update = true
 
 func _physics_process(delta):
 	var direction = Vector3.ZERO

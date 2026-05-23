@@ -136,7 +136,7 @@ ws.on('connection', function connect(client, req) {
       // let res = await fetch("http://127.0.0.1:5000/" + client.route, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json'},
-        body: JSON.stringify({ type: "fetch_inventory", user: client.username })
+        body: JSON.stringify({ type: "fetch_inventory", user: "b" })
       });
 
       let inventory = await res.json()

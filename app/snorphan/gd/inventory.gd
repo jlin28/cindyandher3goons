@@ -1,7 +1,5 @@
 extends MarginContainer
 
-@onready var player := get_tree().get_first_node_in_group('player')
-@onready var MultiplayerClient := get_tree().get_first_node_in_group('socket')
 @onready var inventory := %inventory_slots
 @onready var slots := inventory.get_children()
 
@@ -10,7 +8,15 @@ var snowball_icon = preload("res://static/items/snowball.png")
 var inventory_index = -1
 var inventory_requesting = false
 
+var player = null
+var MultiplayerClient = null
+
 func _ready() -> void:
+	await get_tree().process_frame
+	
+	player = get_tree().get_first_node_in_group("player")
+	MultiplayerClient = get_tree().get_first_node_in_group("socket")
+
 	inventory_requesting = true
 	MultiplayerClient.fetch_inventory()
 	
@@ -74,8 +80,8 @@ func update_inventory(new_inv):
 			label.horizontal_alignment = HORIZONTAL_ALIGNMENT_RIGHT
 			label.vertical_alignment = VERTICAL_ALIGNMENT_BOTTOM
 
-		player.inventory_update = false
-		inventory_requesting = false
+	player.inventory_update = false
+	inventory_requesting = false
 	
 func _unhandled_input(event: InputEvent) -> void:
 	# M3 Wheel Up --> inv goes from 1 to 6

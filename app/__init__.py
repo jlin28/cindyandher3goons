@@ -295,10 +295,10 @@ npc_dialogue = {
         },
         'quest_inactive': {
             'dialogue_type': "normal",
-            'dialogue': 'hey you! do you know about pebbles?',
+            'dialogue': 'hey you! have you seen a pebble before?',
             'dialogue_options': {
                 'uh, why do you want to know?': 'A',
-                "who doesn't? they're everywhere!": 'B',
+                "who hasn't? they're everywhere!": 'B',
                 '..?': 'C'
             }
         },
@@ -306,8 +306,8 @@ npc_dialogue = {
             'dialogue_type': "normal",
             'dialogue': "i've heard so many wonderful things about pebbles! i'd like to have one of my own someday..",
             'dialogue_options': {
-                "i love pebbles too!": "",
-                "want me to go get some for you?": "",
+                "what's a pebble?": "C",
+                "i love pebbles too! want me to go get some for you?": "",
                 "they really aren't as great as you think they are..." : "",
             }
         },
@@ -322,7 +322,12 @@ npc_dialogue = {
         },
         'C': {
             'dialogue_type': "normal",
-            'dialogue': '',
+            'dialogue': "you don't know about pebbles???",
+            'dialogue_options': {}
+        },
+        'D': {
+            'dialogue_type': "normal",
+            'dialogue': "you don't know about pebbles either???",
             'dialogue_options': {}
         }
     },

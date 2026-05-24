@@ -286,7 +286,7 @@ npc_dialogue = {
     "Bobby": {
         'item_cap': "",
         'quest_cap': "",
-        'quest_done": "i hope you love that plushie as much as i love the pebbles you gave me!",
+        "quest_done": "i hope you love that plushie as much as i love the pebbles you gave me!",
         'quest_in_progress': {
             'dialogue_type': "normal",
             'dialogue': "ahhhh! i can't wait any longer!!!!!!! i need the pebbles!!!!!!!!!",

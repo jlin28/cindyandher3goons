@@ -406,3 +406,9 @@ carrieK -- 2026-05-23 22:16
 DIALOGUE
 * bobby
 * dialogue is very uninspiring 
+
+cindyL -- 2026-05-24 01:14
+* various db insertion fixes
+* various function fixes 
+DEVLOG
+* updated all db specifications, including new dbs

@@ -136,6 +136,8 @@ As a snowman lover, I want to be able to make lots of snowmen so that I can sati
 | INTEGER | item4Count |    |
 | INTEGER | item5Count |    |
 | INTEGER | item6Count |    |
+| TEXT | questsCompleted  |    |
+| TEXT | questsActive |    |
 
 <br>
 
@@ -159,30 +161,24 @@ As a snowman lover, I want to be able to make lots of snowmen so that I can sati
 
 <br>
 
-### _SETTINGS_
-
-| TYPE | VALUE | ADDITIONAL SPECIFICATIONS |
-|------|-------|-------------------------- |
-| TEXT | setting | PK |
-| TEXT | user | FK |
-| BOOLEAN | boolValue |  |
-| INTEGER | intValue |  |
-
-<br>
-
 ### _NPC_
 
 | TYPE | VALUE | ADDITIONAL SPECIFICATIONS |
 |------|-------|-------------------------- |
 | TEXT | name | PK |
-| TEXT | dialogue | NOT NULL |
-| TEXT | completedQuestUsers |   |
+| TEXT | questName |    |
+| TEXT | questReq |    |
 
-* Dialogue EX. ~ "DG1$A.OPTION1$B.OPTION2&A.DG2...&B.DG2..."
-  * Dialogues will be split with & while the options themselves are split with $ (arr[0] will always point to the printed dialogue)
-  * Each line of dialogue will be preceded by the letter corresponding to each possible option
-* completedQuestUsers EX. ~ "USER1$USER2$USER3$USER4"
-  * Used to check if user has completed the quest!
+<br>
+
+### _SNOWMEN_
+
+| TYPE | VALUE | ADDITIONAL SPECIFICATIONS |
+|------|-------|-------------------------- |
+| INTEGER | id | PK |
+| REAL | x_coord |    |
+| REAL | y_coord |    |
+| REAL | z_coord |    |
 
 <br>
 

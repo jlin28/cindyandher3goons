@@ -26,8 +26,8 @@ c.execute("""CREATE TABLE IF NOT EXISTS user(
     item4Count INTEGER,
     item5Count INTEGER,
     item6Count INTEGER,
-    questsCompleted STRING,
-    questsActive STRING,
+    questsCompleted TEXT,
+    questsActive TEXT,
     FOREIGN KEY (item1) references item(name),
     FOREIGN KEY (item2) references item(name),
     FOREIGN KEY (item3) references item(name),
@@ -44,25 +44,25 @@ c.execute("""CREATE TABLE IF NOT EXISTS item(
     maxCount INTEGER NOT NULL
     );
     """)
-c.execute("INSERT into item VALUES ('button', 'a circle to make your bestie feel dapper.', '', 3)")
-c.execute("INSERT into item VALUES ('carrot', 'the lifes work of an aspiring botanist. it looks incredibly crunchy and irresistably tasty, taking everything in you just to not take a bite.', '', 1)")
-c.execute("INSERT into item VALUES ('hat', 'a lid to make your bestie feel dapper.', '', 1)")
-c.execute("INSERT into item VALUES ('red scarf', 'a scarf knitted by someone''s grandma. it''s fuzzy, warm and made with lots of love.', '', 1)")
-c.execute("INSERT into item VALUES ('apple pie recipe', 'grandmas apple pie recipe. just looking at it makes your mouth water as you imagine the aroma and taste.', '', 1)")
-c.execute("INSERT into item VALUES ('ice sculpture', 'sculpture made of ice in the image of sealius. it carries a strange aura. who knew he was hiding this talent all along?', '', 1)")
-c.execute("INSERT into item VALUES ('old plushie', 'a plushie worn out from years of love and hugs. a token of gratitude from a small child in hopes it will bring you the same joy.', '', 1)")
-c.execute("INSERT into item VALUES ('stick', 'a brown stick. its very sticky and looks like a stick. perhaps the most stick stick youve ever sticked.', '', 2)")
-c.execute("INSERT into item VALUES ('slightly worn out cape', 'a welcoming gift from the village chief. he hopes it will keep you warm in this frosty climate.', '', 1)")
-c.execute("INSERT into item VALUES ('flowers', 'flowers that you plucked fresh from the snow. they come in an assortment of colors, each with a slightly different scent.', '', 10)")
-c.execute("INSERT into item VALUES ('pebbles', 'ooh pebble.... round, smooth, shiny pebbles...... so round... so smooth... so shiny...', '', )")
-c.execute("INSERT into item VALUES ('snowball_S', 'a small bundle of joy.', '', 99)")
-c.execute("INSERT into item VALUES ('snowball_M', 'a bundle of joy.', '', 99)")
-c.execute("INSERT into item VALUES ('snowball_L', 'a big fat bundle of joy.', '', 99)")
+c.execute("INSERT OR IGNORE INTO item VALUES ('button', 'a circle to make your bestie feel dapper.', '', 3)")
+c.execute("INSERT OR IGNORE INTO item VALUES ('carrot', 'the lifes work of an aspiring botanist. it looks incredibly crunchy and irresistably tasty, taking everything in you just to not take a bite.', '', 1)")
+c.execute("INSERT OR IGNORE INTO item VALUES ('hat', 'a lid to make your bestie feel dapper.', '', 1)")
+c.execute("INSERT OR IGNORE INTO item VALUES ('red scarf', 'a scarf knitted by someone''s grandma. it''s fuzzy, warm and made with lots of love.', '', 1)")
+c.execute("INSERT OR IGNORE INTO item VALUES ('apple pie recipe', 'grandmas apple pie recipe. just looking at it makes your mouth water as you imagine the aroma and taste.', '', 1)")
+c.execute("INSERT OR IGNORE INTO item VALUES ('ice sculpture', 'sculpture made of ice in the image of sealius. it carries a strange aura. who knew he was hiding this talent all along?', '', 1)")
+c.execute("INSERT OR IGNORE INTO item VALUES ('old plushie', 'a plushie worn out from years of love and hugs. a token of gratitude from a small child in hopes it will bring you the same joy.', '', 1)")
+c.execute("INSERT OR IGNORE INTO item VALUES ('stick', 'a brown stick. its very sticky and looks like a stick. perhaps the most stick stick youve ever sticked.', '', 2)")
+c.execute("INSERT OR IGNORE INTO item VALUES ('slightly worn out cape', 'a welcoming gift from the village chief. he hopes it will keep you warm in this frosty climate.', '', 1)")
+c.execute("INSERT OR IGNORE INTO item VALUES ('flowers', 'flowers that you plucked fresh from the snow. they come in an assortment of colors, each with a slightly different scent.', '', 10)")
+c.execute("INSERT OR IGNORE INTO item VALUES ('pebbles', 'ooh pebble.... round, smooth, shiny pebbles...... so round... so smooth... so shiny...', '', 99)")
+c.execute("INSERT OR IGNORE INTO item VALUES ('snowball_S', 'a small bundle of joy.', '', 99)")
+c.execute("INSERT OR IGNORE INTO item VALUES ('snowball_M', 'a bundle of joy.', '', 99)")
+c.execute("INSERT OR IGNORE INTO item VALUES ('snowball_L', 'a big fat bundle of joy.', '', 99)")
 
 c.execute("""CREATE TABLE IF NOT EXISTS encyclopedia(
     item TEXT,
     userThatFound TEXT,
-    FOREIGN KEY (item) references items(name),
+    FOREIGN KEY (item) references item(name),
     FOREIGN KEY (userThatFound) references user(username)
     );
     """)
@@ -73,7 +73,15 @@ c.execute("""CREATE TABLE IF NOT EXISTS npc(
     questReq TEXT
     );
     """)
-c.execute("INSERT into npc VALUES ('village grandma', '', '')")
+
+c.execute("""CREATE TABLE IF NOT EXISTS snowmen(
+    id INTEGER PRIMARY KEY,
+    x_coord REAL,
+    y_coord REAL,
+    z_coord REAL
+    );
+    """)
+c.execute("INSERT OR IGNORE INTO npc VALUES ('village grandma', '', '')")
 db.commit()
 db.close()
 
@@ -403,20 +411,24 @@ template
 def questsCompleted_list():
     db = sqlite3.connect(DB_FILE)
     c = db.cursor()
-    c.execute("SELECT questsCompleted FROM user WHERE username = ?", (username,))
-    questsCompleted_string = c.fetchone()
+    c.execute("SELECT questsCompleted FROM user WHERE username = ?", (session['username'],))
+    questsCompleted_string = c.fetchone()[0]
     db.commit()
     db.close()
+    if questsCompleted_string == '':
+        return []
     return questsCompleted_string.split('&')
 
 # return list of quests active for the logged in user
 def questsActive_list():
     db = sqlite3.connect(DB_FILE)
     c = db.cursor()
-    c.execute("SELECT questsActive FROM user WHERE username = ?", (username,))
-    questsActive_string = c.fetchone()
+    c.execute("SELECT questsActive FROM user WHERE username = ?", (session['username'],))
+    questsActive_string = c.fetchone()[0]
     db.commit()
     db.close()
+    if questsActive_string == '':
+        return []
     return questsActive_string.split('&')
 
 # return boolean (true if less than 3 active quests)
@@ -424,6 +436,20 @@ def questsAvailable():
     if len(questsActive_list()) == 3:
         return False
     return True
+
+# return string describing status of quest given npc name
+def npc_questStatus(npc_name):
+    db = sqlite3.connect(DB_FILE)
+    c = db.cursor()
+    c.execute("SELECT questName FROM npc WHERE name = ?", (npc_name,))
+    quest_name = c.fetchone()[0]
+    db.commit()
+    db.close()
+    if quest_name in questsActive_list():
+        return 'quest_in_progress'
+    elif quest_name[0] in questsCompleted_list():
+        return 'quest_completed'
+    return 'quest_inactive'
 
 # return boolean reflecting whether the inventory is full
 def stash_to_inventory(username, item_name, item_number):
@@ -568,7 +594,7 @@ def register():
         else:
             db = sqlite3.connect(DB_FILE)
             c = db.cursor()
-            c.execute("INSERT into user VALUES (?, ?, 100, 100, '', '', '', '', '', '', 0, 0, 0, 0, 0, 0)", (username, password))
+            c.execute("INSERT into user VALUES (?, ?, 100, 100, '', '', '', '', '', '', 0, 0, 0, 0, 0, 0, '', '')", (username, password))
             db.commit()
             db.close()
             session['username'] = username
@@ -586,7 +612,7 @@ def game():
             return jsonify(npc_dialogue[npc])
 
         if body.get('type') == 'logout':
-            session.pop('username')
+            session.pop('username', None)
             return redirect(url_for("login"))
 
         if body.get('type') == 'add_item':

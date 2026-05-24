@@ -81,6 +81,7 @@ npc_dialogue = {
     "Sealius": {
         'item_cap': "woah kid! you have so many items sticking out of your bag right now... i think i'll give this to you later.",
         'quest_cap': "your aura is really suffocating me right now... i think you need to do something about that before i talk to you..............",
+        'quest_done': "i hope you're enjoying that sculpture of me :) it carries immense aura, i know. no need to thank me.",
         'quest_in_progress': {
             'dialogue_type': "normal",
             'dialogue': "i can already tell you don't have the inspiration yet... please hurry and find it.",
@@ -88,7 +89,7 @@ npc_dialogue = {
         },
         'quest_completed': {
             'dialogue_type': "normal",
-            'dialogue': "i hope you're enjoying that sculpture of me :) it carries immense aura, i know. no need to thank me.",
+            'dialogue': "ooh, this is exactly what i needed! to thank you, here's a sculpture of yours truly ;) enjoy!",
             'dialogue_options': {}
         },
         'quest_inactive': {
@@ -156,6 +157,7 @@ npc_dialogue = {
     "Town Chief": {
         'item_cap': "Someone as little as you carrying so much around already? You should see me when you've lightened that load, it could stunt your growth.",
         'quest_cap': "Child, you look like you have too much going on right now. I won't go anywhere, so take care of what you have first.",
+        'quest_done': "You look just like my son when he was little...",
         'quest_in_progress': {
             'dialogue_type': "normal",
             'dialogue': "Come back when you've found the house!",
@@ -163,7 +165,7 @@ npc_dialogue = {
         },
         'quest_completed': {
             'dialogue_type': "normal",
-            'dialogue': "You look just like my son when he was little...",
+            'dialogue': "I see you've found the house! As a welcome gift, heres a cape. It's a bit old I know, but I want to you stay warm in this cold climate.",
             'dialogue_options': {}
         },
         'quest_inactive': {
@@ -212,12 +214,12 @@ npc_dialogue = {
         'quest_cap': "i don't want to bother you with my request. you look just as busy as i do... ",
         'quest_in_progress': {
             'dialogue_type': "normal",
-            'dialogue': "",
+            'dialogue': "ahhhh! i can't wait any longer!!!!!!! i need the pebbles!!!!!!!!!",
             'dialogue_options': {}
         },
         'quest_completed': {
             'dialogue_type': "normal",
-            'dialogue': "",
+            'dialogue': "i hope you love that plushie as much as i love the pebbles you gave me!",
             'dialogue_options': {}
         },
         'quest_inactive': {
@@ -350,6 +352,7 @@ npc_dialogue = {
             'dialogue_options': {}
         },
     },
+    
 }
 
 """

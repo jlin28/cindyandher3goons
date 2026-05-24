@@ -58,8 +58,8 @@ func _physics_process(delta: float) -> void:
 			scale += Vector3(1,1,1) * growth_speed * delta
 			position.y += growth_speed * delta
 			
-			if scale.length() > 5:
-				if scale.length() > 10:
+			if scale.length() > 3:
+				if scale.length() > 5:
 					label = 'snowball_L'
 				else: 
 					label = 'snowball_M'

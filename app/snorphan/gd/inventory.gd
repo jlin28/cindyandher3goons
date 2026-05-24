@@ -4,6 +4,7 @@ extends MarginContainer
 @onready var MultiplayerClient := get_tree().get_first_node_in_group('socket')
 @onready var inventory := %inventory_slots
 @onready var slots := inventory.get_children()
+@onready var labels := %item_labels.get_children()
 
 var snowball_icon = preload("res://static/items/snowball.png")
 
@@ -32,7 +33,10 @@ func update_inventory(new_inv):
 		var item_name = slot_data.get("item", "")
 		var count = int(slot_data.get("count", 0))
 		var icon = get_item_icon(item_name)
-
+		
+		if '_' in item_name:
+			labels[i].get_child(0).text = item_name.replace('_', ' ')
+		
 		print("slot ", i, " item=", item_name, " count=", count, " icon=", icon)
 		
 		if item_name == "" or count <= 0:
@@ -102,9 +106,13 @@ func _unhandled_input(event: InputEvent) -> void:
 		
 func highlight(index: int, focus: bool):
 	var current_slot = slots[index]
+	var current_label = labels[index].get_child(0)
 	var image = current_slot.get_child(0)
 	
 	if focus:
 		image.modulate = Color(0.8,0.8,0.8,1)
+		if current_label.text != "":
+			current_label.visible = true
 	else:
 		image.modulate = Color(1,1,1,1)
+		current_label.visible = false

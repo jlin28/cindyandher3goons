@@ -53,6 +53,8 @@ c.execute("INSERT into item VALUES ('ice sculpture', 'sculpture made of ice in t
 c.execute("INSERT into item VALUES ('old plushie', 'a plushie worn out from years of love and hugs. a token of gratitude from a small child in hopes it will bring you the same joy.', '', 1)")
 c.execute("INSERT into item VALUES ('stick', 'a brown stick. its very sticky and looks like a stick. perhaps the most stick stick youve ever sticked.', '', 2)")
 c.execute("INSERT into item VALUES ('slightly worn out cape', 'a welcoming gift from the village chief. he hopes it will keep you warm in this frosty climate.', '', 1)")
+c.execute("INSERT into item VALUES ('flowers', 'flowers that you plucked fresh from the snow. they come in an assortment of colors, each with a slightly different scent.', '', 10)")
+c.execute("INSERT into item VALUES ('pebbles', 'ooh pebble.... round, smooth, shiny pebbles...... so round... so smooth... so shiny...', '', )")
 c.execute("INSERT into item VALUES ('snowball_S', 'a small bundle of joy.', '', 99)")
 c.execute("INSERT into item VALUES ('snowball_M', 'a bundle of joy.', '', 99)")
 c.execute("INSERT into item VALUES ('snowball_L', 'a big fat bundle of joy.', '', 99)")
@@ -275,6 +277,52 @@ npc_dialogue = {
         'G': {
             'dialogue_type': "normal",
             'dialogue': "it's okay... thank you for listening to my troubles...",
+            'dialogue_options': {}
+        }
+    },
+    "Bobby": {
+        'item_cap': "",
+        'quest_cap': "",
+        'quest_in_progress': {
+            'dialogue_type': "normal",
+            'dialogue': "",
+            'dialogue_options': {}
+        },
+        'quest_completed': {
+            'dialogue_type': "normal",
+            'dialogue': "",
+            'dialogue_options': {}
+        },
+        'quest_inactive': {
+            'dialogue_type': "normal",
+            'dialogue': 'hey you! do you know about pebbles?',
+            'dialogue_options': {
+                'uh, why do you want to know?': 'A',
+                "who doesn't? they're everywhere!": 'B',
+                '..?': 'C'
+            }
+        },
+        'A': {
+            'dialogue_type': "normal",
+            'dialogue': "i've heard so many wonderful things about pebbles! i'd like to have one of my own someday..",
+            'dialogue_options': {
+                "i love pebbles too!": "",
+                "want me to go get some for you?": "",
+                "they really aren't as great as you think they are..." : "",
+            }
+        },
+        'B': {
+            'dialogue_type': "normal",
+            'dialogue': 'my mom never lets me out to play...',
+            'dialogue_options': {
+                "aww, that's so sad :(" : "",
+                "i can get you some if you want": "",
+                "sucks to suck lol" : "",
+            }
+        },
+        'C': {
+            'dialogue_type': "normal",
+            'dialogue': '',
             'dialogue_options': {}
         }
     },

@@ -307,17 +307,17 @@ npc_dialogue = {
             'dialogue': "i've heard so many wonderful things about pebbles! i'd like to have one of my own someday..",
             'dialogue_options': {
                 "what's a pebble?": "C",
-                "i love pebbles too! want me to go get some for you?": "",
-                "they really aren't as great as you think they are..." : "",
+                "i love pebbles too! want me to go get some for you?": "D",
+                "they really aren't as great as you think they are..." : "E",
             }
         },
         'B': {
             'dialogue_type': "normal",
             'dialogue': 'my mom never lets me out to play...',
             'dialogue_options': {
-                "aww, that's so sad :(" : "",
-                "i can get you some if you want": "",
-                "sucks to suck lol" : "",
+                "aww, that's so sad :(" : "F",
+                "i can get you some if you want": "D",
+                "sucks to suck lol" : "E",
             }
         },
         'C': {
@@ -326,10 +326,29 @@ npc_dialogue = {
             'dialogue_options': {}
         },
         'D': {
-            'dialogue_type': "normal",
-            'dialogue': "you don't know about pebbles either???",
+            'dialogue_type': "quest",
+            'dialogue': "omg yes!!! you're the bestest best bestie in the whole world!!!!!",
             'dialogue_options': {}
-        }
+        },
+        'E': {
+            'dialogue_type': "normal",
+            'dialogue': "hey!! i don't want to talk to you anymore, you meanie!",
+            'dialogue_options': {}
+        },
+        'F': {
+            'dialogue_type': "normal",
+            'dialogue': "i know.... can you get some pebbles for me?",
+            'dialogue_options': {
+                "of course!": "D",
+                "nah, i don't wanna": "E",
+                "i'm a bit busy right now...": "G"
+            }
+        },
+        'G': {
+            'dialogue_type': "normal",
+            'dialogue': "aww......",
+            'dialogue_options': {}
+        },
     },
 }
 

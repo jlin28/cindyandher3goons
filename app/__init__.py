@@ -53,6 +53,8 @@ c.execute("INSERT into item VALUES ('ice sculpture', 'sculpture made of ice in t
 c.execute("INSERT into item VALUES ('old plushie', 'a plushie worn out from years of love and hugs. a token of gratitude from a small child in hopes it will bring you the same joy.', '', 1)")
 c.execute("INSERT into item VALUES ('stick', 'a brown stick. its very sticky and looks like a stick. perhaps the most stick stick youve ever sticked.', '', 2)")
 c.execute("INSERT into item VALUES ('slightly worn out cape', 'a welcoming gift from the village chief. he hopes it will keep you warm in this frosty climate.', '', 1)")
+c.execute("INSERT into item VALUES ('flowers', 'flowers that you plucked fresh from the snow. they come in an assortment of colors, each with a slightly different scent.', '', 10)")
+c.execute("INSERT into item VALUES ('pebbles', 'ooh pebble.... round, smooth, shiny pebbles...... so round... so smooth... so shiny...', '', )")
 c.execute("INSERT into item VALUES ('snowball_S', 'a small bundle of joy.', '', 99)")
 c.execute("INSERT into item VALUES ('snowball_M', 'a bundle of joy.', '', 99)")
 c.execute("INSERT into item VALUES ('snowball_L', 'a big fat bundle of joy.', '', 99)")
@@ -79,6 +81,7 @@ npc_dialogue = {
     "Sealius": {
         'item_cap': "woah kid! you have so many items sticking out of your bag right now... i think i'll give this to you later.",
         'quest_cap': "your aura is really suffocating me right now... i think you need to do something about that before i talk to you..............",
+        'quest_done': "i hope you're enjoying that sculpture of me :) it carries immense aura, i know. no need to thank me.",
         'quest_in_progress': {
             'dialogue_type': "normal",
             'dialogue': "i can already tell you don't have the inspiration yet... please hurry and find it.",
@@ -86,7 +89,7 @@ npc_dialogue = {
         },
         'quest_completed': {
             'dialogue_type': "normal",
-            'dialogue': "i hope you're enjoying that sculpture of me :) it carries immense aura, i know. no need to thank me.",
+            'dialogue': "ooh, this is exactly what i needed! to thank you, here's a sculpture of yours truly ;) enjoy!",
             'dialogue_options': {}
         },
         'quest_inactive': {
@@ -154,6 +157,7 @@ npc_dialogue = {
     "Town Chief": {
         'item_cap': "Someone as little as you carrying so much around already? You should see me when you've lightened that load, it could stunt your growth.",
         'quest_cap': "Child, you look like you have too much going on right now. I won't go anywhere, so take care of what you have first.",
+        'quest_done': "You look just like my son when he was little...",
         'quest_in_progress': {
             'dialogue_type': "normal",
             'dialogue': "Come back when you've found the house!",
@@ -161,7 +165,7 @@ npc_dialogue = {
         },
         'quest_completed': {
             'dialogue_type': "normal",
-            'dialogue': "You look just like my son when he was little...",
+            'dialogue': "I see you've found the house! As a welcoming gift, heres a cape. It's a bit old I know, but I want to you stay warm in this cold climate.",
             'dialogue_options': {}
         },
         'quest_inactive': {
@@ -208,14 +212,15 @@ npc_dialogue = {
     "Buntanist": {
         'item_cap': "eep! don't put my prized carrot in there! you'll ruin it immediately!!!",
         'quest_cap': "i don't want to bother you with my request. you look just as busy as i do... ",
+        'quest_done': "oh, seeing these plants thriving again makes me so happy...",
         'quest_in_progress': {
             'dialogue_type': "normal",
-            'dialogue': "",
+            'dialogue': "i hope it isn't too late.. i hope it isn't too late... i hope it isn't too late....",
             'dialogue_options': {}
         },
         'quest_completed': {
             'dialogue_type': "normal",
-            'dialogue': "",
+            'dialogue': "you really found it! i'm so incredibly grateful to you, thank you for helping me this much! um, i've been working on growing this carrot for the past few years... it's a token of my gratitude!",
             'dialogue_options': {}
         },
         'quest_inactive': {
@@ -278,6 +283,78 @@ npc_dialogue = {
             'dialogue_options': {}
         }
     },
+    "Bobby": {
+        'item_cap': "",
+        'quest_cap': "",
+        "quest_done": "i hope you love that plushie as much as i love the pebbles you gave me!",
+        'quest_in_progress': {
+            'dialogue_type': "normal",
+            'dialogue': "ahhhh! i can't wait any longer!!!!!!! i need the pebbles!!!!!!!!!",
+            'dialogue_options': {}
+        },
+        'quest_completed': {
+            'dialogue_type': "normal",
+            'dialogue': "omg!! they're just as perfect and beautiful as i thought they would be!! so... uh, take this plushie as thanks! i've never seen you around before and i get the feeling you dont have many friends... ",
+            'dialogue_options': {}
+        },
+        'quest_inactive': {
+            'dialogue_type': "normal",
+            'dialogue': 'hey you! have you seen a pebble before?',
+            'dialogue_options': {
+                'uh, why do you want to know?': 'A',
+                "who hasn't? they're everywhere!": 'B',
+                '..?': 'C'
+            }
+        },
+        'A': {
+            'dialogue_type': "normal",
+            'dialogue': "i've heard so many wonderful things about pebbles! i'd like to have one of my own someday..",
+            'dialogue_options': {
+                "what's a pebble?": "C",
+                "i love pebbles too! want me to go get some for you?": "D",
+                "they really aren't as great as you think they are..." : "E",
+            }
+        },
+        'B': {
+            'dialogue_type': "normal",
+            'dialogue': 'my mom never lets me out to play...',
+            'dialogue_options': {
+                "aww, that's so sad :(" : "F",
+                "i can get you some if you want": "D",
+                "sucks to suck lol" : "E",
+            }
+        },
+        'C': {
+            'dialogue_type': "normal",
+            'dialogue': "you don't know about pebbles???",
+            'dialogue_options': {}
+        },
+        'D': {
+            'dialogue_type': "quest",
+            'dialogue': "omg yes!!! you're the bestest best bestie in the whole world!!!!!",
+            'dialogue_options': {}
+        },
+        'E': {
+            'dialogue_type': "normal",
+            'dialogue': "hey!! i don't want to talk to you anymore, you meanie!",
+            'dialogue_options': {}
+        },
+        'F': {
+            'dialogue_type': "normal",
+            'dialogue': "i know.... can you get some pebbles for me?",
+            'dialogue_options': {
+                "of course!": "D",
+                "nah, i don't wanna": "E",
+                "i'm a bit busy right now...": "G"
+            }
+        },
+        'G': {
+            'dialogue_type': "normal",
+            'dialogue': "aww......",
+            'dialogue_options': {}
+        },
+    },
+    
 }
 
 """

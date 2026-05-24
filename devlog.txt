@@ -401,3 +401,8 @@ INVENTORY
 * Very bad sad inventory working(..?)
 * Fixed some bugs
 * Drew snowball and shows 
+
+carrieK -- 2026-05-23 22:16
+DIALOGUE
+* bobby
+* dialogue is very uninspiring 

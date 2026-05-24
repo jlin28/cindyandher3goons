@@ -165,7 +165,7 @@ npc_dialogue = {
         },
         'quest_completed': {
             'dialogue_type': "normal",
-            'dialogue': "I see you've found the house! As a welcome gift, heres a cape. It's a bit old I know, but I want to you stay warm in this cold climate.",
+            'dialogue': "I see you've found the house! As a welcoming gift, heres a cape. It's a bit old I know, but I want to you stay warm in this cold climate.",
             'dialogue_options': {}
         },
         'quest_inactive': {
@@ -212,14 +212,15 @@ npc_dialogue = {
     "Buntanist": {
         'item_cap': "eep! don't put my prized carrot in there! you'll ruin it immediately!!!",
         'quest_cap': "i don't want to bother you with my request. you look just as busy as i do... ",
+        'quest_done': "oh, seeing these plants thriving again makes me so happy...",
         'quest_in_progress': {
             'dialogue_type': "normal",
-            'dialogue': "ahhhh! i can't wait any longer!!!!!!! i need the pebbles!!!!!!!!!",
+            'dialogue': "i hope it isn't too late.. i hope it isn't too late... i hope it isn't too late....",
             'dialogue_options': {}
         },
         'quest_completed': {
             'dialogue_type': "normal",
-            'dialogue': "i hope you love that plushie as much as i love the pebbles you gave me!",
+            'dialogue': "you really found it! i'm so incredibly grateful to you, thank you for helping me this much! um, i've been working on growing this carrot for the past few years... it's a token of my gratitude!",
             'dialogue_options': {}
         },
         'quest_inactive': {
@@ -285,14 +286,15 @@ npc_dialogue = {
     "Bobby": {
         'item_cap': "",
         'quest_cap': "",
+        'quest_done": "i hope you love that plushie as much as i love the pebbles you gave me!",
         'quest_in_progress': {
             'dialogue_type': "normal",
-            'dialogue': "",
+            'dialogue': "ahhhh! i can't wait any longer!!!!!!! i need the pebbles!!!!!!!!!",
             'dialogue_options': {}
         },
         'quest_completed': {
             'dialogue_type': "normal",
-            'dialogue': "",
+            'dialogue': "omg!! they're just as perfect and beautiful as i thought they would be!! so... uh, take this plushie as thanks! i've never seen you around before and i get the feeling you dont have many friends... ",
             'dialogue_options': {}
         },
         'quest_inactive': {

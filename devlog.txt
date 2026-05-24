@@ -407,6 +407,10 @@ DIALOGUE
 * bobby
 * dialogue is very uninspiring 
 
+joyceL -- 2026-05-23 023:09
+* crouch functionality
+* miscellaneous godot cindy cannot describe
+
 cindyL -- 2026-05-24 01:14
 * various db insertion fixes
 * various function fixes 

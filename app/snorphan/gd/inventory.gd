@@ -54,8 +54,6 @@ func update_inventory(new_inv):
 			image.offset_top = 1
 			image.offset_right = 23
 			image.offset_bottom = 21
-			image.size = Vector2(20, 20)
-			image.scale = Vector2(1, 1)
 			image.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
 			image.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
 			image.visible = true
@@ -71,8 +69,6 @@ func update_inventory(new_inv):
 			label.offset_top = 12
 			label.offset_right = -2
 			label.offset_bottom = -1
-			label.horizontal_alignment = HORIZONTAL_ALIGNMENT_RIGHT
-			label.vertical_alignment = VERTICAL_ALIGNMENT_BOTTOM
 	
 func _unhandled_input(event: InputEvent) -> void:
 	# M3 Wheel Up --> inv goes from 1 to 6
@@ -113,6 +109,11 @@ func highlight(index: int, focus: bool):
 		image.modulate = Color(0.8,0.8,0.8,1)
 		if current_label.text != "":
 			current_label.visible = true
+			if ' ' in current_label.text:
+				player.current_held_item = current_label.text.replace(' ', '_')
+			else:
+				player.current_held_item = current_label.text
 	else:
 		image.modulate = Color(1,1,1,1)
 		current_label.visible = false
+		player.current_held_item = null

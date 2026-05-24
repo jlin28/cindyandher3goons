@@ -14,6 +14,11 @@ var time = 0.0;
 @onready var anim_cont2 := %sprint_cycle
 @onready var walk := %walk_cycle/AnimationPlayer
 @onready var sprint := %sprint_cycle/AnimationPlayer
+@onready var crouch := %foxcrouch
+@onready var notification := %notification
+
+@onready var normal_collision_shapes := get_tree().get_nodes_in_group("normal_collision")
+@onready var crouch_collision_shapes := get_tree().get_nodes_in_group("crouch_collision")
 
 @export var npc_interactable = false
 @export var can_move = true
@@ -21,9 +26,12 @@ var time = 0.0;
 
 @export var item_interactable = false
 @export var current_interactable_item = null
+@export var current_held_item = null
+
+var prev_line = ""
 
 signal inventory_update
-	
+
 func _physics_process(delta):
 	var direction = Vector3.ZERO
 	var rotation = Vector3.ZERO
@@ -69,7 +77,24 @@ func _physics_process(delta):
 	move_and_slide()
 	
 func _process(delta: float) -> void:
-	if can_move:
+	if current_held_item:
+		if 'snowball' in current_held_item and prev_line == '':
+			notification.text = "Press [F] to build snowman"
+	else:
+		if notification.text != '': notification.text = ''
+	
+	if Input.is_action_pressed("crouch"):
+		if !normal_collision_shapes[0].disabled:
+			for collision in normal_collision_shapes:
+				collision.disabled = true
+			for collision in crouch_collision_shapes:
+				collision.disabled = false
+			crouch.visible = true
+			idle.visible = false
+			anim_cont2.visible = false
+			anim_cont.visible = false
+			
+	elif can_move:
 		if Input.is_action_pressed("move_right") or Input.is_action_pressed("move_left") or Input.is_action_pressed("move_forward") or Input.is_action_pressed("move_back"):
 			idle.visible = false
 			if Input.is_action_pressed("sprint"):
@@ -88,5 +113,20 @@ func _process(delta: float) -> void:
 			anim_cont.visible = false
 			walk.stop()
 			sprint.stop()
+			
+	if Input.is_action_just_released("crouch"):
+		if normal_collision_shapes[0].disabled:
+			for collision in normal_collision_shapes:
+				collision.disabled = false
+			for collision in crouch_collision_shapes:
+				collision.disabled = true
+			crouch.visible = false
+			idle.visible = true
 		
 	cam.position = position
+
+func update_notification(new_line):
+	prev_line = notification.text
+	notification.text = new_line
+	
+	notification.modulate = Color(0.7,0,0)

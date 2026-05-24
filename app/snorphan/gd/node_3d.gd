@@ -7,6 +7,13 @@ const Snowball:= preload("res://tscn/snowball.tscn")
 @onready var MultiplayerClient := get_tree().get_first_node_in_group('socket')
 
 func _unhandled_input(event: InputEvent) -> void:
+	if Input.is_action_just_pressed("build_snowman"):
+		print('a')
+		if player.current_held_item and 'snowball' in player.current_held_item:
+			print('b')
+			if 'L' not in player.current_held_item:
+				print('c')
+				player.update_notification("Large snowball required")
 	if Input.is_action_just_pressed("interact") and player.can_move:
 		if player.npc_interactable == true:
 			var dialogue_box = ui.get_child(1)
@@ -17,6 +24,7 @@ func _unhandled_input(event: InputEvent) -> void:
 			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 			
 			player.can_move = false
+			player.npc_interactable = false
 			
 			player.idle.visible = true
 			player.anim_cont2.visible = false
@@ -27,6 +35,7 @@ func _unhandled_input(event: InputEvent) -> void:
 			
 			player.current_interactable_item.queue_free()
 			player.inventory_update.emit()
+			player.item_interactable = false
 
 		elif player.is_on_floor():
 			var snowball = Snowball.instantiate()

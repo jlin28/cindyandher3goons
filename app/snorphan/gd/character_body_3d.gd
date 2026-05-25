@@ -29,9 +29,14 @@ var time = 0.0;
 @export var current_held_item = null
 
 var prev_line = ""
+var label_tick = -1
 
 signal inventory_update
+signal inventory_full
 
+func _ready() -> void:
+	inventory_full.connect(_on_inventory_full)
+	
 func _physics_process(delta):
 	var direction = Vector3.ZERO
 	var rotation = Vector3.ZERO
@@ -83,6 +88,13 @@ func _process(delta: float) -> void:
 	else:
 		if notification.text != '': notification.text = ''
 	
+	if label_tick > -1:
+		label_tick += 1
+		if label_tick % 150 == 0:
+			notification.text = prev_line
+			notification.modulate = Color('#9f8974')
+			label_tick = -1
+			
 	if Input.is_action_pressed("crouch"):
 		if !normal_collision_shapes[0].disabled:
 			for collision in normal_collision_shapes:
@@ -126,7 +138,12 @@ func _process(delta: float) -> void:
 	cam.position = position
 
 func update_notification(new_line):
-	prev_line = notification.text
-	notification.text = new_line
-	
-	notification.modulate = Color(0.7,0,0)
+	if new_line != notification.text:
+		prev_line = notification.text
+		notification.text = new_line
+		
+		notification.modulate = Color(0.7,0,0)
+		label_tick += 1
+
+func _on_inventory_full():
+	update_notification("Inventory is full!")

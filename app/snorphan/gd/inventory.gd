@@ -14,6 +14,9 @@ func _ready() -> void:
 	player.inventory_update.connect(_on_inventory_update)
 
 func _on_inventory_update() -> void:
+	if player.current_interactable_item: player.current_interactable_item.queue_free()
+	player.item_interactable = false
+	
 	MultiplayerClient.fetch_inventory()
 		
 func get_item_icon(item_name):

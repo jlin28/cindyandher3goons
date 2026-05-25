@@ -519,19 +519,25 @@ def stash_to_inventory(username, item_name, item_number):
         db.close()
         return False
 
-    if item_name in items:
+    curr_removals = 0
+    while item_name in items:
         index = items.index(item_name)
-        c.execute(f"SELECT item{index+1}Count FROM user WHERE username = ?", (username,))
+
+        sql_index = index + 1 + curr_removals
+        c.execute(f"SELECT item{sql_index}Count FROM user WHERE username = ?", (username,))
         current_item_count = c.fetchone()[0]
 
         c.execute("SELECT maxCount FROM item WHERE name = ?", (item_name,))
         max_item_count = c.fetchone()[0]
 
         if current_item_count + item_number <= max_item_count:
-            c.execute(f"UPDATE user SET item{index+1}Count = ? WHERE username = ?", (current_item_count + item_number, username))
+            c.execute(f"UPDATE user SET item{sql_index}Count = ? WHERE username = ?", (current_item_count + item_number, username))
             db.commit()
             db.close()
             return True
+        else:
+            items.pop(index)
+            curr_removals += 1
 
     # assumption is made that you cannot keep an inventory space for zero of an item
     for n in range(0,6):

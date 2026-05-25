@@ -32,10 +32,6 @@ func _unhandled_input(event: InputEvent) -> void:
 		
 		elif player.item_interactable == true:
 			MultiplayerClient.add_item(player.current_interactable_item.label, 1)
-			
-			player.current_interactable_item.queue_free()
-			player.inventory_update.emit()
-			player.item_interactable = false
 
 		elif player.is_on_floor():
 			var snowball = Snowball.instantiate()

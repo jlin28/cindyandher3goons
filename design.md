@@ -179,6 +179,9 @@ As a snowman lover, I want to be able to make lots of snowmen so that I can sati
 | REAL | x_coord |    |
 | REAL | y_coord |    |
 | REAL | z_coord |    |
+| REAL | x_rot |    |
+| REAL | y_rot |    |
+| REAL | z_rot |    |
 
 <br>
 

@@ -414,5 +414,10 @@ joyceL -- 2026-05-23 023:09
 cindyL -- 2026-05-24 01:14
 * various db insertion fixes
 * various function fixes 
-DEVLOG
+DESIGN DOC
 * updated all db specifications, including new dbs
+
+cindyL -- 2026-05-24 22:06
+* added snowman rotation values to snowman db
+DESIGN DOC
+* updated db table to reflect above change

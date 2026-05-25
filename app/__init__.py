@@ -78,7 +78,10 @@ c.execute("""CREATE TABLE IF NOT EXISTS snowmen(
     id INTEGER PRIMARY KEY,
     x_coord REAL,
     y_coord REAL,
-    z_coord REAL
+    z_coord REAL,
+    x_rot REAL,
+    y_rot REAL,
+    z_rot REAL
     );
     """)
 c.execute("INSERT OR IGNORE INTO npc VALUES ('village grandma', '', '')")

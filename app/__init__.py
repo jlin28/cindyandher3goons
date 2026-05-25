@@ -366,43 +366,82 @@ npc_dialogue = {
         },
     },
     "Mr. Cheddar": {
-        'item_cap': "",
-        'quest_cap': "",
-        "quest_done": "",
+        'item_cap': "woah there! not sure if i want my hat to get squished like that in your bag.",
+        'quest_cap': "kid, you look so busy you might just explode right here. go finish whatever you have going on.",
+        "quest_done": "mmm, it tastes exactly like how grandma used to make it...",
         'quest_in_progress': {
             'dialogue_type': "normal",
-            'dialogue': "",
+            'dialogue': "granny, i wish you were still with us...",
             'dialogue_options': {}
         },
         'quest_completed': {
             'dialogue_type': "normal",
-            'dialogue': "",
+            'dialogue': "you really got a recipe! thanks kid, this means a lot to me. i'll try it out and get back to you... oh, before i forget, here's a small gift for you.",
             'dialogue_options': {}
         },
         'quest_inactive': {
             'dialogue_type': "normal",
-            'dialogue': '',
+            'dialogue': "yoooo, what's up kid?",
             'dialogue_options': {
-                '': 'A',
-                '': 'B',
-                '': 'C'
+                "hey!": 'A',
+                'uh... hi?': 'B',
+                '...': 'C'
             }
         },
         'A': {
             'dialogue_type': "normal",
-            'dialogue': '',
-            'dialogue_options': {}
+            'dialogue': "you know, ever since i moved here, i haven't been able to taste my grandmas apple pie. any apple pies i make pale in comparison...",
+            'dialogue_options': {
+                "i can try to find a recipe for you!": "D",
+                "have you tried asking around for help?": "E",
+                "i can't bake either...": "F"
+            }
         },
         'B': {
             'dialogue_type': "normal",
-            'dialogue': '',
-            'dialogue_options': {}
+            'dialogue': "don't be so scared kid! i don't bite.",
+            'dialogue_options': {
+                "you just have that scary feel...": "A",
+                "are you sure...": "C",
+                "that's what they all say.......": "C",
+            }
         },
         'C': {
             'dialogue_type': "normal",
-            'dialogue': '',
+            'dialogue': "riiiight, stranger danger. don't worry, i dont kidnap people anymore.",
+            'dialogue_options': {
+                "uh huh...": "A",
+                "cool!": "A",
+                "...": "A",
+            }
+        },
+        'D': {
+            'dialogue_type': "quest",
+            'dialogue': "really? thanks a lot kid. maybe i can finally get a taste of home..",
             'dialogue_options': {}
-        }
+        },
+        'E': {
+            'dialogue_type': "normal",
+            'dialogue': "well, i've tried... but the townspeople seem too scared to talk to me.",
+            'dialogue_options': {
+                "hey, i can ask around for you!": "D",
+                "yeah, i can see why they'd say that": "F",
+                "i'm scared too...": "G"
+            }
+        },
+        'F': {
+            'dialogue_type': "normal",
+            'dialogue': "if it doesn't bother you too much kid, do you think you could ask around for me?",
+            'dialogue_options': {
+                "yeah, sure thing!": "D",
+                "no, i can't do that right now...": "G",
+            }
+        },
+        'G': {
+            'dialogue_type': "normal",
+            'dialogue': "that's okay kid, i'll keep trying by myself.",
+            'dialogue_options': {}
+        },
     },
 }
 

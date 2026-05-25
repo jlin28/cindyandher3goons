@@ -85,8 +85,11 @@ func _process(delta: float) -> void:
 	if current_held_item:
 		if 'snowball' in current_held_item and prev_line == '':
 			notification.text = "Press [F] to build snowman"
+		if label_tick > -1 and prev_line == '':
+			notification.modulate = Color('#9f8974')
+			label_tick = -1
 	else:
-		if notification.text != '': notification.text = ''
+		if notification.text != '' and label_tick < 0: notification.text = ''
 	
 	if label_tick > -1:
 		label_tick += 1

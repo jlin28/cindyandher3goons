@@ -520,8 +520,9 @@ def stash_to_inventory(username, item_name, item_number):
         return False
 
     curr_removals = 0
-    while item_name in items:
-        index = items.index(item_name)
+    itemslist = list(items)
+    while item_name in itemslist:
+        index = itemslist.index(item_name)
 
         sql_index = index + 1 + curr_removals
         c.execute(f"SELECT item{sql_index}Count FROM user WHERE username = ?", (username,))
@@ -536,7 +537,7 @@ def stash_to_inventory(username, item_name, item_number):
             db.close()
             return True
         else:
-            items.pop(index)
+            itemslist.pop(index)
             curr_removals += 1
 
     # assumption is made that you cannot keep an inventory space for zero of an item

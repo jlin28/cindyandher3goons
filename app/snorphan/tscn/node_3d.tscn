@@ -120,7 +120,7 @@ script = ExtResource("1_7lhp4")
 
 [node name="player" parent="." unique_id=966699921 groups=["player"] instance=ExtResource("1_a202f")]
 unique_name_in_owner = true
-transform = Transform3D(0.29999998, 0, 0, 0, 0.2999927, -0.0020891423, 0, 0.0020891423, 0.2999927, 44.997246, -16.149754, 103.20472)
+transform = Transform3D(0.29999998, 0, 0, 0, 0.2999927, -0.0020891423, 0, 0.0020891423, 0.2999927, 44.997246, -16.949219, 103.20472)
 
 [node name="username" type="Label3D" parent="player" unique_id=2058100187]
 transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, 0, 7, 0)
@@ -160,7 +160,7 @@ transform = Transform3D(1.4999658, 0, -0.010131666, 0, 1.5, 0, 0.010131666, 0, 1
 transform = Transform3D(0.014032332, 0, -1.4999344, 0, 1.5, 0, 1.4999344, 0, 0.014032332, 129.07576, -10.920583, 84.01862)
 
 [node name="archhouse2" parent="buildings" unique_id=1643073342 instance=ExtResource("12_y4xl3")]
-transform = Transform3D(0.39709717, 0, 1.4464834, 0, 1.4999999, 0, -1.4464834, 0, 0.39709717, 24.300667, -11.066723, 103.97597)
+transform = Transform3D(0.39709717, 0, 1.4464834, 0, 1.4999999, 0, -1.4464834, 0, 0.39709717, 24.278166, -11.206743, 103.98138)
 
 [node name="skinnyhouse1" parent="buildings" unique_id=200705801 instance=ExtResource("14_5rhs8")]
 transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 32.86203, -12.853378, 9.557)

@@ -28,6 +28,8 @@ var time = 0.0;
 @export var current_interactable_item = null
 @export var current_held_item = null
 
+@export var snowman_in_vicinity = null
+
 var prev_line = ""
 var label_tick = -1
 

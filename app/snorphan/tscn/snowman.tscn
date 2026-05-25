@@ -1,0 +1,65 @@
+[gd_scene format=3 uid="uid://dldwcopwvqp47"]
+
+[ext_resource type="Script" uid="uid://drntren84hr2r" path="res://gd/snowman.gd" id="1_vwvqo"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_x4rgl"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_mklb1"]
+material = SubResource("StandardMaterial3D_x4rgl")
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_nxjs2"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_shg61"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_26ndh"]
+material = SubResource("StandardMaterial3D_shg61")
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_nc2e1"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rfw74"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_0yc1c"]
+material = SubResource("StandardMaterial3D_rfw74")
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_i22mi"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ioflu"]
+
+[node name="StaticBody3D" type="StaticBody3D" unique_id=504069829]
+script = ExtResource("1_vwvqo")
+
+[node name="large_snowball" type="MeshInstance3D" parent="." unique_id=1403280290]
+transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, 0, 0, 0)
+mesh = SubResource("SphereMesh_mklb1")
+
+[node name="large_snowball_collision" type="CollisionShape3D" parent="." unique_id=1282543662]
+transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, 0, 0, 0)
+shape = SubResource("SphereShape3D_nxjs2")
+
+[node name="medium_snowball" type="MeshInstance3D" parent="." unique_id=2089582539]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 1.492598, 0)
+visible = false
+mesh = SubResource("SphereMesh_26ndh")
+
+[node name="medium_snowball_collision" type="CollisionShape3D" parent="." unique_id=1813185147]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 1.492598, 0)
+visible = false
+shape = SubResource("SphereShape3D_nc2e1")
+disabled = true
+
+[node name="small_snowball" type="MeshInstance3D" parent="." unique_id=1745390539]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 2.7330241, 0)
+visible = false
+mesh = SubResource("SphereMesh_0yc1c")
+
+[node name="small_snowball_collision" type="CollisionShape3D" parent="." unique_id=130173738]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 2.7330241, 0)
+visible = false
+shape = SubResource("SphereShape3D_i22mi")
+disabled = true
+
+[node name="Area3D" type="Area3D" parent="." unique_id=133225408]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=1883422579]
+transform = Transform3D(4.5, 0, 0, 0, 4.5, 0, 0, 0, 4.5, 0, 0, 0)
+shape = SubResource("CapsuleShape3D_ioflu")

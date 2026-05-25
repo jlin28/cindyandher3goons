@@ -3,6 +3,7 @@ extends Node3D
 @onready var player:= %player
 @onready var ui := $main/Control
 const Snowball:= preload("res://tscn/snowball.tscn")
+const Snowman:= preload("res://tscn/snowman.tscn")
 
 @onready var MultiplayerClient := get_tree().get_first_node_in_group('socket')
 
@@ -11,9 +12,21 @@ func _unhandled_input(event: InputEvent) -> void:
 		print('a')
 		if player.current_held_item and 'snowball' in player.current_held_item:
 			print('b')
-			if 'L' not in player.current_held_item:
+			if player.snowman_in_vicinity:
+				var snowman = player.snowman_in_vicinity
+				if snowman.can_build:
+					if !snowman.build(player.current_held_item):
+						player.update_notification("Let's try a smaller snowball...")
+				else:
+					player.update_notification("He could use some accessories!")
+			elif 'L' not in player.current_held_item:
 				print('c')
 				player.update_notification("Large snowball required")
+			else:
+				var snowman = Snowman.instantiate()
+		
+				get_tree().current_scene.add_child(snowman)
+				snowman.position = player.position - 2.5*Vector3(sin(player.current_angle), 0, cos(player.current_angle))
 	if Input.is_action_just_pressed("interact") and player.can_move:
 		if player.npc_interactable == true:
 			var dialogue_box = ui.get_child(1)

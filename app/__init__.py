@@ -477,6 +477,45 @@ npc_dialogue = {
             'dialogue_options': {}
         }
     },
+    "Mabel": {
+        'item_cap': "",
+        'quest_cap': "",
+        "quest_done": "",
+        'quest_in_progress': {
+            'dialogue_type': "normal",
+            'dialogue': "",
+            'dialogue_options': {}
+        },
+        'quest_completed': {
+            'dialogue_type': "normal",
+            'dialogue': "",
+            'dialogue_options': {}
+        },
+        'quest_inactive': {
+            'dialogue_type': "normal",
+            'dialogue': "",
+            'dialogue_options': {
+                "": 'A',
+                "": 'B',
+                "": 'C'
+            }
+        },
+        'A': {
+            'dialogue_type': "normal",
+            'dialogue': "",
+            'dialogue_options': {}
+        },
+        'B': {
+            'dialogue_type': "normal",
+            'dialogue': "",
+            'dialogue_options': {}
+        },
+        'C': {
+            'dialogue_type': "normal",
+            'dialogue': "",
+            'dialogue_options': {}
+        }
+    },
 }
 
 """

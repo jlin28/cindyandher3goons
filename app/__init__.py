@@ -75,13 +75,23 @@ c.execute("""CREATE TABLE IF NOT EXISTS npc(
     """)
 
 c.execute("""CREATE TABLE IF NOT EXISTS snowmen(
+    player TEXT,
     id INTEGER PRIMARY KEY,
     x_coord REAL,
     y_coord REAL,
     z_coord REAL,
     x_rot REAL,
     y_rot REAL,
-    z_rot REAL
+    z_rot REAL,
+    button BOOLEAN,
+    carrot BOOLEAN,
+    hat BOOLEAN,
+    red_scarf BOOLEAN,
+    stick1 BOOLEAN,
+    stick2 BOOLEAN,
+    pebble1 BOOLEAN,
+    pebble2 BOOLEAN,
+    FOREIGN KEY (player) references user(username)
     );
     """)
 c.execute("INSERT OR IGNORE INTO npc VALUES ('village grandma', '', '')")
@@ -487,6 +497,17 @@ template
         }
     },
 """
+
+# return 2D list of snowmen belonging a player
+# BOOLEANS ARE REPRESENTED BY 0 OR 1
+def snowman_collection(player):
+    db = sqlite3.connect(DB_FILE)
+    c = db.cursor()
+    c.execute("SELECT * FROM snowmen WHERE player = ?", (player,))
+    snowman_collection = c.fetchone()
+    db.commit()
+    db.close()
+    return snowman_collection
 
 # return list of quests completed for the logged in user
 def questsCompleted_list():

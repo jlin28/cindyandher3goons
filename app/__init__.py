@@ -44,17 +44,18 @@ c.execute("""CREATE TABLE IF NOT EXISTS item(
     maxCount INTEGER NOT NULL
     );
     """)
-c.execute("INSERT OR IGNORE INTO item VALUES ('button', 'a circle to make your bestie feel dapper.', '', 3)")
-c.execute("INSERT OR IGNORE INTO item VALUES ('carrot', 'the lifes work of an aspiring botanist. it looks incredibly crunchy and irresistably tasty, taking everything in you just to not take a bite.', '', 1)")
-c.execute("INSERT OR IGNORE INTO item VALUES ('hat', 'a lid to make your bestie feel dapper.', '', 1)")
-c.execute("INSERT OR IGNORE INTO item VALUES ('red scarf', 'a scarf knitted by someone''s grandma. it''s fuzzy, warm and made with lots of love.', '', 1)")
+c.execute("INSERT OR IGNORE INTO item VALUES ('button', 'a circle to make your bestie feel dapper.', '', 3)") #model
+c.execute("INSERT OR IGNORE INTO item VALUES ('carrot', 'the lifes work of an aspiring botanist. it looks incredibly crunchy and irresistably tasty, taking everything in you just to not take a bite.', '', 1)") #model
+c.execute("INSERT OR IGNORE INTO item VALUES ('hat', 'a lid to make your bestie feel dapper.', '', 1)") #model
+c.execute("INSERT OR IGNORE INTO item VALUES ('red scarf', 'a scarf knitted by someone''s grandma. it''s fuzzy, warm and made with lots of love.', '', 1)") #model
 c.execute("INSERT OR IGNORE INTO item VALUES ('apple pie recipe', 'grandmas apple pie recipe. just looking at it makes your mouth water as you imagine the aroma and taste.', '', 1)")
 c.execute("INSERT OR IGNORE INTO item VALUES ('ice sculpture', 'sculpture made of ice in the image of sealius. it carries a strange aura. who knew he was hiding this talent all along?', '', 1)")
 c.execute("INSERT OR IGNORE INTO item VALUES ('old plushie', 'a plushie worn out from years of love and hugs. a token of gratitude from a small child in hopes it will bring you the same joy.', '', 1)")
-c.execute("INSERT OR IGNORE INTO item VALUES ('stick', 'a brown stick. its very sticky and looks like a stick. perhaps the most stick stick youve ever sticked.', '', 2)")
-c.execute("INSERT OR IGNORE INTO item VALUES ('slightly worn out cape', 'a welcoming gift from the village chief. he hopes it will keep you warm in this frosty climate.', '', 1)")
-c.execute("INSERT OR IGNORE INTO item VALUES ('flowers', 'flowers that you plucked fresh from the snow. they come in an assortment of colors, each with a slightly different scent.', '', 10)")
-c.execute("INSERT OR IGNORE INTO item VALUES ('pebbles', 'ooh pebble.... round, smooth, shiny pebbles...... so round... so smooth... so shiny...', '', 99)")
+c.execute("INSERT OR IGNORE INTO item VALUES ('stick', 'a brown stick. its very sticky and looks like a stick. perhaps the most stick stick youve ever sticked.', '', 99)") #model
+c.execute("INSERT OR IGNORE INTO item VALUES ('slightly worn out cape', 'a welcoming gift from the village chief. he hopes it will keep you warm in this frosty climate.', '', 1)") #model
+c.execute("INSERT OR IGNORE INTO item VALUES ('flowers', 'flowers that you plucked fresh from the snow. they come in an assortment of colors, each with a slightly different scent.', '', 10)") #model
+c.execute("INSERT OR IGNORE INTO item VALUES ('pebbles', 'ooh pebble.... round, smooth, shiny pebbles...... so round... so smooth... so shiny...', '', 99)") #model
+c.execute("INSERT OR IGNORE INTO item VALUES ('apples', 'fresh(?), plump, juicy round red apples. you found them on the floor, but they look suspiciously pristine....', '', 99)") #model
 c.execute("INSERT OR IGNORE INTO item VALUES ('snowball_S', 'a small bundle of joy.', '', 99)")
 c.execute("INSERT OR IGNORE INTO item VALUES ('snowball_M', 'a bundle of joy.', '', 99)")
 c.execute("INSERT OR IGNORE INTO item VALUES ('snowball_L', 'a big fat bundle of joy.', '', 99)")
@@ -478,43 +479,54 @@ npc_dialogue = {
         }
     },
     "Mabel": {
-        'item_cap': "",
-        'quest_cap': "",
-        "quest_done": "",
+        'item_cap': "oh my, i don't think you can hold anymore things!",
+        'quest_cap': "oh dear, you look so busy... i won't bother you with my request.",
+        "quest_done": "hi sweetie! come in, we can share this apple pie together.",
         'quest_in_progress': {
             'dialogue_type': "normal",
-            'dialogue': "",
+            'dialogue': "*hmmm hm hmm* my handwriting is a lot shakier than i remember...",
             'dialogue_options': {}
         },
         'quest_completed': {
             'dialogue_type': "normal",
-            'dialogue': "",
+            'dialogue': "oh my, those are the freshest apples i've seen in years! thank you so much sweetie... here's my apple pie recipe, i'll make some for you myself the next time you visit.",
             'dialogue_options': {}
         },
         'quest_inactive': {
             'dialogue_type': "normal",
-            'dialogue': "",
+            'dialogue': "hello dear, have you seen any apples around recently?",
             'dialogue_options': {
-                "": 'A',
-                "": 'B',
-                "": 'C'
+                "yeah! do you need some?": 'A',
+                "i dont think so, but i can look.": 'B',
+                "nope.": 'C'
             }
         },
         'A': {
             'dialogue_type': "normal",
-            'dialogue': "",
-            'dialogue_options': {}
+            'dialogue': "if that doesn't bother you too much dear, i'd greatly appreciate it...",
+            'dialogue_options': {
+                "no problem granny! i'll be back with them soon.": "D",
+                "on second thought, i don't think i have time...": "C",
+            }
         },
         'B': {
             'dialogue_type': "normal",
-            'dialogue': "",
-            'dialogue_options': {}
+            'dialogue': "is that alright with you dear? i don't want to take up too much of your time...",
+            'dialogue_options': {
+                "yeah, it's not a problem!": "D",
+                "sorry, i'll get back to you later...": "C"
+            }
         },
         'C': {
             'dialogue_type': "normal",
-            'dialogue': "",
+            'dialogue': "oh, that's fine dear. i'll go out looking myself when the weather gets better...",
             'dialogue_options': {}
-        }
+        },
+        'D': {
+            'dialogue_type': "quest",
+            'dialogue': "thank you so much dear... while you get those, i'll prepare a little gift for you.",
+            'dialogue_options': {}
+        },
     },
 }
 

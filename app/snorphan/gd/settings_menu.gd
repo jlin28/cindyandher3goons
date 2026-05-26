@@ -17,7 +17,12 @@ func _ready() -> void:
 	apply.pressed.connect(save_all)
 	
 	visibility_changed.connect(on_visibility_changed)
+	print(OS.is_debug_build())
+	var bus_i = AudioServer.get_bus_index("Music")
+	#AudioServer.add_bus_effect(bus_i,)
+	print("Music bus ", AudioServer.get_bus_effect_count(bus_i))
 
+# Runs on both settings menu open and close
 func on_visibility_changed() -> void:
 	load_saved_settings()
 
@@ -45,7 +50,6 @@ func save_all() -> void:
 	save_setting("sfxVol", sfx_slider.value)
 	save_setting("aVol", music_slider.value)
 	save_setting("mouseSens", mouse_slider.value)
-	print("all settings saved")
 
 func on_master_changed(value: float) -> void:
 	set_bus_volume("Master", value)
@@ -77,3 +81,4 @@ func save_setting(key: String, value: float) -> void:
 	# in-game setting changes back to browser
 	if OS.has_feature("web"):
 		JavaScriptBridge.eval("localStorage.setItem('%s', '%s')" % [key, str(value)], true)
+		print("setting ", key, " | ", value," saved")

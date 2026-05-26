@@ -1,8 +1,8 @@
 # $${\color{red}Cindy's}$$ snorphan! by $${\color{orange}cindyandher3goons}$$
 ## $${\color{yellow}Cindy's}$$ Roster
-- ### $${\color{green}Cindy \space Liu}$$ - $${\color{blue}Cindy}$$ ($${\color{purple}Cindy}$$)  
-- Joyce Lin - Goon 1 (Goon 1)  
-- Jeff Ou - Goon 2 (Goon 2)  
+- ### $${\color{green}Cindy \space Liu}$$ - $${\color{blue}Cindy}$$ ($${\color{purple}Devo}$$)  
+- Joyce Lin - Goon 1 (Devo)  
+- Jeff Ou - Goon 2 (Devo)  
 - Carrie Ko - Goon 3 (PM)
 
 **Project Summary**:

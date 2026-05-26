@@ -13,4 +13,7 @@ func _on_quests_update():
 	fetch_quests()
 
 func fetch_quests():
-	quests = MultiplayerClient.fetch_quests()
+	var quests = MultiplayerClient.fetch_quests()
+	
+func update_quests(active_quests):
+	

@@ -70,7 +70,9 @@ c.execute("""CREATE TABLE IF NOT EXISTS encyclopedia(
 c.execute("""CREATE TABLE IF NOT EXISTS npc(
     name TEXT PRIMARY KEY,
     questName TEXT,
-    questReq TEXT
+    questReq TEXT,
+    questType TEXT,
+    questRequiredAmount INTEGER
     );
     """)
 

@@ -443,6 +443,40 @@ npc_dialogue = {
             'dialogue_options': {}
         },
     },
+    "Daisy": {
+        'item_cap': "*sob*",
+        'quest_cap': "*sob*",
+        "quest_done": "grandma, i know you would've loved these flowers...",
+        'quest_in_progress': {
+            'dialogue_type': "normal",
+            'dialogue': "*sniff* *sob*",
+            'dialogue_options': {}
+        },
+        'quest_completed': {
+            'dialogue_type': "normal",
+            'dialogue': "thank you so much... *sniff* these were my grandmas favorite flowers... *sniff* now i can plant them on her grave... you can have this scarf she *sniff* made, looking at it makes me too sad now *sobs*",
+            'dialogue_options': {}
+        },
+        'quest_inactive': {
+            'dialogue_type': "normal",
+            'dialogue': "*sniff* do you think you can get some red *sniff* flowers for me.... i couldn't find them *sniff* no matter where i looked...",
+            'dialogue_options': {
+                "sure!": 'A',
+                "uh.. why?": 'B',
+                "no thanks...": 'B'
+            }
+        },
+        'A': {
+            'dialogue_type': "quest",
+            'dialogue': "thanks... *sniff*",
+            'dialogue_options': {}
+        },
+        'B': {
+            'dialogue_type': "normal",
+            'dialogue': "*sobs*",
+            'dialogue_options': {}
+        }
+    },
 }
 
 """
@@ -463,26 +497,26 @@ template
         },
         'quest_inactive': {
             'dialogue_type': "normal",
-            'dialogue': '',
+            'dialogue': "",
             'dialogue_options': {
-                '': 'A',
-                '': 'B',
-                '': 'C'
+                "": 'A',
+                "": 'B',
+                "": 'C'
             }
         },
         'A': {
             'dialogue_type': "normal",
-            'dialogue': '',
+            'dialogue': "",
             'dialogue_options': {}
         },
         'B': {
             'dialogue_type': "normal",
-            'dialogue': '',
+            'dialogue': "",
             'dialogue_options': {}
         },
         'C': {
             'dialogue_type': "normal",
-            'dialogue': '',
+            'dialogue': "",
             'dialogue_options': {}
         }
     },

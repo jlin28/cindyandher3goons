@@ -100,9 +100,20 @@ ws.on('connection', function connect(client, req) {
       send(
         client, {
           type: "dialogue",
-          dialogue: dg
+          dialogue: dg.dialogue,
+          quest_status: dg.quest_status
         }
       )
+    }
+
+    if (data.type === "add_quest") {
+      console.log('i gott here');
+      let res = await fetch("https://cindyandher3goons.me/" + client.route, {
+      // let res = await fetch("http://127.0.0.1:5000/" + client.route, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json'},
+        body: JSON.stringify({ type: "add_quest", npc: data.npc })
+      });
     }
 
     if (data.type === "logout") {
@@ -112,6 +123,9 @@ ws.on('connection', function connect(client, req) {
         headers: { 'Content-Type': 'application/json'},
         body: JSON.stringify({ type: "logout" })
       });
+
+      let response = await res.json()
+      console.log(response.request)
     }
 
     if (data.type === "add_item") {

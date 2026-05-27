@@ -29,12 +29,15 @@ var time = 0.0;
 @export var current_held_item = null
 
 @export var snowman_in_vicinity = null
+@export var active_quests = []
 
 var prev_line = ""
 var label_tick = -1
 
 signal inventory_update
 signal inventory_full
+
+signal quest_update
 
 func _ready() -> void:
 	inventory_full.connect(_on_inventory_full)

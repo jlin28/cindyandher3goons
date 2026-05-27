@@ -117,7 +117,8 @@ func handle_msg(data):
 		remove_remote_player(player_id)
 	
 	elif msg_type == "dialogue":
-		send_dialogue(data)
+		dialogue_cont.quest_status = data.get('quest_status')
+		send_dialogue(data.get('dialogue'))
 	
 	elif msg_type == "add_item":
 		if data.get("success"):
@@ -230,3 +231,11 @@ func fetch_inventory():
 	
 func send_inventory(inv):
 	inventory_cont.update_inventory(inv.inv)
+	
+func add_quest(npc):
+	var data = {
+		"type": "add_quest",
+		"npc": npc
+	}
+	
+	socket.send_text(JSON.stringify(data))

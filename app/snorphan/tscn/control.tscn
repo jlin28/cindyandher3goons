@@ -8,6 +8,7 @@
 [ext_resource type="Script" uid="uid://dye1tiypsaay6" path="res://gd/open_quests.gd" id="4_6yxn8"]
 [ext_resource type="Script" uid="uid://d3ss06331ic7q" path="res://gd/dialogue.gd" id="5_6mujo"]
 [ext_resource type="Script" uid="uid://digaxfgtigrwh" path="res://gd/dgbutton.gd" id="6_1akbr"]
+[ext_resource type="Script" uid="uid://bosqim1l2soaf" path="res://gd/quests.gd" id="6_8i35t"]
 [ext_resource type="Script" uid="uid://8b5fyjuw62nv" path="res://gd/options.gd" id="6_dd40b"]
 [ext_resource type="Script" uid="uid://vsgdnaj0o6c5" path="res://gd/close_settings.gd" id="9_tw3h4"]
 [ext_resource type="Script" uid="uid://chq8goy7bvsau" path="res://gd/settings_menu.gd" id="10_6nd6i"]
@@ -649,6 +650,7 @@ layout_mode = 2
 [node name="VBoxContainer" type="VBoxContainer" parent="default/open_quests_cont/quests/MarginContainer/VBoxContainer" unique_id=598077425]
 layout_mode = 2
 theme_override_constants/separation = 15
+script = ExtResource("6_8i35t")
 
 [node name="quest1" type="MarginContainer" parent="default/open_quests_cont/quests/MarginContainer/VBoxContainer/VBoxContainer" unique_id=1937002084]
 layout_mode = 2

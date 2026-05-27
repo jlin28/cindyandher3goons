@@ -118,7 +118,7 @@ func handle_msg(data):
 	
 	elif msg_type == "dialogue":
 		dialogue_cont.quest_status = data.get('quest_status')
-		send_dialogue(data.get('dialogue'))
+		send_dialogue(data)
 	
 	elif msg_type == "add_item":
 		if data.get("success"):

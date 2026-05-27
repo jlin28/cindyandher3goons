@@ -36,7 +36,7 @@ func play_dialogue():
 	if current_npc in player.active_quests:
 		current_dialogue_line = 'quest_in_progress'
 	else:
-		current_dialogue_type = current_dialogue_type[current_dialogue_line].dialogue_type
+		current_dialogue_type = current_dialogue[current_dialogue_line].dialogue_type
 		
 	if current_dialogue_type == 'quest':
 		if player.active_quests.size() == 3:
@@ -72,8 +72,8 @@ func _unhandled_input(event: InputEvent) -> void:
 func tween_finished():
 	var i = 0;
 	if current_dialogue:
-		var current_dialogue_line = current_dialogue[current_dialogue_line]
-		var dialogue_options = current_dialogue_line.dialogue_options
+		var dialogue_line = current_dialogue[current_dialogue_line]
+		var dialogue_options = dialogue_line.dialogue_options
 		for dialogue_option in dialogue_options:
 			options[i].text = dialogue_option
 			options[i].visible = true

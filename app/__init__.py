@@ -731,7 +731,7 @@ def add_quest(npc_name):
 
     if questsActive_string == '':
         questsActive = []
-    ekse:
+    else:
         questsActive = questsActive_string.split('&')
 
     questsActive.append(quest_name)

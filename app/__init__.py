@@ -56,6 +56,7 @@ c.execute("INSERT OR IGNORE INTO item VALUES ('slightly worn out cape', 'a welco
 c.execute("INSERT OR IGNORE INTO item VALUES ('flowers', 'flowers that you plucked fresh from the snow. they come in an assortment of colors, each with a slightly different scent.', '', 10)") #model
 c.execute("INSERT OR IGNORE INTO item VALUES ('pebbles', 'ooh pebble.... round, smooth, shiny pebbles...... so round... so smooth... so shiny...', '', 99)") #model
 c.execute("INSERT OR IGNORE INTO item VALUES ('apples', 'fresh(?), plump, juicy round red apples. you found them on the floor, but they look suspiciously pristine....', '', 99)") #model
+c.execute("INSERT OR IGNORE INTO item VALUES ('special powder', 'powder you found at the top of the mountain peaks. it''s rumored to be a legendary fertilizer but looks suspiciously white and powdery, like something else you know...', '', 1)")
 c.execute("INSERT OR IGNORE INTO item VALUES ('snowball_S', 'a small bundle of joy.', '', 99)")
 c.execute("INSERT OR IGNORE INTO item VALUES ('snowball_M', 'a bundle of joy.', '', 99)")
 c.execute("INSERT OR IGNORE INTO item VALUES ('snowball_L', 'a big fat bundle of joy.', '', 99)")
@@ -97,7 +98,13 @@ c.execute("""CREATE TABLE IF NOT EXISTS snowmen(
     FOREIGN KEY (player) references user(username)
     );
     """)
-c.execute("INSERT OR IGNORE INTO npc VALUES ('village grandma', '', '')")
+c.execute("INSERT OR IGNORE INTO npc VALUES ('Sealius', 'a spark of inspiration', 'flowers', 'fetch', 5)")
+c.execute("INSERT OR IGNORE INTO npc VALUES ('Town Chief', 'a warm welcome', 'house', 'go', 1)")
+c.execute("INSERT OR IGNORE INTO npc VALUES ('Buntanist', 'a bunny''s cry for help', 'special powder', 'fetch', 1)")
+c.execute("INSERT OR IGNORE INTO npc VALUES ('Bobby', 'pebbles pebbles pebbles!', 'pebbles', 'fetch', 5)")
+c.execute("INSERT OR IGNORE INTO npc VALUES ('Mr. Cheddar', 'the former mobster''s request', 'apple pie recipe', 'fetch', 1)")
+c.execute("INSERT OR IGNORE INTO npc VALUES ('Daisy', 'a final farewell', 'flowers', 'fetch', 10)")
+c.execute("INSERT OR IGNORE INTO npc VALUES ('Mabel', 'just like the old days', 'apples', 'fetch', 25)")
 db.commit()
 db.close()
 

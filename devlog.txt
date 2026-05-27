@@ -432,3 +432,7 @@ cindyL -- 2026-05-26 11:00
 carrieK -- 2026-05-26 11:00
 DIALOGUE
 *daisy and gma
+
+carrieK -- 2026-05-26 21:19
+DIALOGUE
+* npc db done

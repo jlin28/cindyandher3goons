@@ -40,7 +40,6 @@ func _process(delta: float) -> void:
 	var state = socket.get_ready_state()
 	if state == WebSocketPeer.STATE_OPEN:
 		if not connected:
-			inventory_cont._on_inventory_update()
 			connected = true
 			print("Connected!")
 
@@ -96,6 +95,7 @@ func handle_msg(data):
 	if msg_type == "assign_id":
 		my_id = str(data.get("id", ""))
 		send_username()
+		inventory_cont._on_inventory_update()
 		
 	elif msg_type == "player_name":
 		var player_id = str(data.get("id", ""))

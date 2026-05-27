@@ -6,7 +6,7 @@ extends VBoxContainer
 signal update_quests
 
 func _ready() -> void:
-	fetch_quests()
+	#fetch_quests()
 	update_quests.connect(_on_quests_update)
 
 func _on_quests_update():
@@ -14,6 +14,6 @@ func _on_quests_update():
 
 func fetch_quests():
 	var quests = MultiplayerClient.fetch_quests()
-	
-func update_quests(active_quests):
+	#
+#func update_quests(active_quests):
 	

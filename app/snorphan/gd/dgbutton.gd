@@ -3,12 +3,13 @@ extends Button
 @onready var dialogue := get_tree().get_first_node_in_group('dialogue')
 @onready var player := get_tree().get_first_node_in_group('player')
 @onready var mainui := %default
-@onready var options := %optionscont
+@onready var option_cont := %optionscont
+@onready var options := option_cont.get_children()
 @onready var dialogue_box := %dialogue
 @onready var name_label := %name 
 
 func _pressed() -> void:
-	options.visible = true
+	option_cont.visible = true
 	
 	
 	if name_label.text != "< %s >" %dialogue.current_npc:
@@ -21,6 +22,11 @@ func _pressed() -> void:
 
 		dialogue.play_dialogue()
 	else: # this runs when the dialogue ends
+		dialogue_box.text = ''
+		name_label.text = ''
+		for option in options:
+			option.visible = false
+
 		dialogue.visible = false
 		mainui.visible = true
 		

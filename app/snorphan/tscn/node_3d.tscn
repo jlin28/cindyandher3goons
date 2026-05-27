@@ -19,6 +19,7 @@
 [ext_resource type="PackedScene" uid="uid://c1dbprdspf5dt" path="res://tscn/npc_2.tscn" id="17_eh2cu"]
 [ext_resource type="Script" uid="uid://dqhsobhw8b7ms" path="res://gd/npc.gd" id="18_eh2cu"]
 [ext_resource type="PackedScene" uid="uid://bc0vl2j7kfi8p" path="res://glb/architecture/statue.glb" id="19_fp1dq"]
+[ext_resource type="PackedScene" uid="uid://cmid6tvx5gd4m" path="res://npc_3.tscn" id="19_vwbxu"]
 [ext_resource type="PackedScene" uid="uid://xuaqccpulmiy" path="res://glb/nature/tree.glb" id="20_byo66"]
 [ext_resource type="PackedScene" uid="uid://cms2vpw7vc6j3" path="res://glb/nature/bush2.glb" id="21_oem1t"]
 [ext_resource type="PackedScene" uid="uid://p2rukjlak37q" path="res://glb/nature/bush.glb" id="22_vwbxu"]
@@ -266,6 +267,10 @@ transform = Transform3D(1.4999998, 0, 0, 0, 1.4999998, 0, 0, 0, 1.4999998, -70.6
 unique_name_in_owner = true
 transform = Transform3D(0.8296292, 0, 1.249686, 0, 1.4999999, 0, -1.249686, 0, 0.8296292, 86.20523, 0.16427612, 257.36548)
 script = ExtResource("18_eh2cu")
+
+[node name="Buntanist" parent="npcs" unique_id=571924885 instance=ExtResource("19_vwbxu")]
+unique_name_in_owner = true
+transform = Transform3D(0.91048115, 0, 1.1920669, 0, 1.4999998, 0, -1.1920669, 0, 0.91048115, -221.14279, 0, 130.54892)
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="." unique_id=786734225]
 position = Vector2(500, 3)

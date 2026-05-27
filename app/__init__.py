@@ -676,10 +676,10 @@ def snowman_collection(player):
     return snowman_collection
 
 # return list of quests completed for the logged in user
-def questsCompleted_list():
+def questsCompleted_list(user):
     db = sqlite3.connect(DB_FILE)
     c = db.cursor()
-    c.execute("SELECT questsCompleted FROM user WHERE username = ?", (session['username'],))
+    c.execute("SELECT questsCompleted FROM user WHERE username = ?", (user,))
     questsCompleted_string = c.fetchone()[0]
     db.commit()
     db.close()
@@ -688,10 +688,10 @@ def questsCompleted_list():
     return questsCompleted_string.split('&')
 
 # return list of quests active for the logged in user
-def questsActive_list():
+def questsActive_list(user):
     db = sqlite3.connect(DB_FILE)
     c = db.cursor()
-    c.execute("SELECT questsActive FROM user WHERE username = ?", (session['username'],))
+    c.execute("SELECT questsActive FROM user WHERE username = ?", (user,))
     questsActive_string = c.fetchone()[0]
     db.commit()
     db.close()
@@ -700,43 +700,38 @@ def questsActive_list():
     return questsActive_string.split('&')
 
 # return boolean (true if less than 3 active quests)
-def questsAvailable():
-    if len(questsActive_list()) == 3:
+def questsAvailable(user):
+    if len(questsActive_list(user)) == 3:
         return False
     return True
 
 # return string describing status of quest given npc name
-def npc_questStatus(npc_name):
+def npc_questStatus(npc_name, user):
     db = sqlite3.connect(DB_FILE)
     c = db.cursor()
     c.execute("SELECT questName FROM npc WHERE name = ?", (npc_name,))
     quest_name = c.fetchone()[0]
     db.commit()
     db.close()
-    if quest_name in questsActive_list():
+    if quest_name in questsActive_list(user):
         return 'quest_in_progress'
-    elif quest_name[0] in questsCompleted_list():
+    elif quest_name[0] in questsCompleted_list(user):
         return 'quest_completed'
     return 'quest_inactive'
 
 # return string describing status of quest given npc name
-def add_quest(npc_name):
+def add_quest(npc_name, user):
     db = sqlite3.connect(DB_FILE)
     c = db.cursor()
-    c.execute("SELECT questsActive FROM user WHERE username = ?", (session['username'],))
-    questsActive_string = c.fetchone()[0]
+
+    questsActive = questsActive_list(user)
 
     c.execute("SELECT questName FROM npc WHERE name = ?", (npc_name,))
     quest_name = c.fetchone()[0]
 
-    if questsActive_string == '':
-        questsActive = []
-    else:
-        questsActive = questsActive_string.split('&')
-
     questsActive.append(quest_name)
     new_quests_active = "&".join(questsActive)
-    c.execute("UPDATE user SET questsActive = ? WHERE username = ?", (new_quests_active, session['username']))
+    c.execute("UPDATE user SET questsActive = ? WHERE username = ?", (new_quests_active, user))
 
     db.commit()
     db.close()
@@ -906,7 +901,8 @@ def game():
 
         if body.get('type') == 'dialogue':
             npc = body.get('npc')
-            quest_status = npc_questStatus(npc)
+            user = body.get('user')
+            quest_status = npc_questStatus(npc, user)
 
             return jsonify( {
                 'dialogue': npc_dialogue[npc],
@@ -915,7 +911,8 @@ def game():
 
         if body.get('type') == 'add_quest':
             npc = body.get('npc')
-            add_quest(npc)
+            user = body.get('user')
+            add_quest(npc, user)
 
             return jsonify( { 'request': 'handled' })
 

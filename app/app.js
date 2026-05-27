@@ -93,7 +93,7 @@ ws.on('connection', function connect(client, req) {
       // let res = await fetch("http://127.0.0.1:5000/" + client.route, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json'},
-        body: JSON.stringify({ type: "dialogue", npc: data.npc })
+        body: JSON.stringify({ type: "dialogue", npc: data.npc, user: client.username })
       });
 
       let dg = await res.json()
@@ -112,7 +112,7 @@ ws.on('connection', function connect(client, req) {
       // let res = await fetch("http://127.0.0.1:5000/" + client.route, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json'},
-        body: JSON.stringify({ type: "add_quest", npc: data.npc })
+        body: JSON.stringify({ type: "add_quest", npc: data.npc, user: client.username})
       });
     }
 
@@ -121,7 +121,7 @@ ws.on('connection', function connect(client, req) {
       // let res = await fetch("http://127.0.0.1:5000/" + client.route, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json'},
-        body: JSON.stringify({ type: "add_item", item: data.item, quantity: data.quantity, user: client.username })
+        body: JSON.stringify({ type: "add_item", item: data.item, quantity: data.quantity, user: client.username})
       });
 
       let success = await res.json()

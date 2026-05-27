@@ -47,8 +47,8 @@ ws.on('connection', function connect(client, req) {
   }, client);
 
   client.on('message', async message => {
-
     let data;
+    console.log(message)
     try {
       data = JSON.parse(message.toString());
     } catch (err) {

@@ -205,11 +205,6 @@ func send_dialogue(data):
 	print(data)
 	
 func logout():
-	var data = {
-		"type": "logout",
-	}
-	
-	socket.send_text(JSON.stringify(data))
 	if OS.has_feature("web"):
 		JavaScriptBridge.eval("window.parent.location.href = '/exit'", true)
 

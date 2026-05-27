@@ -919,10 +919,6 @@ def game():
 
             return jsonify( { 'request': 'handled' })
 
-        if body.get('type') == 'logout':
-            session.pop('username', None)
-            return redirect(url_for("login"))
-
         if body.get('type') == 'add_item':
             user = body.get('user')
             item = body.get('item')

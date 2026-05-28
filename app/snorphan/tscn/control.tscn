@@ -1275,7 +1275,6 @@ custom_minimum_size = Vector2(400, 0)
 layout_mode = 2
 
 [node name="bgm_player" type="AudioStreamPlayer" parent="settings/MarginContainer/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/MarginContainer7/HBoxContainer3" unique_id=1114999510]
-unique_name_in_owner = true
 stream = ExtResource("12_6nd6i")
 autoplay = true
 bus = &"Music"

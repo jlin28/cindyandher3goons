@@ -28,14 +28,14 @@ func on_visibility_changed() -> void:
 
 func load_saved_settings() -> void:
 	if OS.has_feature("web"):
-		master_slider.value = float(JavaScriptBridge.eval("localStorage.getItem('mVol') || 50", true))
-		sfx_slider.value = float(JavaScriptBridge.eval("localStorage.getItem('sfxVol') || 50", true))
-		music_slider.value = float(JavaScriptBridge.eval("localStorage.getItem('aVol') || 0", true))
+		master_slider.value = float(JavaScriptBridge.eval("localStorage.getItem('mVol') || 100", true))
+		sfx_slider.value = float(JavaScriptBridge.eval("localStorage.getItem('sfxVol') || 100", true))
+		music_slider.value = float(JavaScriptBridge.eval("localStorage.getItem('aVol') || 100", true))
 		mouse_slider.value = float(JavaScriptBridge.eval("localStorage.getItem('mouseSens') || 50", true))
 	else:
-		master_slider.value = 50
-		sfx_slider.value = 50
-		music_slider.value = 0
+		master_slider.value = 100
+		sfx_slider.value = 100
+		music_slider.value = 100
 		mouse_slider.value = 50
 	apply_all()
 	

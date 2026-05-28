@@ -76,7 +76,9 @@ c.execute("""CREATE TABLE IF NOT EXISTS npc(
     questDesc TEXT,
     questReq TEXT,
     questType TEXT,
-    questRequiredAmount INTEGER
+    questRequiredAmount INTEGER, 
+    reward TEXT, 
+    reward_amt INTEGER
     );
     """)
 
@@ -100,14 +102,14 @@ c.execute("""CREATE TABLE IF NOT EXISTS snowmen(
     FOREIGN KEY (player) references user(username)
     );
     """)
-c.execute("INSERT OR IGNORE INTO npc VALUES ('Sealius', 'A Spark of Inspiration', 'Help Sealius out of his slump---though you don''t even know why you''re doing this', 'flowers', 'fetch', 5)")
-c.execute("INSERT OR IGNORE INTO npc VALUES ('Town Chief', 'A Warm Welcome', 'Find the house the Town Chief set aside for you', 'house', 'go', 1)")
-c.execute("INSERT OR IGNORE INTO npc VALUES ('Buntanist', 'A Bunny''s Cry For Help', 'Save Buntanist''s plants!', 'special powder', 'fetch', 1)")
-c.execute("INSERT OR IGNORE INTO npc VALUES ('Bobby', 'Pebbles, Pebbles, Pebbles!', 'Find those pebbles! What''s so cool about pebbles anyways?', 'pebbles', 'fetch', 5)")
-c.execute("INSERT OR IGNORE INTO npc VALUES ('Mr. Cheddar', 'The Former Mobster''s request', 'A nice warm apple pie could warm anyone''s heart', 'apple pie recipe', 'fetch', 1)")
-c.execute("INSERT OR IGNORE INTO npc VALUES ('Daisy', 'A Final Farewell', 'She seemed quite agitated, better find those flowers before this whole place is flooded!', 'flowers', 'fetch', 10)")
-c.execute("INSERT OR IGNORE INTO npc VALUES ('Mabel', 'Just Like The Old Days', 'How are apples growing here anyways?', 'apples', 'fetch', 25)")
-c.execute("INSERT OR IGNORE INTO npc VALUES ('18th century woman', 'Buttons..?', 'She seems to have many buttons for you...', '', 'wait', 1)")
+c.execute("INSERT OR IGNORE INTO npc VALUES ('Sealius', 'A Spark of Inspiration', 'Help Sealius out of his slump---though you don''t even know why you''re doing this', 'flowers', 'fetch', 5,'ice sculpture', 1)")
+c.execute("INSERT OR IGNORE INTO npc VALUES ('Town Chief', 'A Warm Welcome', 'Find the house the Town Chief set aside for you', 'house', 'go', 1,'slightly worn out cape', 1)")
+c.execute("INSERT OR IGNORE INTO npc VALUES ('Buntanist', 'A Bunny''s Cry For Help', 'Save Buntanist''s plants!', 'special powder', 'fetch', 1,'carrot', 1)")
+c.execute("INSERT OR IGNORE INTO npc VALUES ('Bobby', 'Pebbles, Pebbles, Pebbles!', 'Find those pebbles! What''s so cool about pebbles anyways?', 'pebbles', 'fetch', 5,'old plushie', 1)")
+c.execute("INSERT OR IGNORE INTO npc VALUES ('Mr. Cheddar', 'The Former Mobster''s request', 'A nice warm apple pie could warm anyone''s heart', 'apple pie recipe', 'fetch', 1,'hat',1)")
+c.execute("INSERT OR IGNORE INTO npc VALUES ('Daisy', 'A Final Farewell', 'She seemed quite agitated, better find those flowers before this whole place is flooded!', 'flowers', 'fetch', 10,'red scarf', 1)")
+c.execute("INSERT OR IGNORE INTO npc VALUES ('Mabel', 'Just Like The Old Days', 'How are apples growing here anyways?', 'apples', 'fetch', 25,'apple pie recipe', 1)")
+c.execute("INSERT OR IGNORE INTO npc VALUES ('18th century woman', 'Buttons..?', 'She seems to have many buttons for you...', '', 'wait', 1,'button', 3)")
 db.commit()
 db.close()
 

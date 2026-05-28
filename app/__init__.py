@@ -57,7 +57,7 @@ c.execute("INSERT OR IGNORE INTO item VALUES ('slightly worn out cape', 'a welco
 c.execute("INSERT OR IGNORE INTO item VALUES ('flowers', 'flowers that you plucked fresh from the snow. they come in an assortment of colors, each with a slightly different scent.', '', 10)") #model
 c.execute("INSERT OR IGNORE INTO item VALUES ('pebbles', 'ooh pebble.... round, smooth, shiny pebbles...... so round... so smooth... so shiny...', '', 99)") #model
 c.execute("INSERT OR IGNORE INTO item VALUES ('apples', 'fresh(?), plump, juicy round red apples. you found them on the floor, but they look suspiciously pristine....', '', 99)") #model
-c.execute("INSERT OR IGNORE INTO item VALUES ('special powder', 'powder you found at the top of the mountain peaks. it''s rumored to be a legendary fertilizer but looks suspiciously white and powdery, like something else you know...', '', 1)")
+c.execute("INSERT OR IGNORE INTO item VALUES ('special powder', 'powder you found at the top of the mountain peaks. it''s rumored to be a legendary fertilizer but looks suspiciously white and powdery, like something else you know...', '', 1)") #model oops
 c.execute("INSERT OR IGNORE INTO item VALUES ('snowball_S', 'a small bundle of joy.', '', 99)")
 c.execute("INSERT OR IGNORE INTO item VALUES ('snowball_M', 'a bundle of joy.', '', 99)")
 c.execute("INSERT OR IGNORE INTO item VALUES ('snowball_L', 'a big fat bundle of joy.', '', 99)")

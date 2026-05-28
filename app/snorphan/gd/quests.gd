@@ -47,6 +47,7 @@ func update_quests(active_quests):
 		quest_boxes[remaining_box].visible = false
 
 func update_current_progress(quest, quest_info_cont, current_quest_progress):
+	print("CALLED - req: ", quest.get('fulfillment_requirement'), " required: ", quest.get('amount_required'), " current_items: ", player.current_items)
 	if player.current_items == null:
 		return false
 

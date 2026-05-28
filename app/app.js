@@ -117,7 +117,7 @@ ws.on('connection', function connect(client, req) {
 
       send(
         client, {
-          type: "add_item"
+          type: "add_quest"
         }
       )
     }

@@ -70,7 +70,7 @@ func update_current_progress(quest, quest_info_cont, current_quest_progress):
 		return false
 			
 func update_quests_progress():
-	if current_quests:
+	if current_quests and player.current_items != null:
 		var i = 0
 		for npc_name in current_quests:
 			var quest = current_quests[npc_name]
@@ -78,8 +78,7 @@ func update_quests_progress():
 				var current_quest_box = quest_boxes[i]
 				var info_cont = current_quest_box.get_node(^'MarginContainer/VBoxContainer')
 				var second_info_cont = info_cont.get_node(^'HBoxContainer')
-			
+				
 				if update_current_progress(quest, info_cont, second_info_cont.get_node(^"HBoxContainer/quest_current_progress")):
 					player.completion_status[i] = 1
-
 			i += 1

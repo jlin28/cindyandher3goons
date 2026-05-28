@@ -3,6 +3,7 @@ extends VBoxContainer
 @onready var quest_boxes := self.get_children()
 @onready var MultiplayerClient := get_tree().get_first_node_in_group('socket')
 @onready var player := get_tree().get_first_node_in_group('player')
+@onready var go_chief_quest = get_node("/root/Node3D/buildings/house5/chief_quest_Area3D")
 
 @export var current_quests = null
 
@@ -10,6 +11,7 @@ signal change_quests
 
 func _ready() -> void:
 	change_quests.connect(_on_quests_update)
+	go_chief_quest.body_entered.connect(_on_chief_quest_entered)
 
 func _on_quests_update():
 	fetch_quests()
@@ -79,3 +81,15 @@ func update_quests_progress():
 				if update_current_progress(quest, second_info_cont, second_info_cont.get_node(^"HBoxContainer/quest_current_progress")):
 					player.completion_status[i] = 1
 			i += 1
+
+func _on_chief_quest_entered(body):
+	if "Town Chief" in player.active_quests:
+		for i in range(len(player.active_quests)):
+			var current_quest_box = quest_boxes[i]
+			var info_cont = current_quest_box.get_node(^'MarginContainer/VBoxContainer')
+			var second_info_cont = info_cont.get_node(^'HBoxContainer')
+
+			second_info_cont.get_node(^"quest_req").text = 'COMPLETED'
+			second_info_cont.get_node(^"quest_req").modulate = Color('#70ff83')
+			player.completion_status[player.active_quests.find("Town Chief")] = 1
+		

@@ -36,16 +36,18 @@ func play_dialogue():
 	
 	if current_npc in player.active_quests:
 		var quest = quests_cont.current_quests[current_npc]
-		if player.completion_status[player.active_quests.index(current_npc)] == 1:
+		if player.completion_status[player.active_quests.find(current_npc)] == 1:
 			var item_to_be_taken = quest.get('fulfillment_requirement')
 			var amount_to_be_taken = quest.get('amount_required')
-			var current_amount = player.current_items[item_to_be_taken]
+			var current_amount = 1.0;
+			if item_to_be_taken != "house": # For Town Chief's quest
+				current_amount = player.current_items[item_to_be_taken]
 			if player.full_inventory and current_amount - amount_to_be_taken != 0:
 				current_dialogue_line = 'quest_cap'
 			else:
 				current_dialogue_line = 'quest_completed'
 			
-				player.completion_status.remove_at(player.active_quests.index(current_npc))
+				player.completion_status.remove_at(player.active_quests.find(current_npc))
 				player.active_quests.erase(current_npc)
 				add_quest_to_completed(current_npc)
 				

@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dldwcopwvqp47"]
 
-[ext_resource type="Script" uid="uid://drntren84hr2r" path="res://gd/snowman.gd" id="1_vwvqo"]
+[ext_resource type="Script" uid="uid://c05j2ojmewstv" path="res://gd/snowman.gd" id="1_vwvqo"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_x4rgl"]
 

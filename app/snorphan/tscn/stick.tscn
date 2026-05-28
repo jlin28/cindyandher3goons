@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://cgt6u4s8vtx1u"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dv20j"]
+albedo_color = Color(0.17234163, 0.13775557, 0.048819967, 1)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_28r6d"]
+material = SubResource("StandardMaterial3D_dv20j")
+radius = 0.05
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_jmarw"]
+radius = 0.05
+
+[node name="Area3D" type="Area3D" unique_id=440019659]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=21449810]
+mesh = SubResource("CapsuleMesh_28r6d")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1853135139]
+shape = SubResource("CapsuleShape3D_jmarw")

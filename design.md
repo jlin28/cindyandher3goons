@@ -138,6 +138,7 @@ As a snowman lover, I want to be able to make lots of snowmen so that I can sati
 | INTEGER | item6Count |    |
 | TEXT | questsCompleted  |    |
 | TEXT | questsActive |    |
+| BOOLEAN | cape |    |
 
 <br>
 
@@ -167,7 +168,10 @@ As a snowman lover, I want to be able to make lots of snowmen so that I can sati
 |------|-------|-------------------------- |
 | TEXT | name | PK |
 | TEXT | questName |    |
+| TEXT | questDesc |    |
 | TEXT | questReq |    |
+| TEXT | questType |    |
+| TEXT | questRequiredAmount |    |
 
 <br>
 
@@ -175,6 +179,7 @@ As a snowman lover, I want to be able to make lots of snowmen so that I can sati
 
 | TYPE | VALUE | ADDITIONAL SPECIFICATIONS |
 |------|-------|-------------------------- |
+| TEXT | player | FK |
 | INTEGER | id | PK |
 | REAL | x_coord |    |
 | REAL | y_coord |    |
@@ -182,6 +187,13 @@ As a snowman lover, I want to be able to make lots of snowmen so that I can sati
 | REAL | x_rot |    |
 | REAL | y_rot |    |
 | REAL | z_rot |    |
+| BOOLEAN | carrot |    |
+| BOOLEAN | hat |    |
+| BOOLEAN | red_scarf |    |
+| BOOLEAN | stick1 |    |
+| BOOLEAN | stick2 |    |
+| BOOLEAN | pebble1 |    |
+| BOOLEAN | pebble2 |    |
 
 <br>
 

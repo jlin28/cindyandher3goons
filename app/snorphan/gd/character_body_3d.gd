@@ -30,6 +30,11 @@ var time = 0.0;
 
 @export var snowman_in_vicinity = null
 @export var active_quests = []
+@export var completion_status = []
+
+@export var current_items = null
+@export var full_inventory = false
+@export var house_found = false
 
 var prev_line = ""
 var label_tick = -1

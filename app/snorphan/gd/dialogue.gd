@@ -34,7 +34,19 @@ func play_dialogue():
 		current_dialogue_line = quest_status
 	
 	if current_npc in player.active_quests:
-		current_dialogue_line = 'quest_in_progress'
+		if player.completion_status[player.active_quests.index(current_npc)] == 1:
+			current_dialogue_line = 'quest_completed'
+			
+			player.completion_status.remove_at(player.active_quests.index(current_npc))
+			player.completion_status.erase(current_npc)
+			add_quest_to_completed(current_npc)
+			
+			if player.full_inventory:
+				current_dialogue_line = 'quest_cap'
+			#else:
+				#add_item()
+		else:
+			current_dialogue_line = 'quest_in_progress'
 	else:
 		current_dialogue_type = current_dialogue[current_dialogue_line].dialogue_type
 		
@@ -43,6 +55,7 @@ func play_dialogue():
 			current_dialogue_line = 'quest_cap'
 		else:
 			player.active_quests.append(current_npc)
+			player.completion_status.append(0)
 			MultiplayerClient.add_quest(current_npc)
 		
 	dialogue_box.text = current_dialogue[current_dialogue_line].dialogue
@@ -78,3 +91,6 @@ func tween_finished():
 			options[i].text = dialogue_option
 			options[i].visible = true
 			i+=1
+
+func add_quest_to_completed(npc):
+	MultiplayerClient.complete_quest(npc)

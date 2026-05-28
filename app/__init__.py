@@ -76,8 +76,8 @@ c.execute("""CREATE TABLE IF NOT EXISTS npc(
     questDesc TEXT,
     questReq TEXT,
     questType TEXT,
-    questRequiredAmount INTEGER, 
-    reward TEXT, 
+    questRequiredAmount INTEGER,
+    reward TEXT,
     reward_amt INTEGER
     );
     """)
@@ -102,21 +102,19 @@ c.execute("""CREATE TABLE IF NOT EXISTS snowmen(
     FOREIGN KEY (player) references user(username)
     );
     """)
-c.execute("INSERT OR IGNORE INTO npc VALUES ('Sealius', 'A Spark of Inspiration', 'Help Sealius out of his slump---though you don''t even know why you''re doing this', 'flowers', 'fetch', 5,'ice sculpture', 1)")
-c.execute("INSERT OR IGNORE INTO npc VALUES ('Town Chief', 'A Warm Welcome', 'Find the house the Town Chief set aside for you', 'house', 'go', 1,'slightly worn out cape', 1)")
-c.execute("INSERT OR IGNORE INTO npc VALUES ('Buntanist', 'A Bunny''s Cry For Help', 'Save Buntanist''s plants!', 'special powder', 'fetch', 1,'carrot', 1)")
-c.execute("INSERT OR IGNORE INTO npc VALUES ('Bobby', 'Pebbles, Pebbles, Pebbles!', 'Find those pebbles! What''s so cool about pebbles anyways?', 'pebbles', 'fetch', 5,'old plushie', 1)")
-c.execute("INSERT OR IGNORE INTO npc VALUES ('Mr. Cheddar', 'The Former Mobster''s request', 'A nice warm apple pie could warm anyone''s heart', 'apple pie recipe', 'fetch', 1,'hat',1)")
-c.execute("INSERT OR IGNORE INTO npc VALUES ('Daisy', 'A Final Farewell', 'She seemed quite agitated, better find those flowers before this whole place is flooded!', 'flowers', 'fetch', 10,'red scarf', 1)")
-c.execute("INSERT OR IGNORE INTO npc VALUES ('Mabel', 'Just Like The Old Days', 'How are apples growing here anyways?', 'apples', 'fetch', 25,'apple pie recipe', 1)")
+c.execute("INSERT OR IGNORE INTO npc VALUES ('Sealius', 'A Spark of Inspiration', 'Help Sealius out of his slump---though you don''t even know why you''re doing this', 'flowers', 'fetch', 5,'ice_sculpture', 1)")
+c.execute("INSERT OR IGNORE INTO npc VALUES ('Town Chief', 'A Warm Welcome', 'Find the house the Town Chief set aside for you', 'house', 'go', 1,'slightly_worn_out_cape', 1)")
+c.execute("INSERT OR IGNORE INTO npc VALUES ('Buntanist', 'A Bunny''s Cry For Help', 'Save Buntanist''s plants!', 'special_powder', 'fetch', 1,'carrot', 1)")
+c.execute("INSERT OR IGNORE INTO npc VALUES ('Bobby', 'Pebbles, Pebbles, Pebbles!', 'Find those pebbles! What''s so cool about pebbles anyways?', 'pebbles', 'fetch', 5,'old_plushie', 1)")
+c.execute("INSERT OR IGNORE INTO npc VALUES ('Mr. Cheddar', 'The Former Mobster''s request', 'A nice warm apple pie could warm anyone''s heart', 'apple_pie_recipe', 'fetch', 1,'hat',1)")
+c.execute("INSERT OR IGNORE INTO npc VALUES ('Daisy', 'A Final Farewell', 'She seemed quite agitated, better find those flowers before this whole place is flooded!', 'flowers', 'fetch', 10,'red_scarf', 1)")
+c.execute("INSERT OR IGNORE INTO npc VALUES ('Mabel', 'Just Like The Old Days', 'How are apples growing here anyways?', 'apples', 'fetch', 25,'apple_pie_recipe', 1)")
 c.execute("INSERT OR IGNORE INTO npc VALUES ('18th century woman', 'Buttons..?', 'She seems to have many buttons for you...', '', 'wait', 1,'button', 3)")
 db.commit()
 db.close()
 
 npc_dialogue = {
     "Sealius": {
-        'reward': "ice sculpture",
-        'reward_amt': 1,
         'item_cap': {
             'dialogue': "Woah kid! You have so many items sticking out of your bag right now... I think I'll give this to you later.",
             'dialogue_options': {}
@@ -203,8 +201,6 @@ npc_dialogue = {
         },
     },
     "Town Chief": {
-        'reward': "slightly worn out cape",
-        'reward_amt': 1,
         'item_cap': {
             'dialogue': "Someone as little as you carrying so much around already? You should see me when you've lightened that load, it could stunt your growth.",
             'dialogue_options': {}
@@ -269,8 +265,6 @@ npc_dialogue = {
         }
     },
     "Buntanist": {
-        'reward': "carrot",
-        'reward_amt': 1,
         'item_cap': {
             'dialogue': "Eep! Don't put my prized carrot in there! you'll ruin it immediately!!!",
             'dialogue_options': {}
@@ -354,8 +348,6 @@ npc_dialogue = {
         }
     },
     "Bobby": {
-        'reward': "old plushie",
-        'reward_amt': 1,
         'item_cap': {
             'dialogue': "Hey, give your new friend some respect and clear that backpack!",
             'dialogue_options': {}
@@ -436,8 +428,6 @@ npc_dialogue = {
         },
     },
     "Mr. Cheddar": {
-        'reward': "hat",
-        'reward_amt': 1,
         'item_cap': {
             'dialogue': "Woah there! Not sure if I want my hat to get squished like that in your bag.",
             'dialogue_options': {}
@@ -639,8 +629,6 @@ npc_dialogue = {
         },
     },
     "18th century woman": {
-        'reward': "buttons",
-        'reward_amt': 3,
         'item_cap': "You have more things than me!",
         'quest_cap': "Woah, you're running around like crazy! get back to me later, mkay?",
         "quest_done": "I can finally see the rest of my sewing supplies!!",
@@ -822,14 +810,16 @@ def get_quests(npcs):
     quests = {}
 
     for npc in npcs:
-        c.execute("SELECT questName, questType, questDesc, questReq, questRequiredAmount FROM npc WHERE name = ?", (npc,))
+        c.execute("SELECT questName, questType, questDesc, questReq, questRequiredAmount, reward, reward_amt FROM npc WHERE name = ?", (npc,))
         quest_info = c.fetchone()
         quests[npc] = {
             'name': quest_info[0],
             'type': quest_info[1],
             'desc': quest_info[2],
             'fulfillment_requirement': quest_info[3],
-            'amount_required': quest_info[4]
+            'amount_required': quest_info[4],
+            'reward': quest_info[5],
+            'reward_amt': quest_info[6]
         }
 
     db.commit()

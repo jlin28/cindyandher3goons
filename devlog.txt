@@ -444,3 +444,9 @@ cindyL -- 2026-05-27 23:14
 * cape boolean added to user db 
 DESIGN DOC
 * db structures all updated
+
+carrieK -- 2026-05-27 23:39
+DIALOGUE
+* 18th century woman
+ITEMS
+* all item images added

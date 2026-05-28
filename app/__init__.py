@@ -72,6 +72,7 @@ c.execute("""CREATE TABLE IF NOT EXISTS encyclopedia(
 c.execute("""CREATE TABLE IF NOT EXISTS npc(
     name TEXT PRIMARY KEY,
     questName TEXT,
+    questDesc TEXT,
     questReq TEXT,
     questType TEXT,
     questRequiredAmount INTEGER
@@ -98,13 +99,13 @@ c.execute("""CREATE TABLE IF NOT EXISTS snowmen(
     FOREIGN KEY (player) references user(username)
     );
     """)
-c.execute("INSERT OR IGNORE INTO npc VALUES ('Sealius', 'a spark of inspiration', 'flowers', 'fetch', 5)")
-c.execute("INSERT OR IGNORE INTO npc VALUES ('Town Chief', 'a warm welcome', 'house', 'go', 1)")
-c.execute("INSERT OR IGNORE INTO npc VALUES ('Buntanist', 'a bunny''s cry for help', 'special powder', 'fetch', 1)")
-c.execute("INSERT OR IGNORE INTO npc VALUES ('Bobby', 'pebbles pebbles pebbles!', 'pebbles', 'fetch', 5)")
-c.execute("INSERT OR IGNORE INTO npc VALUES ('Mr. Cheddar', 'the former mobster''s request', 'apple pie recipe', 'fetch', 1)")
-c.execute("INSERT OR IGNORE INTO npc VALUES ('Daisy', 'a final farewell', 'flowers', 'fetch', 10)")
-c.execute("INSERT OR IGNORE INTO npc VALUES ('Mabel', 'just like the old days', 'apples', 'fetch', 25)")
+c.execute("INSERT OR IGNORE INTO npc VALUES ('Sealius', 'A Spark of Inspiration', 'Help Sealius out of his slump---though you don't even know why you''re doing this', 'flowers', 'fetch', 5)")
+c.execute("INSERT OR IGNORE INTO npc VALUES ('Town Chief', 'A Warm Welcome', 'Find the house the Town Chief set aside for you', 'house', 'go', 1)")
+c.execute("INSERT OR IGNORE INTO npc VALUES ('Buntanist', 'A Bunny''s Cry For Help', 'Save Buntanist''s plants!', 'special powder', 'fetch', 1)")
+c.execute("INSERT OR IGNORE INTO npc VALUES ('Bobby', 'Pebbles, Pebbles, Pebbles!', 'Find those pebbles! What''s so cool about pebbles anyways?', 'pebbles', 'fetch', 5)")
+c.execute("INSERT OR IGNORE INTO npc VALUES ('Mr. Cheddar', 'The Former Mobster''s request', 'A nice warm apple pie could warm anyone''s heart', 'apple pie recipe', 'fetch', 1)")
+c.execute("INSERT OR IGNORE INTO npc VALUES ('Daisy', 'A Final Farewell', 'She seemed quite agitated, better find those flowers before this whole place is flooded!', 'flowers', 'fetch', 10)")
+c.execute("INSERT OR IGNORE INTO npc VALUES ('Mabel', 'Just Like The Old Days', 'How are apples growing here anyways?', 'apples', 'fetch', 25)")
 db.commit()
 db.close()
 
@@ -736,6 +737,48 @@ def add_quest(npc_name, user):
     db.commit()
     db.close()
 
+def get_quests(npcs):
+    db = sqlite3.connect(DB_FILE)
+    c = db.cursor()
+
+    quests = {}
+
+    for npc in npcs:
+        c.execute("SELECT questName, questType, questDesc, questReq, questRequiredAmount FROM npc WHERE name = ?", (npc,))
+        quest_info = c.fetchone()
+        quests[npc] = {
+            'name': quest_info[0],
+            'type': quest_info[1],
+            'desc': quest_info[2],
+            'fulfillment_requirement': quest_info[3],
+            'amount_required': quest_info[4]
+        }
+
+    db.commit()
+    db.close()
+
+    return quests
+
+def complete_quest(npc, user):
+    db = sqlite3.connect(DB_FILE)
+    c = db.cursor()
+
+    c.execute("SELECT questName FROM npc WHERE name = ?", (npc,))
+    quest = c.fetchone()[0]
+
+    c.execute("SELECT questsActive FROM user WHERE username = ?", (user,))
+    questsActive = c.fetchone()[0]
+
+    c.execute("SELECT questsCompleted FROM user WHERE username = ?", (user,))
+    questsCompleted = c.fetchone()[0]
+
+    new_quests_active = questsActive.replace(f"&{quest}", '')
+    c.execute("UPDATE user SET questsActive = ? WHERE username = ?", (new_quests_active, user))
+    c.execute("UPDATE user SET questsCompleted = ? WHERE username = ?", (questsCompleted + f"&{quest}", user))
+
+    db.commit()
+    db.close()
+
 # return boolean reflecting whether the inventory is full
 def stash_to_inventory(username, item_name, item_number):
     db = sqlite3.connect(DB_FILE)
@@ -909,10 +952,23 @@ def game():
                 'quest_status': quest_status
             })
 
+        if body.get('type') == 'fetch_quests':
+            npcs = body.get('npcs')
+            quests = get_quests(npcs)
+
+            return jsonify( { 'quests': quests })
+
         if body.get('type') == 'add_quest':
             npc = body.get('npc')
             user = body.get('user')
             add_quest(npc, user)
+
+            return jsonify( { 'request': 'handled' })
+
+        if body.get('type') == 'complete_quest':
+            npc = body.get('npc')
+            user = body.get('user')
+            complete_quest(npc, user)
 
             return jsonify( { 'request': 'handled' })
 

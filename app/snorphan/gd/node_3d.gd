@@ -6,6 +6,7 @@ const Snowball:= preload("res://tscn/snowball.tscn")
 const Snowman:= preload("res://tscn/snowman.tscn")
 
 @onready var MultiplayerClient := get_tree().get_first_node_in_group('socket')
+@onready var quests_cont := get_tree().get_first_node_in_group('quests')
 
 func _unhandled_input(event: InputEvent) -> void:
 	if Input.is_action_just_pressed("build_snowman"):
@@ -45,6 +46,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		
 		elif player.item_interactable == true:
 			MultiplayerClient.add_item(player.current_interactable_item.label, 1)
+			quests_cont.update_quests_progress()
 
 		elif player.is_on_floor():
 			var snowball = Snowball.instantiate()

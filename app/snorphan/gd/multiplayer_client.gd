@@ -1,6 +1,7 @@
 extends Node
 
 @onready var dialogue_cont := get_tree().get_first_node_in_group('dialogue')
+@onready var quests_cont := get_tree().get_first_node_in_group('quests')
 @onready var inventory_cont := get_tree().get_first_node_in_group('inv')
 @onready var player := get_tree().get_first_node_in_group('player')
 
@@ -128,6 +129,9 @@ func handle_msg(data):
 		
 	elif msg_type == "fetch_inventory":
 		send_inventory(data)
+		
+	elif msg_type == "fetch_quests":
+		quests_cont.update_quests(data.quests)
 
 func send_username():
 	var data = {
@@ -230,6 +234,22 @@ func send_inventory(inv):
 func add_quest(npc):
 	var data = {
 		"type": "add_quest",
+		"npc": npc
+	}
+	
+	socket.send_text(JSON.stringify(data))
+
+func fetch_quests():
+	var data = {
+		"type": "fetch_quests",
+		"npcs": player.active_quests
+	}
+	
+	socket.send_text(JSON.stringify(data))
+	
+func complete_quest(npc):
+	var data = {
+		"type": "complete_quest",
 		"npc": npc
 	}
 	

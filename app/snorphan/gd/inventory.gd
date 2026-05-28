@@ -26,7 +26,17 @@ func get_item_icon(item_name):
 		
 func update_inventory(new_inv):
 	print("INVENTORY RECEIVED: ", new_inv)
-
+	player.full_inventory = false
+	
+	var current_items = {}
+	for key in new_inv:
+		var item = new_inv.get(key).get('item')
+		var count = new_inv.get(key).get('count')
+		
+		if item not in current_items:
+			current_items[item] = count
+			
+	player.current_items = current_items
 	for i in range(slots.size()):
 		var background = slots[i].get_child(0)
 		var image = background.get_node("Icon")
@@ -43,6 +53,7 @@ func update_inventory(new_inv):
 		print("slot ", i, " item=", item_name, " count=", count, " icon=", icon)
 		
 		if item_name == "" or count <= 0:
+			player.full_inventory = true
 			image.texture = null
 			image.visible = false 
 			label.text = ""

@@ -66,6 +66,7 @@ func play_dialogue():
 			player.active_quests.append(current_npc)
 			player.completion_status.append(0)
 			MultiplayerClient.add_quest(current_npc)
+			await get_tree().create_timer(0.3).timeout
 			quests_cont.change_quests.emit()
 		
 	dialogue_box.text = current_dialogue[current_dialogue_line].dialogue

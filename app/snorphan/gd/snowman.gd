@@ -10,6 +10,7 @@ extends StaticBody3D
 @onready var branch2 := %branch2
 
 @export var can_build = true
+@export var torso_in_place = false
 
 func _ready() -> void:
 	interactable_area.body_entered.connect(_on_entered)
@@ -32,6 +33,7 @@ func build(snowball):
 	elif !medium.visible and 'M' in snowball:
 		medium.visible = true
 		medium_collision.disabled = false
+		torso_in_place = true
 		return true
 	else:
 		return false

@@ -28,7 +28,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		elif player.current_held_item and 'stick' in player.current_held_item:
 			if player.snowman_in_vicinity:
 				var snowman = player.snowman_in_vicinity
-				if snowman.medium.visible:
+				if snowman.torso_in_place:
 					if !snowman.arms():
 						player.update_notification("That's enough arms...")
 	if Input.is_action_just_pressed("interact") and player.can_move:

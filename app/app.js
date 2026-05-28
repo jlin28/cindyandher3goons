@@ -48,7 +48,7 @@ ws.on('connection', function connect(client, req) {
 
   client.on('message', async message => {
     let data;
-    console.log(message.toString())
+
     try {
       data = JSON.parse(message.toString());
     } catch (err) {
@@ -147,7 +147,7 @@ ws.on('connection', function connect(client, req) {
       // let res = await fetch("http://127.0.0.1:5000/" + client.route, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json'},
-        body: JSON.stringify({ type: "fetch_quests", npcs: data.npcs })
+        body: JSON.stringify({ type: "fetch_quests", user: client.username })
       });
 
       let quests = await res.json()

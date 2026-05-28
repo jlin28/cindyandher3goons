@@ -830,20 +830,20 @@ def complete_quest(npc, user):
     c.execute("SELECT questsCompleted FROM user WHERE username = ?", (user,))
     questsCompleted = c.fetchone()[0]
 
-    questsActive_list = questsActive_list(user)
-    questsActive_list.remove(npc)
+    questsActive = questsActive_list(user)
+    questsActive.remove(npc)
 
-    if len(questsActive_list) > 0:
-        new_quests_active = "&".join(questsActive_list)
+    if len(questsActive) > 0:
+        new_quests_active = "&".join(questsActive)
     else:
         new_quests_active = ""
 
     c.execute("UPDATE user SET questsActive = ? WHERE username = ?", (new_quests_active, user))
 
     if questsCompleted != '':
-        c.execute("UPDATE user SET questsCompleted = ? WHERE username = ?", (questsCompleted + f"&{quest}", user))
+        c.execute("UPDATE user SET questsCompleted = ? WHERE username = ?", (questsCompleted + f"&{npc}", user))
     else:
-        c.execute("UPDATE user SET questsCompleted = ? WHERE username = ?", (quest, user))
+        c.execute("UPDATE user SET questsCompleted = ? WHERE username = ?", (npc, user))
 
     db.commit()
     db.close()
@@ -1067,7 +1067,7 @@ def game():
                 quests = get_quests(npcs)
             else:
                 quests = {}
-                
+
             return jsonify( { 'quests': quests })
 
         if body.get('type') == 'add_quest':

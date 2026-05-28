@@ -35,5 +35,14 @@ func build(snowball):
 		return true
 	else:
 		return false
-	
+
+func arms():
+	if branch2.visible:
+		return false
+	elif branch1.visible:
+		branch2.visible = true
+		return true
+	else:
+		branch1.visible = true
+		return true
 	

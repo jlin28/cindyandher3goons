@@ -29,12 +29,8 @@ func _unhandled_input(event: InputEvent) -> void:
 			if player.snowman_in_vicinity:
 				var snowman = player.snowman_in_vicinity
 				if snowman.medium.visible:
-					if snowman.branch2.visible:
+					if !snowman.arms():
 						player.update_notification("That's enough arms...")
-					elif snowman.branch1.visible:
-						snowman.branch2.visible = true
-					else:
-						snowman.branch1.visible = true
 	if Input.is_action_just_pressed("interact") and player.can_move:
 		if player.npc_interactable == true:
 			var dialogue_box = ui.get_child(1)

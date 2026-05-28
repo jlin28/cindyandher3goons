@@ -1,19 +1,42 @@
 [gd_scene format=3 uid="uid://cgt6u4s8vtx1u"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dv20j"]
-albedo_color = Color(0.17234163, 0.13775557, 0.048819967, 1)
+[ext_resource type="PackedScene" uid="uid://cka08rje6lukc" path="res://glb/randomly_spawned/branch.glb" id="1_28r6d"]
+[ext_resource type="Script" uid="uid://db41he6lsbkdo" path="res://gd/stick.gd" id="1_puqc1"]
+[ext_resource type="FontFile" uid="uid://cjvg0evcqc7yp" path="res://static/PeaberryDoublespace.ttf" id="2_puqc1"]
 
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_28r6d"]
-material = SubResource("StandardMaterial3D_dv20j")
-radius = 0.05
+[sub_resource type="BoxShape3D" id="BoxShape3D_jrlvp"]
+size = Vector3(1, 0.40551758, 2.616211)
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_jmarw"]
-radius = 0.05
+[sub_resource type="BoxShape3D" id="BoxShape3D_mdpqp"]
+size = Vector3(1.4174805, 1.0395508, 2.240326)
 
-[node name="Area3D" type="Area3D" unique_id=440019659]
+[node name="RigidBody3D" type="RigidBody3D" unique_id=489085763]
+linear_damp = 2.1
+script = ExtResource("1_puqc1")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=21449810]
-mesh = SubResource("CapsuleMesh_28r6d")
+[node name="Node3D" type="Node3D" parent="." unique_id=1556884133]
+transform = Transform3D(1.25, 0, 0, 0, 1.25, 0, 0, 0, 1.25, 0, -5.4872713, 0)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1853135139]
-shape = SubResource("CapsuleShape3D_jmarw")
+[node name="Label3D" type="Label3D" parent="Node3D" unique_id=54530025]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1.0116583, 0.048265696, 4.922655, 0.023157502)
+pixel_size = 0.01
+billboard = 1
+modulate = Color(0.86, 0.77471673, 0.7138, 1)
+text = "[e] to pick up"
+font = ExtResource("2_puqc1")
+font_size = 25
+outline_size = 5
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=978138933]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.009643555, -0.022949219)
+shape = SubResource("BoxShape3D_jrlvp")
+
+[node name="Area3D" type="Area3D" parent="." unique_id=1523617957]
+transform = Transform3D(1.75, 0, 0, 0, 1.75, 0, 0, 0, 1.75, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=2046604986]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0031738628, 0.27612305, -0.08473214)
+shape = SubResource("BoxShape3D_mdpqp")
+
+[node name="branch" parent="." unique_id=1738109089 instance=ExtResource("1_28r6d")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.036309958, -0.022592068, 0.6064623)

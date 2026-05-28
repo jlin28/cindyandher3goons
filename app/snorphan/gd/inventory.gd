@@ -7,6 +7,7 @@ extends MarginContainer
 @onready var labels := %item_labels.get_children()
 
 var snowball_icon = preload("res://static/items/snowball.png")
+var stick_icon = preload("res://static/items/stick.png")
 
 var inventory_index = -1
 	

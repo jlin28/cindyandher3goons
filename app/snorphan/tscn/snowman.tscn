@@ -39,19 +39,23 @@ shape = SubResource("SphereShape3D_nxjs2")
 
 [node name="medium_snowball" type="MeshInstance3D" parent="." unique_id=2089582539]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 1.492598, 0)
+visible = false
 mesh = SubResource("SphereMesh_26ndh")
 
 [node name="medium_snowball_collision" type="CollisionShape3D" parent="." unique_id=1813185147]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 1.492598, 0)
+visible = false
 shape = SubResource("SphereShape3D_nc2e1")
 disabled = true
 
 [node name="small_snowball" type="MeshInstance3D" parent="." unique_id=1745390539]
 transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 2.7330241, 0)
+visible = false
 mesh = SubResource("SphereMesh_0yc1c")
 
 [node name="small_snowball_collision" type="CollisionShape3D" parent="." unique_id=130173738]
 transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 2.7330241, 0)
+visible = false
 shape = SubResource("SphereShape3D_i22mi")
 disabled = true
 

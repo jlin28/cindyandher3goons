@@ -62,9 +62,11 @@ transform = Transform3D(4.5, 0, 0, 0, 4.5, 0, 0, 0, 4.5, 0, 0, 0)
 shape = SubResource("CapsuleShape3D_ioflu")
 
 [node name="branch" parent="." unique_id=2083277656 instance=ExtResource("2_gul2m")]
+unique_name_in_owner = true
 transform = Transform3D(0.11552417, -0.09308098, -0.20122151, -0.20600776, 0.038797278, -0.13621885, 0.08194492, 0.22875905, -0.058773533, 1.0635176, 1.6846035, 0.3245256)
 visible = false
 
 [node name="branch2" parent="." unique_id=223746025 instance=ExtResource("2_gul2m")]
+unique_name_in_owner = true
 transform = Transform3D(-0.008343379, 0.15883103, 0.19288099, 0.16624118, 0.14760326, -0.114355326, -0.18653221, 0.124442644, -0.11054306, -0.9498009, 1.6846035, 0.47885907)
 visible = false

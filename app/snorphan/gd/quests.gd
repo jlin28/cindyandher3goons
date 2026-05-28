@@ -49,23 +49,25 @@ func update_quests(active_quests):
 		quest_boxes[remaining_box].visible = false
 
 func update_current_progress(quest, quest_info_cont, current_quest_progress):
-	if quest.fulfillment_requirement in player.current_items:
-		if quest.amount_required == player.current_items[quest.fulfillment_requirement]:
-			quest_info_cont.get_node(^"quest_req").text = 'COMPLETED'
-			quest_info_cont.get_node(^"quest_req").modulate = Color('#70ff83')
-			
-			current_quest_progress.text = ''
-			quest_info_cont.get_node(^"HBoxContainer/quest_required_progress").text = ''
-			
-			return true
-		else:
-			quest_info_cont.get_node(^"quest_req").text = quest.fufillment_requirement
-			quest_info_cont.get_node(^"quest_req").modulate = Color('#ffffff')
-			
-			current_quest_progress.text = player.current_items[quest.fulfillment_requirement]
-			quest_info_cont.get_node(^"HBoxContainer/quest_required_progress").text = str(quest.amount_required)
-			
-			return false
+	if player.current_items == null:
+		return false
+	
+	var req = quest.get('fulfillment_requirement')
+	var required = quest.get('amount_required')
+	var current = player.current_items.get(req, 0) 
+	
+	if current >= required:
+		quest_info_cont.get_node(^"quest_req").text = 'COMPLETED'
+		quest_info_cont.get_node(^"quest_req").modulate = Color('#70ff83')
+		current_quest_progress.text = ''
+		quest_info_cont.get_node(^"HBoxContainer/quest_required_progress").text = ''
+		return true
+	else:
+		quest_info_cont.get_node(^"quest_req").text = req.replace('_', ' ') 
+		quest_info_cont.get_node(^"quest_req").modulate = Color('#ffffff')
+		current_quest_progress.text = str(current)
+		quest_info_cont.get_node(^"HBoxContainer/quest_required_progress").text = str(required)
+		return false
 			
 func update_quests_progress():
 	if current_quests:

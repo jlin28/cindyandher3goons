@@ -34,7 +34,7 @@ func play_dialogue():
 	if not current_dialogue_line:
 		current_dialogue_line = quest_status
 	
-	if quests_cont.current_quests and current_npc in quests_cont.current_quests:
+	if current_npc in player.active_quests:
 		var quest = quests_cont.current_quests[current_npc]
 		if player.completion_status[player.active_quests.index(current_npc)] == 1:
 			var item_to_be_taken = quest.get('fulfillment_requirement')
@@ -66,8 +66,6 @@ func play_dialogue():
 			player.active_quests.append(current_npc)
 			player.completion_status.append(0)
 			MultiplayerClient.add_quest(current_npc)
-			await get_tree().create_timer(0.3).timeout
-			quests_cont.change_quests.emit()
 		
 	dialogue_box.text = current_dialogue[current_dialogue_line].dialogue
 	dialogue_box.visible_characters = 0

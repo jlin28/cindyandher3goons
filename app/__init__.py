@@ -28,6 +28,7 @@ c.execute("""CREATE TABLE IF NOT EXISTS user(
     item6Count INTEGER,
     questsCompleted TEXT,
     questsActive TEXT,
+    cape BOOLEAN,
     FOREIGN KEY (item1) references item(name),
     FOREIGN KEY (item2) references item(name),
     FOREIGN KEY (item3) references item(name),
@@ -99,7 +100,7 @@ c.execute("""CREATE TABLE IF NOT EXISTS snowmen(
     FOREIGN KEY (player) references user(username)
     );
     """)
-c.execute("INSERT OR IGNORE INTO npc VALUES ('Sealius', 'A Spark of Inspiration', 'Help Sealius out of his slump---though you don't even know why you''re doing this', 'flowers', 'fetch', 5)")
+c.execute("INSERT OR IGNORE INTO npc VALUES ('Sealius', 'A Spark of Inspiration', 'Help Sealius out of his slump---though you don''t even know why you''re doing this', 'flowers', 'fetch', 5)")
 c.execute("INSERT OR IGNORE INTO npc VALUES ('Town Chief', 'A Warm Welcome', 'Find the house the Town Chief set aside for you', 'house', 'go', 1)")
 c.execute("INSERT OR IGNORE INTO npc VALUES ('Buntanist', 'A Bunny''s Cry For Help', 'Save Buntanist''s plants!', 'special powder', 'fetch', 1)")
 c.execute("INSERT OR IGNORE INTO npc VALUES ('Bobby', 'Pebbles, Pebbles, Pebbles!', 'Find those pebbles! What''s so cool about pebbles anyways?', 'pebbles', 'fetch', 5)")
@@ -929,7 +930,7 @@ def register():
         else:
             db = sqlite3.connect(DB_FILE)
             c = db.cursor()
-            c.execute("INSERT into user VALUES (?, ?, 100, 100, '', '', '', '', '', '', 0, 0, 0, 0, 0, 0, '', '')", (username, password))
+            c.execute("INSERT into user VALUES (?, ?, 100, 100, '', '', '', '', '', '', 0, 0, 0, 0, 0, 0, '', '', FALSE)", (username, password))
             db.commit()
             db.close()
             session['username'] = username

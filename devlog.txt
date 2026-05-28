@@ -427,7 +427,7 @@ DIALOGUE
 * mr. cheddar
 
 cindyL -- 2026-05-26 11:00
-*snoeman db update + one snowman fxn
+* snoeman db update + one snowman fxn
 
 carrieK -- 2026-05-26 11:00
 DIALOGUE
@@ -436,3 +436,11 @@ DIALOGUE
 carrieK -- 2026-05-26 21:19
 DIALOGUE
 * npc db done
+
+joyceL -- 2026-05-27 23:04
+* misc. godot cindy cannot describe
+
+cindyL -- 2026-05-27 23:14
+* cape boolean added to user db 
+DESIGN DOC
+* db structures all updated

@@ -8,6 +8,7 @@ extends MarginContainer
 
 @onready var MultiplayerClient := get_tree().get_first_node_in_group('socket')
 @onready var player := get_tree().get_first_node_in_group('player')
+@onready var quests_cont := get_tree().get_first_node_in_group('quests')
 
 @export var current_dialogue_line = null
 @export var current_dialogue = null
@@ -35,16 +36,20 @@ func play_dialogue():
 	
 	if current_npc in player.active_quests:
 		if player.completion_status[player.active_quests.index(current_npc)] == 1:
-			current_dialogue_line = 'quest_completed'
-			
-			player.completion_status.remove_at(player.active_quests.index(current_npc))
-			player.completion_status.erase(current_npc)
-			add_quest_to_completed(current_npc)
+			MultiplayerClient.remove_item(player.active_quests[current_npc].get('fulfillment_requirement'), player.active_quests[current_npc].get('amount_required'))
+			player.inventory_update.emit()
 			
 			if player.full_inventory:
 				current_dialogue_line = 'quest_cap'
-			#else:
-				#add_item()
+			else:
+				current_dialogue_line = 'quest_completed'
+			
+				player.completion_status.remove_at(player.active_quests.index(current_npc))
+				player.completion_status.erase(current_npc)
+				add_quest_to_completed(current_npc)
+				
+				MultiplayerClient.add_item(player.active_quests[current_npc].get('reward'), player.active_quests[current_npc].get('reward_amt'))
+				quests_cont.change_quests.emit()
 		else:
 			current_dialogue_line = 'quest_in_progress'
 	else:

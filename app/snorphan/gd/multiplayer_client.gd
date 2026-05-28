@@ -221,6 +221,15 @@ func add_item(item, quantity):
 	
 	socket.send_text(JSON.stringify(data))
 	
+func remove_item(item, quantity):
+	var data = {
+		"type": "remove_item",
+		"item": item,
+		"quantity": quantity
+	}
+	
+	socket.send_text(JSON.stringify(data))
+	
 func fetch_inventory():
 	var data = {
 		"type": "fetch_inventory",

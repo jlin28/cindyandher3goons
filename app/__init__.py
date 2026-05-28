@@ -48,16 +48,16 @@ c.execute("""CREATE TABLE IF NOT EXISTS item(
 c.execute("INSERT OR IGNORE INTO item VALUES ('button', 'buttons that supposedly can''t be emptied. you wonder if you can get them out of your bag now that they''re in it...', '', 3)") #model
 c.execute("INSERT OR IGNORE INTO item VALUES ('carrot', 'the lifes work of an aspiring botanist. it looks incredibly crunchy and irresistably tasty, taking everything in you just to not take a bite.', '', 1)") #model
 c.execute("INSERT OR IGNORE INTO item VALUES ('hat', 'a mobsters old top hat. it remarkably still looks brand new, a clear sign of love and care.', '', 1)") #model
-c.execute("INSERT OR IGNORE INTO item VALUES ('red scarf', 'a scarf knitted by someone''s grandma. it''s fuzzy, warm and made with lots of love.', '', 1)") #model
-c.execute("INSERT OR IGNORE INTO item VALUES ('apple pie recipe', 'grandmas apple pie recipe. just looking at it makes your mouth water as you imagine the aroma and taste.', '', 1)")
-c.execute("INSERT OR IGNORE INTO item VALUES ('ice sculpture', 'sculpture made of ice in the image of sealius. it carries a strange aura. who knew he was hiding this talent all along?', '', 1)")
-c.execute("INSERT OR IGNORE INTO item VALUES ('old plushie', 'a plushie worn out from years of love and hugs. a token of gratitude from a small child in hopes it will bring you the same joy.', '', 1)")
+c.execute("INSERT OR IGNORE INTO item VALUES ('red_scarf', 'a scarf knitted by someone''s grandma. it''s fuzzy, warm and made with lots of love.', '', 1)") #model
+c.execute("INSERT OR IGNORE INTO item VALUES ('apple_pie_recipe', 'grandmas apple pie recipe. just looking at it makes your mouth water as you imagine the aroma and taste.', '', 1)")
+c.execute("INSERT OR IGNORE INTO item VALUES ('ice_sculpture', 'sculpture made of ice in the image of sealius. it carries a strange aura. who knew he was hiding this talent all along?', '', 1)")
+c.execute("INSERT OR IGNORE INTO item VALUES ('old_plushie', 'a plushie worn out from years of love and hugs. a token of gratitude from a small child in hopes it will bring you the same joy.', '', 1)")
 c.execute("INSERT OR IGNORE INTO item VALUES ('stick', 'a brown stick. its very sticky and looks like a stick. perhaps the most stick stick youve ever sticked.', '', 99)") #model
-c.execute("INSERT OR IGNORE INTO item VALUES ('slightly worn out cape', 'a welcoming gift from the village chief. he hopes it will keep you warm in this frosty climate.', '', 1)") #model
+c.execute("INSERT OR IGNORE INTO item VALUES ('slightly_worn_out_cape', 'a welcoming gift from the village chief. he hopes it will keep you warm in this frosty climate.', '', 1)") #model
 c.execute("INSERT OR IGNORE INTO item VALUES ('flowers', 'flowers that you plucked fresh from the snow. they come in an assortment of colors, each with a slightly different scent.', '', 10)") #model
 c.execute("INSERT OR IGNORE INTO item VALUES ('pebbles', 'ooh pebble.... round, smooth, shiny pebbles...... so round... so smooth... so shiny...', '', 99)") #model
 c.execute("INSERT OR IGNORE INTO item VALUES ('apples', 'fresh(?), plump, juicy round red apples. you found them on the floor, but they look suspiciously pristine....', '', 99)") #model
-c.execute("INSERT OR IGNORE INTO item VALUES ('special powder', 'powder you found at the top of the mountain peaks. it''s rumored to be a legendary fertilizer but looks suspiciously white and powdery, like something else you know...', '', 1)") #model oops
+c.execute("INSERT OR IGNORE INTO item VALUES ('special_powder', 'powder you found at the top of the mountain peaks. it''s rumored to be a legendary fertilizer but looks suspiciously white and powdery, like something else you know...', '', 1)") #model oops
 c.execute("INSERT OR IGNORE INTO item VALUES ('snowball_S', 'a small bundle of joy.', '', 99)")
 c.execute("INSERT OR IGNORE INTO item VALUES ('snowball_M', 'a bundle of joy.', '', 99)")
 c.execute("INSERT OR IGNORE INTO item VALUES ('snowball_L', 'a big fat bundle of joy.', '', 99)")
@@ -913,6 +913,41 @@ def stash_to_inventory(username, item_name, item_number):
     db.close()
     return False
 
+def remove_from_inventory(username, item, amt):
+    db = sqlite3.connect(DB_FILE)
+    c = db.cursor()
+
+    c.execute("""SELECT
+        item1,
+        item2,
+        item3,
+        item4,
+        item5,
+        item6
+        FROM user WHERE username = ?""", (username,))
+    items = c.fetchone()
+
+    item_index = items.index(item) + 1
+    c.execute(f"SELECT item{item_index}Count FROM user WHERE username = ?", (username,))
+    current_item_count = c.fetchone()[0]
+
+    if current_item_count - amt == 0:
+        while item_index < 6:
+            c.execute(f"SELECT item{item_index+1}Count FROM user WHERE username = ?", (username,))
+            next_item_count = c.fetchone()[0]
+
+            c.execute(f"SELECT item{item_index+1} FROM user WHERE username = ?", (username,))
+            next_item = c.fetchone()[0]
+
+            c.execute(f"UPDATE user SET item{item_index} = ? WHERE username = ?", (next_item, username))
+            c.execute(f"UPDATE user SET item{item_index}Count = ? WHERE username = ?", (next_item_count, username))
+
+            item_index += 1
+        c.execute("UPDATE user SET item6 = ? WHERE username = ?", ('', username))
+        c.execute("UPDATE user SET item6Count = ? WHERE username = ?", (0, username))
+    else:
+        c.execute(f"UPDATE user SET item{item_index}Count = ? WHERE username = ?", (current_item_count - amt, username))
+
 def fetch_inventory(username):
     db = sqlite3.connect(DB_FILE)
     c = db.cursor()
@@ -1046,6 +1081,14 @@ def game():
             quantity = body.get('quantity')
 
             return jsonify(stash_to_inventory(user, item, quantity))
+
+        if body.get('type') == 'remove_item':
+            user = body.get('user')
+            item = body.get('item')
+            quantity = body.get('quantity')
+
+            remove_from_inventory(user, item, quantity)
+            return jsonify( { 'request': 'handled' })
 
         if body.get('type') == 'fetch_inventory':
             user = body.get('user')

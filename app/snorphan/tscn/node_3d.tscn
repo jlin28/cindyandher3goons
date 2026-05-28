@@ -39,6 +39,9 @@ sky_material = SubResource("ShaderMaterial_i5arm")
 background_mode = 2
 sky = SubResource("Sky_wc5p8")
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_r8j7b"]
+size = Vector3(7.486664, 3.1812744, 3.5090942)
+
 [sub_resource type="Curve" id="Curve_eu483"]
 _data = [Vector2(0.015936255, 1), 0.0, 0.0, 0, 0, Vector2(0.90438247, 0.13260138), -1.5113069, -1.5113069, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
 point_count = 3
@@ -158,6 +161,13 @@ transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -21.633549, -12.761167,
 
 [node name="house5" parent="buildings" unique_id=1932267710 instance=ExtResource("10_oycpi")]
 transform = Transform3D(-1.4992872, 0, 0.04622637, 0, 1.4999998, 0, -0.04622637, 0, -1.4992872, -28.617062, -12.466211, 154.90955)
+
+[node name="chief_quest_Area3D" type="Area3D" parent="buildings/house5" unique_id=519607158]
+unique_name_in_owner = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="buildings/house5/chief_quest_Area3D" unique_id=1189858005]
+transform = Transform3D(1, 0, -5.9231974e-07, 0, 1, 0, 5.9231974e-07, 0, 1, -0.14878845, -1.8954334, 4.4525223)
+shape = SubResource("BoxShape3D_r8j7b")
 
 [node name="house3" parent="buildings" unique_id=678245804 instance=ExtResource("10_oycpi")]
 transform = Transform3D(1.4999658, 0, -0.010131666, 0, 1.5, 0, 0.010131666, 0, 1.4999658, 172.12843, -12.466211, -7.5569)

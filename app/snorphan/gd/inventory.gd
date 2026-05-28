@@ -26,7 +26,7 @@ func get_item_icon(item_name):
 		
 func update_inventory(new_inv):
 	print("INVENTORY RECEIVED: ", new_inv)
-	player.full_inventory = false
+	player.full_inventory = true
 	
 	var current_items = {}
 	for key in new_inv:
@@ -53,7 +53,7 @@ func update_inventory(new_inv):
 		print("slot ", i, " item=", item_name, " count=", count, " icon=", icon)
 		
 		if item_name == "" or count <= 0:
-			player.full_inventory = true
+			player.full_inventory = false
 			image.texture = null
 			image.visible = false 
 			label.text = ""

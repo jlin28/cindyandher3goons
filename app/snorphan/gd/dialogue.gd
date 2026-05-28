@@ -34,21 +34,25 @@ func play_dialogue():
 	if not current_dialogue_line:
 		current_dialogue_line = quest_status
 	
-	if current_npc in player.active_quests:
+	if current_npc in quests_cont.current_quests:
+		var quest = quests_cont.current_quests[current_npc]
 		if player.completion_status[player.active_quests.index(current_npc)] == 1:
-			MultiplayerClient.remove_item(player.active_quests[current_npc].get('fulfillment_requirement'), player.active_quests[current_npc].get('amount_required'))
-			player.inventory_update.emit()
-			
-			if player.full_inventory:
+			var item_to_be_taken = quest.get('fulfillment_requirement')
+			var amount_to_be_taken = quest.get('amount_required')
+			var current_amount = player.current_items[item_to_be_taken]
+			if player.full_inventory and current_amount - amount_to_be_taken != 0:
 				current_dialogue_line = 'quest_cap'
 			else:
 				current_dialogue_line = 'quest_completed'
 			
 				player.completion_status.remove_at(player.active_quests.index(current_npc))
-				player.completion_status.erase(current_npc)
+				player.active_quests.erase(current_npc)
 				add_quest_to_completed(current_npc)
 				
-				MultiplayerClient.add_item(player.active_quests[current_npc].get('reward'), player.active_quests[current_npc].get('reward_amt'))
+				MultiplayerClient.remove_item(item_to_be_taken, amount_to_be_taken)
+				player.inventory_update.emit()
+				
+				MultiplayerClient.add_item(quest.get('reward'), quest.get('reward_amt'))
 				quests_cont.change_quests.emit()
 		else:
 			current_dialogue_line = 'quest_in_progress'

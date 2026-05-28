@@ -109,7 +109,7 @@ c.execute("INSERT OR IGNORE INTO npc VALUES ('Bobby', 'Pebbles, Pebbles, Pebbles
 c.execute("INSERT OR IGNORE INTO npc VALUES ('Mr. Cheddar', 'The Former Mobster''s request', 'A nice warm apple pie could warm anyone''s heart', 'apple_pie_recipe', 'fetch', 1,'hat',1)")
 c.execute("INSERT OR IGNORE INTO npc VALUES ('Daisy', 'A Final Farewell', 'She seemed quite agitated, better find those flowers before this whole place is flooded!', 'flowers', 'fetch', 10,'red_scarf', 1)")
 c.execute("INSERT OR IGNORE INTO npc VALUES ('Mabel', 'Just Like The Old Days', 'How are apples growing here anyways?', 'apples', 'fetch', 25,'apple_pie_recipe', 1)")
-c.execute("INSERT OR IGNORE INTO npc VALUES ('18th century woman', 'Buttons..?', 'She seems to have many buttons for you...', '', 'wait', 1,'button', 3)")
+c.execute("INSERT OR IGNORE INTO npc VALUES ('18th Century Woman', 'Buttons..?', 'She seems to have many buttons for you...', '', 'wait', 1,'button', 3)")
 db.commit()
 db.close()
 
@@ -515,8 +515,6 @@ npc_dialogue = {
         },
     },
     "Daisy": {
-        'reward': "red scarf",
-        'reward_amt': 1,
         'item_cap': {
             'dialogue': "*sniff* your bag... *sniff*",
             'dialogue_options': {}
@@ -568,8 +566,6 @@ npc_dialogue = {
         }
     },
     "Mabel": {
-        'reward': "apple pie recipe",
-        'reward_amt': 1,
         'item_cap': {
             'dialogue': "Oh my, I don't think you can hold any more things!",
             'dialogue_options': {}
@@ -628,10 +624,19 @@ npc_dialogue = {
             'dialogue_options': {}
         },
     },
-    "18th century woman": {
-        'item_cap': "You have more things than me!",
-        'quest_cap': "Woah, you're running around like crazy! get back to me later, mkay?",
-        "quest_done": "I can finally see the rest of my sewing supplies!!",
+    "18th Century Woman": {
+        'item_cap': {
+            'dialogue': "You have more things than me!",
+            'dialogue_options': {}
+        },
+        'quest_cap': {
+            'dialogue': "Woah, you're running around like crazy! Get back to me later, mkay?",
+            'dialogue_options': {}
+        },
+        'quest_done': {
+            'dialogue': "I can finally see the rest of my sewing supplies!!",
+            'dialogue_options': {}
+        },
         'quest_in_progress': {
             'dialogue_type': "normal",
             'dialogue': "",
@@ -639,7 +644,7 @@ npc_dialogue = {
         },
         'quest_completed': {
             'dialogue_type': "normal",
-            'dialogue': "Heres the buttons i promised you!",
+            'dialogue': "Here are the buttons I promised you!",
             'dialogue_options': {}
         },
         'quest_inactive': {
@@ -658,7 +663,7 @@ npc_dialogue = {
         },
         'B': {
             'dialogue_type': "normal",
-            'dialogue': "I have so many buttons i can't get to the rest of my sewing supplies! how am i supposed to sew without supplies?????",
+            'dialogue': "I have so many buttons I can't seem to get to the rest of my sewing supplies! How am I supposed to sew without supplies?????",
             'dialogue_options': {
                 "Well, you could dump them out...": "E",
                 "I'll take some from you!" : "A",
@@ -782,8 +787,8 @@ def npc_questStatus(npc_name, user):
     db.close()
     if quest_name in questsActive_list(user):
         return 'quest_in_progress'
-    elif quest_name[0] in questsCompleted_list(user):
-        return 'quest_completed'
+    elif quest_name in questsCompleted_list(user):
+        return 'quest_done'
     return 'quest_inactive'
 
 # return string describing status of quest given npc name
@@ -840,9 +845,20 @@ def complete_quest(npc, user):
     c.execute("SELECT questsCompleted FROM user WHERE username = ?", (user,))
     questsCompleted = c.fetchone()[0]
 
-    new_quests_active = questsActive.replace(f"&{quest}", '')
+    questsActive_list = questsActive.split("&")
+    questsActive_list.remove(quest)
+
+    if len(questsActive_list) > 0:
+        new_quests_active = "&".join(questsActive_list)
+    else:
+        new_quests_active = ""
+
     c.execute("UPDATE user SET questsActive = ? WHERE username = ?", (new_quests_active, user))
-    c.execute("UPDATE user SET questsCompleted = ? WHERE username = ?", (questsCompleted + f"&{quest}", user))
+
+    if questsCompleted != '':
+        c.execute("UPDATE user SET questsCompleted = ? WHERE username = ?", (questsCompleted + f"&{quest}", user))
+    else:
+        c.execute("UPDATE user SET questsCompleted = ? WHERE username = ?", (quest, user))
 
     db.commit()
     db.close()
@@ -947,6 +963,9 @@ def remove_from_inventory(username, item, amt):
         c.execute("UPDATE user SET item6Count = ? WHERE username = ?", (0, username))
     else:
         c.execute(f"UPDATE user SET item{item_index}Count = ? WHERE username = ?", (current_item_count - amt, username))
+
+    db.commit()
+    db.close()
 
 def fetch_inventory(username):
     db = sqlite3.connect(DB_FILE)

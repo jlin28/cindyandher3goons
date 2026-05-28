@@ -4,7 +4,7 @@ extends VBoxContainer
 @onready var MultiplayerClient := get_tree().get_first_node_in_group('socket')
 @onready var player := get_tree().get_first_node_in_group('player')
 
-var current_quests = null
+@export var current_quests = null
 
 signal change_quests
 

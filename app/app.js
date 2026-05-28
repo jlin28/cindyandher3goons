@@ -150,7 +150,7 @@ ws.on('connection', function connect(client, req) {
         body: JSON.stringify({ type: "fetch_quests", user: client.username })
       });
 
-      let quests = await res.json()
+      let result = await res.json()
       send(
         client, {
           type: "fetch_quests",

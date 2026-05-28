@@ -35,6 +35,12 @@ func play_dialogue():
 		current_dialogue_line = quest_status
 	
 	if current_npc in player.active_quests:
+		var idx = player.active_quests.index(current_npc)
+		print("completion_status: ", player.completion_status)
+		print("idx: ", idx)
+		print("status at idx: ", player.completion_status[idx])
+		print("full_inventory: ", player.full_inventory)
+		print("current_items: ", player.current_items)
 		var quest = quests_cont.current_quests[current_npc]
 		if player.completion_status[player.active_quests.find(current_npc)] == 1:
 			var item_to_be_taken = quest.get('fulfillment_requirement')

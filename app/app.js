@@ -114,6 +114,12 @@ ws.on('connection', function connect(client, req) {
         headers: { 'Content-Type': 'application/json'},
         body: JSON.stringify({ type: "add_quest", npc: data.npc, user: client.username})
       });
+
+      send(
+        client, {
+          type: "add_item"
+        }
+      )
     }
 
     if (data.type === "add_item") {

@@ -133,7 +133,10 @@ func handle_msg(data):
 		
 	elif msg_type == "fetch_quests":
 		quests_cont.update_quests(data.quests)
-
+		
+	elif msg_type == "add_quest":
+		quests_cont.change_quests.emit()
+		
 func send_username():
 	var data = {
 		"type": "set_username",

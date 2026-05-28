@@ -123,6 +123,10 @@ func update_inventory(new_inv):
 			label.offset_top = 12
 			label.offset_right = -2
 			label.offset_bottom = -1
+		
+	var quests_cont = get_tree().get_first_node_in_group('quests')
+	if quests_cont and quests_cont.current_quests:
+		quests_cont.update_quests_progress()
 	
 func _unhandled_input(event: InputEvent) -> void:
 	# M3 Wheel Up --> inv goes from 1 to 6

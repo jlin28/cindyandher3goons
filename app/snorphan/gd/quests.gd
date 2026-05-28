@@ -36,7 +36,7 @@ func update_quests(active_quests):
 		info_cont.get_node(^"quest_desc").text = "- %s" % quest.get('desc')
 
 		if quest.get('type') == 'fetch':
-			update_current_progress(quest, info_cont, second_info_cont.get_node(^"HBoxContainer/quest_current_progress"))
+			update_current_progress(quest, second_info_cont, second_info_cont.get_node(^"HBoxContainer/quest_current_progress"))
 
 		current_quest_box.visible = true
 		i += 1
@@ -75,6 +75,6 @@ func update_quests_progress():
 				var info_cont = current_quest_box.get_node(^'MarginContainer/VBoxContainer')
 				var second_info_cont = info_cont.get_node(^'HBoxContainer')
 
-				if update_current_progress(quest, info_cont, second_info_cont.get_node(^"HBoxContainer/quest_current_progress")):
+				if update_current_progress(quest, second_info_cont, second_info_cont.get_node(^"HBoxContainer/quest_current_progress")):
 					player.completion_status[i] = 1
 			i += 1

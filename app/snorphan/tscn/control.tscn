@@ -1,16 +1,16 @@
 [gd_scene format=3 uid="uid://cxo150m2m6bob"]
 
-[ext_resource type="Script" uid="uid://b1gfio04fwxhi" path="res://gd/inventory.gd" id="1_mmuml"]
-[ext_resource type="Texture2D" uid="uid://bw4pqk3x14f5n" path="res://static/sprite_sheet.png" id="1_vpxtf"]
-[ext_resource type="Script" uid="uid://s34gaogg8s4i" path="res://gd/close_quests.gd" id="2_2mfya"]
-[ext_resource type="FontFile" uid="uid://pmi7qj0fh53v" path="res://static/PeaberryDoublespace.ttf" id="2_y35ns"]
-[ext_resource type="Script" uid="uid://uq3o7oa4eti" path="res://gd/settings.gd" id="2_ykr62"]
-[ext_resource type="Script" uid="uid://dye1tiypsaay6" path="res://gd/open_quests.gd" id="4_6yxn8"]
-[ext_resource type="Script" uid="uid://d3ss06331ic7q" path="res://gd/dialogue.gd" id="5_6mujo"]
-[ext_resource type="Script" uid="uid://digaxfgtigrwh" path="res://gd/dgbutton.gd" id="6_1akbr"]
-[ext_resource type="Script" uid="uid://bosqim1l2soaf" path="res://gd/quests.gd" id="6_8i35t"]
-[ext_resource type="Script" uid="uid://8b5fyjuw62nv" path="res://gd/options.gd" id="6_dd40b"]
-[ext_resource type="Script" uid="uid://vsgdnaj0o6c5" path="res://gd/close_settings.gd" id="9_tw3h4"]
+[ext_resource type="Script" uid="uid://bwa44xskogq58" path="res://gd/inventory.gd" id="1_mmuml"]
+[ext_resource type="Texture2D" uid="uid://c7owgffciyof0" path="res://static/sprite_sheet.png" id="1_vpxtf"]
+[ext_resource type="Script" uid="uid://ccvciv4awmrty" path="res://gd/close_quests.gd" id="2_2mfya"]
+[ext_resource type="FontFile" uid="uid://cjvg0evcqc7yp" path="res://static/PeaberryDoublespace.ttf" id="2_y35ns"]
+[ext_resource type="Script" uid="uid://bgcmwa750v7qy" path="res://gd/settings.gd" id="2_ykr62"]
+[ext_resource type="Script" uid="uid://ddxr4i33xhnew" path="res://gd/open_quests.gd" id="4_6yxn8"]
+[ext_resource type="Script" uid="uid://kxk0iw7qdyup" path="res://gd/dialogue.gd" id="5_6mujo"]
+[ext_resource type="Script" uid="uid://dqauae4kyv8y5" path="res://gd/dgbutton.gd" id="6_1akbr"]
+[ext_resource type="Script" uid="uid://bbcc086k6ux2i" path="res://gd/quests.gd" id="6_8i35t"]
+[ext_resource type="Script" uid="uid://444n1xmygkoi" path="res://gd/options.gd" id="6_dd40b"]
+[ext_resource type="Script" uid="uid://dw0rw8i8fmy12" path="res://gd/close_settings.gd" id="9_tw3h4"]
 [ext_resource type="Script" uid="uid://chq8goy7bvsau" path="res://gd/settings_menu.gd" id="10_6nd6i"]
 [ext_resource type="Script" uid="uid://bw0ucpjxwy4b2" path="res://gd/logout.gd" id="10_s2oxt"]
 [ext_resource type="AudioStream" uid="uid://d1byqytsn011y" path="res://static/Music/bgm.mp3" id="12_6nd6i"]
@@ -1203,6 +1203,7 @@ layout_mode = 2
 unique_name_in_owner = true
 stream = ExtResource("12_6nd6i")
 autoplay = true
+bus = &"Music"
 
 [node name="MarginContainer4" type="MarginContainer" parent="settings/MarginContainer/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer" unique_id=763017179]
 custom_minimum_size = Vector2(0, 10)

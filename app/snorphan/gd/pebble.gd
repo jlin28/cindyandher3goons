@@ -1,7 +1,7 @@
 extends RigidBody3D
 
 @onready var collision_shape = $CollisionShape3D
-@onready var mesh = $branch
+@onready var mesh = $MeshInstance3D
 @onready var interactable_area := $Area3D
 @onready var interactable_notification := $Node3D
 

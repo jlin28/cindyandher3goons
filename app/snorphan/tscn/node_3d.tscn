@@ -23,7 +23,7 @@
 [ext_resource type="PackedScene" uid="uid://bbimhd08nimjl" path="res://glb/nature/tree.glb" id="20_byo66"]
 [ext_resource type="PackedScene" uid="uid://1rpnxp7kobid" path="res://glb/nature/bush2.glb" id="21_oem1t"]
 [ext_resource type="PackedScene" uid="uid://12nogel3il20" path="res://glb/nature/bush.glb" id="22_vwbxu"]
-[ext_resource type="Script" uid="uid://dx7ynse4pubbh" path="res://gd/stick.gd" id="24_r8j7b"]
+[ext_resource type="Script" uid="uid://dx7ynse4pubbh" path="res://gd/spawner.gd" id="24_r8j7b"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_i5arm"]
 shader = ExtResource("5_jka67")
@@ -759,14 +759,14 @@ transform = Transform3D(-0.42643845, 0, -1.1750104, 0, 1.2499995, 0, 1.1750104, 
 [node name="bush18" parent="decoration/bushes" unique_id=704764464 instance=ExtResource("22_vwbxu")]
 transform = Transform3D(0.41635358, 0, -1.178622, 0, 1.2499996, 0, 1.178622, 0, 0.41635358, 42.489845, -17.100573, -2.5345826)
 
-[node name="stick_plane" type="MeshInstance3D" parent="." unique_id=70407815]
+[node name="spawner_plane" type="MeshInstance3D" parent="." unique_id=70407815]
 unique_name_in_owner = true
 transform = Transform3D(0.9999995, -0.0001642353, 0.00096911937, 0.00016350397, 0.9999997, 0.00075467175, -0.00096924306, -0.00075451296, 0.9999992, 0, 0, 0)
 cast_shadow = 0
 gi_mode = 0
 mesh = SubResource("PlaneMesh_vwbxu")
 
-[node name="stick_spawner" type="Node3D" parent="." unique_id=440201048]
+[node name="spawner" type="Node3D" parent="." unique_id=440201048]
 script = ExtResource("24_r8j7b")
 
 [editable path="landscape"]

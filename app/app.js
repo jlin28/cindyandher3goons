@@ -154,7 +154,7 @@ ws.on('connection', function connect(client, req) {
       send(
         client, {
           type: "fetch_quests",
-          quests: quests
+          quests: result.quests
         }
       )
     }

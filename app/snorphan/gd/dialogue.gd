@@ -71,7 +71,6 @@ func play_dialogue():
 	dialogue_box.visible_characters = 0
 	tween = create_tween()
 	tween.tween_property(dialogue_box, "visible_characters", dialogue_box.text.length(), 2.0)
-	print(dialogue_box.text)
 	tween.finished.connect(tween_finished)
 	
 	var dialogue_options = current_dialogue[current_dialogue_line].dialogue_options

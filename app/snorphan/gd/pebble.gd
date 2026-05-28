@@ -5,6 +5,8 @@ extends RigidBody3D
 @onready var interactable_area := $Area3D
 @onready var interactable_notification := $Node3D
 
+var label = 'pebbles'
+
 func _ready() -> void:
 	interactable_notification.visible = false
 	

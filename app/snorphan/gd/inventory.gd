@@ -33,19 +33,19 @@ func _on_inventory_update() -> void:
 	MultiplayerClient.fetch_inventory()
 
 func get_item_icon(item_name):
-	if item_name == "snowball_S" or item_name == "snowball_M" or item_name == "snowball_L":
+	if item_name == "snowball_S" or item_name == "snowball_M" or item_name == "snowball_L": #done
 		return snowball_icon
 	elif item_name == 'special_powder':
 		return special_powder_icon
 	elif item_name == 'apples':
 		return apples_icon
-	elif item_name == 'pebbles':
+	elif item_name == 'pebbles': #done
 		return pebbles_icon
 	elif item_name == 'flowers':
 		return flowers_icon
 	elif item_name == 'slightly_worn_out_cape':
 		return cape_icon
-	elif item_name == 'stick':
+	elif item_name == 'stick': #done
 		return stick_icon
 	elif item_name == 'old_plushie':
 		return old_plushie_icon

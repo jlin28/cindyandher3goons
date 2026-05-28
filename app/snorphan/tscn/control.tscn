@@ -1,17 +1,17 @@
 [gd_scene format=3 uid="uid://cxo150m2m6bob"]
 
-[ext_resource type="Script" uid="uid://bwa44xskogq58" path="res://gd/inventory.gd" id="1_mmuml"]
-[ext_resource type="Texture2D" uid="uid://c7owgffciyof0" path="res://static/sprite_sheet.png" id="1_vpxtf"]
+[ext_resource type="Script" uid="uid://ch8lspfsb4hw7" path="res://gd/inventory.gd" id="1_mmuml"]
+[ext_resource type="Texture2D" uid="uid://bw4pqk3x14f5n" path="res://static/sprite_sheet.png" id="1_vpxtf"]
 [ext_resource type="Script" uid="uid://ccvciv4awmrty" path="res://gd/close_quests.gd" id="2_2mfya"]
 [ext_resource type="FontFile" uid="uid://cjvg0evcqc7yp" path="res://static/PeaberryDoublespace.ttf" id="2_y35ns"]
-[ext_resource type="Script" uid="uid://bgcmwa750v7qy" path="res://gd/settings.gd" id="2_ykr62"]
+[ext_resource type="Script" uid="uid://bcdmhapgm860e" path="res://gd/settings.gd" id="2_ykr62"]
 [ext_resource type="Script" uid="uid://ddxr4i33xhnew" path="res://gd/open_quests.gd" id="4_6yxn8"]
-[ext_resource type="Script" uid="uid://kxk0iw7qdyup" path="res://gd/dialogue.gd" id="5_6mujo"]
-[ext_resource type="Script" uid="uid://dqauae4kyv8y5" path="res://gd/dgbutton.gd" id="6_1akbr"]
-[ext_resource type="Script" uid="uid://bbcc086k6ux2i" path="res://gd/quests.gd" id="6_8i35t"]
+[ext_resource type="Script" uid="uid://718wis13gkdw" path="res://gd/dialogue.gd" id="5_6mujo"]
+[ext_resource type="Script" uid="uid://wc0anb6illjh" path="res://gd/dgbutton.gd" id="6_1akbr"]
+[ext_resource type="Script" uid="uid://dpay2r63hme2q" path="res://gd/quests.gd" id="6_8i35t"]
 [ext_resource type="Script" uid="uid://444n1xmygkoi" path="res://gd/options.gd" id="6_dd40b"]
-[ext_resource type="Script" uid="uid://dw0rw8i8fmy12" path="res://gd/close_settings.gd" id="9_tw3h4"]
-[ext_resource type="Script" uid="uid://chq8goy7bvsau" path="res://gd/settings_menu.gd" id="10_6nd6i"]
+[ext_resource type="Script" uid="uid://bllw4cwqm452" path="res://gd/close_settings.gd" id="9_tw3h4"]
+[ext_resource type="Script" uid="uid://t15d2y7rrqdt" path="res://gd/settings_menu.gd" id="10_6nd6i"]
 [ext_resource type="Script" uid="uid://bw0ucpjxwy4b2" path="res://gd/logout.gd" id="10_s2oxt"]
 [ext_resource type="AudioStream" uid="uid://d1byqytsn011y" path="res://static/Music/bgm.mp3" id="12_6nd6i"]
 
@@ -653,6 +653,7 @@ theme_override_constants/separation = 15
 script = ExtResource("6_8i35t")
 
 [node name="quest1" type="MarginContainer" parent="default/open_quests_cont/quests/MarginContainer/VBoxContainer/VBoxContainer" unique_id=1937002084]
+visible = false
 layout_mode = 2
 
 [node name="NinePatchRect" type="NinePatchRect" parent="default/open_quests_cont/quests/MarginContainer/VBoxContainer/VBoxContainer/quest1" unique_id=825369525]
@@ -706,7 +707,6 @@ theme_override_constants/line_spacing = 1
 theme_override_constants/outline_size = 1
 theme_override_fonts/font = ExtResource("2_y35ns")
 theme_override_font_sizes/font_size = 8
-text = "awd"
 horizontal_alignment = 2
 
 [node name="HBoxContainer" type="HBoxContainer" parent="default/open_quests_cont/quests/MarginContainer/VBoxContainer/VBoxContainer/quest1/MarginContainer/VBoxContainer/HBoxContainer" unique_id=1867204095]
@@ -743,10 +743,11 @@ theme_override_styles/normal = SubResource("StyleBoxTexture_0l1b7")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_jbqr8")
 theme_override_styles/hover = SubResource("StyleBoxTexture_55vmn")
 
-[node name="quest2" type="MarginContainer" parent="default/open_quests_cont/quests/MarginContainer/VBoxContainer/VBoxContainer" unique_id=109254438]
+[node name="quest2" type="MarginContainer" parent="default/open_quests_cont/quests/MarginContainer/VBoxContainer/VBoxContainer" unique_id=1135146347]
+visible = false
 layout_mode = 2
 
-[node name="NinePatchRect" type="NinePatchRect" parent="default/open_quests_cont/quests/MarginContainer/VBoxContainer/VBoxContainer/quest2" unique_id=1959122200]
+[node name="NinePatchRect" type="NinePatchRect" parent="default/open_quests_cont/quests/MarginContainer/VBoxContainer/VBoxContainer/quest2" unique_id=3027750]
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
 texture = ExtResource("1_vpxtf")
@@ -756,18 +757,18 @@ patch_margin_top = 5
 patch_margin_right = 5
 patch_margin_bottom = 5
 
-[node name="MarginContainer" type="MarginContainer" parent="default/open_quests_cont/quests/MarginContainer/VBoxContainer/VBoxContainer/quest2" unique_id=1825667569]
+[node name="MarginContainer" type="MarginContainer" parent="default/open_quests_cont/quests/MarginContainer/VBoxContainer/VBoxContainer/quest2" unique_id=2001917134]
 layout_mode = 2
 theme_override_constants/margin_left = 5
 theme_override_constants/margin_top = 5
 theme_override_constants/margin_right = 5
 theme_override_constants/margin_bottom = 5
 
-[node name="VBoxContainer" type="VBoxContainer" parent="default/open_quests_cont/quests/MarginContainer/VBoxContainer/VBoxContainer/quest2/MarginContainer" unique_id=2042571563]
+[node name="VBoxContainer" type="VBoxContainer" parent="default/open_quests_cont/quests/MarginContainer/VBoxContainer/VBoxContainer/quest2/MarginContainer" unique_id=1958127873]
 layout_mode = 2
 theme_override_constants/separation = 2
 
-[node name="quest_name" type="Label" parent="default/open_quests_cont/quests/MarginContainer/VBoxContainer/VBoxContainer/quest2/MarginContainer/VBoxContainer" unique_id=1070019173]
+[node name="quest_name" type="Label" parent="default/open_quests_cont/quests/MarginContainer/VBoxContainer/VBoxContainer/quest2/MarginContainer/VBoxContainer" unique_id=973157566]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.9, 0.8376, 0.783, 1)
 theme_override_colors/font_outline_color = Color(0.6666667, 0.5803922, 0.5019608, 1)
@@ -776,7 +777,7 @@ theme_override_fonts/font = ExtResource("2_y35ns")
 theme_override_font_sizes/font_size = 10
 horizontal_alignment = 1
 
-[node name="quest_desc" type="Label" parent="default/open_quests_cont/quests/MarginContainer/VBoxContainer/VBoxContainer/quest2/MarginContainer/VBoxContainer" unique_id=1591828931]
+[node name="quest_desc" type="Label" parent="default/open_quests_cont/quests/MarginContainer/VBoxContainer/VBoxContainer/quest2/MarginContainer/VBoxContainer" unique_id=536709763]
 custom_minimum_size = Vector2(10, 0)
 layout_mode = 2
 theme_override_constants/line_spacing = 1
@@ -784,12 +785,12 @@ theme_override_fonts/font = ExtResource("2_y35ns")
 theme_override_font_sizes/font_size = 8
 autowrap_mode = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="default/open_quests_cont/quests/MarginContainer/VBoxContainer/VBoxContainer/quest2/MarginContainer/VBoxContainer" unique_id=2010587434]
+[node name="HBoxContainer" type="HBoxContainer" parent="default/open_quests_cont/quests/MarginContainer/VBoxContainer/VBoxContainer/quest2/MarginContainer/VBoxContainer" unique_id=124766220]
 layout_mode = 2
 size_flags_horizontal = 8
 theme_override_constants/separation = 6
 
-[node name="quest_req" type="Label" parent="default/open_quests_cont/quests/MarginContainer/VBoxContainer/VBoxContainer/quest2/MarginContainer/VBoxContainer/HBoxContainer" unique_id=1124545890]
+[node name="quest_req" type="Label" parent="default/open_quests_cont/quests/MarginContainer/VBoxContainer/VBoxContainer/quest2/MarginContainer/VBoxContainer/HBoxContainer" unique_id=1833119644]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.66, 0.55429, 0.45540002, 1)
 theme_override_colors/font_outline_color = Color(0.58, 0.4871033, 0.40019998, 1)
@@ -797,14 +798,13 @@ theme_override_constants/line_spacing = 1
 theme_override_constants/outline_size = 1
 theme_override_fonts/font = ExtResource("2_y35ns")
 theme_override_font_sizes/font_size = 8
-text = "awd"
 horizontal_alignment = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="default/open_quests_cont/quests/MarginContainer/VBoxContainer/VBoxContainer/quest2/MarginContainer/VBoxContainer/HBoxContainer" unique_id=1896960571]
+[node name="HBoxContainer" type="HBoxContainer" parent="default/open_quests_cont/quests/MarginContainer/VBoxContainer/VBoxContainer/quest2/MarginContainer/VBoxContainer/HBoxContainer" unique_id=1058233499]
 layout_mode = 2
 theme_override_constants/separation = 2
 
-[node name="quest_current_progress" type="Label" parent="default/open_quests_cont/quests/MarginContainer/VBoxContainer/VBoxContainer/quest2/MarginContainer/VBoxContainer/HBoxContainer/HBoxContainer" unique_id=1322126416]
+[node name="quest_current_progress" type="Label" parent="default/open_quests_cont/quests/MarginContainer/VBoxContainer/VBoxContainer/quest2/MarginContainer/VBoxContainer/HBoxContainer/HBoxContainer" unique_id=1220880868]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.57, 0.478705, 0.3933, 1)
 theme_override_constants/line_spacing = 1
@@ -812,7 +812,7 @@ theme_override_fonts/font = ExtResource("2_y35ns")
 theme_override_font_sizes/font_size = 8
 horizontal_alignment = 2
 
-[node name="quest_required_progress" type="Label" parent="default/open_quests_cont/quests/MarginContainer/VBoxContainer/VBoxContainer/quest2/MarginContainer/VBoxContainer/HBoxContainer/HBoxContainer" unique_id=169195388]
+[node name="quest_required_progress" type="Label" parent="default/open_quests_cont/quests/MarginContainer/VBoxContainer/VBoxContainer/quest2/MarginContainer/VBoxContainer/HBoxContainer/HBoxContainer" unique_id=1840611015]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.57, 0.478705, 0.3933, 1)
 theme_override_constants/line_spacing = 1
@@ -820,24 +820,25 @@ theme_override_fonts/font = ExtResource("2_y35ns")
 theme_override_font_sizes/font_size = 8
 horizontal_alignment = 2
 
-[node name="MarginContainer2" type="MarginContainer" parent="default/open_quests_cont/quests/MarginContainer/VBoxContainer/VBoxContainer/quest2" unique_id=154199741]
+[node name="MarginContainer2" type="MarginContainer" parent="default/open_quests_cont/quests/MarginContainer/VBoxContainer/VBoxContainer/quest2" unique_id=327756623]
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 0
 theme_override_constants/margin_top = 5
 theme_override_constants/margin_right = 5
 
-[node name="abandon_quest" type="Button" parent="default/open_quests_cont/quests/MarginContainer/VBoxContainer/VBoxContainer/quest2/MarginContainer2" unique_id=1443226585]
+[node name="abandon_quest" type="Button" parent="default/open_quests_cont/quests/MarginContainer/VBoxContainer/VBoxContainer/quest2/MarginContainer2" unique_id=487843488]
 custom_minimum_size = Vector2(7, 7)
 layout_mode = 2
 theme_override_styles/normal = SubResource("StyleBoxTexture_0l1b7")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_jbqr8")
 theme_override_styles/hover = SubResource("StyleBoxTexture_55vmn")
 
-[node name="quest3" type="MarginContainer" parent="default/open_quests_cont/quests/MarginContainer/VBoxContainer/VBoxContainer" unique_id=2142716918]
+[node name="quest3" type="MarginContainer" parent="default/open_quests_cont/quests/MarginContainer/VBoxContainer/VBoxContainer" unique_id=2139487354]
+visible = false
 layout_mode = 2
 
-[node name="NinePatchRect" type="NinePatchRect" parent="default/open_quests_cont/quests/MarginContainer/VBoxContainer/VBoxContainer/quest3" unique_id=1001602401]
+[node name="NinePatchRect" type="NinePatchRect" parent="default/open_quests_cont/quests/MarginContainer/VBoxContainer/VBoxContainer/quest3" unique_id=1835799210]
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
 texture = ExtResource("1_vpxtf")
@@ -847,18 +848,18 @@ patch_margin_top = 5
 patch_margin_right = 5
 patch_margin_bottom = 5
 
-[node name="MarginContainer" type="MarginContainer" parent="default/open_quests_cont/quests/MarginContainer/VBoxContainer/VBoxContainer/quest3" unique_id=1433684633]
+[node name="MarginContainer" type="MarginContainer" parent="default/open_quests_cont/quests/MarginContainer/VBoxContainer/VBoxContainer/quest3" unique_id=565913427]
 layout_mode = 2
 theme_override_constants/margin_left = 5
 theme_override_constants/margin_top = 5
 theme_override_constants/margin_right = 5
 theme_override_constants/margin_bottom = 5
 
-[node name="VBoxContainer" type="VBoxContainer" parent="default/open_quests_cont/quests/MarginContainer/VBoxContainer/VBoxContainer/quest3/MarginContainer" unique_id=1606332829]
+[node name="VBoxContainer" type="VBoxContainer" parent="default/open_quests_cont/quests/MarginContainer/VBoxContainer/VBoxContainer/quest3/MarginContainer" unique_id=1200408991]
 layout_mode = 2
 theme_override_constants/separation = 2
 
-[node name="quest_name" type="Label" parent="default/open_quests_cont/quests/MarginContainer/VBoxContainer/VBoxContainer/quest3/MarginContainer/VBoxContainer" unique_id=141296187]
+[node name="quest_name" type="Label" parent="default/open_quests_cont/quests/MarginContainer/VBoxContainer/VBoxContainer/quest3/MarginContainer/VBoxContainer" unique_id=1436377018]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.9, 0.8376, 0.783, 1)
 theme_override_colors/font_outline_color = Color(0.6666667, 0.5803922, 0.5019608, 1)
@@ -867,7 +868,7 @@ theme_override_fonts/font = ExtResource("2_y35ns")
 theme_override_font_sizes/font_size = 10
 horizontal_alignment = 1
 
-[node name="quest_desc" type="Label" parent="default/open_quests_cont/quests/MarginContainer/VBoxContainer/VBoxContainer/quest3/MarginContainer/VBoxContainer" unique_id=534414581]
+[node name="quest_desc" type="Label" parent="default/open_quests_cont/quests/MarginContainer/VBoxContainer/VBoxContainer/quest3/MarginContainer/VBoxContainer" unique_id=1020918117]
 custom_minimum_size = Vector2(10, 0)
 layout_mode = 2
 theme_override_constants/line_spacing = 1
@@ -875,12 +876,12 @@ theme_override_fonts/font = ExtResource("2_y35ns")
 theme_override_font_sizes/font_size = 8
 autowrap_mode = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="default/open_quests_cont/quests/MarginContainer/VBoxContainer/VBoxContainer/quest3/MarginContainer/VBoxContainer" unique_id=1230902780]
+[node name="HBoxContainer" type="HBoxContainer" parent="default/open_quests_cont/quests/MarginContainer/VBoxContainer/VBoxContainer/quest3/MarginContainer/VBoxContainer" unique_id=864723923]
 layout_mode = 2
 size_flags_horizontal = 8
 theme_override_constants/separation = 6
 
-[node name="quest_req" type="Label" parent="default/open_quests_cont/quests/MarginContainer/VBoxContainer/VBoxContainer/quest3/MarginContainer/VBoxContainer/HBoxContainer" unique_id=1966702860]
+[node name="quest_req" type="Label" parent="default/open_quests_cont/quests/MarginContainer/VBoxContainer/VBoxContainer/quest3/MarginContainer/VBoxContainer/HBoxContainer" unique_id=1371848988]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.66, 0.55429, 0.45540002, 1)
 theme_override_colors/font_outline_color = Color(0.58, 0.4871033, 0.40019998, 1)
@@ -888,14 +889,13 @@ theme_override_constants/line_spacing = 1
 theme_override_constants/outline_size = 1
 theme_override_fonts/font = ExtResource("2_y35ns")
 theme_override_font_sizes/font_size = 8
-text = "awd"
 horizontal_alignment = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="default/open_quests_cont/quests/MarginContainer/VBoxContainer/VBoxContainer/quest3/MarginContainer/VBoxContainer/HBoxContainer" unique_id=205678602]
+[node name="HBoxContainer" type="HBoxContainer" parent="default/open_quests_cont/quests/MarginContainer/VBoxContainer/VBoxContainer/quest3/MarginContainer/VBoxContainer/HBoxContainer" unique_id=66607292]
 layout_mode = 2
 theme_override_constants/separation = 2
 
-[node name="quest_current_progress" type="Label" parent="default/open_quests_cont/quests/MarginContainer/VBoxContainer/VBoxContainer/quest3/MarginContainer/VBoxContainer/HBoxContainer/HBoxContainer" unique_id=620858362]
+[node name="quest_current_progress" type="Label" parent="default/open_quests_cont/quests/MarginContainer/VBoxContainer/VBoxContainer/quest3/MarginContainer/VBoxContainer/HBoxContainer/HBoxContainer" unique_id=558683623]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.57, 0.478705, 0.3933, 1)
 theme_override_constants/line_spacing = 1
@@ -903,7 +903,7 @@ theme_override_fonts/font = ExtResource("2_y35ns")
 theme_override_font_sizes/font_size = 8
 horizontal_alignment = 2
 
-[node name="quest_required_progress" type="Label" parent="default/open_quests_cont/quests/MarginContainer/VBoxContainer/VBoxContainer/quest3/MarginContainer/VBoxContainer/HBoxContainer/HBoxContainer" unique_id=1476644325]
+[node name="quest_required_progress" type="Label" parent="default/open_quests_cont/quests/MarginContainer/VBoxContainer/VBoxContainer/quest3/MarginContainer/VBoxContainer/HBoxContainer/HBoxContainer" unique_id=1762377084]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.57, 0.478705, 0.3933, 1)
 theme_override_constants/line_spacing = 1
@@ -911,14 +911,14 @@ theme_override_fonts/font = ExtResource("2_y35ns")
 theme_override_font_sizes/font_size = 8
 horizontal_alignment = 2
 
-[node name="MarginContainer2" type="MarginContainer" parent="default/open_quests_cont/quests/MarginContainer/VBoxContainer/VBoxContainer/quest3" unique_id=163374620]
+[node name="MarginContainer2" type="MarginContainer" parent="default/open_quests_cont/quests/MarginContainer/VBoxContainer/VBoxContainer/quest3" unique_id=1529387046]
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 0
 theme_override_constants/margin_top = 5
 theme_override_constants/margin_right = 5
 
-[node name="abandon_quest" type="Button" parent="default/open_quests_cont/quests/MarginContainer/VBoxContainer/VBoxContainer/quest3/MarginContainer2" unique_id=1945881595]
+[node name="abandon_quest" type="Button" parent="default/open_quests_cont/quests/MarginContainer/VBoxContainer/VBoxContainer/quest3/MarginContainer2" unique_id=313586684]
 custom_minimum_size = Vector2(7, 7)
 layout_mode = 2
 theme_override_styles/normal = SubResource("StyleBoxTexture_0l1b7")

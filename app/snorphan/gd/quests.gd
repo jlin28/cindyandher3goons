@@ -20,26 +20,29 @@ func fetch_quests():
 func update_quests(active_quests):
 	var i = 0
 	current_quests = active_quests
-	
+
+	player.active_quests.clear()
+	player.completion_status.clear()
+
 	for npc_name in active_quests:
 		player.active_quests.append(npc_name)
+		player.completion_status.append(0)  
 		var quest = active_quests[npc_name]
 		var current_quest_box = quest_boxes[i]
 		var info_cont = current_quest_box.get_node(^'MarginContainer/VBoxContainer')
 		var second_info_cont = info_cont.get_node(^'HBoxContainer')
-		
+
 		info_cont.get_node(^"quest_name").text = quest.name
-		info_cont.get_node(^"quest_desc").text = "- %s" %quest.desc
-		
+		info_cont.get_node(^"quest_desc").text = "- %s" % quest.desc
+
 		if quest.type == 'fetch':
 			update_current_progress(quest, info_cont, second_info_cont.get_node(^"HBoxContainer/quest_current_progress"))
-		
+
 		current_quest_box.visible = true
 		i += 1
-	
-	for remaining_box in range(i,3):
-		var current_quest_box = quest_boxes[remaining_box]
-		current_quest_box.visible = false
+
+	for remaining_box in range(i, 3):
+		quest_boxes[remaining_box].visible = false
 
 func update_current_progress(quest, quest_info_cont, current_quest_progress):
 	if quest.fulfillment_requirement in player.current_items:

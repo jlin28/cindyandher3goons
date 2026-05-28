@@ -62,6 +62,7 @@ func update_current_progress(quest, quest_info_cont, current_quest_progress):
 		quest_info_cont.get_node(^"quest_req").text = req.replace('_', ' ')
 		quest_info_cont.get_node(^"quest_req").modulate = Color('#ffffff')
 		current_quest_progress.text = str(current)
+		print(str(current) + str(required))
 		quest_info_cont.get_node(^"HBoxContainer/quest_required_progress").text = str(required)
 		return false
 

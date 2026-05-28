@@ -779,15 +779,9 @@ def questsAvailable(user):
 
 # return string describing status of quest given npc name
 def npc_questStatus(npc_name, user):
-    db = sqlite3.connect(DB_FILE)
-    c = db.cursor()
-    c.execute("SELECT questName FROM npc WHERE name = ?", (npc_name,))
-    quest_name = c.fetchone()[0]
-    db.commit()
-    db.close()
-    if quest_name in questsActive_list(user):
+    if npc_name in questsActive_list(user):
         return 'quest_in_progress'
-    elif quest_name in questsCompleted_list(user):
+    elif npc_name in questsCompleted_list(user):
         return 'quest_done'
     return 'quest_inactive'
 
@@ -797,11 +791,8 @@ def add_quest(npc_name, user):
     c = db.cursor()
 
     questsActive = questsActive_list(user)
+    questsActive.append(npc_name)
 
-    c.execute("SELECT questName FROM npc WHERE name = ?", (npc_name,))
-    quest_name = c.fetchone()[0]
-
-    questsActive.append(quest_name)
     new_quests_active = "&".join(questsActive)
     c.execute("UPDATE user SET questsActive = ? WHERE username = ?", (new_quests_active, user))
 
@@ -836,17 +827,11 @@ def complete_quest(npc, user):
     db = sqlite3.connect(DB_FILE)
     c = db.cursor()
 
-    c.execute("SELECT questName FROM npc WHERE name = ?", (npc,))
-    quest = c.fetchone()[0]
-
-    c.execute("SELECT questsActive FROM user WHERE username = ?", (user,))
-    questsActive = c.fetchone()[0]
-
     c.execute("SELECT questsCompleted FROM user WHERE username = ?", (user,))
     questsCompleted = c.fetchone()[0]
 
-    questsActive_list = questsActive.split("&")
-    questsActive_list.remove(quest)
+    questsActive_list = questsActive_list(user)
+    questsActive_list.remove(npc)
 
     if len(questsActive_list) > 0:
         new_quests_active = "&".join(questsActive_list)
@@ -1075,9 +1060,14 @@ def game():
             })
 
         if body.get('type') == 'fetch_quests':
-            npcs = body.get('npcs')
-            quests = get_quests(npcs)
+            user = body.get('user')
+            npcs = questsActive_list(user)
 
+            if len(npcs) > 0:
+                quests = get_quests(npcs)
+            else:
+                quests = {}
+                
             return jsonify( { 'quests': quests })
 
         if body.get('type') == 'add_quest':

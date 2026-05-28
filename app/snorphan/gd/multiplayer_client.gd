@@ -97,6 +97,7 @@ func handle_msg(data):
 		my_id = str(data.get("id", ""))
 		send_username()
 		inventory_cont._on_inventory_update()
+		quests_cont.fetch_quests()
 		
 	elif msg_type == "player_name":
 		var player_id = str(data.get("id", ""))
@@ -251,7 +252,6 @@ func add_quest(npc):
 func fetch_quests():
 	var data = {
 		"type": "fetch_quests",
-		"npcs": player.active_quests
 	}
 	
 	socket.send_text(JSON.stringify(data))

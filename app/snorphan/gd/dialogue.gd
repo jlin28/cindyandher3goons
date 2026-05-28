@@ -34,7 +34,7 @@ func play_dialogue():
 	if not current_dialogue_line:
 		current_dialogue_line = quest_status
 	
-	if current_npc in quests_cont.current_quests:
+	if quests_cont.current_quests and current_npc in quests_cont.current_quests:
 		var quest = quests_cont.current_quests[current_npc]
 		if player.completion_status[player.active_quests.index(current_npc)] == 1:
 			var item_to_be_taken = quest.get('fulfillment_requirement')

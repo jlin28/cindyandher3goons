@@ -9,7 +9,6 @@ extends VBoxContainer
 signal change_quests
 
 func _ready() -> void:
-	fetch_quests()
 	change_quests.connect(_on_quests_update)
 
 func _on_quests_update():
@@ -22,7 +21,9 @@ func update_quests(active_quests):
 	var i = 0
 	current_quests = active_quests
 	
-	for quest in active_quests:
+	for npc_name in active_quests:
+		player.active_quests.append(npc_name)
+		var quest = active_quests[npc_name]
 		var current_quest_box = quest_boxes[i]
 		var info_cont = current_quest_box.get_node(^'MarginContainer/VBoxContainer')
 		var second_info_cont = info_cont.get_node(^'HBoxContainer')
@@ -62,7 +63,8 @@ func update_current_progress(quest, quest_info_cont, current_quest_progress):
 func update_quests_progress():
 	if current_quests:
 		var i = 0
-		for quest in current_quests:
+		for npc_name in current_quests:
+			var quest = current_quests[npc_name]
 			if quest.type == 'fetch':
 				var current_quest_box = quest_boxes[i]
 				var info_cont = current_quest_box.get_node(^'MarginContainer/VBoxContainer')

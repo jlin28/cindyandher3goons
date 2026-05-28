@@ -45,9 +45,9 @@ c.execute("""CREATE TABLE IF NOT EXISTS item(
     maxCount INTEGER NOT NULL
     );
     """)
-c.execute("INSERT OR IGNORE INTO item VALUES ('button', 'a circle to make your bestie feel dapper.', '', 3)") #model
+c.execute("INSERT OR IGNORE INTO item VALUES ('button', 'buttons that supposedly can''t be emptied. you wonder if you can get them out of your bag now that they''re in it...', '', 3)") #model
 c.execute("INSERT OR IGNORE INTO item VALUES ('carrot', 'the lifes work of an aspiring botanist. it looks incredibly crunchy and irresistably tasty, taking everything in you just to not take a bite.', '', 1)") #model
-c.execute("INSERT OR IGNORE INTO item VALUES ('hat', 'a lid to make your bestie feel dapper.', '', 1)") #model
+c.execute("INSERT OR IGNORE INTO item VALUES ('hat', 'a mobsters old top hat. it remarkably still looks brand new, a clear sign of love and care.', '', 1)") #model
 c.execute("INSERT OR IGNORE INTO item VALUES ('red scarf', 'a scarf knitted by someone''s grandma. it''s fuzzy, warm and made with lots of love.', '', 1)") #model
 c.execute("INSERT OR IGNORE INTO item VALUES ('apple pie recipe', 'grandmas apple pie recipe. just looking at it makes your mouth water as you imagine the aroma and taste.', '', 1)")
 c.execute("INSERT OR IGNORE INTO item VALUES ('ice sculpture', 'sculpture made of ice in the image of sealius. it carries a strange aura. who knew he was hiding this talent all along?', '', 1)")

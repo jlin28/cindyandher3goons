@@ -6,6 +6,8 @@ extends StaticBody3D
 @onready var medium_collision := $medium_snowball_collision
 @onready var small := $small_snowball
 @onready var small_collision := $small_snowball_collision
+@onready var branch1 := $branch1
+@onready var branch2 := $branch2
 
 @export var can_build = true
 

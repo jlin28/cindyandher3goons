@@ -107,11 +107,14 @@ c.execute("INSERT OR IGNORE INTO npc VALUES ('Bobby', 'Pebbles, Pebbles, Pebbles
 c.execute("INSERT OR IGNORE INTO npc VALUES ('Mr. Cheddar', 'The Former Mobster''s request', 'A nice warm apple pie could warm anyone''s heart', 'apple pie recipe', 'fetch', 1)")
 c.execute("INSERT OR IGNORE INTO npc VALUES ('Daisy', 'A Final Farewell', 'She seemed quite agitated, better find those flowers before this whole place is flooded!', 'flowers', 'fetch', 10)")
 c.execute("INSERT OR IGNORE INTO npc VALUES ('Mabel', 'Just Like The Old Days', 'How are apples growing here anyways?', 'apples', 'fetch', 25)")
+c.execute("INSERT OR IGNORE INTO npc VALUES ('18th century woman', 'Buttons..?', 'She seems to have many buttons for you...', '', 'wait', 1)")
 db.commit()
 db.close()
 
 npc_dialogue = {
     "Sealius": {
+        'reward': "ice sculpture",
+        'reward_amt': 1,
         'item_cap': {
             'dialogue': "Woah kid! You have so many items sticking out of your bag right now... I think I'll give this to you later.",
             'dialogue_options': {}
@@ -198,6 +201,8 @@ npc_dialogue = {
         },
     },
     "Town Chief": {
+        'reward': "slightly worn out cape",
+        'reward_amt': 1,
         'item_cap': {
             'dialogue': "Someone as little as you carrying so much around already? You should see me when you've lightened that load, it could stunt your growth.",
             'dialogue_options': {}
@@ -262,6 +267,8 @@ npc_dialogue = {
         }
     },
     "Buntanist": {
+        'reward': "carrot",
+        'reward_amt': 1,
         'item_cap': {
             'dialogue': "Eep! Don't put my prized carrot in there! you'll ruin it immediately!!!",
             'dialogue_options': {}
@@ -345,6 +352,8 @@ npc_dialogue = {
         }
     },
     "Bobby": {
+        'reward': "old plushie",
+        'reward_amt': 1,
         'item_cap': {
             'dialogue': "Hey, give your new friend some respect and clear that backpack!",
             'dialogue_options': {}
@@ -425,6 +434,8 @@ npc_dialogue = {
         },
     },
     "Mr. Cheddar": {
+        'reward': "hat",
+        'reward_amt': 1,
         'item_cap': {
             'dialogue': "Woah there! Not sure if I want my hat to get squished like that in your bag.",
             'dialogue_options': {}
@@ -512,8 +523,10 @@ npc_dialogue = {
         },
     },
     "Daisy": {
+        'reward': "red scarf",
+        'reward_amt': 1,
         'item_cap': {
-            'dialogue': "*sob* Grandma's scarf *sob* doesn't fit!!!! *sob*",
+            'dialogue': "*sniff* your bag... *sniff*",
             'dialogue_options': {}
         },
         'quest_cap': {
@@ -563,6 +576,8 @@ npc_dialogue = {
         }
     },
     "Mabel": {
+        'reward': "apple pie recipe",
+        'reward_amt': 1,
         'item_cap': {
             'dialogue': "Oh my, I don't think you can hold any more things!",
             'dialogue_options': {}
@@ -621,11 +636,71 @@ npc_dialogue = {
             'dialogue_options': {}
         },
     },
+    "18th century woman": {
+        'reward': "buttons",
+        'reward_amt': 3,
+        'item_cap': "You have more things than me!",
+        'quest_cap': "Woah, you're running around like crazy! get back to me later, mkay?",
+        "quest_done": "I can finally see the rest of my sewing supplies!!",
+        'quest_in_progress': {
+            'dialogue_type': "normal",
+            'dialogue': "",
+            'dialogue_options': {}
+        },
+        'quest_completed': {
+            'dialogue_type': "normal",
+            'dialogue': "Heres the buttons i promised you!",
+            'dialogue_options': {}
+        },
+        'quest_inactive': {
+            'dialogue_type': "normal",
+            'dialogue': "Hey... do you want some buttons?",
+            'dialogue_options': {
+                "Why not!": 'A',
+                "Why..?": 'B',
+                "No thanks.": 'C'
+            }
+        },
+        'A': {
+            'dialogue_type': "quest",
+            'dialogue': "Yay!! Just give me a minute to get them.",
+            'dialogue_options': {}
+        },
+        'B': {
+            'dialogue_type': "normal",
+            'dialogue': "I have so many buttons i can't get to the rest of my sewing supplies! how am i supposed to sew without supplies?????",
+            'dialogue_options': {
+                "Well, you could dump them out...": "E",
+                "I'll take some from you!" : "A",
+                "... Just don't" : "D"
+            }
+        },
+        'C': {
+            'dialogue_type': "normal",
+            'dialogue': "Aww....",
+            'dialogue_options': {}
+        },
+        'D': {
+            'dialogue_type': "normal",
+            'dialogue': "Hey! You can't just- Of course you wouldn't get it...",
+            'dialogue_options': {}
+        },
+        'E': {
+            'dialogue_type': "normal",
+            'dialogue': "I can't... I've tried so many times, these buttons just won't get out!",
+            'dialogue_options': {
+                "I guess I'll take some then..." : "A",
+                "Uh, now I definitely don't want any..." : "C"
+            }
+        }
+    },
 }
 
 """
 template
     "": {
+        'reward': "",
+        'reward_amt': ,
         'item_cap': "",
         'quest_cap': "",
         "quest_done": "",

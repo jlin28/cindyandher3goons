@@ -72,10 +72,13 @@ func update_inventory(new_inv):
 	for key in new_inv:
 		var item = new_inv.get(key).get('item')
 		var count = new_inv.get(key).get('count')
-		
+		var add = new_inv.get(key).get('add')
 		if item not in current_items:
 			current_items[item] = count
-			
+		elif add:
+			current_items[item] += count
+		else: 
+			current_items[item] -= count
 	player.current_items = current_items
 	for i in range(slots.size()):
 		var background = slots[i].get_child(0)
@@ -162,7 +165,6 @@ func highlight(index: int, focus: bool):
 	var current_slot = slots[index]
 	var current_label = labels[index].get_child(0)
 	var image = current_slot.get_child(0)
-	
 	if focus:
 		image.modulate = Color(0.8,0.8,0.8,1)
 		if current_label.text != "":
@@ -171,6 +173,8 @@ func highlight(index: int, focus: bool):
 				player.current_held_item = current_label.text.replace(' ', '_')
 			else:
 				player.current_held_item = current_label.text
+		#else:
+			
 	else:
 		image.modulate = Color(1,1,1,1)
 		current_label.visible = false

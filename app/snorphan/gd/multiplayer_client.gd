@@ -127,7 +127,8 @@ func handle_msg(data):
 			player.inventory_update.emit()
 		else:
 			player.inventory_full.emit()
-		
+	elif msg_type == "remove_item":
+		player.inventory_update.emit()
 	elif msg_type == "fetch_inventory":
 		send_inventory(data)
 		
@@ -220,7 +221,8 @@ func add_item(item, quantity):
 	var data = {
 		"type": "add_item",
 		"item": item,
-		"quantity": quantity
+		"quantity": quantity,
+		"add": true
 	}
 	
 	socket.send_text(JSON.stringify(data))
@@ -229,7 +231,8 @@ func remove_item(item, quantity):
 	var data = {
 		"type": "remove_item",
 		"item": item,
-		"quantity": quantity
+		"quantity": quantity,
+		"add": false
 	}
 	
 	socket.send_text(JSON.stringify(data))

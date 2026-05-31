@@ -450,3 +450,7 @@ DIALOGUE
 * 18th century woman
 ITEMS
 * all item images added
+
+cindyL -- 2026-05-31 18:58
+DESIGN DOC
+* target ship date updated

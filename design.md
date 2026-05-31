@@ -2,7 +2,7 @@
 ### __P05__ – _Le Fin_
 
 ### PROJECT NAME: _Snorphan_
-TARGET SHIP DATE: 2026-06-01
+TARGET SHIP DATE: 2026-06-15
 
 <br>
 

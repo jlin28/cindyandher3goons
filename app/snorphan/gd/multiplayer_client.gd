@@ -127,8 +127,10 @@ func handle_msg(data):
 			player.inventory_update.emit()
 		else:
 			player.inventory_full.emit()
+			
 	elif msg_type == "remove_item":
 		player.inventory_update.emit()
+		
 	elif msg_type == "fetch_inventory":
 		send_inventory(data)
 		

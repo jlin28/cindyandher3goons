@@ -45,19 +45,23 @@ shape = SubResource("SphereShape3D_nxjs2")
 
 [node name="medium_snowball" type="MeshInstance3D" parent="." unique_id=2089582539]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 1.492598, 0)
+visible = false
 mesh = SubResource("SphereMesh_26ndh")
 
 [node name="medium_snowball_collision" type="CollisionShape3D" parent="." unique_id=1813185147]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 1.492598, 0)
+visible = false
 shape = SubResource("SphereShape3D_nc2e1")
 disabled = true
 
 [node name="small_snowball" type="MeshInstance3D" parent="." unique_id=1745390539]
 transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 2.7330241, 0)
+visible = false
 mesh = SubResource("SphereMesh_0yc1c")
 
 [node name="small_snowball_collision" type="CollisionShape3D" parent="." unique_id=130173738]
 transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 2.7330241, 0)
+visible = false
 shape = SubResource("SphereShape3D_i22mi")
 disabled = true
 
@@ -72,10 +76,12 @@ shape = SubResource("CapsuleShape3D_ioflu")
 [node name="branch" parent="branches" unique_id=2083277656 instance=ExtResource("2_gul2m")]
 unique_name_in_owner = true
 transform = Transform3D(0.13408431, -0.024040855, -0.2096269, -0.2060078, 0.038797274, -0.13621886, 0.04563108, 0.24579832, 0.0009979978, 1.0635176, 1.6846035, 0.0074186325)
+visible = false
 
 [node name="branch2" parent="branches" unique_id=223746025 instance=ExtResource("2_gul2m")]
 unique_name_in_owner = true
 transform = Transform3D(0.1077297, 0.024063576, 0.22431062, 0.2193806, 0.04677961, -0.11038036, -0.05259728, 0.24440257, -0.00095814466, -0.9498009, 1.6846035, 0.0137037635)
+visible = false
 
 [node name="pebbles" type="Node3D" parent="." unique_id=583122093]
 unique_name_in_owner = true

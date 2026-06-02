@@ -400,12 +400,12 @@ joyceL's Rat -- 2026-05-23 04:55
 INVENTORY
 * Very bad sad inventory working(..?)
 * Fixed some bugs
-* Drew snowball and shows 
+* Drew snowball and shows
 
 carrieK -- 2026-05-23 22:16
 DIALOGUE
 * bobby
-* dialogue is very uninspiring 
+* dialogue is very uninspiring
 
 joyceL -- 2026-05-23 023:09
 * crouch functionality
@@ -413,7 +413,7 @@ joyceL -- 2026-05-23 023:09
 
 cindyL -- 2026-05-24 01:14
 * various db insertion fixes
-* various function fixes 
+* various function fixes
 DESIGN DOC
 * updated all db specifications, including new dbs
 
@@ -441,7 +441,7 @@ joyceL -- 2026-05-27 23:04
 * misc. godot cindy cannot describe
 
 cindyL -- 2026-05-27 23:14
-* cape boolean added to user db 
+* cape boolean added to user db
 DESIGN DOC
 * db structures all updated
 
@@ -454,3 +454,10 @@ ITEMS
 cindyL -- 2026-05-31 18:58
 DESIGN DOC
 * target ship date updated
+
+cindyL -- 2026-06-02 10:35
+DEVELOPER PREVIEWS: The Aftermath
+* change keybind for crouch
+* fix item removal from inventory
+* check/fix text readability
+* snowball detection into inventory inconsistent?

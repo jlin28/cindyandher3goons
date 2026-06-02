@@ -164,6 +164,20 @@ func _unhandled_input(event: InputEvent) -> void:
 			highlight(inventory_index, false)
 					
 		inventory_index = -1
+	
+	# Pressing keys 1-6 will select 1-6, pressing again will deselect
+	if(Input.is_action_pressed("key_1")):
+		key_press(1)
+	if(Input.is_action_pressed("key_2")):
+		key_press(2)
+	if(Input.is_action_pressed("key_3")):
+		key_press(3)
+	if(Input.is_action_pressed("key_4")):
+		key_press(4)
+	if(Input.is_action_pressed("key_5")):
+		key_press(5)
+	if(Input.is_action_pressed("key_6")):
+		key_press(6)
 		
 func highlight(index: int, focus: bool):
 	var current_slot = slots[index]
@@ -183,3 +197,12 @@ func highlight(index: int, focus: bool):
 		image.modulate = Color(1,1,1,1)
 		current_label.visible = false
 		player.current_held_item = null
+
+func key_press(key: int):
+	if inventory_index == key - 1:
+		highlight(inventory_index, false)
+		inventory_index = -1
+	else:
+		highlight(inventory_index, false)
+		inventory_index = key - 1
+		highlight(inventory_index, true)

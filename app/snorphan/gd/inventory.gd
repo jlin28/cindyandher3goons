@@ -73,12 +73,14 @@ func update_inventory(new_inv):
 		var item = new_inv.get(key).get('item')
 		var count = new_inv.get(key).get('count')
 		var add = new_inv.get(key).get('add')
+		
 		if item not in current_items:
 			current_items[item] = count
 		elif add:
 			current_items[item] += count
 		else: 
 			current_items[item] -= count
+			
 	player.current_items = current_items
 	for i in range(slots.size()):
 		var background = slots[i].get_child(0)

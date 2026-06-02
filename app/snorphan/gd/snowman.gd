@@ -11,6 +11,10 @@ extends StaticBody3D
 
 @export var can_build = true
 @export var torso_in_place = false
+@export var head_in_place = false
+
+@export var pebbles = %pebbles.get_children()
+@export var current_pebble = 0
 
 func _ready() -> void:
 	interactable_area.body_entered.connect(_on_entered)
@@ -29,6 +33,7 @@ func build(snowball):
 		small.visible = true
 		small_collision.disabled = false
 		can_build = false
+		head_in_place = true
 		return true
 	elif !medium.visible and 'M' in snowball:
 		medium.visible = true
@@ -48,3 +53,10 @@ func arms():
 		branch1.visible = true
 		return true
 	
+func pebble():
+	if current_pebble < pebbles.Count:
+		pebbles[current_pebble].visible = true
+		pebbles[current_pebble] += 1
+		return true
+	else:
+		return false

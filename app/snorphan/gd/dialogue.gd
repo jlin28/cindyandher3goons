@@ -43,7 +43,7 @@ func play_dialogue():
 			if item_to_be_taken != "house": # For Town Chief's quest
 				current_amount = player.current_items[item_to_be_taken]
 			if player.full_inventory and current_amount - amount_to_be_taken != 0:
-				current_dialogue_line = 'quest_cap'
+				current_dialogue_line = 'item_cap'
 			else:
 				current_dialogue_line = 'quest_completed'
 			

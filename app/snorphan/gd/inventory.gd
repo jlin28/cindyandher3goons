@@ -92,8 +92,8 @@ func update_inventory(new_inv):
 		
 		if '_' in item_name:
 			labels[i].get_child(0).text = item_name.replace('_', ' ')
-		else:
-			labels[i].get_child(0).text = item_name
+		labels[i].get_child(0).text = item_name
+			
 
 		print("slot ", i, " item=", item_name, " count=", count, " icon=", icon)
 		

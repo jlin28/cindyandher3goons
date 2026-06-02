@@ -59,15 +59,16 @@ func play_dialogue():
 		else:
 			current_dialogue_line = 'quest_in_progress'
 	else:
-		current_dialogue_type = current_dialogue[current_dialogue_line].dialogue_type
-		
-	if current_dialogue_type == 'quest':
-		if player.active_quests.size() == 3:
-			current_dialogue_line = 'quest_cap'
-		else:
-			player.active_quests.append(current_npc)
-			player.completion_status.append(0)
-			MultiplayerClient.add_quest(current_npc)
+		if 'dialogue_type' in current_dialogue[current_dialogue_line]:
+			current_dialogue_type = current_dialogue[current_dialogue_line].dialogue_type
+			
+			if current_dialogue_type == 'quest':
+				if player.active_quests.size() == 3:
+					current_dialogue_line = 'quest_cap'
+				else:
+					player.active_quests.append(current_npc)
+					player.completion_status.append(0)
+					MultiplayerClient.add_quest(current_npc)
 		
 	dialogue_box.text = current_dialogue[current_dialogue_line].dialogue
 	dialogue_box.visible_characters = 0

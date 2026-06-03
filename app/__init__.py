@@ -1,4 +1,13 @@
-import sqlite3, random
+'''
+Cindy Liu, Joyce Lin, Jeff Ou, Carrie Ko
+cindyandher3goons
+SoftDev
+P05: Le Fin
+2026-06-15
+'''
+import sqlite3
+import random
+
 from flask import Flask, render_template, request, jsonify, session, redirect, url_for
 
 app = Flask(__name__)

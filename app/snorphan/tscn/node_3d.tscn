@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://dhwuwrgj0xoop"]
 
-[ext_resource type="Script" uid="uid://cqajrtgaxsbfa" path="res://gd/node_3d.gd" id="1_7lhp4"]
+[ext_resource type="Script" uid="uid://b6spxjesfr4ti" path="res://gd/node_3d.gd" id="1_7lhp4"]
 [ext_resource type="PackedScene" uid="uid://6eok38y3bfyh" path="res://tscn/character_body_3d.tscn" id="1_a202f"]
 [ext_resource type="FontFile" uid="uid://cjvg0evcqc7yp" path="res://static/PeaberryDoublespace.ttf" id="3_pum07"]
-[ext_resource type="Script" uid="uid://cldtpnlhon10b" path="res://gd/multiplayer_client.gd" id="3_r3fl7"]
+[ext_resource type="Script" uid="uid://jut82us73bwq" path="res://gd/multiplayer_client.gd" id="3_r3fl7"]
 [ext_resource type="PackedScene" uid="uid://bifhuaitnfy3p" path="res://tscn/remote_player.tscn" id="4_jka67"]
 [ext_resource type="Shader" uid="uid://cxjghkmx57hr4" path="res://node_3d.gdshader" id="5_jka67"]
 [ext_resource type="Texture2D" uid="uid://b0i2ljk60x3w7" path="res://static/citrus_orchard_road_puresky_4k.exr" id="6_i5arm"]
@@ -17,13 +17,14 @@
 [ext_resource type="PackedScene" uid="uid://c4m8bct1d0d3s" path="res://glb/architecture/skinnyhouse1.glb" id="14_5rhs8"]
 [ext_resource type="PackedScene" uid="uid://2lnq4kvnv37b" path="res://tscn/npc_1.tscn" id="15_eu483"]
 [ext_resource type="PackedScene" uid="uid://c1dbprdspf5dt" path="res://tscn/npc_2.tscn" id="17_eh2cu"]
-[ext_resource type="Script" uid="uid://dycbujv8chtur" path="res://gd/npc.gd" id="18_eh2cu"]
+[ext_resource type="Script" uid="uid://cxksh6skg15k7" path="res://gd/npc.gd" id="18_eh2cu"]
 [ext_resource type="PackedScene" uid="uid://b4gpttxtb5wnj" path="res://glb/architecture/statue.glb" id="19_fp1dq"]
 [ext_resource type="PackedScene" uid="uid://cmid6tvx5gd4m" path="res://npc_3.tscn" id="19_vwbxu"]
 [ext_resource type="PackedScene" uid="uid://bbimhd08nimjl" path="res://glb/nature/tree.glb" id="20_byo66"]
 [ext_resource type="PackedScene" uid="uid://1rpnxp7kobid" path="res://glb/nature/bush2.glb" id="21_oem1t"]
 [ext_resource type="PackedScene" uid="uid://12nogel3il20" path="res://glb/nature/bush.glb" id="22_vwbxu"]
 [ext_resource type="Script" uid="uid://dwqrumaqg0p7d" path="res://gd/spawner.gd" id="24_r8j7b"]
+[ext_resource type="Script" uid="uid://dj7j26mo4hgm2" path="res://gd/area_3d.gd" id="25_bbiul"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_i5arm"]
 shader = ExtResource("5_jka67")
@@ -123,6 +124,8 @@ albedo_color = Color(0.5609549, 0.5609549, 0.5609549, 1)
 [sub_resource type="PlaneMesh" id="PlaneMesh_vwbxu"]
 size = Vector2(250, 250)
 center_offset = Vector3(100, 100, 50)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_bbiul"]
 
 [node name="Node3D" type="Node3D" unique_id=1689037102]
 script = ExtResource("1_7lhp4")
@@ -268,7 +271,7 @@ transform = Transform3D(-0.9908282, 0, 0.13512738, 0, 1, 0, -0.13512738, 0, -0.9
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.030033588, -0.1080246, 1.4149761)
 
-[node name="Landscape" parent="landscape" index="0" unique_id=1751951411]
+[node name="Landscape" parent="landscape" index="0" unique_id=791988927]
 transform = Transform3D(17.71466, -0.0029094922, 0.017167607, 0.0028964176, 17.714664, 0.013368785, -0.017169818, -0.013365945, 17.714655, -0.0062122345, 0.06770897, -0.060983658)
 
 [node name="npcs" type="Node3D" parent="." unique_id=1090715944]
@@ -778,5 +781,12 @@ mesh = SubResource("PlaneMesh_vwbxu")
 
 [node name="spawner" type="Node3D" parent="." unique_id=440201048]
 script = ExtResource("24_r8j7b")
+
+[node name="Area3D" type="Area3D" parent="." unique_id=856343137]
+transform = Transform3D(2000, 0, 0, 0, 300, 0, 0, 0, 2000, 0, -238.8584, 0)
+script = ExtResource("25_bbiul")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=854481300]
+shape = SubResource("BoxShape3D_bbiul")
 
 [editable path="landscape"]

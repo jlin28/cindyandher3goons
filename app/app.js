@@ -147,6 +147,12 @@ ws.on('connection', function connect(client, req) {
         headers: { 'Content-Type': 'application/json'},
         body: JSON.stringify({ type: "remove_item", item: data.item, quantity: data.quantity, user: client.username})
       });
+
+      send(
+        client, {
+          type: "remove_item",
+        }
+      )
     }
 
     if (data.type === "fetch_quests") {

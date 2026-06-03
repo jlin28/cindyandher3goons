@@ -17,9 +17,7 @@ func _unhandled_input(event: InputEvent) -> void:
 					if !snowman.build(player.current_held_item):
 						player.update_notification("Let's try a smaller snowball...")
 					else:
-						print("I run")
 						MultiplayerClient.remove_item(player.current_held_item, 1)
-						player.inventory_update.emit()
 				else:
 					player.update_notification("He could use some accessories!")
 			elif 'L' not in player.current_held_item:
@@ -27,7 +25,6 @@ func _unhandled_input(event: InputEvent) -> void:
 			else:
 				var snowman = Snowman.instantiate()
 				MultiplayerClient.remove_item(player.current_held_item, 1)
-				player.inventory_update.emit()
 				
 				get_tree().current_scene.add_child(snowman)
 				snowman.position = player.position - 2.5*Vector3(sin(player.current_angle), 0, cos(player.current_angle))
@@ -39,7 +36,6 @@ func _unhandled_input(event: InputEvent) -> void:
 						player.update_notification("That's enough arms...")
 					else:
 						MultiplayerClient.remove_item(player.current_held_item, 1)
-						player.inventory_update.emit()
 		elif player.current_held_item and 'pebbles' in player.current_held_item:
 			if player.snowman_in_vicinity:
 				var snowman = player.snowman_in_vicinity

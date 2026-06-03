@@ -31,9 +31,8 @@ albedo_color = Color(0.12, 0.12, 0.12, 1)
 
 [sub_resource type="SphereMesh" id="SphereMesh_qdrjw"]
 
-[node name="StaticBody3D" type="StaticBody3D" unique_id=504069829 node_paths=PackedStringArray("pebble_cont")]
+[node name="StaticBody3D" type="StaticBody3D" unique_id=504069829]
 script = ExtResource("1_vwvqo")
-pebble_cont = []
 
 [node name="large_snowball" type="MeshInstance3D" parent="." unique_id=1403280290]
 transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, 0, 0, 0)

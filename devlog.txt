@@ -455,9 +455,15 @@ cindyL -- 2026-05-31 18:58
 DESIGN DOC
 * target ship date updated
 
-cindyL -- 2026-06-02 10:35
+cindyL -- 2026-06-02 10:57
 DEVELOPER PREVIEWS: The Aftermath
 * change keybind for crouch
 * fix item removal from inventory
 * check/fix text readability
 * snowball detection into inventory inconsistent?
+DESIGN DOC
+* pdf updated
+
+cindyL -- 2026-06-03 10:37
+* header for __init__
+* revised import organization

@@ -24,7 +24,8 @@ func _unhandled_input(event: InputEvent) -> void:
 				player.update_notification("Large snowball required")
 			else:
 				var snowman = Snowman.instantiate()
-		
+				MultiplayerClient.remove_item(player.current_held_item, 1)
+				
 				get_tree().current_scene.add_child(snowman)
 				snowman.position = player.position - 2.5*Vector3(sin(player.current_angle), 0, cos(player.current_angle))
 		elif player.current_held_item and 'stick' in player.current_held_item:

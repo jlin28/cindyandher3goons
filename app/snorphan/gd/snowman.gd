@@ -13,7 +13,7 @@ extends StaticBody3D
 @export var torso_in_place = false
 @export var head_in_place = false
 
-@export var pebbles = %pebbles.get_children()
+@export var pebble_cont = %pebbles.get_children()
 @export var current_pebble = 0
 
 func _ready() -> void:
@@ -54,9 +54,9 @@ func arms():
 		return true
 	
 func pebble():
-	if current_pebble < pebbles.Count:
-		pebbles[current_pebble].visible = true
-		pebbles[current_pebble] += 1
+	if current_pebble < pebble_cont.Count:
+		pebble_cont[current_pebble].visible = true
+		pebble_cont[current_pebble] += 1
 		return true
 	else:
 		return false

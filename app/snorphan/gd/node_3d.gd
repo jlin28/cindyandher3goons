@@ -35,12 +35,18 @@ func _unhandled_input(event: InputEvent) -> void:
 				if snowman.torso_in_place:
 					if !snowman.arms():
 						player.update_notification("That's enough arms...")
+					else:
+						MultiplayerClient.remove_item(player.current_held_item, 1)
+						player.inventory_update.emit()
 		elif player.current_held_item and 'pebbles' in player.current_held_item:
 			if player.snowman_in_vicinity:
 				var snowman = player.snowman_in_vicinity
 				if snowman.head_in_place:
 					if !snowman.pebble():
-						player.update_notification("That's enough arms...")
+						player.update_notification("Their face can't take anymore pebbles!!")
+					else:
+						MultiplayerClient.remove_item(player.current_held_item, 1)
+						player.inventory_update.emit()
 	if Input.is_action_just_pressed("interact") and player.can_move:
 		if player.npc_interactable == true:
 			var dialogue_box = ui.get_child(1)

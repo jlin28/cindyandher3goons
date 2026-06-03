@@ -27,6 +27,7 @@ func _unhandled_input(event: InputEvent) -> void:
 			else:
 				var snowman = Snowman.instantiate()
 				MultiplayerClient.remove_item(player.current_held_item, 1)
+				player.inventory_update.emit()
 				
 				get_tree().current_scene.add_child(snowman)
 				snowman.position = player.position - 2.5*Vector3(sin(player.current_angle), 0, cos(player.current_angle))

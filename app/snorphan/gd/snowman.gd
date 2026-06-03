@@ -8,13 +8,15 @@ extends StaticBody3D
 @onready var small_collision := $small_snowball_collision
 @onready var branch1 := %branch
 @onready var branch2 := %branch2
+@onready var pebble_cont = %pebbles.get_children()
 
 @export var can_build = true
 @export var torso_in_place = false
 @export var head_in_place = false
 
-@onready var pebble_cont = %pebbles.get_children()
 @export var current_pebble = 0
+
+@export var snowman_items = ['snowball_S', 'snowball_M', 'snowball_L', 'stick', 'pebbles']
 
 func _ready() -> void:
 	interactable_area.body_entered.connect(_on_entered)

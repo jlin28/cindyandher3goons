@@ -140,6 +140,7 @@ ws.on('connection', function connect(client, req) {
     }
 
     if (data.type === "remove_item") {
+      console.log('i exist');
       let res = await fetch("https://cindyandher3goons.me/" + client.route, {
       // let res = await fetch("http://127.0.0.1:5000/" + client.route, {
         method: 'POST',

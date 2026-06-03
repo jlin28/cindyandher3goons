@@ -17,7 +17,9 @@ func _unhandled_input(event: InputEvent) -> void:
 					if !snowman.build(player.current_held_item):
 						player.update_notification("Let's try a smaller snowball...")
 					else:
+						print("I run")
 						MultiplayerClient.remove_item(player.current_held_item, 1)
+						player.inventory_update.emit()
 				else:
 					player.update_notification("He could use some accessories!")
 			elif 'L' not in player.current_held_item:

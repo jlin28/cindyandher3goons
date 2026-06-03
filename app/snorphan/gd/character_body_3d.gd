@@ -17,6 +17,8 @@ var time = 0.0;
 @onready var crouch := %foxcrouch
 @onready var notification := %notification
 
+@onready var idle_meshes = idle.get_children()
+
 @onready var snowman := get_tree().get_first_node_in_group('snowman')
 
 @onready var normal_collision_shapes := get_tree().get_nodes_in_group("normal_collision")
@@ -48,6 +50,8 @@ signal quest_update
 
 func _ready() -> void:
 	inventory_full.connect(_on_inventory_full)
+	for mesh in idle_meshes:
+		mesh.override_material.albedo = Color('#000000')
 	
 func _physics_process(delta):
 	var direction = Vector3.ZERO

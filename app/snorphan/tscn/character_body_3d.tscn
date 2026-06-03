@@ -1,15 +1,35 @@
 [gd_scene format=3 uid="uid://6eok38y3bfyh"]
 
-[ext_resource type="Script" uid="uid://4g7y3o4gm01t" path="res://gd/character_body_3d.gd" id="1_iwpo4"]
-[ext_resource type="Script" uid="uid://qa3rhp2ugtgw" path="res://gd/cam_pivot.gd" id="2_vd578"]
-[ext_resource type="PackedScene" uid="uid://cl48yosn3ptdt" path="res://glb/characters/fox.glb" id="3_a63tl"]
+[ext_resource type="Script" uid="uid://c2idrfifackx6" path="res://gd/character_body_3d.gd" id="1_iwpo4"]
+[ext_resource type="Script" uid="uid://c4hdoqsuin6tk" path="res://gd/cam_pivot.gd" id="2_vd578"]
+[ext_resource type="PackedScene" uid="uid://pfjxshufor15" path="res://glb/characters/fox.glb" id="3_a63tl"]
 [ext_resource type="PackedScene" uid="uid://dqtrb1h3t2qkr" path="res://tscn/walk_cycle.tscn" id="4_eciny"]
 [ext_resource type="PackedScene" uid="uid://bx4i8mfwdfxh8" path="res://tscn/sprint.tscn" id="5_i84xa"]
-[ext_resource type="FontFile" uid="uid://pmi7qj0fh53v" path="res://static/PeaberryDoublespace.ttf" id="6_vav4b"]
-[ext_resource type="PackedScene" uid="uid://cgn6x57p3llsm" path="res://glb/actions/foxcrouch.glb" id="6_w8dvm"]
+[ext_resource type="FontFile" uid="uid://cjvg0evcqc7yp" path="res://static/PeaberryDoublespace.ttf" id="6_vav4b"]
+[ext_resource type="PackedScene" uid="uid://d03mssssymjjl" path="res://glb/actions/foxcrouch.glb" id="6_w8dvm"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_a63tl"]
 size = Vector3(0.9288845, 1.6221123, 1.2651367)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_w8dvm"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_atlo2"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ah280"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ocl42"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_d8mki"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rb5w6"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_c7kqa"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xqtx0"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_22w52"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yc44j"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_atlo2"]
 size = Vector3(1, 0.4095459, 1)
@@ -60,6 +80,36 @@ shape = SubResource("BoxShape3D_a63tl")
 unique_name_in_owner = true
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0)
 
+[node name="torso" parent="fox" index="0" unique_id=1586716669]
+surface_material_override/0 = SubResource("StandardMaterial3D_w8dvm")
+
+[node name="arm2" parent="fox" index="1" unique_id=1808692747]
+surface_material_override/0 = SubResource("StandardMaterial3D_atlo2")
+
+[node name="leg1" parent="fox" index="2" unique_id=469588819]
+surface_material_override/0 = SubResource("StandardMaterial3D_ah280")
+
+[node name="leg2" parent="fox" index="3" unique_id=456650135]
+surface_material_override/0 = SubResource("StandardMaterial3D_ocl42")
+
+[node name="arm1" parent="fox" index="4" unique_id=632353510]
+surface_material_override/0 = SubResource("StandardMaterial3D_d8mki")
+
+[node name="eye1" parent="fox" index="5" unique_id=671054235]
+surface_material_override/0 = SubResource("StandardMaterial3D_rb5w6")
+
+[node name="eye2" parent="fox" index="6" unique_id=296246472]
+surface_material_override/0 = SubResource("StandardMaterial3D_c7kqa")
+
+[node name="head" parent="fox" index="7" unique_id=1515478555]
+surface_material_override/0 = SubResource("StandardMaterial3D_xqtx0")
+
+[node name="nose" parent="fox" index="8" unique_id=1371403682]
+surface_material_override/0 = SubResource("StandardMaterial3D_22w52")
+
+[node name="tail" parent="fox" index="9" unique_id=1020228949]
+surface_material_override/0 = SubResource("StandardMaterial3D_yc44j")
+
 [node name="walk_cycle" parent="." unique_id=669228454 instance=ExtResource("4_eciny")]
 unique_name_in_owner = true
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0)
@@ -95,3 +145,8 @@ shape = SubResource("BoxShape3D_atlo2")
 transform = Transform3D(2.1526191, 0, 0, 0, 1.5572038, 0, 0, 0, 3.5, 0, -1.5713727, -1.0374708)
 visible = false
 shape = SubResource("BoxShape3D_ah280")
+
+[editable path="fox"]
+[editable path="walk_cycle"]
+[editable path="sprint_cycle"]
+[editable path="foxcrouch"]

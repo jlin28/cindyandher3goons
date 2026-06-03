@@ -11,26 +11,6 @@
 [sub_resource type="BoxShape3D" id="BoxShape3D_a63tl"]
 size = Vector3(0.9288845, 1.6221123, 1.2651367)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_w8dvm"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_atlo2"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ah280"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ocl42"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_d8mki"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rb5w6"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_c7kqa"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xqtx0"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_22w52"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yc44j"]
-
 [sub_resource type="BoxShape3D" id="BoxShape3D_atlo2"]
 size = Vector3(1, 0.4095459, 1)
 
@@ -80,36 +60,6 @@ shape = SubResource("BoxShape3D_a63tl")
 unique_name_in_owner = true
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0)
 
-[node name="torso" parent="fox" index="0" unique_id=1586716669]
-surface_material_override/0 = SubResource("StandardMaterial3D_w8dvm")
-
-[node name="arm2" parent="fox" index="1" unique_id=1808692747]
-surface_material_override/0 = SubResource("StandardMaterial3D_atlo2")
-
-[node name="leg1" parent="fox" index="2" unique_id=469588819]
-surface_material_override/0 = SubResource("StandardMaterial3D_ah280")
-
-[node name="leg2" parent="fox" index="3" unique_id=456650135]
-surface_material_override/0 = SubResource("StandardMaterial3D_ocl42")
-
-[node name="arm1" parent="fox" index="4" unique_id=632353510]
-surface_material_override/0 = SubResource("StandardMaterial3D_d8mki")
-
-[node name="eye1" parent="fox" index="5" unique_id=671054235]
-surface_material_override/0 = SubResource("StandardMaterial3D_rb5w6")
-
-[node name="eye2" parent="fox" index="6" unique_id=296246472]
-surface_material_override/0 = SubResource("StandardMaterial3D_c7kqa")
-
-[node name="head" parent="fox" index="7" unique_id=1515478555]
-surface_material_override/0 = SubResource("StandardMaterial3D_xqtx0")
-
-[node name="nose" parent="fox" index="8" unique_id=1371403682]
-surface_material_override/0 = SubResource("StandardMaterial3D_22w52")
-
-[node name="tail" parent="fox" index="9" unique_id=1020228949]
-surface_material_override/0 = SubResource("StandardMaterial3D_yc44j")
-
 [node name="walk_cycle" parent="." unique_id=669228454 instance=ExtResource("4_eciny")]
 unique_name_in_owner = true
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0)
@@ -145,8 +95,3 @@ shape = SubResource("BoxShape3D_atlo2")
 transform = Transform3D(2.1526191, 0, 0, 0, 1.5572038, 0, 0, 0, 3.5, 0, -1.5713727, -1.0374708)
 visible = false
 shape = SubResource("BoxShape3D_ah280")
-
-[editable path="fox"]
-[editable path="walk_cycle"]
-[editable path="sprint_cycle"]
-[editable path="foxcrouch"]

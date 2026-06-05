@@ -28,6 +28,7 @@ func _unhandled_input(event: InputEvent) -> void:
 				
 				get_tree().current_scene.add_child(snowman)
 				snowman.position = player.position - 2.5*Vector3(sin(player.current_angle), 0, cos(player.current_angle))
+				snowman.rotation.y = -player.rotation.y
 		elif player.current_held_item and 'stick' in player.current_held_item:
 			if player.snowman_in_vicinity:
 				var snowman = player.snowman_in_vicinity

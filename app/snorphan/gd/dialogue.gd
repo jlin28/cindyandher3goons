@@ -36,6 +36,7 @@ func play_dialogue():
 	
 	if current_npc in player.active_quests:
 		var quest = quests_cont.current_quests[current_npc]
+		print(player.completion_status)
 		if player.completion_status[player.active_quests.find(current_npc)] == 1:
 			var item_to_be_taken = quest.get('fulfillment_requirement')
 			var amount_to_be_taken = quest.get('amount_required')

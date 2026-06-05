@@ -17,8 +17,6 @@ var time = 0.0;
 @onready var crouch := %foxcrouch
 @onready var notification := %notification
 
-@onready var snowman := get_tree().get_first_node_in_group('snowman')
-
 @onready var normal_collision_shapes := get_tree().get_nodes_in_group("normal_collision")
 @onready var crouch_collision_shapes := get_tree().get_nodes_in_group("crouch_collision")
 
@@ -37,6 +35,8 @@ var time = 0.0;
 @export var current_items = null
 @export var full_inventory = false
 @export var house_found = false
+
+@export var snowman_items = ['snowball_S', 'snowball_M', 'snowball_L', 'stick', 'pebbles']
 
 var prev_line = ""
 var label_tick = -1
@@ -94,7 +94,7 @@ func _physics_process(delta):
 	move_and_slide()
 	
 func _process(delta: float) -> void:
-	if current_held_item and current_held_item in snowman.snowman_items:
+	if current_held_item and current_held_item in snowman_items:
 		if 'snowball' in current_held_item and prev_line == '':
 			notification.text = "Press [F] to build snowman"
 		if label_tick > -1 and prev_line == '':

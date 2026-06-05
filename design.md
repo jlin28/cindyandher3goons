@@ -171,7 +171,9 @@ As a snowman lover, I want to be able to make lots of snowmen so that I can sati
 | TEXT | questDesc |    |
 | TEXT | questReq |    |
 | TEXT | questType |    |
-| TEXT | questRequiredAmount |    |
+| INTEGER | questRequiredAmount |    |
+| TEXT | reward |    |
+| INTEGER | reward_amt |    |
 
 <br>
 
@@ -187,6 +189,7 @@ As a snowman lover, I want to be able to make lots of snowmen so that I can sati
 | REAL | x_rot |    |
 | REAL | y_rot |    |
 | REAL | z_rot |    |
+| BOOLEAN | button |    |
 | BOOLEAN | carrot |    |
 | BOOLEAN | hat |    |
 | BOOLEAN | red_scarf |    |

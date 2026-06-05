@@ -467,3 +467,8 @@ DESIGN DOC
 cindyL -- 2026-06-03 10:37
 * header for __init__
 * revised import organization
+
+cindyL -- 2026-06-05 10:44
+DESIGN DOC
+* component map updated
+* db tables updated to reflect current columns

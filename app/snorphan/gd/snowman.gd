@@ -8,7 +8,7 @@ extends StaticBody3D
 @onready var small_collision := $small_snowball_collision
 @onready var branch1 := %branch
 @onready var branch2 := %branch2
-@onready var pebble_cont = %pebbles.get_children()
+@onready var pebble_cont = get_tree().get_node(^"pebbles").get_children()
 
 @export var can_build = true
 @export var torso_in_place = false

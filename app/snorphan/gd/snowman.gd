@@ -8,17 +8,20 @@ extends StaticBody3D
 @onready var small_collision := $small_snowball_collision
 @onready var branch1 := %branch
 @onready var branch2 := %branch2
+@onready var pebble_cont = get_node(^"pebbles").get_children()
 
 @export var can_build = true
 @export var torso_in_place = false
 @export var head_in_place = false
 
-@export var pebbles = %pebbles.get_children()
 @export var current_pebble = 0
+
+@export var snowman_items = ['snowball_S', 'snowball_M', 'snowball_L', 'stick', 'pebbles']
 
 func _ready() -> void:
 	interactable_area.body_entered.connect(_on_entered)
 	interactable_area.body_exited.connect(_on_exit)	
+	print(pebble_cont)
 	
 func _on_entered(body):
 	if body.is_in_group('player'):
@@ -54,9 +57,9 @@ func arms():
 		return true
 	
 func pebble():
-	if current_pebble < pebbles.Count:
-		pebbles[current_pebble].visible = true
-		pebbles[current_pebble] += 1
+	if current_pebble < pebble_cont.size():
+		pebble_cont[current_pebble].visible = true
+		current_pebble += 1
 		return true
 	else:
 		return false

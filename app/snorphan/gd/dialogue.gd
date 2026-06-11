@@ -36,6 +36,7 @@ func play_dialogue():
 	
 	if current_npc in player.active_quests:
 		var quest = quests_cont.current_quests[current_npc]
+		print(player.completion_status)
 		if player.completion_status[player.active_quests.find(current_npc)] == 1:
 			var item_to_be_taken = quest.get('fulfillment_requirement')
 			var amount_to_be_taken = quest.get('amount_required')
@@ -51,10 +52,10 @@ func play_dialogue():
 				player.active_quests.erase(current_npc)
 				add_quest_to_completed(current_npc)
 				
-				MultiplayerClient.remove_item(item_to_be_taken, amount_to_be_taken, false)
+				MultiplayerClient.remove_item(item_to_be_taken, amount_to_be_taken)
 				player.inventory_update.emit()
 				
-				MultiplayerClient.add_item(quest.get('reward'), quest.get('reward_amt'), true)
+				MultiplayerClient.add_item(quest.get('reward'), quest.get('reward_amt'))
 				quests_cont.change_quests.emit()
 		else:
 			current_dialogue_line = 'quest_in_progress'

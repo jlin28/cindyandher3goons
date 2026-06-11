@@ -83,13 +83,14 @@ func update_quests_progress():
 			i += 1
 
 func _on_chief_quest_entered(body):
-	for i in range(len(player.active_quests)):
-		if player.active_quests[i] == "Town Chief":
-			var current_quest_box = quest_boxes[i]
-			var info_cont = current_quest_box.get_node(^'MarginContainer/VBoxContainer')
-			var second_info_cont = info_cont.get_node(^'HBoxContainer')
+	if body == player:
+		for i in range(len(player.active_quests)):
+			if player.active_quests[i] == "Town Chief":
+				var current_quest_box = quest_boxes[i]
+				var info_cont = current_quest_box.get_node(^'MarginContainer/VBoxContainer')
+				var second_info_cont = info_cont.get_node(^'HBoxContainer')
 
-			second_info_cont.get_node(^"quest_req").text = 'COMPLETED'
-			second_info_cont.get_node(^"quest_req").modulate = Color('#70ff83')
-			player.completion_status[player.active_quests.find("Town Chief")] = 1
+				second_info_cont.get_node(^"quest_req").text = 'COMPLETED'
+				second_info_cont.get_node(^"quest_req").modulate = Color('#70ff83')
+				player.completion_status[player.active_quests.find("Town Chief")] = 1
 		

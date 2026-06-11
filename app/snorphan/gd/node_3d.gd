@@ -24,21 +24,28 @@ func _unhandled_input(event: InputEvent) -> void:
 				player.update_notification("Large snowball required")
 			else:
 				var snowman = Snowman.instantiate()
-		
+				MultiplayerClient.remove_item(player.current_held_item, 1)
+				
 				get_tree().current_scene.add_child(snowman)
 				snowman.position = player.position - 2.5*Vector3(sin(player.current_angle), 0, cos(player.current_angle))
+				snowman.rotation.y = -player.rotation.y
 		elif player.current_held_item and 'stick' in player.current_held_item:
 			if player.snowman_in_vicinity:
 				var snowman = player.snowman_in_vicinity
 				if snowman.torso_in_place:
 					if !snowman.arms():
 						player.update_notification("That's enough arms...")
+					else:
+						MultiplayerClient.remove_item(player.current_held_item, 1)
 		elif player.current_held_item and 'pebbles' in player.current_held_item:
 			if player.snowman_in_vicinity:
 				var snowman = player.snowman_in_vicinity
 				if snowman.head_in_place:
 					if !snowman.pebble():
-						player.update_notification("That's enough arms...")
+						player.update_notification("Their face can't take anymore pebbles!!")
+					else:
+						MultiplayerClient.remove_item(player.current_held_item, 1)
+						player.inventory_update.emit()
 	if Input.is_action_just_pressed("interact") and player.can_move:
 		if player.npc_interactable == true:
 			var dialogue_box = ui.get_child(1)
@@ -57,11 +64,12 @@ func _unhandled_input(event: InputEvent) -> void:
 		
 		elif player.item_interactable == true:
 			MultiplayerClient.add_item(player.current_interactable_item.label, 1)
-			quests_cont.update_quests_progress()
+			if 'snowball' not in player.current_interactable_item: 
+				quests_cont.update_quests_progress()
 
-		elif player.is_on_floor():
-			var snowball = Snowball.instantiate()
-			snowball.scale = Vector3(1,1,1)
-		
-			get_tree().current_scene.add_child(snowball)
-			snowball.position = player.position - Vector3(sin(player.current_angle), 0, cos(player.current_angle))
+	if Input.is_action_just_pressed("roll_snowball") and player.is_on_floor():
+		var snowball = Snowball.instantiate()
+		snowball.scale = Vector3(1,1,1)
+	
+		get_tree().current_scene.add_child(snowball)
+		snowball.position = player.position - Vector3(sin(player.current_angle), 0, cos(player.current_angle))

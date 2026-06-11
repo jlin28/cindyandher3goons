@@ -38,6 +38,7 @@ c.execute("""CREATE TABLE IF NOT EXISTS user(
     questsCompleted TEXT,
     questsActive TEXT,
     cape BOOLEAN,
+    loggedIn BOOLEAN,
     FOREIGN KEY (item1) references item(name),
     FOREIGN KEY (item2) references item(name),
     FOREIGN KEY (item3) references item(name),
@@ -1014,8 +1015,13 @@ def login():
         db.close()
 
         if user_data:
-            if password == user_data[1]:
+            if password == user_data[1] and (not user_data[19]):
                 session["username"] = username
+                db = sqlite3.connect(DB_FILE)
+                c = db.cursor()
+                c.execute("UPDATE user SET loggedIn = TRUE FROM user WHERE username = ?", (username,))
+                db.commit()
+                db.close()
                 return redirect(url_for("start"))
             else:
                 text = 'login failed'
@@ -1045,7 +1051,7 @@ def register():
         else:
             db = sqlite3.connect(DB_FILE)
             c = db.cursor()
-            c.execute("INSERT into user VALUES (?, ?, 100, 100, '', '', '', '', '', '', 0, 0, 0, 0, 0, 0, '', '', FALSE)", (username, password))
+            c.execute("INSERT into user VALUES (?, ?, 100, 100, '', '', '', '', '', '', 0, 0, 0, 0, 0, 0, '', '', FALSE, TRUE)", (username, password))
             db.commit()
             db.close()
             session['username'] = username
@@ -1120,6 +1126,11 @@ def game():
 
 @app.route("/exit", methods=["GET", "POST"])
 def exit():
+    db = sqlite3.connect(DB_FILE)
+    c = db.cursor()
+    c.execute("UPDATE user SET loggedIn = FALSE FROM user WHERE username = ?", (session['username'],))
+    db.commit()
+    db.close()
     session.clear()
     return render_template('exit.html')
 

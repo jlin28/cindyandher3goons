@@ -467,3 +467,6 @@ DESIGN DOC
 cindyL -- 2026-06-03 10:37
 * header for __init__
 * revised import organization
+
+cindyL -- 2026-06-11 11:00
+* check for whether user is already logged in

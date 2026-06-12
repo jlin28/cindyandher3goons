@@ -17,6 +17,11 @@ var time = 0.0;
 @onready var crouch := %foxcrouch
 @onready var notification := %notification
 
+@onready var idle_cape := %idle_cape
+@onready var walk_cape := %walk_cape
+@onready var sprint_cape := %sprint_cape
+@onready var crouch_cape := %crouch_cape
+
 @onready var normal_collision_shapes := get_tree().get_nodes_in_group("normal_collision")
 @onready var crouch_collision_shapes := get_tree().get_nodes_in_group("crouch_collision")
 
@@ -37,6 +42,8 @@ var time = 0.0;
 @export var house_found = false
 
 @export var snowman_items = ['snowball_S', 'snowball_M', 'snowball_L', 'stick', 'pebbles']
+
+@export var equipped_cape = false
 
 var prev_line = ""
 var label_tick = -1

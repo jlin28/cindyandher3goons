@@ -98,6 +98,7 @@ func handle_msg(data):
 		send_username()
 		inventory_cont._on_inventory_update()
 		quests_cont.fetch_quests()
+		fetch_cape_info()
 		
 	elif msg_type == "player_name":
 		var player_id = str(data.get("id", ""))
@@ -139,6 +140,9 @@ func handle_msg(data):
 		
 	elif msg_type == "add_quest":
 		quests_cont.change_quests.emit()
+	
+	#elif msg_type == "cape_info":
+		#player.equipped_cape =
 		
 func send_username():
 	var data = {
@@ -268,6 +272,13 @@ func complete_quest(npc):
 	var data = {
 		"type": "complete_quest",
 		"npc": npc
+	}
+	
+	socket.send_text(JSON.stringify(data))
+		
+func fetch_cape_info():
+	var data = {
+		"type": "cape_info"
 	}
 	
 	socket.send_text(JSON.stringify(data))

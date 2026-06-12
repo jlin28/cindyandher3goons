@@ -997,6 +997,17 @@ def fetch_inventory(username):
     db.close()
     return inventory
 
+def fetch_cape_status(username):
+    db = sqlite3.connect(DB_FILE)
+    c = db.cursor()
+
+    c.execute("SELECT cape FROM user WHERE username = ?""", (username,))
+    cape_status = c.fetchone()
+
+    db.commit()
+    db.close()
+    return cape_status
+
 @app.route("/", methods=["GET", "POST"])
 def start():
     return render_template('start.html')
@@ -1121,6 +1132,11 @@ def game():
             user = body.get('user')
 
             return jsonify(fetch_inventory(user))
+
+        if body.get('type') == 'cape_info':
+            user = body.get('user')
+
+            return jsonify(fetch_cape_status(user))
 
     if "username" not in session:
         return redirect(url_for("login"))

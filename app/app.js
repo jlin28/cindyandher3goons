@@ -197,6 +197,23 @@ ws.on('connection', function connect(client, req) {
         }
       )
     }
+
+    if (data.type === "cape_info") {
+      let res = await fetch("https://cindyandher3goons.me/" + client.route, {
+      // let res = await fetch("http://127.0.0.1:5000/" + client.route, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json'},
+        body: JSON.stringify({ type: "cape_info", user: client.username })
+      });
+
+      let cape_status = await res.json()
+      send(
+        client, {
+          type: "cape_info",
+          cape_status: cape_status
+        }
+      )
+    }
   });
 
   client.on('close', () => {

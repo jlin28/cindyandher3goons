@@ -20,6 +20,8 @@ ws.on('connection', function connect(client, req) {
   client.y = 0;
   client.z = 0;
   client.ry = 0;
+  client.action = idle;
+  client.cape = false;
 
   // client.send(client.id);
   // client.send(client.route);
@@ -43,7 +45,9 @@ ws.on('connection', function connect(client, req) {
     x: client.x,
     y: client.y,
     z: client.z,
-    ry: client.ry
+    ry: client.ry,
+    action: client.action,
+    cape: client.cape
   }, client);
 
   client.on('message', async message => {
@@ -76,6 +80,8 @@ ws.on('connection', function connect(client, req) {
       client.y = Number(data.y);
       client.z = Number(data.z);
       client.ry = Number(data.ry);
+      client.action = String(data.action);
+      client.cape = data.cape;
 
       broadcast({
         type: "player_state",
@@ -83,7 +89,9 @@ ws.on('connection', function connect(client, req) {
         x: client.x,
         y: client.y,
         z: client.z,
-        ry: client.ry
+        ry: client.ry,
+        action: client.action,
+        cape: client.cape
       }, client);
     }
 

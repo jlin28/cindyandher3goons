@@ -33,6 +33,10 @@ inv=""
 quests=""
 snowman=""
 
+[gui]
+
+theme/custom_font="uid://cjvg0evcqc7yp"
+
 [input]
 
 move_right={

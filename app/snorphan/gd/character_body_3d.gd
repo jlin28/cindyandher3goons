@@ -44,6 +44,7 @@ var time = 0.0;
 @export var snowman_items = ['snowball_S', 'snowball_M', 'snowball_L', 'stick', 'pebbles']
 
 @export var equipped_cape = false
+@export var current_action = "idle"
 
 var prev_line = ""
 var label_tick = -1
@@ -141,6 +142,8 @@ func _process(delta: float) -> void:
 				if walk_cape.visible: walk_cape.visible = false
 				if sprint_cape.visible: sprint_cape.visible = false
 			
+			current_action = "crouch"
+			
 	elif can_move:
 		if Input.is_action_pressed("move_right") or Input.is_action_pressed("move_left") or Input.is_action_pressed("move_forward") or Input.is_action_pressed("move_back"):
 			idle.visible = false
@@ -157,6 +160,8 @@ func _process(delta: float) -> void:
 				if equipped_cape:
 					sprint_cape.visible = true
 					if walk_cape.visible: walk_cape.visible = false
+				
+				current_action = "sprint"
 			else:
 				speed = 14
 				anim_cont2.visible = false
@@ -166,6 +171,8 @@ func _process(delta: float) -> void:
 				if equipped_cape:
 					walk_cape.visible = true
 					if sprint_cape.visible: sprint_cape.visible = false
+				
+				current_action = "walk"
 		else: 
 			idle.visible = true
 			anim_cont2.visible = false
@@ -179,6 +186,8 @@ func _process(delta: float) -> void:
 				if walk_cape.visible: walk_cape.visible = false
 				if sprint_cape.visible: sprint_cape.visible = false
 			
+			current_action = "idle"
+			
 	if Input.is_action_just_released("crouch"):
 		if normal_collision_shapes[0].disabled:
 			for collision in normal_collision_shapes:
@@ -187,6 +196,12 @@ func _process(delta: float) -> void:
 				collision.disabled = true
 			crouch.visible = false
 			idle.visible = true
+			
+			if equipped_cape:
+				idle_cape.visible = true
+				if crouch_cape.visible: crouch_cape.visible = false
+				
+			current_action = "idle"
 		
 	cam.position = position
 
@@ -200,3 +215,63 @@ func update_notification(new_line):
 
 func _on_inventory_full():
 	update_notification("Inventory is full!")
+
+func update_current_action(action, cape):
+	if action == "crouch":
+		if !normal_collision_shapes[0].disabled:
+			for collision in normal_collision_shapes:
+				collision.disabled = true
+			for collision in crouch_collision_shapes:
+				collision.disabled = false
+			crouch.visible = true
+			idle.visible = false
+			anim_cont2.visible = false
+			anim_cont.visible = false
+			
+			if cape:
+				crouch_cape.visible = true
+				if idle_cape.visible: idle_cape.visible = false
+				if walk_cape.visible: walk_cape.visible = false
+				if sprint_cape.visible: sprint_cape.visible = false
+			
+	elif action == "sprint":
+		idle.visible = false
+			
+		if idle_cape.visible: idle_cape.visible = false
+		if crouch_cape.visible: crouch_cape.visible = false
+			
+		anim_cont2.visible = true
+		anim_cont.visible = false
+		sprint.play("walk")
+		
+		if cape:
+			sprint_cape.visible = true
+			if walk_cape.visible: walk_cape.visible = false
+
+	elif action == "walk":
+		anim_cont2.visible = false
+		anim_cont.visible = true
+		walk.play("walk")
+		
+		if cape:
+			walk_cape.visible = true
+			if sprint_cape.visible: sprint_cape.visible = false
+
+	else: 
+		if normal_collision_shapes[0].disabled:
+			for collision in normal_collision_shapes:
+				collision.disabled = false
+			for collision in crouch_collision_shapes:
+				collision.disabled = true
+				
+		idle.visible = true
+		anim_cont2.visible = false
+		anim_cont.visible = false
+		walk.stop()
+		sprint.stop()
+			
+		if cape:
+			idle_cape.visible = true
+			if crouch_cape.visible: crouch_cape.visible = false
+			if walk_cape.visible: walk_cape.visible = false
+			if sprint_cape.visible: sprint_cape.visible = false

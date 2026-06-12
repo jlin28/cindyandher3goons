@@ -22,6 +22,8 @@ var send_timer = 0.0
 const send_interval = 0.05
 var last_sent_pos = Vector3.ZERO
 var last_sent_rot_y = 0.0
+var last_sent_action = null
+var last_sent_cape = null
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -154,22 +156,31 @@ func send_username():
 func send_position():
 	var pos = local_player.global_position
 	var rot_y = local_player.global_rotation.y
+	var curr_action = player.current_action
+	var cape_status = player.equipped_cape
 	
 	var moved = pos.distance_to(last_sent_pos) > 0.01
 	var rotated = abs(rot_y - last_sent_rot_y) > 0.01
 	
-	if not moved and not rotated:
+	var changed_action = last_sent_action == curr_action
+	var changed_cape_status = last_sent_cape == cape_status
+	
+	if not moved and not rotated and not changed_action and not changed_cape_status:
 		return
 
 	last_sent_pos = pos
 	last_sent_rot_y = rot_y
+	last_sent_action = curr_action
+	last_sent_cape = cape_status
 	
 	var data = {
 		"type": "position",
 		"x": pos.x,
 		"y": pos.y,
 		"z": pos.z,
-		"ry": local_player.global_rotation.y
+		"ry": rot_y,
+		"action": curr_action,
+		"cape": cape_status
 	}
 	socket.send_text(JSON.stringify(data))
 
@@ -189,6 +200,8 @@ func update_remote_player(data):
 		float(data.get("z", 0))
 	)
 	remote_player.global_rotation.y = float(data.get("ry", 0))
+	
+	remote_player.update_current_action(data.get("action", "idle"), data.get("cape", false))
 	
 	var username_text = str(data.get("username", ""))
 	if username_text != "":

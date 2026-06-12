@@ -480,3 +480,6 @@ carrieK -- 2026-06-11 11:00
 cindyL -- 2026-06-12 10:37
 carrieK -- 2026-06-12 10:37
 * fixed bugs in previous update
+
+cindyL -- 2026-06-12 10:45
+* design doc pdf'd

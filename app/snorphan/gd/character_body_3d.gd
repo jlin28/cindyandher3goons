@@ -112,6 +112,8 @@ func _process(delta: float) -> void:
 		if label_tick > -1 and prev_line == '':
 			notification.modulate = Color('#9f8974')
 			label_tick = -1
+	elif current_held_item and "cape" in current_held_item:
+		notification.text = "Press [Q] to equip cape"
 	else:
 		if notification.text != '' and label_tick < 0: notification.text = ''
 	

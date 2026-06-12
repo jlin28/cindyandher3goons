@@ -100,6 +100,11 @@ func _physics_process(delta):
 		
 	move_and_slide()
 	
+#@onready var idle_cape := %idle_cape
+#@onready var walk_cape := %walk_cape
+#@onready var sprint_cape := %sprint_cape
+#@onready var crouch_cape := %crouch_cape
+
 func _process(delta: float) -> void:
 	if current_held_item and current_held_item in snowman_items:
 		if 'snowball' in current_held_item and prev_line == '':
@@ -128,25 +133,49 @@ func _process(delta: float) -> void:
 			anim_cont2.visible = false
 			anim_cont.visible = false
 			
+			if equipped_cape:
+				crouch_cape.visible = true
+				if idle_cape.visible: idle_cape.visible = false
+				if walk_cape.visible: walk_cape.visible = false
+				if sprint_cape.visible: sprint_cape.visible = false
+			
 	elif can_move:
 		if Input.is_action_pressed("move_right") or Input.is_action_pressed("move_left") or Input.is_action_pressed("move_forward") or Input.is_action_pressed("move_back"):
 			idle.visible = false
+			
+			if idle_cape.visible: idle_cape.visible = false
+			if crouch_cape.visible: crouch_cape.visible = false
+			
 			if Input.is_action_pressed("sprint"):
 				speed = 30
 				anim_cont2.visible = true
 				anim_cont.visible = false
 				sprint.play("walk")
+				
+				if equipped_cape:
+					sprint_cape.visible = true
+					if walk_cape.visible: walk_cape.visible = false
 			else:
 				speed = 14
 				anim_cont2.visible = false
 				anim_cont.visible = true
 				walk.play("walk")
+				
+				if equipped_cape:
+					walk_cape.visible = true
+					if sprint_cape.visible: sprint_cape.visible = false
 		else: 
 			idle.visible = true
 			anim_cont2.visible = false
 			anim_cont.visible = false
 			walk.stop()
 			sprint.stop()
+			
+			if equipped_cape:
+				idle_cape.visible = true
+				if crouch_cape.visible: crouch_cape.visible = false
+				if walk_cape.visible: walk_cape.visible = false
+				if sprint_cape.visible: sprint_cape.visible = false
 			
 	if Input.is_action_just_released("crouch"):
 		if normal_collision_shapes[0].disabled:

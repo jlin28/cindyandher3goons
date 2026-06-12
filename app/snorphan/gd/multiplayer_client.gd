@@ -141,8 +141,8 @@ func handle_msg(data):
 	elif msg_type == "add_quest":
 		quests_cont.change_quests.emit()
 	
-	#elif msg_type == "cape_info":
-		#player.equipped_cape =
+	elif msg_type == "cape_info":
+		player.equipped_cape = data.get("cape_status")
 		
 func send_username():
 	var data = {

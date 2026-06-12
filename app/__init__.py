@@ -1019,15 +1019,18 @@ def login():
                 session["username"] = username
                 db = sqlite3.connect(DB_FILE)
                 c = db.cursor()
-                c.execute("UPDATE user SET loggedIn = TRUE FROM user WHERE username = ?", (username,))
+                c.execute("UPDATE user SET loggedIn = TRUE WHERE username = ?", (username,))
                 db.commit()
                 db.close()
                 return redirect(url_for("start"))
+            elif user_data[19]:
+                text = 'user is already logged in elsewhere'
+                return render_template('login.html', text=text)
             else:
-                text = 'login failed'
+                text = 'incorrect password'
                 return render_template('login.html', text=text)
         else:
-            text = 'login failed'
+            text = 'account not found'
             return render_template('login.html', text=text)
 
         return render_template('login.html', text='')
@@ -1126,13 +1129,15 @@ def game():
 
 @app.route("/exit", methods=["GET", "POST"])
 def exit():
-    db = sqlite3.connect(DB_FILE)
-    c = db.cursor()
-    c.execute("UPDATE user SET loggedIn = FALSE FROM user WHERE username = ?", (session['username'],))
-    db.commit()
-    db.close()
-    session.clear()
+    if 'username' in session:
+        db = sqlite3.connect(DB_FILE)
+        c = db.cursor()
+        c.execute("UPDATE user SET loggedIn = FALSE WHERE username = ?", (session['username'],))
+        db.commit()
+        db.close()
+        session.clear()
     return render_template('exit.html')
+
 
 @app.route("/credit", methods=["GET", "POST"])
 def credit():

@@ -90,7 +90,7 @@ _Each member must own meaningful deliverables_
 - `game.html`: this is where our game will live and where we will serve it for you to see
 
 <ins>_Javascript_</ins>
-- `server.js`: node setup code
+- `app.js`: node setup code
 
 <br>
 
@@ -139,6 +139,7 @@ As a snowman lover, I want to be able to make lots of snowmen so that I can sati
 | TEXT | questsCompleted  |    |
 | TEXT | questsActive |    |
 | BOOLEAN | cape |    |
+| BOOLEAN | loggedIn |    |
 
 <br>
 

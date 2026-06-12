@@ -468,7 +468,12 @@ cindyL -- 2026-06-03 10:37
 * header for __init__
 * revised import organization
 
+<<<<<<< HEAD
+cindyL -- 2026-06-11 11:00
+* check for whether user is already logged in
+=======
 cindyL -- 2026-06-05 10:44
 DESIGN DOC
 * component map updated
 * db tables updated to reflect current columns
+>>>>>>> 472942dfae99ae918f67bb73db6fb11f8a95edc9

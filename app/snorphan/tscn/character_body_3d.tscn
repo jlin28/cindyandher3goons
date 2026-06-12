@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://bx4i8mfwdfxh8" path="res://tscn/sprint.tscn" id="5_i84xa"]
 [ext_resource type="FontFile" uid="uid://cjvg0evcqc7yp" path="res://static/PeaberryDoublespace.ttf" id="6_vav4b"]
 [ext_resource type="PackedScene" uid="uid://d03mssssymjjl" path="res://glb/actions/foxcrouch.glb" id="6_w8dvm"]
+[ext_resource type="PackedScene" uid="uid://pwfwturgwr30" path="res://glb/player_items/cape.glb" id="8_atlo2"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_a63tl"]
 size = Vector3(0.9288845, 1.6221123, 1.2651367)
@@ -95,3 +96,23 @@ shape = SubResource("BoxShape3D_atlo2")
 transform = Transform3D(2.1526191, 0, 0, 0, 1.5572038, 0, 0, 0, 3.5, 0, -1.5713727, -1.0374708)
 visible = false
 shape = SubResource("BoxShape3D_ah280")
+
+[node name="idle_cape" parent="." unique_id=1627098197 instance=ExtResource("8_atlo2")]
+unique_name_in_owner = true
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0.036044598, -2.706795, -0.09149909)
+visible = false
+
+[node name="walk_cape" parent="." unique_id=590061842 instance=ExtResource("8_atlo2")]
+unique_name_in_owner = true
+transform = Transform3D(4, 0, 0, 0, 3.983834, -0.3592626, 0, 0.3592626, 3.983834, 0.056079745, -2.579891, -0.38018006)
+visible = false
+
+[node name="sprint_cape" parent="." unique_id=892216604 instance=ExtResource("8_atlo2")]
+unique_name_in_owner = true
+transform = Transform3D(4, 0, 0, 0, 3.8363285, -1.1325133, 0, 1.1325133, 3.8363285, 0.10173297, -2.4524784, -0.21458393)
+visible = false
+
+[node name="crouch_cape" parent="." unique_id=1565379826 instance=ExtResource("8_atlo2")]
+unique_name_in_owner = true
+transform = Transform3D(4, 0, 0, 0, 2.3997266, -3.200205, 0, 3.200205, 2.3997266, 0.10173297, -3.6146479, -2.451366)
+visible = false

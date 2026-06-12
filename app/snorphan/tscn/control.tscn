@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cxo150m2m6bob"]
 
-[ext_resource type="Script" uid="uid://dj6isp5g2ckgu" path="res://gd/inventory.gd" id="1_mmuml"]
-[ext_resource type="Texture2D" uid="uid://bw4pqk3x14f5n" path="res://static/sprite_sheet.png" id="1_vpxtf"]
+[ext_resource type="Script" uid="uid://w6562cdo3mjf" path="res://gd/inventory.gd" id="1_mmuml"]
+[ext_resource type="Texture2D" uid="uid://n70tnighps5u" path="res://static/sprite_sheet.png" id="1_vpxtf"]
 [ext_resource type="Script" uid="uid://ccvciv4awmrty" path="res://gd/close_quests.gd" id="2_2mfya"]
 [ext_resource type="FontFile" uid="uid://cjvg0evcqc7yp" path="res://static/PeaberryDoublespace.ttf" id="2_y35ns"]
 [ext_resource type="Script" uid="uid://bgcmwa750v7qy" path="res://gd/settings.gd" id="2_ykr62"]
@@ -11,8 +11,8 @@
 [ext_resource type="Script" uid="uid://ctvwo6res6vro" path="res://gd/quests.gd" id="6_8i35t"]
 [ext_resource type="Script" uid="uid://444n1xmygkoi" path="res://gd/options.gd" id="6_dd40b"]
 [ext_resource type="Script" uid="uid://dw0rw8i8fmy12" path="res://gd/close_settings.gd" id="9_tw3h4"]
-[ext_resource type="Script" uid="uid://cni42uy6gdqwl" path="res://gd/settings_menu.gd" id="10_6nd6i"]
-[ext_resource type="Script" uid="uid://bw0ucpjxwy4b2" path="res://gd/logout.gd" id="10_s2oxt"]
+[ext_resource type="Script" uid="uid://chq8goy7bvsau" path="res://gd/settings_menu.gd" id="10_6nd6i"]
+[ext_resource type="Script" uid="uid://cnfxca6207021" path="res://gd/logout.gd" id="10_s2oxt"]
 [ext_resource type="AudioStream" uid="uid://d1byqytsn011y" path="res://static/Music/bgm.mp3" id="12_6nd6i"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mmuml"]
@@ -185,7 +185,7 @@ grow_vertical = 2
 [node name="inventory cont" type="MarginContainer" parent="default" unique_id=661928019]
 layout_mode = 2
 mouse_filter = 2
-theme_override_constants/margin_bottom = 50
+theme_override_constants/margin_bottom = 35
 
 [node name="inventory" type="MarginContainer" parent="default/inventory cont" unique_id=2008285260 groups=["inv"]]
 layout_mode = 2
@@ -200,20 +200,20 @@ theme_override_constants/separation = 3
 [node name="MarginContainer" type="MarginContainer" parent="default/inventory cont/inventory/VBoxContainer" unique_id=1549830539]
 custom_minimum_size = Vector2(40, 0)
 layout_mode = 2
-theme_override_constants/margin_left = 6
-theme_override_constants/margin_right = 6
+theme_override_constants/margin_left = 7
+theme_override_constants/margin_right = 7
 
 [node name="item_labels" type="HBoxContainer" parent="default/inventory cont/inventory/VBoxContainer/MarginContainer" unique_id=2066533870]
 unique_name_in_owner = true
 layout_mode = 2
-theme_override_constants/separation = 10
+theme_override_constants/separation = 13
 
 [node name="1" type="MarginContainer" parent="default/inventory cont/inventory/VBoxContainer/MarginContainer/item_labels" unique_id=227553069]
-custom_minimum_size = Vector2(45, 0)
+visible = false
+custom_minimum_size = Vector2(50, 0)
 layout_mode = 2
 
 [node name="Label" type="Label" parent="default/inventory cont/inventory/VBoxContainer/MarginContainer/item_labels/1" unique_id=13007639]
-visible = false
 custom_minimum_size = Vector2(40, 25)
 layout_mode = 2
 theme_override_colors/font_color = Color(0.84705883, 0.7882353, 0.7372549, 1)
@@ -226,12 +226,12 @@ horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
 
-[node name="2" type="MarginContainer" parent="default/inventory cont/inventory/VBoxContainer/MarginContainer/item_labels" unique_id=197251541]
-custom_minimum_size = Vector2(45, 0)
+[node name="2" type="MarginContainer" parent="default/inventory cont/inventory/VBoxContainer/MarginContainer/item_labels" unique_id=1149303606]
+visible = false
+custom_minimum_size = Vector2(50, 0)
 layout_mode = 2
 
-[node name="Label" type="Label" parent="default/inventory cont/inventory/VBoxContainer/MarginContainer/item_labels/2" unique_id=764422080]
-visible = false
+[node name="Label" type="Label" parent="default/inventory cont/inventory/VBoxContainer/MarginContainer/item_labels/2" unique_id=1480033271]
 custom_minimum_size = Vector2(40, 25)
 layout_mode = 2
 theme_override_colors/font_color = Color(0.84705883, 0.7882353, 0.7372549, 1)
@@ -244,12 +244,12 @@ horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
 
-[node name="3" type="MarginContainer" parent="default/inventory cont/inventory/VBoxContainer/MarginContainer/item_labels" unique_id=502609396]
-custom_minimum_size = Vector2(45, 0)
+[node name="3" type="MarginContainer" parent="default/inventory cont/inventory/VBoxContainer/MarginContainer/item_labels" unique_id=1721682848]
+visible = false
+custom_minimum_size = Vector2(50, 0)
 layout_mode = 2
 
-[node name="Label" type="Label" parent="default/inventory cont/inventory/VBoxContainer/MarginContainer/item_labels/3" unique_id=417285091]
-visible = false
+[node name="Label" type="Label" parent="default/inventory cont/inventory/VBoxContainer/MarginContainer/item_labels/3" unique_id=859330295]
 custom_minimum_size = Vector2(40, 25)
 layout_mode = 2
 theme_override_colors/font_color = Color(0.84705883, 0.7882353, 0.7372549, 1)
@@ -262,12 +262,12 @@ horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
 
-[node name="4" type="MarginContainer" parent="default/inventory cont/inventory/VBoxContainer/MarginContainer/item_labels" unique_id=1893305579]
-custom_minimum_size = Vector2(45, 0)
+[node name="4" type="MarginContainer" parent="default/inventory cont/inventory/VBoxContainer/MarginContainer/item_labels" unique_id=1190881954]
+visible = false
+custom_minimum_size = Vector2(50, 0)
 layout_mode = 2
 
-[node name="Label" type="Label" parent="default/inventory cont/inventory/VBoxContainer/MarginContainer/item_labels/4" unique_id=1127044529]
-visible = false
+[node name="Label" type="Label" parent="default/inventory cont/inventory/VBoxContainer/MarginContainer/item_labels/4" unique_id=2131427489]
 custom_minimum_size = Vector2(40, 25)
 layout_mode = 2
 theme_override_colors/font_color = Color(0.84705883, 0.7882353, 0.7372549, 1)
@@ -280,12 +280,12 @@ horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
 
-[node name="5" type="MarginContainer" parent="default/inventory cont/inventory/VBoxContainer/MarginContainer/item_labels" unique_id=1517347337]
-custom_minimum_size = Vector2(45, 0)
+[node name="5" type="MarginContainer" parent="default/inventory cont/inventory/VBoxContainer/MarginContainer/item_labels" unique_id=54565109]
+visible = false
+custom_minimum_size = Vector2(50, 0)
 layout_mode = 2
 
-[node name="Label" type="Label" parent="default/inventory cont/inventory/VBoxContainer/MarginContainer/item_labels/5" unique_id=1074517230]
-visible = false
+[node name="Label" type="Label" parent="default/inventory cont/inventory/VBoxContainer/MarginContainer/item_labels/5" unique_id=59828923]
 custom_minimum_size = Vector2(40, 25)
 layout_mode = 2
 theme_override_colors/font_color = Color(0.84705883, 0.7882353, 0.7372549, 1)
@@ -298,12 +298,12 @@ horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
 
-[node name="6" type="MarginContainer" parent="default/inventory cont/inventory/VBoxContainer/MarginContainer/item_labels" unique_id=712151732]
-custom_minimum_size = Vector2(45, 0)
+[node name="6" type="MarginContainer" parent="default/inventory cont/inventory/VBoxContainer/MarginContainer/item_labels" unique_id=1746788911]
+visible = false
+custom_minimum_size = Vector2(50, 0)
 layout_mode = 2
 
-[node name="Label" type="Label" parent="default/inventory cont/inventory/VBoxContainer/MarginContainer/item_labels/6" unique_id=10810261]
-visible = false
+[node name="Label" type="Label" parent="default/inventory cont/inventory/VBoxContainer/MarginContainer/item_labels/6" unique_id=2039506693]
 custom_minimum_size = Vector2(40, 25)
 layout_mode = 2
 theme_override_colors/font_color = Color(0.84705883, 0.7882353, 0.7372549, 1)
@@ -317,7 +317,7 @@ vertical_alignment = 1
 autowrap_mode = 2
 
 [node name="NinePatchRect" type="NinePatchRect" parent="default/inventory cont/inventory/VBoxContainer" unique_id=2144094287]
-custom_minimum_size = Vector2(330, 56)
+custom_minimum_size = Vector2(380, 60)
 layout_mode = 2
 mouse_filter = 1
 texture = ExtResource("1_vpxtf")
@@ -342,14 +342,14 @@ theme_override_constants/margin_bottom = 8
 [node name="inventory_slots" type="HBoxContainer" parent="default/inventory cont/inventory/VBoxContainer/NinePatchRect/MarginContainer" unique_id=436952028]
 unique_name_in_owner = true
 layout_mode = 2
-theme_override_constants/separation = 15
+theme_override_constants/separation = 18
 
 [node name="1" type="MarginContainer" parent="default/inventory cont/inventory/VBoxContainer/NinePatchRect/MarginContainer/inventory_slots" unique_id=2108598126]
 custom_minimum_size = Vector2(10, 0)
 layout_mode = 2
 
 [node name="NinePatchRect" type="NinePatchRect" parent="default/inventory cont/inventory/VBoxContainer/NinePatchRect/MarginContainer/inventory_slots/1" unique_id=154174506]
-custom_minimum_size = Vector2(40, 30)
+custom_minimum_size = Vector2(45, 45)
 layout_mode = 2
 texture = ExtResource("1_vpxtf")
 region_rect = Rect2(107, 155, 26, 26)
@@ -382,11 +382,12 @@ theme_override_font_sizes/font_size = 14
 horizontal_alignment = 2
 vertical_alignment = 2
 
-[node name="2" type="MarginContainer" parent="default/inventory cont/inventory/VBoxContainer/NinePatchRect/MarginContainer/inventory_slots" unique_id=1276040957]
+[node name="2" type="MarginContainer" parent="default/inventory cont/inventory/VBoxContainer/NinePatchRect/MarginContainer/inventory_slots" unique_id=1191094564]
+custom_minimum_size = Vector2(10, 0)
 layout_mode = 2
 
-[node name="NinePatchRect2" type="NinePatchRect" parent="default/inventory cont/inventory/VBoxContainer/NinePatchRect/MarginContainer/inventory_slots/2" unique_id=211451120]
-custom_minimum_size = Vector2(40, 30)
+[node name="NinePatchRect" type="NinePatchRect" parent="default/inventory cont/inventory/VBoxContainer/NinePatchRect/MarginContainer/inventory_slots/2" unique_id=1788007889]
+custom_minimum_size = Vector2(45, 45)
 layout_mode = 2
 texture = ExtResource("1_vpxtf")
 region_rect = Rect2(107, 155, 26, 26)
@@ -395,15 +396,17 @@ patch_margin_top = 3
 patch_margin_right = 3
 patch_margin_bottom = 3
 
-[node name="Icon" type="TextureRect" parent="default/inventory cont/inventory/VBoxContainer/NinePatchRect/MarginContainer/inventory_slots/2/NinePatchRect2" unique_id=1531610749]
+[node name="Icon" type="TextureRect" parent="default/inventory cont/inventory/VBoxContainer/NinePatchRect/MarginContainer/inventory_slots/2/NinePatchRect" unique_id=1133152079]
 custom_minimum_size = Vector2(32, 32)
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = 2.0
+offset_top = 2.0
+offset_right = 24.0
+offset_bottom = 24.0
 mouse_filter = 2
 stretch_mode = 5
 
-[node name="Count" type="Label" parent="default/inventory cont/inventory/VBoxContainer/NinePatchRect/MarginContainer/inventory_slots/2/NinePatchRect2" unique_id=841533284]
+[node name="Count" type="Label" parent="default/inventory cont/inventory/VBoxContainer/NinePatchRect/MarginContainer/inventory_slots/2/NinePatchRect" unique_id=57268555]
 layout_mode = 0
 offset_left = 2.0
 offset_top = 2.0
@@ -417,11 +420,12 @@ theme_override_font_sizes/font_size = 14
 horizontal_alignment = 2
 vertical_alignment = 2
 
-[node name="3" type="MarginContainer" parent="default/inventory cont/inventory/VBoxContainer/NinePatchRect/MarginContainer/inventory_slots" unique_id=1589090015]
+[node name="3" type="MarginContainer" parent="default/inventory cont/inventory/VBoxContainer/NinePatchRect/MarginContainer/inventory_slots" unique_id=295907565]
+custom_minimum_size = Vector2(10, 0)
 layout_mode = 2
 
-[node name="NinePatchRect3" type="NinePatchRect" parent="default/inventory cont/inventory/VBoxContainer/NinePatchRect/MarginContainer/inventory_slots/3" unique_id=1603290821]
-custom_minimum_size = Vector2(40, 30)
+[node name="NinePatchRect" type="NinePatchRect" parent="default/inventory cont/inventory/VBoxContainer/NinePatchRect/MarginContainer/inventory_slots/3" unique_id=229475383]
+custom_minimum_size = Vector2(45, 45)
 layout_mode = 2
 texture = ExtResource("1_vpxtf")
 region_rect = Rect2(107, 155, 26, 26)
@@ -430,13 +434,17 @@ patch_margin_top = 3
 patch_margin_right = 3
 patch_margin_bottom = 3
 
-[node name="Icon" type="TextureRect" parent="default/inventory cont/inventory/VBoxContainer/NinePatchRect/MarginContainer/inventory_slots/3/NinePatchRect3" unique_id=520913557]
+[node name="Icon" type="TextureRect" parent="default/inventory cont/inventory/VBoxContainer/NinePatchRect/MarginContainer/inventory_slots/3/NinePatchRect" unique_id=629824846]
 custom_minimum_size = Vector2(32, 32)
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = 2.0
+offset_top = 2.0
+offset_right = 24.0
+offset_bottom = 24.0
+mouse_filter = 2
+stretch_mode = 5
 
-[node name="Count" type="Label" parent="default/inventory cont/inventory/VBoxContainer/NinePatchRect/MarginContainer/inventory_slots/3/NinePatchRect3" unique_id=1693023966]
+[node name="Count" type="Label" parent="default/inventory cont/inventory/VBoxContainer/NinePatchRect/MarginContainer/inventory_slots/3/NinePatchRect" unique_id=325414195]
 layout_mode = 0
 offset_left = 2.0
 offset_top = 2.0
@@ -450,11 +458,12 @@ theme_override_font_sizes/font_size = 14
 horizontal_alignment = 2
 vertical_alignment = 2
 
-[node name="4" type="MarginContainer" parent="default/inventory cont/inventory/VBoxContainer/NinePatchRect/MarginContainer/inventory_slots" unique_id=1452169722]
+[node name="4" type="MarginContainer" parent="default/inventory cont/inventory/VBoxContainer/NinePatchRect/MarginContainer/inventory_slots" unique_id=2037015033]
+custom_minimum_size = Vector2(10, 0)
 layout_mode = 2
 
-[node name="NinePatchRect4" type="NinePatchRect" parent="default/inventory cont/inventory/VBoxContainer/NinePatchRect/MarginContainer/inventory_slots/4" unique_id=1298775219]
-custom_minimum_size = Vector2(40, 30)
+[node name="NinePatchRect" type="NinePatchRect" parent="default/inventory cont/inventory/VBoxContainer/NinePatchRect/MarginContainer/inventory_slots/4" unique_id=1350599708]
+custom_minimum_size = Vector2(45, 45)
 layout_mode = 2
 texture = ExtResource("1_vpxtf")
 region_rect = Rect2(107, 155, 26, 26)
@@ -463,13 +472,17 @@ patch_margin_top = 3
 patch_margin_right = 3
 patch_margin_bottom = 3
 
-[node name="Icon" type="TextureRect" parent="default/inventory cont/inventory/VBoxContainer/NinePatchRect/MarginContainer/inventory_slots/4/NinePatchRect4" unique_id=899196306]
+[node name="Icon" type="TextureRect" parent="default/inventory cont/inventory/VBoxContainer/NinePatchRect/MarginContainer/inventory_slots/4/NinePatchRect" unique_id=84297432]
 custom_minimum_size = Vector2(32, 32)
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = 2.0
+offset_top = 2.0
+offset_right = 24.0
+offset_bottom = 24.0
+mouse_filter = 2
+stretch_mode = 5
 
-[node name="Count" type="Label" parent="default/inventory cont/inventory/VBoxContainer/NinePatchRect/MarginContainer/inventory_slots/4/NinePatchRect4" unique_id=1954422981]
+[node name="Count" type="Label" parent="default/inventory cont/inventory/VBoxContainer/NinePatchRect/MarginContainer/inventory_slots/4/NinePatchRect" unique_id=66466630]
 layout_mode = 0
 offset_left = 2.0
 offset_top = 2.0
@@ -483,11 +496,12 @@ theme_override_font_sizes/font_size = 14
 horizontal_alignment = 2
 vertical_alignment = 2
 
-[node name="5" type="MarginContainer" parent="default/inventory cont/inventory/VBoxContainer/NinePatchRect/MarginContainer/inventory_slots" unique_id=1179035619]
+[node name="5" type="MarginContainer" parent="default/inventory cont/inventory/VBoxContainer/NinePatchRect/MarginContainer/inventory_slots" unique_id=2017765103]
+custom_minimum_size = Vector2(10, 0)
 layout_mode = 2
 
-[node name="NinePatchRect5" type="NinePatchRect" parent="default/inventory cont/inventory/VBoxContainer/NinePatchRect/MarginContainer/inventory_slots/5" unique_id=604686048]
-custom_minimum_size = Vector2(40, 30)
+[node name="NinePatchRect" type="NinePatchRect" parent="default/inventory cont/inventory/VBoxContainer/NinePatchRect/MarginContainer/inventory_slots/5" unique_id=443625175]
+custom_minimum_size = Vector2(45, 45)
 layout_mode = 2
 texture = ExtResource("1_vpxtf")
 region_rect = Rect2(107, 155, 26, 26)
@@ -496,13 +510,17 @@ patch_margin_top = 3
 patch_margin_right = 3
 patch_margin_bottom = 3
 
-[node name="Icon" type="TextureRect" parent="default/inventory cont/inventory/VBoxContainer/NinePatchRect/MarginContainer/inventory_slots/5/NinePatchRect5" unique_id=1791696863]
+[node name="Icon" type="TextureRect" parent="default/inventory cont/inventory/VBoxContainer/NinePatchRect/MarginContainer/inventory_slots/5/NinePatchRect" unique_id=1248555816]
 custom_minimum_size = Vector2(32, 32)
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = 2.0
+offset_top = 2.0
+offset_right = 24.0
+offset_bottom = 24.0
+mouse_filter = 2
+stretch_mode = 5
 
-[node name="Count" type="Label" parent="default/inventory cont/inventory/VBoxContainer/NinePatchRect/MarginContainer/inventory_slots/5/NinePatchRect5" unique_id=202564428]
+[node name="Count" type="Label" parent="default/inventory cont/inventory/VBoxContainer/NinePatchRect/MarginContainer/inventory_slots/5/NinePatchRect" unique_id=64466695]
 layout_mode = 0
 offset_left = 2.0
 offset_top = 2.0
@@ -516,11 +534,12 @@ theme_override_font_sizes/font_size = 14
 horizontal_alignment = 2
 vertical_alignment = 2
 
-[node name="6" type="MarginContainer" parent="default/inventory cont/inventory/VBoxContainer/NinePatchRect/MarginContainer/inventory_slots" unique_id=346512187]
+[node name="6" type="MarginContainer" parent="default/inventory cont/inventory/VBoxContainer/NinePatchRect/MarginContainer/inventory_slots" unique_id=1279905308]
+custom_minimum_size = Vector2(10, 0)
 layout_mode = 2
 
-[node name="NinePatchRect6" type="NinePatchRect" parent="default/inventory cont/inventory/VBoxContainer/NinePatchRect/MarginContainer/inventory_slots/6" unique_id=28188344]
-custom_minimum_size = Vector2(40, 30)
+[node name="NinePatchRect" type="NinePatchRect" parent="default/inventory cont/inventory/VBoxContainer/NinePatchRect/MarginContainer/inventory_slots/6" unique_id=734980232]
+custom_minimum_size = Vector2(45, 45)
 layout_mode = 2
 texture = ExtResource("1_vpxtf")
 region_rect = Rect2(107, 155, 26, 26)
@@ -529,13 +548,17 @@ patch_margin_top = 3
 patch_margin_right = 3
 patch_margin_bottom = 3
 
-[node name="Icon" type="TextureRect" parent="default/inventory cont/inventory/VBoxContainer/NinePatchRect/MarginContainer/inventory_slots/6/NinePatchRect6" unique_id=166046526]
+[node name="Icon" type="TextureRect" parent="default/inventory cont/inventory/VBoxContainer/NinePatchRect/MarginContainer/inventory_slots/6/NinePatchRect" unique_id=1689954166]
 custom_minimum_size = Vector2(32, 32)
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = 2.0
+offset_top = 2.0
+offset_right = 24.0
+offset_bottom = 24.0
+mouse_filter = 2
+stretch_mode = 5
 
-[node name="Count" type="Label" parent="default/inventory cont/inventory/VBoxContainer/NinePatchRect/MarginContainer/inventory_slots/6/NinePatchRect6" unique_id=97631391]
+[node name="Count" type="Label" parent="default/inventory cont/inventory/VBoxContainer/NinePatchRect/MarginContainer/inventory_slots/6/NinePatchRect" unique_id=1934307311]
 layout_mode = 0
 offset_left = 2.0
 offset_top = 2.0
@@ -564,13 +587,13 @@ size_flags_vertical = 0
 layout_mode = 2
 
 [node name="encyclopedia" type="Button" parent="default/button cont/buttons/HBoxContainer" unique_id=1355978464]
-custom_minimum_size = Vector2(30, 30)
+custom_minimum_size = Vector2(35, 35)
 layout_mode = 2
 theme_override_styles/normal = SubResource("StyleBoxTexture_2mfya")
 theme_override_styles/hover = SubResource("StyleBoxTexture_1akbr")
 
 [node name="settings" type="Button" parent="default/button cont/buttons/HBoxContainer" unique_id=828155724]
-custom_minimum_size = Vector2(30, 30)
+custom_minimum_size = Vector2(35, 35)
 layout_mode = 2
 theme_override_styles/normal = SubResource("StyleBoxTexture_vpxtf")
 theme_override_styles/hover = SubResource("StyleBoxTexture_y35ns")
@@ -588,7 +611,7 @@ size_flags_horizontal = 0
 size_flags_vertical = 4
 
 [node name="NinePatchRect" type="NinePatchRect" parent="default/open_quests_cont/quests" unique_id=781921796]
-custom_minimum_size = Vector2(175, 250)
+custom_minimum_size = Vector2(225, 300)
 layout_mode = 2
 mouse_filter = 1
 texture = ExtResource("1_vpxtf")
@@ -602,7 +625,7 @@ patch_margin_bottom = 6
 layout_mode = 2
 size_flags_vertical = 0
 theme_override_constants/margin_left = 7
-theme_override_constants/margin_top = 7
+theme_override_constants/margin_top = 9
 theme_override_constants/margin_right = 7
 
 [node name="VBoxContainer" type="VBoxContainer" parent="default/open_quests_cont/quests/MarginContainer" unique_id=981696905]
@@ -611,7 +634,7 @@ layout_mode = 2
 [node name="HBoxContainer" type="HBoxContainer" parent="default/open_quests_cont/quests/MarginContainer/VBoxContainer" unique_id=155363515]
 layout_mode = 2
 size_flags_vertical = 0
-theme_override_constants/separation = 38
+theme_override_constants/separation = 60
 
 [node name="Button" type="Button" parent="default/open_quests_cont/quests/MarginContainer/VBoxContainer/HBoxContainer" unique_id=2078491840]
 custom_minimum_size = Vector2(15, 10)
@@ -629,7 +652,7 @@ theme_override_colors/font_color = Color(0.77, 0.65835, 0.539, 1)
 theme_override_colors/font_outline_color = Color(0.654902, 0.46666667, 0.34509805, 1)
 theme_override_constants/outline_size = 2
 theme_override_fonts/font = ExtResource("2_y35ns")
-theme_override_font_sizes/font_size = 14
+theme_override_font_sizes/font_size = 16
 text = "quests"
 horizontal_alignment = 1
 uppercase = true
@@ -657,7 +680,7 @@ visible = false
 layout_mode = 2
 
 [node name="NinePatchRect" type="NinePatchRect" parent="default/open_quests_cont/quests/MarginContainer/VBoxContainer/VBoxContainer/quest1" unique_id=825369525]
-custom_minimum_size = Vector2(0, 50)
+custom_minimum_size = Vector2(0, 70)
 layout_mode = 2
 texture = ExtResource("1_vpxtf")
 region_rect = Rect2(259, 180, 90, 25)
@@ -683,7 +706,7 @@ theme_override_colors/font_color = Color(0.9, 0.8376, 0.783, 1)
 theme_override_colors/font_outline_color = Color(0.6666667, 0.5803922, 0.5019608, 1)
 theme_override_constants/outline_size = 2
 theme_override_fonts/font = ExtResource("2_y35ns")
-theme_override_font_sizes/font_size = 10
+theme_override_font_sizes/font_size = 13
 horizontal_alignment = 1
 
 [node name="quest_desc" type="Label" parent="default/open_quests_cont/quests/MarginContainer/VBoxContainer/VBoxContainer/quest1/MarginContainer/VBoxContainer" unique_id=1767253760]
@@ -691,12 +714,13 @@ custom_minimum_size = Vector2(10, 0)
 layout_mode = 2
 theme_override_constants/line_spacing = 1
 theme_override_fonts/font = ExtResource("2_y35ns")
-theme_override_font_sizes/font_size = 8
+theme_override_font_sizes/font_size = 10
 autowrap_mode = 2
 
 [node name="HBoxContainer" type="HBoxContainer" parent="default/open_quests_cont/quests/MarginContainer/VBoxContainer/VBoxContainer/quest1/MarginContainer/VBoxContainer" unique_id=1061605181]
 layout_mode = 2
 size_flags_horizontal = 8
+size_flags_vertical = 8
 theme_override_constants/separation = 6
 
 [node name="quest_req" type="Label" parent="default/open_quests_cont/quests/MarginContainer/VBoxContainer/VBoxContainer/quest1/MarginContainer/VBoxContainer/HBoxContainer" unique_id=1036587232]
@@ -706,7 +730,7 @@ theme_override_colors/font_outline_color = Color(0.58, 0.4871033, 0.40019998, 1)
 theme_override_constants/line_spacing = 1
 theme_override_constants/outline_size = 1
 theme_override_fonts/font = ExtResource("2_y35ns")
-theme_override_font_sizes/font_size = 8
+theme_override_font_sizes/font_size = 9
 horizontal_alignment = 2
 
 [node name="HBoxContainer" type="HBoxContainer" parent="default/open_quests_cont/quests/MarginContainer/VBoxContainer/VBoxContainer/quest1/MarginContainer/VBoxContainer/HBoxContainer" unique_id=1867204095]
@@ -718,7 +742,7 @@ layout_mode = 2
 theme_override_colors/font_color = Color(0.57, 0.478705, 0.3933, 1)
 theme_override_constants/line_spacing = 1
 theme_override_fonts/font = ExtResource("2_y35ns")
-theme_override_font_sizes/font_size = 8
+theme_override_font_sizes/font_size = 9
 horizontal_alignment = 2
 
 [node name="quest_required_progress" type="Label" parent="default/open_quests_cont/quests/MarginContainer/VBoxContainer/VBoxContainer/quest1/MarginContainer/VBoxContainer/HBoxContainer/HBoxContainer" unique_id=218688743]
@@ -726,7 +750,7 @@ layout_mode = 2
 theme_override_colors/font_color = Color(0.57, 0.478705, 0.3933, 1)
 theme_override_constants/line_spacing = 1
 theme_override_fonts/font = ExtResource("2_y35ns")
-theme_override_font_sizes/font_size = 8
+theme_override_font_sizes/font_size = 9
 horizontal_alignment = 2
 
 [node name="MarginContainer2" type="MarginContainer" parent="default/open_quests_cont/quests/MarginContainer/VBoxContainer/VBoxContainer/quest1" unique_id=2124025473]
@@ -743,12 +767,12 @@ theme_override_styles/normal = SubResource("StyleBoxTexture_0l1b7")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_jbqr8")
 theme_override_styles/hover = SubResource("StyleBoxTexture_55vmn")
 
-[node name="quest2" type="MarginContainer" parent="default/open_quests_cont/quests/MarginContainer/VBoxContainer/VBoxContainer" unique_id=1135146347]
+[node name="quest2" type="MarginContainer" parent="default/open_quests_cont/quests/MarginContainer/VBoxContainer/VBoxContainer" unique_id=1600009448]
 visible = false
 layout_mode = 2
 
-[node name="NinePatchRect" type="NinePatchRect" parent="default/open_quests_cont/quests/MarginContainer/VBoxContainer/VBoxContainer/quest2" unique_id=3027750]
-custom_minimum_size = Vector2(0, 50)
+[node name="NinePatchRect" type="NinePatchRect" parent="default/open_quests_cont/quests/MarginContainer/VBoxContainer/VBoxContainer/quest2" unique_id=2118458514]
+custom_minimum_size = Vector2(0, 70)
 layout_mode = 2
 texture = ExtResource("1_vpxtf")
 region_rect = Rect2(259, 180, 90, 25)
@@ -757,89 +781,90 @@ patch_margin_top = 5
 patch_margin_right = 5
 patch_margin_bottom = 5
 
-[node name="MarginContainer" type="MarginContainer" parent="default/open_quests_cont/quests/MarginContainer/VBoxContainer/VBoxContainer/quest2" unique_id=2001917134]
+[node name="MarginContainer" type="MarginContainer" parent="default/open_quests_cont/quests/MarginContainer/VBoxContainer/VBoxContainer/quest2" unique_id=2012068574]
 layout_mode = 2
 theme_override_constants/margin_left = 5
 theme_override_constants/margin_top = 5
 theme_override_constants/margin_right = 5
 theme_override_constants/margin_bottom = 5
 
-[node name="VBoxContainer" type="VBoxContainer" parent="default/open_quests_cont/quests/MarginContainer/VBoxContainer/VBoxContainer/quest2/MarginContainer" unique_id=1958127873]
+[node name="VBoxContainer" type="VBoxContainer" parent="default/open_quests_cont/quests/MarginContainer/VBoxContainer/VBoxContainer/quest2/MarginContainer" unique_id=831181567]
 layout_mode = 2
 theme_override_constants/separation = 2
 
-[node name="quest_name" type="Label" parent="default/open_quests_cont/quests/MarginContainer/VBoxContainer/VBoxContainer/quest2/MarginContainer/VBoxContainer" unique_id=973157566]
+[node name="quest_name" type="Label" parent="default/open_quests_cont/quests/MarginContainer/VBoxContainer/VBoxContainer/quest2/MarginContainer/VBoxContainer" unique_id=1385905166]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.9, 0.8376, 0.783, 1)
 theme_override_colors/font_outline_color = Color(0.6666667, 0.5803922, 0.5019608, 1)
 theme_override_constants/outline_size = 2
 theme_override_fonts/font = ExtResource("2_y35ns")
-theme_override_font_sizes/font_size = 10
+theme_override_font_sizes/font_size = 13
 horizontal_alignment = 1
 
-[node name="quest_desc" type="Label" parent="default/open_quests_cont/quests/MarginContainer/VBoxContainer/VBoxContainer/quest2/MarginContainer/VBoxContainer" unique_id=536709763]
+[node name="quest_desc" type="Label" parent="default/open_quests_cont/quests/MarginContainer/VBoxContainer/VBoxContainer/quest2/MarginContainer/VBoxContainer" unique_id=1887874817]
 custom_minimum_size = Vector2(10, 0)
 layout_mode = 2
 theme_override_constants/line_spacing = 1
 theme_override_fonts/font = ExtResource("2_y35ns")
-theme_override_font_sizes/font_size = 8
+theme_override_font_sizes/font_size = 10
 autowrap_mode = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="default/open_quests_cont/quests/MarginContainer/VBoxContainer/VBoxContainer/quest2/MarginContainer/VBoxContainer" unique_id=124766220]
+[node name="HBoxContainer" type="HBoxContainer" parent="default/open_quests_cont/quests/MarginContainer/VBoxContainer/VBoxContainer/quest2/MarginContainer/VBoxContainer" unique_id=904350330]
 layout_mode = 2
 size_flags_horizontal = 8
+size_flags_vertical = 8
 theme_override_constants/separation = 6
 
-[node name="quest_req" type="Label" parent="default/open_quests_cont/quests/MarginContainer/VBoxContainer/VBoxContainer/quest2/MarginContainer/VBoxContainer/HBoxContainer" unique_id=1833119644]
+[node name="quest_req" type="Label" parent="default/open_quests_cont/quests/MarginContainer/VBoxContainer/VBoxContainer/quest2/MarginContainer/VBoxContainer/HBoxContainer" unique_id=1475057600]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.66, 0.55429, 0.45540002, 1)
 theme_override_colors/font_outline_color = Color(0.58, 0.4871033, 0.40019998, 1)
 theme_override_constants/line_spacing = 1
 theme_override_constants/outline_size = 1
 theme_override_fonts/font = ExtResource("2_y35ns")
-theme_override_font_sizes/font_size = 8
+theme_override_font_sizes/font_size = 9
 horizontal_alignment = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="default/open_quests_cont/quests/MarginContainer/VBoxContainer/VBoxContainer/quest2/MarginContainer/VBoxContainer/HBoxContainer" unique_id=1058233499]
+[node name="HBoxContainer" type="HBoxContainer" parent="default/open_quests_cont/quests/MarginContainer/VBoxContainer/VBoxContainer/quest2/MarginContainer/VBoxContainer/HBoxContainer" unique_id=1732603241]
 layout_mode = 2
 theme_override_constants/separation = 2
 
-[node name="quest_current_progress" type="Label" parent="default/open_quests_cont/quests/MarginContainer/VBoxContainer/VBoxContainer/quest2/MarginContainer/VBoxContainer/HBoxContainer/HBoxContainer" unique_id=1220880868]
+[node name="quest_current_progress" type="Label" parent="default/open_quests_cont/quests/MarginContainer/VBoxContainer/VBoxContainer/quest2/MarginContainer/VBoxContainer/HBoxContainer/HBoxContainer" unique_id=974528867]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.57, 0.478705, 0.3933, 1)
 theme_override_constants/line_spacing = 1
 theme_override_fonts/font = ExtResource("2_y35ns")
-theme_override_font_sizes/font_size = 8
+theme_override_font_sizes/font_size = 9
 horizontal_alignment = 2
 
-[node name="quest_required_progress" type="Label" parent="default/open_quests_cont/quests/MarginContainer/VBoxContainer/VBoxContainer/quest2/MarginContainer/VBoxContainer/HBoxContainer/HBoxContainer" unique_id=1840611015]
+[node name="quest_required_progress" type="Label" parent="default/open_quests_cont/quests/MarginContainer/VBoxContainer/VBoxContainer/quest2/MarginContainer/VBoxContainer/HBoxContainer/HBoxContainer" unique_id=1568336235]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.57, 0.478705, 0.3933, 1)
 theme_override_constants/line_spacing = 1
 theme_override_fonts/font = ExtResource("2_y35ns")
-theme_override_font_sizes/font_size = 8
+theme_override_font_sizes/font_size = 9
 horizontal_alignment = 2
 
-[node name="MarginContainer2" type="MarginContainer" parent="default/open_quests_cont/quests/MarginContainer/VBoxContainer/VBoxContainer/quest2" unique_id=327756623]
+[node name="MarginContainer2" type="MarginContainer" parent="default/open_quests_cont/quests/MarginContainer/VBoxContainer/VBoxContainer/quest2" unique_id=1582097301]
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 0
 theme_override_constants/margin_top = 5
 theme_override_constants/margin_right = 5
 
-[node name="abandon_quest" type="Button" parent="default/open_quests_cont/quests/MarginContainer/VBoxContainer/VBoxContainer/quest2/MarginContainer2" unique_id=487843488]
+[node name="abandon_quest" type="Button" parent="default/open_quests_cont/quests/MarginContainer/VBoxContainer/VBoxContainer/quest2/MarginContainer2" unique_id=1020826492]
 custom_minimum_size = Vector2(7, 7)
 layout_mode = 2
 theme_override_styles/normal = SubResource("StyleBoxTexture_0l1b7")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_jbqr8")
 theme_override_styles/hover = SubResource("StyleBoxTexture_55vmn")
 
-[node name="quest3" type="MarginContainer" parent="default/open_quests_cont/quests/MarginContainer/VBoxContainer/VBoxContainer" unique_id=2139487354]
+[node name="quest3" type="MarginContainer" parent="default/open_quests_cont/quests/MarginContainer/VBoxContainer/VBoxContainer" unique_id=34791819]
 visible = false
 layout_mode = 2
 
-[node name="NinePatchRect" type="NinePatchRect" parent="default/open_quests_cont/quests/MarginContainer/VBoxContainer/VBoxContainer/quest3" unique_id=1835799210]
-custom_minimum_size = Vector2(0, 50)
+[node name="NinePatchRect" type="NinePatchRect" parent="default/open_quests_cont/quests/MarginContainer/VBoxContainer/VBoxContainer/quest3" unique_id=2016973676]
+custom_minimum_size = Vector2(0, 70)
 layout_mode = 2
 texture = ExtResource("1_vpxtf")
 region_rect = Rect2(259, 180, 90, 25)
@@ -848,77 +873,78 @@ patch_margin_top = 5
 patch_margin_right = 5
 patch_margin_bottom = 5
 
-[node name="MarginContainer" type="MarginContainer" parent="default/open_quests_cont/quests/MarginContainer/VBoxContainer/VBoxContainer/quest3" unique_id=565913427]
+[node name="MarginContainer" type="MarginContainer" parent="default/open_quests_cont/quests/MarginContainer/VBoxContainer/VBoxContainer/quest3" unique_id=1215571010]
 layout_mode = 2
 theme_override_constants/margin_left = 5
 theme_override_constants/margin_top = 5
 theme_override_constants/margin_right = 5
 theme_override_constants/margin_bottom = 5
 
-[node name="VBoxContainer" type="VBoxContainer" parent="default/open_quests_cont/quests/MarginContainer/VBoxContainer/VBoxContainer/quest3/MarginContainer" unique_id=1200408991]
+[node name="VBoxContainer" type="VBoxContainer" parent="default/open_quests_cont/quests/MarginContainer/VBoxContainer/VBoxContainer/quest3/MarginContainer" unique_id=499287284]
 layout_mode = 2
 theme_override_constants/separation = 2
 
-[node name="quest_name" type="Label" parent="default/open_quests_cont/quests/MarginContainer/VBoxContainer/VBoxContainer/quest3/MarginContainer/VBoxContainer" unique_id=1436377018]
+[node name="quest_name" type="Label" parent="default/open_quests_cont/quests/MarginContainer/VBoxContainer/VBoxContainer/quest3/MarginContainer/VBoxContainer" unique_id=912228895]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.9, 0.8376, 0.783, 1)
 theme_override_colors/font_outline_color = Color(0.6666667, 0.5803922, 0.5019608, 1)
 theme_override_constants/outline_size = 2
 theme_override_fonts/font = ExtResource("2_y35ns")
-theme_override_font_sizes/font_size = 10
+theme_override_font_sizes/font_size = 13
 horizontal_alignment = 1
 
-[node name="quest_desc" type="Label" parent="default/open_quests_cont/quests/MarginContainer/VBoxContainer/VBoxContainer/quest3/MarginContainer/VBoxContainer" unique_id=1020918117]
+[node name="quest_desc" type="Label" parent="default/open_quests_cont/quests/MarginContainer/VBoxContainer/VBoxContainer/quest3/MarginContainer/VBoxContainer" unique_id=2135261331]
 custom_minimum_size = Vector2(10, 0)
 layout_mode = 2
 theme_override_constants/line_spacing = 1
 theme_override_fonts/font = ExtResource("2_y35ns")
-theme_override_font_sizes/font_size = 8
+theme_override_font_sizes/font_size = 10
 autowrap_mode = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="default/open_quests_cont/quests/MarginContainer/VBoxContainer/VBoxContainer/quest3/MarginContainer/VBoxContainer" unique_id=864723923]
+[node name="HBoxContainer" type="HBoxContainer" parent="default/open_quests_cont/quests/MarginContainer/VBoxContainer/VBoxContainer/quest3/MarginContainer/VBoxContainer" unique_id=567136914]
 layout_mode = 2
 size_flags_horizontal = 8
+size_flags_vertical = 8
 theme_override_constants/separation = 6
 
-[node name="quest_req" type="Label" parent="default/open_quests_cont/quests/MarginContainer/VBoxContainer/VBoxContainer/quest3/MarginContainer/VBoxContainer/HBoxContainer" unique_id=1371848988]
+[node name="quest_req" type="Label" parent="default/open_quests_cont/quests/MarginContainer/VBoxContainer/VBoxContainer/quest3/MarginContainer/VBoxContainer/HBoxContainer" unique_id=528242671]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.66, 0.55429, 0.45540002, 1)
 theme_override_colors/font_outline_color = Color(0.58, 0.4871033, 0.40019998, 1)
 theme_override_constants/line_spacing = 1
 theme_override_constants/outline_size = 1
 theme_override_fonts/font = ExtResource("2_y35ns")
-theme_override_font_sizes/font_size = 8
+theme_override_font_sizes/font_size = 9
 horizontal_alignment = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="default/open_quests_cont/quests/MarginContainer/VBoxContainer/VBoxContainer/quest3/MarginContainer/VBoxContainer/HBoxContainer" unique_id=66607292]
+[node name="HBoxContainer" type="HBoxContainer" parent="default/open_quests_cont/quests/MarginContainer/VBoxContainer/VBoxContainer/quest3/MarginContainer/VBoxContainer/HBoxContainer" unique_id=76181606]
 layout_mode = 2
 theme_override_constants/separation = 2
 
-[node name="quest_current_progress" type="Label" parent="default/open_quests_cont/quests/MarginContainer/VBoxContainer/VBoxContainer/quest3/MarginContainer/VBoxContainer/HBoxContainer/HBoxContainer" unique_id=558683623]
+[node name="quest_current_progress" type="Label" parent="default/open_quests_cont/quests/MarginContainer/VBoxContainer/VBoxContainer/quest3/MarginContainer/VBoxContainer/HBoxContainer/HBoxContainer" unique_id=656912424]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.57, 0.478705, 0.3933, 1)
 theme_override_constants/line_spacing = 1
 theme_override_fonts/font = ExtResource("2_y35ns")
-theme_override_font_sizes/font_size = 8
+theme_override_font_sizes/font_size = 9
 horizontal_alignment = 2
 
-[node name="quest_required_progress" type="Label" parent="default/open_quests_cont/quests/MarginContainer/VBoxContainer/VBoxContainer/quest3/MarginContainer/VBoxContainer/HBoxContainer/HBoxContainer" unique_id=1762377084]
+[node name="quest_required_progress" type="Label" parent="default/open_quests_cont/quests/MarginContainer/VBoxContainer/VBoxContainer/quest3/MarginContainer/VBoxContainer/HBoxContainer/HBoxContainer" unique_id=217296504]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.57, 0.478705, 0.3933, 1)
 theme_override_constants/line_spacing = 1
 theme_override_fonts/font = ExtResource("2_y35ns")
-theme_override_font_sizes/font_size = 8
+theme_override_font_sizes/font_size = 9
 horizontal_alignment = 2
 
-[node name="MarginContainer2" type="MarginContainer" parent="default/open_quests_cont/quests/MarginContainer/VBoxContainer/VBoxContainer/quest3" unique_id=1529387046]
+[node name="MarginContainer2" type="MarginContainer" parent="default/open_quests_cont/quests/MarginContainer/VBoxContainer/VBoxContainer/quest3" unique_id=867205995]
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 0
 theme_override_constants/margin_top = 5
 theme_override_constants/margin_right = 5
 
-[node name="abandon_quest" type="Button" parent="default/open_quests_cont/quests/MarginContainer/VBoxContainer/VBoxContainer/quest3/MarginContainer2" unique_id=313586684]
+[node name="abandon_quest" type="Button" parent="default/open_quests_cont/quests/MarginContainer/VBoxContainer/VBoxContainer/quest3/MarginContainer2" unique_id=820270436]
 custom_minimum_size = Vector2(7, 7)
 layout_mode = 2
 theme_override_styles/normal = SubResource("StyleBoxTexture_0l1b7")
@@ -939,7 +965,7 @@ size_flags_horizontal = 0
 size_flags_vertical = 0
 
 [node name="NinePatchRect" type="NinePatchRect" parent="default/closed_quests_cont/quests" unique_id=1546488653]
-custom_minimum_size = Vector2(175, 30)
+custom_minimum_size = Vector2(225, 30)
 layout_mode = 2
 mouse_filter = 1
 texture = ExtResource("1_vpxtf")
@@ -953,13 +979,13 @@ patch_margin_bottom = 6
 layout_mode = 2
 size_flags_vertical = 0
 theme_override_constants/margin_left = 7
-theme_override_constants/margin_top = 7
+theme_override_constants/margin_top = 9
 theme_override_constants/margin_right = 7
 
 [node name="HBoxContainer" type="HBoxContainer" parent="default/closed_quests_cont/quests/MarginContainer" unique_id=1731451670]
 layout_mode = 2
 size_flags_vertical = 0
-theme_override_constants/separation = 38
+theme_override_constants/separation = 60
 
 [node name="Button" type="Button" parent="default/closed_quests_cont/quests/MarginContainer/HBoxContainer" unique_id=696872711]
 custom_minimum_size = Vector2(15, 10)
@@ -975,7 +1001,7 @@ theme_override_colors/font_color = Color(0.76862746, 0.6039216, 0.42352942, 1)
 theme_override_colors/font_outline_color = Color(0.654902, 0.46666667, 0.34509805, 1)
 theme_override_constants/outline_size = 2
 theme_override_fonts/font = ExtResource("2_y35ns")
-theme_override_font_sizes/font_size = 14
+theme_override_font_sizes/font_size = 16
 text = "quests"
 horizontal_alignment = 1
 uppercase = true

@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dqhsobhw8b7ms" path="res://gd/npc.gd" id="1_ufif8"]
 [ext_resource type="FontFile" uid="uid://pmi7qj0fh53v" path="res://static/PeaberryDoublespace.ttf" id="1_yk8p1"]
-[ext_resource type="PackedScene" uid="uid://do3r3gp725gok" path="res://glb/characters/bunny.glb" id="2_ufif8"]
+[ext_resource type="PackedScene" uid="uid://wudysac5bvop" path="res://glb/characters/rat.glb" id="3_ufif8"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_6xynh"]
 size = Vector3(0.9288845, 1.5340431, 1.2844238)
@@ -43,11 +43,7 @@ transform = Transform3D(0.72064793, 0.6933012, 0, -0.6933012, 0.72064793, 0, 0, 
 shape = SubResource("BoxShape3D_gsuca")
 
 [node name="CollisionShape3D6" type="CollisionShape3D" parent="." unique_id=2055630253]
-transform = Transform3D(-0.46404538, -0.79976743, 0.38083348, -0.88343835, 0.4492959, -0.13292791, -0.06479555, -0.39812747, -0.9150387, 1.3409784, 0.43136567, 0.8252571)
-shape = SubResource("BoxShape3D_gsuca")
-
-[node name="CollisionShape3D7" type="CollisionShape3D" parent="." unique_id=1040072583]
-transform = Transform3D(-0.008243905, -0.28665936, 1.1769824, -0.6820335, 0.0287672, 0.065446846, -0.052867558, -0.32641974, -1.0278491, 2.5546534, 0.43136567, 2.2529082)
+transform = Transform3D(-0.44969562, -0.8927202, -0.028715193, -0.8834383, 0.44929588, -0.13292791, 0.13156898, -0.034408897, -0.99070954, 1.3409784, 0.43136567, 0.31010002)
 shape = SubResource("BoxShape3D_gsuca")
 
 [node name="Node3D" type="Node3D" parent="." unique_id=1396382686]
@@ -57,7 +53,7 @@ visible = false
 transform = Transform3D(1, 0, -2.842171e-14, 0, 1, 7.1054274e-15, 0, 0, 1.0116583, 0.048265696, 7.1753173, 0.10840124)
 billboard = 2
 modulate = Color(0.58, 0.49126, 0.42339998, 1)
-text = "Buntanist
+text = "Mr. Cheddar
 "
 font = ExtResource("1_yk8p1")
 font_size = 120
@@ -76,5 +72,5 @@ font_size = 100
 transform = Transform3D(8.657, 0, 0, 0, 8.657, 0, 0, 0, 8.657, 0, 0.62096274, 0)
 shape = SubResource("CapsuleShape3D_62qdt")
 
-[node name="bunny" parent="." unique_id=478163719 instance=ExtResource("2_ufif8")]
+[node name="rat" parent="." unique_id=150154095 instance=ExtResource("3_ufif8")]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0)

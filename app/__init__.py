@@ -437,7 +437,7 @@ npc_dialogue = {
             'dialogue_options': {}
         },
     },
-    "Mr. Cheddar": {
+    "Mr Cheddar": {
         'item_cap': {
             'dialogue': "Woah there! Not sure if I want my hat to get squished like that in your bag.",
             'dialogue_options': {}

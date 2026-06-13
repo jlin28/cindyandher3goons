@@ -1,0 +1,70 @@
+[gd_scene format=3 uid="uid://dni2hxk7bqjef"]
+
+[ext_resource type="Script" uid="uid://dqhsobhw8b7ms" path="res://gd/npc.gd" id="1_b46kk"]
+[ext_resource type="PackedScene" uid="uid://dyq1uyr3gfomo" path="res://glb/characters/ferret.glb" id="2_2xwoh"]
+[ext_resource type="FontFile" uid="uid://pmi7qj0fh53v" path="res://static/PeaberryDoublespace.ttf" id="3_im6gi"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_im6gi"]
+size = Vector3(0.9288845, 1.6221123, 1.2651367)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_1qqli"]
+size = Vector3(1, 2.3769531, 0.6062012)
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_1qqli"]
+height = 1.7919922
+
+[node name="Bobby" type="CharacterBody3D" unique_id=1617542643]
+script = ExtResource("1_b46kk")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1338505273 groups=["normal_collision"]]
+transform = Transform3D(1.2773366, 0, 0, 0, 1.8893056, 0, 0, 0, 0.8585242, 0, 0, 0.20497404)
+shape = SubResource("BoxShape3D_im6gi")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="." unique_id=74348579 groups=["normal_collision"]]
+transform = Transform3D(1.039514, 0, 0, 0, 1.1288614, 0, 0, 0, 0.6566652, -0.38369215, -1.5246947, 0.20497404)
+shape = SubResource("BoxShape3D_im6gi")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="." unique_id=741785707 groups=["normal_collision"]]
+transform = Transform3D(0.99071604, 0, 0, 0, 1.170447, 0, 0, 0, 0.6566652, 0.37632167, -1.5246947, 0.20497404)
+shape = SubResource("BoxShape3D_im6gi")
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="." unique_id=1250358320 groups=["normal_collision"]]
+transform = Transform3D(4.10831, 0, 0, 0, 2.6400967, 0, 0, 0, 2.7037213, 0.0054160357, 3.3210819, 0.20497404)
+shape = SubResource("BoxShape3D_im6gi")
+
+[node name="CollisionShape3D5" type="CollisionShape3D" parent="." unique_id=1525748248]
+transform = Transform3D(0.85057336, 0.49325335, 0, -0.52585644, 0.79783785, 0, 0, 0, 0.76, -1.050504, 0.29855072, 0.12063426)
+shape = SubResource("BoxShape3D_1qqli")
+
+[node name="CollisionShape3D6" type="CollisionShape3D" parent="." unique_id=108369840]
+transform = Transform3D(-0.87577605, -0.4518988, -0.022993324, -0.47463536, 0.8168489, -0.09720062, 0.08796279, -0.0915939, -0.75340784, 1.0873456, 0.45352817, 0.42068624)
+shape = SubResource("BoxShape3D_1qqli")
+
+[node name="Node3D" type="Node3D" parent="." unique_id=2062648260]
+visible = false
+
+[node name="name" type="Label3D" parent="Node3D" unique_id=108629379]
+transform = Transform3D(1, 0, -2.842171e-14, 0, 1, 7.1054274e-15, 0, 0, 1.0116583, 0.048265696, 7.1753173, 0.10840124)
+billboard = 2
+modulate = Color(0.58, 0.49126, 0.42339998, 1)
+text = "Bobby
+"
+font = ExtResource("3_im6gi")
+font_size = 120
+
+[node name="Label3D" type="Label3D" parent="Node3D" unique_id=1925981175]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1.0116583, 0.048265696, 6.6508846, 0.10840124)
+billboard = 2
+modulate = Color(0.86, 0.77471673, 0.7138, 1)
+text = "[e] to interact"
+font = ExtResource("3_im6gi")
+font_size = 100
+
+[node name="Area3D" type="Area3D" parent="." unique_id=1612571044]
+
+[node name="CollisionShape3D7" type="CollisionShape3D" parent="Area3D" unique_id=1411024280]
+transform = Transform3D(8.657, 0, 0, 0, 8.657, 0, 0, 0, 8.657, 0, 0.62096274, 0)
+shape = SubResource("CapsuleShape3D_1qqli")
+
+[node name="ferret" parent="." unique_id=1541518940 instance=ExtResource("2_2xwoh")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0)

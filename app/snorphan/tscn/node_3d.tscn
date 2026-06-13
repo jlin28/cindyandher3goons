@@ -19,8 +19,10 @@
 [ext_resource type="PackedScene" uid="uid://c1dbprdspf5dt" path="res://tscn/npc_2.tscn" id="17_eh2cu"]
 [ext_resource type="Script" uid="uid://dqhsobhw8b7ms" path="res://gd/npc.gd" id="18_eh2cu"]
 [ext_resource type="PackedScene" uid="uid://bc0vl2j7kfi8p" path="res://glb/architecture/statue.glb" id="19_fp1dq"]
-[ext_resource type="PackedScene" uid="uid://cmid6tvx5gd4m" path="res://npc_3.tscn" id="19_vwbxu"]
+[ext_resource type="PackedScene" uid="uid://cmid6tvx5gd4m" path="res://tscn/npc_3.tscn" id="19_vwbxu"]
+[ext_resource type="PackedScene" uid="uid://bkgu87ng2o360" path="res://tscn/npc_4.tscn" id="20_7r6eq"]
 [ext_resource type="PackedScene" uid="uid://xuaqccpulmiy" path="res://glb/nature/tree.glb" id="20_byo66"]
+[ext_resource type="PackedScene" uid="uid://dni2hxk7bqjef" path="res://tscn/npc_5.tscn" id="21_ia1py"]
 [ext_resource type="PackedScene" uid="uid://cms2vpw7vc6j3" path="res://glb/nature/bush2.glb" id="21_oem1t"]
 [ext_resource type="PackedScene" uid="uid://p2rukjlak37q" path="res://glb/nature/bush.glb" id="22_vwbxu"]
 [ext_resource type="Script" uid="uid://dwqrumaqg0p7d" path="res://gd/spawner.gd" id="24_r8j7b"]
@@ -181,11 +183,11 @@ transform = Transform3D(0.014032332, 0, -1.4999344, 0, 1.5, 0, 1.4999344, 0, 0.0
 [node name="archhouse2" parent="buildings" unique_id=1643073342 instance=ExtResource("12_y4xl3")]
 transform = Transform3D(0.39709717, 0, 1.4464834, 0, 1.4999999, 0, -1.4464834, 0, 0.39709717, 24.278166, -11.206743, 103.98138)
 
-[node name="skinnyhouse1" parent="buildings" unique_id=200705801 instance=ExtResource("14_5rhs8")]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 32.86203, -12.853378, 9.557)
-
 [node name="skinnyhouse2" parent="buildings" unique_id=219530407 instance=ExtResource("14_5rhs8")]
 transform = Transform3D(-1.4999479, 7.162021e-05, 0.012498829, 6.656582e-05, 1.4999999, -0.0006066999, -0.0124988565, -0.000606124, -1.4999478, -71.78859, -12.853, 84.09379)
+
+[node name="skinnyhouse1" parent="buildings" unique_id=200705801 instance=ExtResource("14_5rhs8")]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 32.86203, -12.853378, 9.557)
 
 [node name="skinnyhouse3" parent="buildings" unique_id=123307047 instance=ExtResource("14_5rhs8")]
 transform = Transform3D(1.4500908, 9.08476e-05, 0.3837148, 6.656577e-05, 1.4999999, -0.0006066999, -0.38371468, 0.00060354156, 1.4500905, 198.928, -12.853, 46.832336)
@@ -290,9 +292,14 @@ script = ExtResource("18_eh2cu")
 unique_name_in_owner = true
 transform = Transform3D(0.91048115, 0, 1.1920669, 0, 1.4999998, 0, -1.1920669, 0, 0.91048115, -221.14279, 0, 130.54892)
 
-[node name="Mr Cheddar" parent="npcs" unique_id=850200564 instance=ExtResource("19_vwbxu")]
+[node name="Mr Cheddar" parent="npcs" unique_id=1843868279 instance=ExtResource("20_7r6eq")]
 unique_name_in_owner = true
-transform = Transform3D(1.1742214, 0, 0.93338245, 0, 1.4999998, 0, -0.93338245, 0, 1.1742214, 553.5839, 0, -110.08212)
+transform = Transform3D(1.4158741, 0, 0.4952773, 0, 1.4999998, 0, -0.4952773, 0, 1.4158741, 553.0806, -0.07817459, -112.87889)
+script = ExtResource("18_eh2cu")
+
+[node name="Bobby" parent="npcs" unique_id=1617542643 instance=ExtResource("21_ia1py")]
+unique_name_in_owner = true
+transform = Transform3D(0.98877954, 0, -0.14937998, 0, 0.99999976, 0, 0.14937998, 0, 0.98877954, 351.1653, -2.7310028, 111.89358)
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="." unique_id=786734225]
 position = Vector2(500, 3)

@@ -125,6 +125,9 @@ func _process(delta: float) -> void:
 			notification.modulate = Color('#9f8974')
 			label_tick = -1
 			
+	if Input.is_action_pressed("equip"):
+		equipped_cape = true
+			
 	if Input.is_action_pressed("crouch"):
 		if !normal_collision_shapes[0].disabled:
 			for collision in normal_collision_shapes:

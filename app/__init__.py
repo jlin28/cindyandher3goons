@@ -1135,7 +1135,7 @@ def game():
 
         if body.get('type') == 'cape_info':
             user = body.get('user')
-
+            print(fetch_cape_status(user))
             return jsonify(fetch_cape_status(user))
 
     if "username" not in session:

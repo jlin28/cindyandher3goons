@@ -20,7 +20,7 @@ ws.on('connection', function connect(client, req) {
   client.y = 0;
   client.z = 0;
   client.ry = 0;
-  client.action = idle;
+  client.action = "idle";
   client.cape = false;
 
   // client.send(client.id);

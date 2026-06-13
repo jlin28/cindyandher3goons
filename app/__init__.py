@@ -116,7 +116,7 @@ c.execute("INSERT OR IGNORE INTO npc VALUES ('Sealius', 'A Spark of Inspiration'
 c.execute("INSERT OR IGNORE INTO npc VALUES ('Town Chief', 'A Warm Welcome', 'Find the house the Town Chief set aside for you', 'house', 'go', 1,'slightly_worn_out_cape', 1)")
 c.execute("INSERT OR IGNORE INTO npc VALUES ('Buntanist', 'A Bunny''s Cry For Help', 'Save Buntanist''s plants!', 'special_powder', 'fetch', 1,'carrot', 1)")
 c.execute("INSERT OR IGNORE INTO npc VALUES ('Bobby', 'Pebbles, Pebbles, Pebbles!', 'Find those pebbles! What''s so cool about pebbles anyways?', 'pebbles', 'fetch', 5,'old_plushie', 1)")
-c.execute("INSERT OR IGNORE INTO npc VALUES ('Mr. Cheddar', 'The Former Mobster''s request', 'A nice warm apple pie could warm anyone''s heart', 'apple_pie_recipe', 'fetch', 1,'hat',1)")
+c.execute("INSERT OR IGNORE INTO npc VALUES ('Mr Cheddar', 'The Former Mobster''s request', 'A nice warm apple pie could warm anyone''s heart', 'apple_pie_recipe', 'fetch', 1,'hat',1)")
 c.execute("INSERT OR IGNORE INTO npc VALUES ('Daisy', 'A Final Farewell', 'She seemed quite agitated, better find those flowers before this whole place is flooded!', 'flowers', 'fetch', 10,'red_scarf', 1)")
 c.execute("INSERT OR IGNORE INTO npc VALUES ('Mabel', 'Just Like The Old Days', 'How are apples growing here anyways?', 'apples', 'fetch', 25,'apple_pie_recipe', 1)")
 c.execute("INSERT OR IGNORE INTO npc VALUES ('18th Century Woman', 'Buttons..?', 'She seems to have many buttons for you...', '', 'wait', 1,'button', 3)")

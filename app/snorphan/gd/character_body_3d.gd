@@ -125,7 +125,7 @@ func _process(delta: float) -> void:
 			notification.modulate = Color('#9f8974')
 			label_tick = -1
 			
-	if Input.is_action_pressed("equip") and "cape" in current_held_item:
+	if Input.is_action_pressed("equip") and current_held_item and "cape" in current_held_item:
 		equipped_cape = true
 			
 	if Input.is_action_pressed("crouch"):

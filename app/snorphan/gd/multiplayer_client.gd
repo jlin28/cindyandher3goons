@@ -145,6 +145,8 @@ func handle_msg(data):
 	
 	elif msg_type == "cape_info":
 		player.equipped_cape = data.get("cape_status")
+		print(data.get("cape"))
+		print(player.equipped_cape)
 		
 func send_username():
 	var data = {

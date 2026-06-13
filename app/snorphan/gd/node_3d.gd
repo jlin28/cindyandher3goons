@@ -73,3 +73,5 @@ func _unhandled_input(event: InputEvent) -> void:
 	
 		get_tree().current_scene.add_child(snowball)
 		snowball.position = player.position - Vector3(sin(player.current_angle), 0, cos(player.current_angle))
+	if Input.is_action_just_pressed("equip") and player.current_held_item and "cape" in player.current_held_item:
+		MultiplayerClient.remove_item(player.current_held_item, 1)

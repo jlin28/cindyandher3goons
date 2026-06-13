@@ -144,7 +144,11 @@ func handle_msg(data):
 		quests_cont.change_quests.emit()
 	
 	elif msg_type == "cape_info":
-		player.equipped_cape = data.get("cape_status")
+		if data.get("cape_status")[0] == 0:
+			player.equipped_cape = false
+		else:
+			player.equipped_cape = true
+		#player.equipped_cape = data.get("cape_status")
 		print(data.get("cape"))
 		print(player.equipped_cape)
 		
@@ -160,7 +164,6 @@ func send_position():
 	var rot_y = local_player.global_rotation.y
 	var curr_action = player.current_action
 	var cape_status = player.equipped_cape
-	
 	var moved = pos.distance_to(last_sent_pos) > 0.01
 	var rotated = abs(rot_y - last_sent_rot_y) > 0.01
 	

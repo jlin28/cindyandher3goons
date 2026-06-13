@@ -127,6 +127,7 @@ func _process(delta: float) -> void:
 			
 	if Input.is_action_pressed("equip") and current_held_item and "cape" in current_held_item:
 		equipped_cape = true
+		
 			
 	if Input.is_action_pressed("crouch"):
 		if !normal_collision_shapes[0].disabled:

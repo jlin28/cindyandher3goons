@@ -101,14 +101,13 @@ c.execute("""CREATE TABLE IF NOT EXISTS snowmen(
     x_rot REAL,
     y_rot REAL,
     z_rot REAL,
-    button BOOLEAN,
+    current_button_count INTEGER,
     carrot BOOLEAN,
     hat BOOLEAN,
     red_scarf BOOLEAN,
     stick1 BOOLEAN,
     stick2 BOOLEAN,
-    pebble1 BOOLEAN,
-    pebble2 BOOLEAN,
+    current_pebble_count BOOLEAN,
     FOREIGN KEY (player) references user(username)
     );
     """)

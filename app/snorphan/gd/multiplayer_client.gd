@@ -4,6 +4,7 @@ extends Node
 @onready var quests_cont := get_tree().get_first_node_in_group('quests')
 @onready var inventory_cont := get_tree().get_first_node_in_group('inv')
 @onready var player := get_tree().get_first_node_in_group('player')
+@onready var encyclopedia := get_tree().get_first_node_in_group('encyclopedia')
 
 @export var remote_player_scene: PackedScene
 @export var local_player: Node3D
@@ -101,6 +102,7 @@ func handle_msg(data):
 		inventory_cont._on_inventory_update()
 		quests_cont.fetch_quests()
 		fetch_cape_info()
+		fetch_initial_enc()
 		
 	elif msg_type == "player_name":
 		var player_id = str(data.get("id", ""))
@@ -148,9 +150,16 @@ func handle_msg(data):
 			player.equipped_cape = false
 		else:
 			player.equipped_cape = true
-		#player.equipped_cape = data.get("cape_status")
+		
 		print(data.get("cape"))
 		print(player.equipped_cape)
+	
+	elif msg_type == "init_encyclopedia":
+		player.unlocked_items = data.get("items", [])
+		encyclopedia.initialize_encyclopedia.emit()
+				
+	elif msg_type == "item_info":
+		encyclopedia.load_item_info(data.get("item"), data.get("desc"))
 		
 func send_username():
 	var data = {
@@ -251,6 +260,11 @@ func add_item(item, quantity):
 	
 	socket.send_text(JSON.stringify(data))
 	
+	if item not in player.unlocked_items:
+		add_to_enc(item)
+		player.unlocked_items.append(item)
+		encyclopedia.update_item_status(item)
+	
 func remove_item(item, quantity):
 	var data = {
 		"type": "remove_item",
@@ -297,6 +311,29 @@ func complete_quest(npc):
 func fetch_cape_info():
 	var data = {
 		"type": "cape_info"
+	}
+	
+	socket.send_text(JSON.stringify(data))
+
+func fetch_initial_enc():
+	var data = {
+		"type": "init_encyclopedia"
+	}
+	
+	socket.send_text(JSON.stringify(data))
+	
+func fetch_item_info(item):
+	var data = {
+		"type": "item_info",
+		"item": item
+	}
+	
+	socket.send_text(JSON.stringify(data))
+
+func add_to_enc(item):
+	var data = {
+		"type": "add_to_enc",
+		"item": item
 	}
 	
 	socket.send_text(JSON.stringify(data))

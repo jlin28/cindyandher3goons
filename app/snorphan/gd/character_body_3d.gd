@@ -47,6 +47,8 @@ var time = 0.0;
 @export var equipped_cape = false
 @export var current_action = "idle"
 
+@export var unlocked_items = []
+
 var prev_line = ""
 var label_tick = -1
 

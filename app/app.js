@@ -222,6 +222,50 @@ ws.on('connection', function connect(client, req) {
         }
       )
     }
+
+    if (data.type === "init_encyclopedia") {
+      let res = await fetch("https://cindyandher3goons.me/" + client.route, {
+      // let res = await fetch("http://127.0.0.1:5000/" + client.route, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json'},
+        body: JSON.stringify({ type: "init_encyclopedia", user: client.username })
+      });
+
+      let items_arr = await res.json()
+      send(
+        client, {
+          type: "init_encyclopedia",
+          items: items_arr
+        }
+      )
+    }
+
+    if (data.type === "item_info") {
+      let res = await fetch("https://cindyandher3goons.me/" + client.route, {
+      // let res = await fetch("http://127.0.0.1:5000/" + client.route, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json'},
+        body: JSON.stringify({ type: "item_info", item: data.item })
+      });
+
+      let info = await res.json()
+      send(
+        client, {
+          type: "item_info",
+          item: info[0],
+          desc: info[1]
+        }
+      )
+    }
+
+    if (data.type === "add_to_enc") {
+      let res = await fetch("https://cindyandher3goons.me/" + client.route, {
+      // let res = await fetch("http://127.0.0.1:5000/" + client.route, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json'},
+        body: JSON.stringify({ type: "add_to_enc", item: data.item, user: client.username })
+      });
+    }
   });
 
   client.on('close', () => {

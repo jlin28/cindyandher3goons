@@ -51,26 +51,25 @@ c.execute("""CREATE TABLE IF NOT EXISTS user(
 c.execute("""CREATE TABLE IF NOT EXISTS item(
     name TEXT PRIMARY KEY,
     desc TEXT NOT NULL,
-    image TEXT NOT NULL,
     maxCount INTEGER NOT NULL
     );
     """)
-c.execute("INSERT OR IGNORE INTO item VALUES ('button', 'buttons that supposedly can''t be emptied. you wonder if you can get them out of your bag now that they''re in it...', '', 3)") #model
-c.execute("INSERT OR IGNORE INTO item VALUES ('carrot', 'the lifes work of an aspiring botanist. it looks incredibly crunchy and irresistably tasty, taking everything in you just to not take a bite.', '', 1)") #model
-c.execute("INSERT OR IGNORE INTO item VALUES ('hat', 'a mobsters old top hat. it remarkably still looks brand new, a clear sign of love and care.', '', 1)") #model
-c.execute("INSERT OR IGNORE INTO item VALUES ('red_scarf', 'a scarf knitted by someone''s grandma. it''s fuzzy, warm and made with lots of love.', '', 1)") #model
-c.execute("INSERT OR IGNORE INTO item VALUES ('apple_pie_recipe', 'grandmas apple pie recipe. just looking at it makes your mouth water as you imagine the aroma and taste.', '', 1)")
-c.execute("INSERT OR IGNORE INTO item VALUES ('ice_sculpture', 'sculpture made of ice in the image of sealius. it carries a strange aura. who knew he was hiding this talent all along?', '', 1)")
-c.execute("INSERT OR IGNORE INTO item VALUES ('old_plushie', 'a plushie worn out from years of love and hugs. a token of gratitude from a small child in hopes it will bring you the same joy.', '', 1)")
-c.execute("INSERT OR IGNORE INTO item VALUES ('stick', 'a brown stick. its very sticky and looks like a stick. perhaps the most stick stick youve ever sticked.', '', 99)") #model
-c.execute("INSERT OR IGNORE INTO item VALUES ('slightly_worn_out_cape', 'a welcoming gift from the village chief. he hopes it will keep you warm in this frosty climate.', '', 1)") #model
-c.execute("INSERT OR IGNORE INTO item VALUES ('flowers', 'flowers that you plucked fresh from the snow. they come in an assortment of colors, each with a slightly different scent.', '', 10)") #model
-c.execute("INSERT OR IGNORE INTO item VALUES ('pebbles', 'ooh pebble.... round, smooth, shiny pebbles...... so round... so smooth... so shiny...', '', 99)") #model
-c.execute("INSERT OR IGNORE INTO item VALUES ('apples', 'fresh(?), plump, juicy round red apples. you found them on the floor, but they look suspiciously pristine....', '', 99)") #model
-c.execute("INSERT OR IGNORE INTO item VALUES ('special_powder', 'powder you found at the top of the mountain peaks. it''s rumored to be a legendary fertilizer but looks suspiciously white and powdery, like something else you know...', '', 1)") #model oops
-c.execute("INSERT OR IGNORE INTO item VALUES ('snowball_S', 'a small bundle of joy.', '', 99)")
-c.execute("INSERT OR IGNORE INTO item VALUES ('snowball_M', 'a bundle of joy.', '', 99)")
-c.execute("INSERT OR IGNORE INTO item VALUES ('snowball_L', 'a big fat bundle of joy.', '', 99)")
+c.execute("INSERT OR IGNORE INTO item VALUES ('button', 'buttons that supposedly can''t be emptied. you wonder if you can get them out of your bag now that they''re in it...', 3)") #model
+c.execute("INSERT OR IGNORE INTO item VALUES ('carrot', 'the lifes work of an aspiring botanist. it looks incredibly crunchy and irresistably tasty, taking everything in you just to not take a bite.', 1)") #model
+c.execute("INSERT OR IGNORE INTO item VALUES ('hat', 'a mobsters old top hat. it remarkably still looks brand new, a clear sign of love and care.', 1)") #model
+c.execute("INSERT OR IGNORE INTO item VALUES ('red_scarf', 'a scarf knitted by someone''s grandma. it''s fuzzy, warm and made with lots of love.', 1)") #model
+c.execute("INSERT OR IGNORE INTO item VALUES ('apple_pie_recipe', 'grandmas apple pie recipe. just looking at it makes your mouth water as you imagine the aroma and taste.', 1)")
+c.execute("INSERT OR IGNORE INTO item VALUES ('ice_sculpture', 'sculpture made of ice in the image of sealius. it carries a strange aura. who knew he was hiding this talent all along?', 1)")
+c.execute("INSERT OR IGNORE INTO item VALUES ('old_plushie', 'a plushie worn out from years of love and hugs. a token of gratitude from a small child in hopes it will bring you the same joy.', 1)")
+c.execute("INSERT OR IGNORE INTO item VALUES ('stick', 'a brown stick. its very sticky and looks like a stick. perhaps the most stick stick youve ever sticked.', 99)") #model
+c.execute("INSERT OR IGNORE INTO item VALUES ('slightly_worn_out_cape', 'a welcoming gift from the village chief. he hopes it will keep you warm in this frosty climate.', 1)") #model
+c.execute("INSERT OR IGNORE INTO item VALUES ('flowers', 'flowers that you plucked fresh from the snow. they come in an assortment of colors, each with a slightly different scent.', 10)") #model
+c.execute("INSERT OR IGNORE INTO item VALUES ('pebbles', 'ooh pebble.... round, smooth, shiny pebbles...... so round... so smooth... so shiny...', 99)") #model
+c.execute("INSERT OR IGNORE INTO item VALUES ('apples', 'fresh(?), plump, juicy round red apples. you found them on the floor, but they look suspiciously pristine....', 99)") #model
+c.execute("INSERT OR IGNORE INTO item VALUES ('special_powder', 'powder you found at the top of the mountain peaks. it''s rumored to be a legendary fertilizer but looks suspiciously white and powdery, like something else you know...', 1)") #model oops
+c.execute("INSERT OR IGNORE INTO item VALUES ('snowball_S', 'a small bundle of joy.', 99)")
+c.execute("INSERT OR IGNORE INTO item VALUES ('snowball_M', 'a bundle of joy.', 99)")
+c.execute("INSERT OR IGNORE INTO item VALUES ('snowball_L', 'a big fat bundle of joy.', 99)")
 
 c.execute("""CREATE TABLE IF NOT EXISTS encyclopedia(
     item TEXT,
@@ -1000,12 +999,45 @@ def fetch_cape_status(username):
     db = sqlite3.connect(DB_FILE)
     c = db.cursor()
 
-    c.execute("SELECT cape FROM user WHERE username = ?""", (username,))
+    c.execute("SELECT cape FROM user WHERE username = ?", (username,))
     cape_status = c.fetchone()
 
     db.commit()
     db.close()
     return cape_status
+
+def fetch_unlocked_items(username):
+    db = sqlite3.connect(DB_FILE)
+    c = db.cursor()
+
+    c.execute("SELECT item FROM encyclopedia WHERE userThatFound = ?", (username,))
+    items = [row[0] for row in c.fetchall()]
+
+    db.commit()
+    db.close()
+
+    return items
+
+def fetch_item_info(item):
+    db = sqlite3.connect(DB_FILE)
+    c = db.cursor()
+
+    c.execute("SELECT desc FROM item WHERE name = ?", (item,))
+    desc = c.fetchone()
+
+    db.commit()
+    db.close()
+
+    return desc[0]
+
+def add_to_enc(item, username):
+    db = sqlite3.connect(DB_FILE)
+    c = db.cursor()
+
+    c.execute("INSERT into encyclopedia VALUES (?, ?)", (item, username))
+
+    db.commit()
+    db.close()
 
 @app.route("/", methods=["GET", "POST"])
 def start():
@@ -1134,8 +1166,25 @@ def game():
 
         if body.get('type') == 'cape_info':
             user = body.get('user')
-            print(fetch_cape_status(user))
+
             return jsonify(fetch_cape_status(user))
+
+        if body.get('type') == 'init_encyclopedia':
+            user = body.get('user')
+
+            return jsonify(fetch_unlocked_items(user))
+
+        if body.get('type') == 'item_info':
+            item = body.get('item')
+
+            return jsonify([item, fetch_item_info(item)])
+
+        if body.get('type') == 'add_to_enc':
+            item = body.get('item')
+            user = body.get('user')
+            add_to_enc(item, user)
+
+            return jsonify( { 'request': 'handled' })
 
     if "username" not in session:
         return redirect(url_for("login"))

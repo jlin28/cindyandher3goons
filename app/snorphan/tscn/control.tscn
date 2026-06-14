@@ -15,10 +15,12 @@
 [ext_resource type="Script" uid="uid://chq8goy7bvsau" path="res://gd/settings_menu.gd" id="10_6nd6i"]
 [ext_resource type="Script" uid="uid://bw0ucpjxwy4b2" path="res://gd/logout.gd" id="10_s2oxt"]
 [ext_resource type="AudioStream" uid="uid://d1byqytsn011y" path="res://static/Music/bgm.mp3" id="12_6nd6i"]
+[ext_resource type="Script" uid="uid://bxq8op6oqujbr" path="res://gd/encyclopedia.gd" id="16_55vmn"]
 [ext_resource type="Script" uid="uid://dsgfj1u7w3ys4" path="res://tscn/close_encyclopedia.gd" id="16_jbqr8"]
 [ext_resource type="Texture2D" uid="uid://bxwoml3yohk0n" path="res://static/items/apples.png" id="16_ub5f1"]
 [ext_resource type="Texture2D" uid="uid://073hq1x2ql0m" path="res://static/items/apple_pie_recipe.png" id="17_jbqr8"]
 [ext_resource type="Texture2D" uid="uid://c4l2thk14fk6d" path="res://static/items/button.png" id="18_55vmn"]
+[ext_resource type="Script" uid="uid://c0i4lultiy4pm" path="res://gd/open_item_info.gd" id="19_55vmn"]
 [ext_resource type="Texture2D" uid="uid://bd214kgg07k83" path="res://static/items/carrot.png" id="19_vpcjx"]
 [ext_resource type="Texture2D" uid="uid://bsoeacc4p0ud1" path="res://static/items/flowers.png" id="20_hqrgm"]
 [ext_resource type="Texture2D" uid="uid://bhglofho2sq1h" path="res://static/items/hat.png" id="21_0161x"]
@@ -30,6 +32,7 @@
 [ext_resource type="Texture2D" uid="uid://c2iscaekvcw2m" path="res://static/items/snowball.png" id="27_hm3lq"]
 [ext_resource type="Texture2D" uid="uid://cfwox8oqmmaji" path="res://static/items/special_powder.png" id="28_q07ck"]
 [ext_resource type="Texture2D" uid="uid://6nhc58cir762" path="res://static/items/stick.png" id="29_yav8j"]
+[ext_resource type="Script" uid="uid://cl8jnnu07ewjw" path="res://gd/item_back_button.gd" id="33_vpcjx"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mmuml"]
 bg_color = Color(0.6117647, 0.52156866, 0.4392157, 1)
@@ -180,6 +183,28 @@ region_rect = Rect2(259, 180, 90, 25)
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ub5f1"]
 texture = ExtResource("1_vpxtf")
 region_rect = Rect2(259, 180, 90, 25)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vpcjx"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hqrgm"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0161x"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5tsac"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_18ea2"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vpcjx"]
+texture = ExtResource("1_vpxtf")
+region_rect = Rect2(243, 82, 10, 12)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_hqrgm"]
+texture = ExtResource("1_vpxtf")
+region_rect = Rect2(259, 84, 10, 10)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0161x"]
+texture = ExtResource("1_vpxtf")
+region_rect = Rect2(259, 84, 10, 10)
 
 [node name="Control" type="Control" unique_id=1355566499]
 layout_mode = 3
@@ -1415,15 +1440,15 @@ theme_override_styles/pressed = SubResource("StyleBoxTexture_yja5o")
 theme_override_styles/hover = SubResource("StyleBoxTexture_ub5f1")
 text = "APPLY CHANGES"
 
-[node name="encyclopedia" type="MarginContainer" parent="." unique_id=1828113369]
+[node name="encyclopedia" type="MarginContainer" parent="." unique_id=1828113369 groups=["encyclopedia"]]
 unique_name_in_owner = true
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("16_55vmn")
 
 [node name="MarginContainer" type="MarginContainer" parent="encyclopedia" unique_id=1226121202]
 custom_minimum_size = Vector2(850, 500)
@@ -1495,6 +1520,7 @@ custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
 
 [node name="items_cont" type="MarginContainer" parent="encyclopedia/MarginContainer/MarginContainer/VBoxContainer" unique_id=1587658157]
+unique_name_in_owner = true
 layout_mode = 2
 theme_override_constants/margin_left = 90
 theme_override_constants/margin_right = 50
@@ -1518,7 +1544,17 @@ theme_override_constants/separation = 80
 custom_minimum_size = Vector2(10, 0)
 layout_mode = 2
 
+[node name="Button" type="Button" parent="encyclopedia/MarginContainer/MarginContainer/VBoxContainer/items_cont/ScrollContainer/items/row1/apples" unique_id=520901391]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_vpcjx")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_hqrgm")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_0161x")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_5tsac")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_18ea2")
+script = ExtResource("19_55vmn")
+
 [node name="NinePatchRect" type="NinePatchRect" parent="encyclopedia/MarginContainer/MarginContainer/VBoxContainer/items_cont/ScrollContainer/items/row1/apples" unique_id=2115279876]
+modulate = Color(0.52156866, 0.52156866, 0.52156866, 1)
 custom_minimum_size = Vector2(90, 90)
 layout_mode = 2
 texture = ExtResource("1_vpxtf")
@@ -1529,7 +1565,6 @@ patch_margin_right = 3
 patch_margin_bottom = 3
 
 [node name="Icon" type="TextureRect" parent="encyclopedia/MarginContainer/MarginContainer/VBoxContainer/items_cont/ScrollContainer/items/row1/apples/NinePatchRect" unique_id=586913100]
-modulate = Color(0.52, 0.52, 0.52, 1)
 custom_minimum_size = Vector2(32, 32)
 layout_mode = 1
 anchors_preset = 8
@@ -1552,7 +1587,17 @@ stretch_mode = 5
 custom_minimum_size = Vector2(10, 0)
 layout_mode = 2
 
+[node name="Button" type="Button" parent="encyclopedia/MarginContainer/MarginContainer/VBoxContainer/items_cont/ScrollContainer/items/row1/apple_pie_recipe" unique_id=1179403250]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_vpcjx")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_hqrgm")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_0161x")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_5tsac")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_18ea2")
+script = ExtResource("19_55vmn")
+
 [node name="NinePatchRect" type="NinePatchRect" parent="encyclopedia/MarginContainer/MarginContainer/VBoxContainer/items_cont/ScrollContainer/items/row1/apple_pie_recipe" unique_id=276423537]
+modulate = Color(0.52156866, 0.52156866, 0.52156866, 1)
 custom_minimum_size = Vector2(90, 90)
 layout_mode = 2
 texture = ExtResource("1_vpxtf")
@@ -1563,7 +1608,6 @@ patch_margin_right = 3
 patch_margin_bottom = 3
 
 [node name="Icon" type="TextureRect" parent="encyclopedia/MarginContainer/MarginContainer/VBoxContainer/items_cont/ScrollContainer/items/row1/apple_pie_recipe/NinePatchRect" unique_id=1424220745]
-modulate = Color(0.52, 0.52, 0.52, 1)
 custom_minimum_size = Vector2(32, 32)
 layout_mode = 1
 anchors_preset = 8
@@ -1586,7 +1630,17 @@ stretch_mode = 5
 custom_minimum_size = Vector2(10, 0)
 layout_mode = 2
 
+[node name="Button" type="Button" parent="encyclopedia/MarginContainer/MarginContainer/VBoxContainer/items_cont/ScrollContainer/items/row1/button" unique_id=1058132936]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_vpcjx")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_hqrgm")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_0161x")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_5tsac")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_18ea2")
+script = ExtResource("19_55vmn")
+
 [node name="NinePatchRect" type="NinePatchRect" parent="encyclopedia/MarginContainer/MarginContainer/VBoxContainer/items_cont/ScrollContainer/items/row1/button" unique_id=76713476]
+modulate = Color(0.52156866, 0.52156866, 0.52156866, 1)
 custom_minimum_size = Vector2(90, 90)
 layout_mode = 2
 texture = ExtResource("1_vpxtf")
@@ -1597,7 +1651,6 @@ patch_margin_right = 3
 patch_margin_bottom = 3
 
 [node name="Icon" type="TextureRect" parent="encyclopedia/MarginContainer/MarginContainer/VBoxContainer/items_cont/ScrollContainer/items/row1/button/NinePatchRect" unique_id=394067694]
-modulate = Color(0.52, 0.52, 0.52, 1)
 custom_minimum_size = Vector2(32, 32)
 layout_mode = 1
 anchors_preset = 8
@@ -1620,7 +1673,17 @@ stretch_mode = 5
 custom_minimum_size = Vector2(10, 0)
 layout_mode = 2
 
+[node name="Button" type="Button" parent="encyclopedia/MarginContainer/MarginContainer/VBoxContainer/items_cont/ScrollContainer/items/row1/carrot" unique_id=933849117]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_vpcjx")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_hqrgm")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_0161x")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_5tsac")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_18ea2")
+script = ExtResource("19_55vmn")
+
 [node name="NinePatchRect" type="NinePatchRect" parent="encyclopedia/MarginContainer/MarginContainer/VBoxContainer/items_cont/ScrollContainer/items/row1/carrot" unique_id=1291360640]
+modulate = Color(0.52156866, 0.52156866, 0.52156866, 1)
 custom_minimum_size = Vector2(90, 90)
 layout_mode = 2
 texture = ExtResource("1_vpxtf")
@@ -1631,7 +1694,6 @@ patch_margin_right = 3
 patch_margin_bottom = 3
 
 [node name="Icon" type="TextureRect" parent="encyclopedia/MarginContainer/MarginContainer/VBoxContainer/items_cont/ScrollContainer/items/row1/carrot/NinePatchRect" unique_id=2071395145]
-modulate = Color(0.52, 0.52, 0.52, 1)
 custom_minimum_size = Vector2(32, 32)
 layout_mode = 1
 anchors_preset = 8
@@ -1658,7 +1720,17 @@ theme_override_constants/separation = 80
 custom_minimum_size = Vector2(10, 0)
 layout_mode = 2
 
+[node name="Button" type="Button" parent="encyclopedia/MarginContainer/MarginContainer/VBoxContainer/items_cont/ScrollContainer/items/row2/flowers" unique_id=1089741513]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_vpcjx")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_hqrgm")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_0161x")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_5tsac")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_18ea2")
+script = ExtResource("19_55vmn")
+
 [node name="NinePatchRect" type="NinePatchRect" parent="encyclopedia/MarginContainer/MarginContainer/VBoxContainer/items_cont/ScrollContainer/items/row2/flowers" unique_id=1689483054]
+modulate = Color(0.52156866, 0.52156866, 0.52156866, 1)
 custom_minimum_size = Vector2(90, 90)
 layout_mode = 2
 texture = ExtResource("1_vpxtf")
@@ -1669,7 +1741,6 @@ patch_margin_right = 3
 patch_margin_bottom = 3
 
 [node name="Icon" type="TextureRect" parent="encyclopedia/MarginContainer/MarginContainer/VBoxContainer/items_cont/ScrollContainer/items/row2/flowers/NinePatchRect" unique_id=290845162]
-modulate = Color(0.52, 0.52, 0.52, 1)
 custom_minimum_size = Vector2(32, 32)
 layout_mode = 1
 anchors_preset = 8
@@ -1692,7 +1763,17 @@ stretch_mode = 5
 custom_minimum_size = Vector2(10, 0)
 layout_mode = 2
 
+[node name="Button" type="Button" parent="encyclopedia/MarginContainer/MarginContainer/VBoxContainer/items_cont/ScrollContainer/items/row2/hat" unique_id=972116913]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_vpcjx")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_hqrgm")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_0161x")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_5tsac")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_18ea2")
+script = ExtResource("19_55vmn")
+
 [node name="NinePatchRect" type="NinePatchRect" parent="encyclopedia/MarginContainer/MarginContainer/VBoxContainer/items_cont/ScrollContainer/items/row2/hat" unique_id=630398835]
+modulate = Color(0.52156866, 0.52156866, 0.52156866, 1)
 custom_minimum_size = Vector2(90, 90)
 layout_mode = 2
 texture = ExtResource("1_vpxtf")
@@ -1703,7 +1784,6 @@ patch_margin_right = 3
 patch_margin_bottom = 3
 
 [node name="Icon" type="TextureRect" parent="encyclopedia/MarginContainer/MarginContainer/VBoxContainer/items_cont/ScrollContainer/items/row2/hat/NinePatchRect" unique_id=289467192]
-modulate = Color(0.52, 0.52, 0.52, 1)
 custom_minimum_size = Vector2(32, 32)
 layout_mode = 1
 anchors_preset = 8
@@ -1726,7 +1806,17 @@ stretch_mode = 5
 custom_minimum_size = Vector2(10, 0)
 layout_mode = 2
 
+[node name="Button" type="Button" parent="encyclopedia/MarginContainer/MarginContainer/VBoxContainer/items_cont/ScrollContainer/items/row2/ice_sculpture" unique_id=433699577]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_vpcjx")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_hqrgm")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_0161x")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_5tsac")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_18ea2")
+script = ExtResource("19_55vmn")
+
 [node name="NinePatchRect" type="NinePatchRect" parent="encyclopedia/MarginContainer/MarginContainer/VBoxContainer/items_cont/ScrollContainer/items/row2/ice_sculpture" unique_id=178404172]
+modulate = Color(0.52156866, 0.52156866, 0.52156866, 1)
 custom_minimum_size = Vector2(90, 90)
 layout_mode = 2
 texture = ExtResource("1_vpxtf")
@@ -1737,7 +1827,6 @@ patch_margin_right = 3
 patch_margin_bottom = 3
 
 [node name="Icon" type="TextureRect" parent="encyclopedia/MarginContainer/MarginContainer/VBoxContainer/items_cont/ScrollContainer/items/row2/ice_sculpture/NinePatchRect" unique_id=1059832329]
-modulate = Color(0.52, 0.52, 0.52, 1)
 custom_minimum_size = Vector2(32, 32)
 layout_mode = 1
 anchors_preset = 8
@@ -1760,7 +1849,17 @@ stretch_mode = 5
 custom_minimum_size = Vector2(10, 0)
 layout_mode = 2
 
+[node name="Button" type="Button" parent="encyclopedia/MarginContainer/MarginContainer/VBoxContainer/items_cont/ScrollContainer/items/row2/old_plushie" unique_id=1540633933]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_vpcjx")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_hqrgm")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_0161x")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_5tsac")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_18ea2")
+script = ExtResource("19_55vmn")
+
 [node name="NinePatchRect" type="NinePatchRect" parent="encyclopedia/MarginContainer/MarginContainer/VBoxContainer/items_cont/ScrollContainer/items/row2/old_plushie" unique_id=1407140458]
+modulate = Color(0.52156866, 0.52156866, 0.52156866, 1)
 custom_minimum_size = Vector2(90, 90)
 layout_mode = 2
 texture = ExtResource("1_vpxtf")
@@ -1771,7 +1870,6 @@ patch_margin_right = 3
 patch_margin_bottom = 3
 
 [node name="Icon" type="TextureRect" parent="encyclopedia/MarginContainer/MarginContainer/VBoxContainer/items_cont/ScrollContainer/items/row2/old_plushie/NinePatchRect" unique_id=1502589459]
-modulate = Color(0.52, 0.52, 0.52, 1)
 custom_minimum_size = Vector2(32, 32)
 layout_mode = 1
 anchors_preset = 8
@@ -1798,7 +1896,17 @@ theme_override_constants/separation = 80
 custom_minimum_size = Vector2(10, 0)
 layout_mode = 2
 
+[node name="Button" type="Button" parent="encyclopedia/MarginContainer/MarginContainer/VBoxContainer/items_cont/ScrollContainer/items/row3/pebbles" unique_id=1183163674]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_vpcjx")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_hqrgm")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_0161x")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_5tsac")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_18ea2")
+script = ExtResource("19_55vmn")
+
 [node name="NinePatchRect" type="NinePatchRect" parent="encyclopedia/MarginContainer/MarginContainer/VBoxContainer/items_cont/ScrollContainer/items/row3/pebbles" unique_id=881820933]
+modulate = Color(0.52156866, 0.52156866, 0.52156866, 1)
 custom_minimum_size = Vector2(90, 90)
 layout_mode = 2
 texture = ExtResource("1_vpxtf")
@@ -1809,7 +1917,6 @@ patch_margin_right = 3
 patch_margin_bottom = 3
 
 [node name="Icon" type="TextureRect" parent="encyclopedia/MarginContainer/MarginContainer/VBoxContainer/items_cont/ScrollContainer/items/row3/pebbles/NinePatchRect" unique_id=2141907692]
-modulate = Color(0.52, 0.52, 0.52, 1)
 custom_minimum_size = Vector2(32, 32)
 layout_mode = 1
 anchors_preset = 8
@@ -1832,7 +1939,17 @@ stretch_mode = 5
 custom_minimum_size = Vector2(10, 0)
 layout_mode = 2
 
+[node name="Button" type="Button" parent="encyclopedia/MarginContainer/MarginContainer/VBoxContainer/items_cont/ScrollContainer/items/row3/red_scarf" unique_id=120394830]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_vpcjx")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_hqrgm")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_0161x")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_5tsac")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_18ea2")
+script = ExtResource("19_55vmn")
+
 [node name="NinePatchRect" type="NinePatchRect" parent="encyclopedia/MarginContainer/MarginContainer/VBoxContainer/items_cont/ScrollContainer/items/row3/red_scarf" unique_id=1909707500]
+modulate = Color(0.52156866, 0.52156866, 0.52156866, 1)
 custom_minimum_size = Vector2(90, 90)
 layout_mode = 2
 texture = ExtResource("1_vpxtf")
@@ -1843,7 +1960,6 @@ patch_margin_right = 3
 patch_margin_bottom = 3
 
 [node name="Icon" type="TextureRect" parent="encyclopedia/MarginContainer/MarginContainer/VBoxContainer/items_cont/ScrollContainer/items/row3/red_scarf/NinePatchRect" unique_id=1695862785]
-modulate = Color(0.52, 0.52, 0.52, 1)
 custom_minimum_size = Vector2(32, 32)
 layout_mode = 1
 anchors_preset = 8
@@ -1866,7 +1982,17 @@ stretch_mode = 5
 custom_minimum_size = Vector2(10, 0)
 layout_mode = 2
 
+[node name="Button" type="Button" parent="encyclopedia/MarginContainer/MarginContainer/VBoxContainer/items_cont/ScrollContainer/items/row3/slightly_worn_out_cape" unique_id=1398110597]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_vpcjx")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_hqrgm")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_0161x")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_5tsac")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_18ea2")
+script = ExtResource("19_55vmn")
+
 [node name="NinePatchRect" type="NinePatchRect" parent="encyclopedia/MarginContainer/MarginContainer/VBoxContainer/items_cont/ScrollContainer/items/row3/slightly_worn_out_cape" unique_id=1763161848]
+modulate = Color(0.52156866, 0.52156866, 0.52156866, 1)
 custom_minimum_size = Vector2(90, 90)
 layout_mode = 2
 texture = ExtResource("1_vpxtf")
@@ -1877,7 +2003,6 @@ patch_margin_right = 3
 patch_margin_bottom = 3
 
 [node name="Icon" type="TextureRect" parent="encyclopedia/MarginContainer/MarginContainer/VBoxContainer/items_cont/ScrollContainer/items/row3/slightly_worn_out_cape/NinePatchRect" unique_id=398167384]
-modulate = Color(0.52, 0.52, 0.52, 1)
 custom_minimum_size = Vector2(32, 32)
 layout_mode = 1
 anchors_preset = 8
@@ -1900,7 +2025,17 @@ stretch_mode = 5
 custom_minimum_size = Vector2(10, 0)
 layout_mode = 2
 
+[node name="Button" type="Button" parent="encyclopedia/MarginContainer/MarginContainer/VBoxContainer/items_cont/ScrollContainer/items/row3/snowball_S" unique_id=96677616]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_vpcjx")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_hqrgm")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_0161x")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_5tsac")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_18ea2")
+script = ExtResource("19_55vmn")
+
 [node name="NinePatchRect" type="NinePatchRect" parent="encyclopedia/MarginContainer/MarginContainer/VBoxContainer/items_cont/ScrollContainer/items/row3/snowball_S" unique_id=613095012]
+modulate = Color(0.52156866, 0.52156866, 0.52156866, 1)
 custom_minimum_size = Vector2(90, 90)
 layout_mode = 2
 texture = ExtResource("1_vpxtf")
@@ -1911,7 +2046,6 @@ patch_margin_right = 3
 patch_margin_bottom = 3
 
 [node name="Icon" type="TextureRect" parent="encyclopedia/MarginContainer/MarginContainer/VBoxContainer/items_cont/ScrollContainer/items/row3/snowball_S/NinePatchRect" unique_id=980680977]
-modulate = Color(0.52, 0.52, 0.52, 1)
 custom_minimum_size = Vector2(32, 32)
 layout_mode = 1
 anchors_preset = 8
@@ -1938,7 +2072,17 @@ theme_override_constants/separation = 80
 custom_minimum_size = Vector2(10, 0)
 layout_mode = 2
 
+[node name="Button" type="Button" parent="encyclopedia/MarginContainer/MarginContainer/VBoxContainer/items_cont/ScrollContainer/items/row4/snowball_M" unique_id=159648041]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_vpcjx")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_hqrgm")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_0161x")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_5tsac")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_18ea2")
+script = ExtResource("19_55vmn")
+
 [node name="NinePatchRect" type="NinePatchRect" parent="encyclopedia/MarginContainer/MarginContainer/VBoxContainer/items_cont/ScrollContainer/items/row4/snowball_M" unique_id=1674392472]
+modulate = Color(0.52156866, 0.52156866, 0.52156866, 1)
 custom_minimum_size = Vector2(90, 90)
 layout_mode = 2
 texture = ExtResource("1_vpxtf")
@@ -1949,7 +2093,6 @@ patch_margin_right = 3
 patch_margin_bottom = 3
 
 [node name="Icon" type="TextureRect" parent="encyclopedia/MarginContainer/MarginContainer/VBoxContainer/items_cont/ScrollContainer/items/row4/snowball_M/NinePatchRect" unique_id=533942317]
-modulate = Color(0.52, 0.52, 0.52, 1)
 custom_minimum_size = Vector2(32, 32)
 layout_mode = 1
 anchors_preset = 8
@@ -1972,7 +2115,17 @@ stretch_mode = 5
 custom_minimum_size = Vector2(10, 0)
 layout_mode = 2
 
+[node name="Button" type="Button" parent="encyclopedia/MarginContainer/MarginContainer/VBoxContainer/items_cont/ScrollContainer/items/row4/snowball_L" unique_id=33041869]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_vpcjx")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_hqrgm")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_0161x")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_5tsac")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_18ea2")
+script = ExtResource("19_55vmn")
+
 [node name="NinePatchRect" type="NinePatchRect" parent="encyclopedia/MarginContainer/MarginContainer/VBoxContainer/items_cont/ScrollContainer/items/row4/snowball_L" unique_id=2020049076]
+modulate = Color(0.52156866, 0.52156866, 0.52156866, 1)
 custom_minimum_size = Vector2(90, 90)
 layout_mode = 2
 texture = ExtResource("1_vpxtf")
@@ -1983,7 +2136,6 @@ patch_margin_right = 3
 patch_margin_bottom = 3
 
 [node name="Icon" type="TextureRect" parent="encyclopedia/MarginContainer/MarginContainer/VBoxContainer/items_cont/ScrollContainer/items/row4/snowball_L/NinePatchRect" unique_id=240864801]
-modulate = Color(0.52, 0.52, 0.52, 1)
 custom_minimum_size = Vector2(32, 32)
 layout_mode = 1
 anchors_preset = 8
@@ -2006,7 +2158,17 @@ stretch_mode = 5
 custom_minimum_size = Vector2(10, 0)
 layout_mode = 2
 
+[node name="Button" type="Button" parent="encyclopedia/MarginContainer/MarginContainer/VBoxContainer/items_cont/ScrollContainer/items/row4/special_powder" unique_id=1570971332]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_vpcjx")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_hqrgm")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_0161x")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_5tsac")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_18ea2")
+script = ExtResource("19_55vmn")
+
 [node name="NinePatchRect" type="NinePatchRect" parent="encyclopedia/MarginContainer/MarginContainer/VBoxContainer/items_cont/ScrollContainer/items/row4/special_powder" unique_id=480070826]
+modulate = Color(0.52156866, 0.52156866, 0.52156866, 1)
 custom_minimum_size = Vector2(90, 90)
 layout_mode = 2
 texture = ExtResource("1_vpxtf")
@@ -2017,7 +2179,6 @@ patch_margin_right = 3
 patch_margin_bottom = 3
 
 [node name="Icon" type="TextureRect" parent="encyclopedia/MarginContainer/MarginContainer/VBoxContainer/items_cont/ScrollContainer/items/row4/special_powder/NinePatchRect" unique_id=1957597830]
-modulate = Color(0.52, 0.52, 0.52, 1)
 custom_minimum_size = Vector2(32, 32)
 layout_mode = 1
 anchors_preset = 8
@@ -2040,7 +2201,17 @@ stretch_mode = 5
 custom_minimum_size = Vector2(10, 0)
 layout_mode = 2
 
+[node name="Button" type="Button" parent="encyclopedia/MarginContainer/MarginContainer/VBoxContainer/items_cont/ScrollContainer/items/row4/stick" unique_id=655713904]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_vpcjx")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_hqrgm")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_0161x")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_5tsac")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_18ea2")
+script = ExtResource("19_55vmn")
+
 [node name="NinePatchRect" type="NinePatchRect" parent="encyclopedia/MarginContainer/MarginContainer/VBoxContainer/items_cont/ScrollContainer/items/row4/stick" unique_id=1575197949]
+modulate = Color(0.52156866, 0.52156866, 0.52156866, 1)
 custom_minimum_size = Vector2(90, 90)
 layout_mode = 2
 texture = ExtResource("1_vpxtf")
@@ -2051,7 +2222,6 @@ patch_margin_right = 3
 patch_margin_bottom = 3
 
 [node name="Icon" type="TextureRect" parent="encyclopedia/MarginContainer/MarginContainer/VBoxContainer/items_cont/ScrollContainer/items/row4/stick/NinePatchRect" unique_id=863634891]
-modulate = Color(0.52, 0.52, 0.52, 1)
 custom_minimum_size = Vector2(32, 32)
 layout_mode = 1
 anchors_preset = 8
@@ -2069,3 +2239,105 @@ mouse_filter = 2
 texture = ExtResource("29_yav8j")
 expand_mode = 2
 stretch_mode = 5
+
+[node name="item_info_cont" type="MarginContainer" parent="encyclopedia/MarginContainer/MarginContainer/VBoxContainer" unique_id=990430261]
+unique_name_in_owner = true
+visible = false
+custom_minimum_size = Vector2(0, 380)
+layout_mode = 2
+theme_override_constants/margin_left = 60
+theme_override_constants/margin_right = 60
+
+[node name="VBoxContainer" type="VBoxContainer" parent="encyclopedia/MarginContainer/MarginContainer/VBoxContainer/item_info_cont" unique_id=758148387]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="encyclopedia/MarginContainer/MarginContainer/VBoxContainer/item_info_cont/VBoxContainer" unique_id=686607576]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="Button" type="Button" parent="encyclopedia/MarginContainer/MarginContainer/VBoxContainer/item_info_cont/VBoxContainer/MarginContainer" unique_id=345249428]
+custom_minimum_size = Vector2(25, 25)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxTexture_vpcjx")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_hqrgm")
+theme_override_styles/hover = SubResource("StyleBoxTexture_0161x")
+script = ExtResource("33_vpcjx")
+
+[node name="MarginContainer2" type="MarginContainer" parent="encyclopedia/MarginContainer/MarginContainer/VBoxContainer/item_info_cont/VBoxContainer" unique_id=605063611]
+custom_minimum_size = Vector2(0, 15)
+layout_mode = 2
+
+[node name="item_name" type="Label" parent="encyclopedia/MarginContainer/MarginContainer/VBoxContainer/item_info_cont/VBoxContainer" unique_id=870891645]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.51, 0.4386, 0.357, 1)
+theme_override_colors/font_outline_color = Color(0.34, 0.29070002, 0.238, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("2_y35ns")
+theme_override_font_sizes/font_size = 30
+horizontal_alignment = 1
+
+[node name="MarginContainer3" type="MarginContainer" parent="encyclopedia/MarginContainer/MarginContainer/VBoxContainer/item_info_cont/VBoxContainer" unique_id=1672047312]
+custom_minimum_size = Vector2(0, 5)
+layout_mode = 2
+
+[node name="img" type="MarginContainer" parent="encyclopedia/MarginContainer/MarginContainer/VBoxContainer/item_info_cont/VBoxContainer" unique_id=667434289]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(10, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="NinePatchRect" type="NinePatchRect" parent="encyclopedia/MarginContainer/MarginContainer/VBoxContainer/item_info_cont/VBoxContainer/img" unique_id=1118743932]
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+texture = ExtResource("1_vpxtf")
+region_rect = Rect2(107, 155, 26, 26)
+patch_margin_left = 3
+patch_margin_top = 3
+patch_margin_right = 3
+patch_margin_bottom = 3
+
+[node name="Icon" type="TextureRect" parent="encyclopedia/MarginContainer/MarginContainer/VBoxContainer/item_info_cont/VBoxContainer/img/NinePatchRect" unique_id=80035612]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -51.0
+offset_top = -47.0
+offset_right = 53.0
+offset_bottom = 47.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+expand_mode = 2
+stretch_mode = 5
+
+[node name="MarginContainer4" type="MarginContainer" parent="encyclopedia/MarginContainer/MarginContainer/VBoxContainer/item_info_cont/VBoxContainer" unique_id=1702310894]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+
+[node name="item_status" type="Label" parent="encyclopedia/MarginContainer/MarginContainer/VBoxContainer/item_info_cont/VBoxContainer" unique_id=109748789]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.6117647, 0.52156866, 0.4392157, 1)
+theme_override_fonts/font = ExtResource("2_y35ns")
+horizontal_alignment = 1
+
+[node name="MarginContainer5" type="MarginContainer" parent="encyclopedia/MarginContainer/MarginContainer/VBoxContainer/item_info_cont/VBoxContainer" unique_id=1509873176]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+
+[node name="item_desc" type="Label" parent="encyclopedia/MarginContainer/MarginContainer/VBoxContainer/item_info_cont/VBoxContainer" unique_id=2130099602]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.73, 0.5976267, 0.4818, 1)
+theme_override_colors/font_outline_color = Color(0.47, 0.36800998, 0.27260002, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("2_y35ns")
+theme_override_font_sizes/font_size = 25
+horizontal_alignment = 1
+autowrap_mode = 3

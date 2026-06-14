@@ -1,0 +1,63 @@
+[gd_scene format=3 uid="uid://wspphm6l4jbh"]
+
+[ext_resource type="FontFile" uid="uid://pmi7qj0fh53v" path="res://static/PeaberryDoublespace.ttf" id="1_fjc1m"]
+[ext_resource type="PackedScene" uid="uid://ct123txjky41r" path="res://glb/characters/cat.glb" id="2_lknsa"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_lknsa"]
+size = Vector3(0.9288845, 1.5340431, 1.2844238)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_n7ejh"]
+size = Vector3(1, 1.7792969, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_xp1yj"]
+size = Vector3(0.61657715, 1, 0.48449707)
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_46t1x"]
+height = 1.7919922
+
+[node name="CharacterBody3D" type="CharacterBody3D" unique_id=1020603110]
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="." unique_id=665191335]
+transform = Transform3D(1.2773366, 0, 0, 0, 1.8893056, 0, 0, 0, 0.6566652, -0.4639277, -2.0953436, 0.15832132)
+shape = SubResource("BoxShape3D_lknsa")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="." unique_id=1727784593]
+transform = Transform3D(1.2773366, 0, 0, 0, 1.8893056, 0, 0, 0, 0.6566652, 0.44670033, -2.185879, 0.21130663)
+shape = SubResource("BoxShape3D_lknsa")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=2093596200]
+transform = Transform3D(3.3563025, 0, 0, 0, 1.9113982, 0, 0, 0, 2.998008, 0, 3.1137662, 0.21980858)
+shape = SubResource("BoxShape3D_n7ejh")
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="." unique_id=2136124607]
+transform = Transform3D(3.3563578, 0, 0, 0, 2.8997917, 0, 0, 0, 4.0259433, -0.01331456, 0.46134543, 0.18559057)
+shape = SubResource("BoxShape3D_xp1yj")
+
+[node name="Node3D" type="Node3D" parent="." unique_id=2117984434]
+visible = false
+
+[node name="name" type="Label3D" parent="Node3D" unique_id=568050125]
+transform = Transform3D(1, 0, -2.842171e-14, 0, 1, 7.1054274e-15, 0, 0, 1.0116583, 0.048265696, 7.1753173, 0.10840124)
+billboard = 2
+modulate = Color(0.58, 0.49126, 0.42339998, 1)
+text = "Daisy
+"
+font = ExtResource("1_fjc1m")
+font_size = 120
+
+[node name="Label3D" type="Label3D" parent="Node3D" unique_id=565794473]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1.0116583, 0.048265696, 6.6508846, 0.10840124)
+billboard = 2
+modulate = Color(0.86, 0.77471673, 0.7138, 1)
+text = "[e] to interact"
+font = ExtResource("1_fjc1m")
+font_size = 100
+
+[node name="Area3D" type="Area3D" parent="." unique_id=218374403]
+
+[node name="CollisionShape3D7" type="CollisionShape3D" parent="Area3D" unique_id=1848642704]
+transform = Transform3D(8.657, 0, 0, 0, 8.657, 0, 0, 0, 8.657, 0, 0.62096274, 0)
+shape = SubResource("CapsuleShape3D_46t1x")
+
+[node name="cat" parent="." unique_id=1097091502 instance=ExtResource("2_lknsa")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0)

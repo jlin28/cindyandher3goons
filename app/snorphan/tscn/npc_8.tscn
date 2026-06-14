@@ -1,0 +1,57 @@
+[gd_scene format=3 uid="uid://ch0kkwchimue1"]
+
+[ext_resource type="Texture2D" uid="uid://cken4e2s2ypok" path="res://static/a.jpg" id="1_48a7q"]
+[ext_resource type="FontFile" uid="uid://pmi7qj0fh53v" path="res://static/PeaberryDoublespace.ttf" id="1_xeb8h"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_jp707"]
+height = 1.796875
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_xeb8h"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jp707"]
+albedo_texture = ExtResource("1_48a7q")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_48a7q"]
+size = Vector3(5.614723, 11.10257, 1)
+
+[node name="CharacterBody3D" type="CharacterBody3D" unique_id=2138091350]
+
+[node name="Node3D" type="Node3D" parent="." unique_id=1466355674]
+visible = false
+
+[node name="name" type="Label3D" parent="Node3D" unique_id=1140023787]
+transform = Transform3D(1, 0, -2.842171e-14, 0, 1, 7.1054274e-15, 0, 0, 1.0116583, 0.048265696, 7.1753173, 0.10840124)
+billboard = 2
+modulate = Color(0.58, 0.49126, 0.42339998, 1)
+text = "18th Century Woman
+"
+font = ExtResource("1_xeb8h")
+font_size = 120
+
+[node name="Label3D" type="Label3D" parent="Node3D" unique_id=1771283131]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1.0116583, 0.048265696, 6.6508846, 0.10840124)
+billboard = 2
+modulate = Color(0.86, 0.77471673, 0.7138, 1)
+text = "[e] to interact"
+font = ExtResource("1_xeb8h")
+font_size = 100
+
+[node name="Area3D" type="Area3D" parent="." unique_id=422047606]
+
+[node name="CollisionShape3D7" type="CollisionShape3D" parent="Area3D" unique_id=1396208297]
+transform = Transform3D(8.657, 0, 0, 0, 8.657, 0, 0, 0, 8.657, 0, 0.64209795, 0)
+shape = SubResource("CapsuleShape3D_jp707")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=68865326]
+transform = Transform3D(2.8, 0, 0, 0, -1.3113416e-07, -5.5, 0, 3, -2.4041265e-07, 0, 0, 0)
+mesh = SubResource("PlaneMesh_xeb8h")
+surface_material_override/0 = SubResource("StandardMaterial3D_jp707")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="." unique_id=2126668972]
+transform = Transform3D(-2.8, -2.6226832e-07, 2.101754e-14, 0, -1.3113416e-07, -5.5, 2.4478376e-07, -3, 2.4041265e-07, 0, 0, 0)
+mesh = SubResource("PlaneMesh_xeb8h")
+surface_material_override/0 = SubResource("StandardMaterial3D_jp707")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=796099438]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.06490767, -0.008785248, -0.049728394, 0)
+shape = SubResource("BoxShape3D_48a7q")

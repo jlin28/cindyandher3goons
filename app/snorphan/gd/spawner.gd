@@ -3,8 +3,8 @@ extends Node3D
 @export var stick_mesh = preload("res://tscn/stick.tscn")
 @export var pebble_mesh = preload("res://tscn/pebble.tscn")
 @onready var plane_size = %spawner_plane.mesh.size
-@export var stick_count := 200
-@export var pebble_count := 200
+@export var stick_count := 25
+@export var pebble_count := 100
 
 func _ready():
 	for i in range(stick_count):
@@ -13,8 +13,8 @@ func _ready():
 		spawn("pebble")
 
 func spawn(item):
-	var x = randf_range(-plane_size.x, plane_size.x)
-	var z = randf_range(-plane_size.y, plane_size.y)
+	var x = randf_range(-plane_size.x/2, plane_size.x/2)
+	var z = randf_range(-plane_size.y/2, plane_size.y/2)
 
 	var space_state = get_world_3d().direct_space_state
 	var query = PhysicsRayQueryParameters3D.create(Vector3(x, 200, z), Vector3(x, -200, z))

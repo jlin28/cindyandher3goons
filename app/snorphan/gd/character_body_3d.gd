@@ -58,8 +58,8 @@ signal inventory_full
 signal quest_update
 
 func _ready() -> void:
-	inventory_full.connect(_on_inventory_full)
-	
+	inventory_full.connect(_on_inventory_full)		
+		
 func _physics_process(delta):
 	var direction = Vector3.ZERO
 	var rotation = Vector3.ZERO
@@ -103,11 +103,6 @@ func _physics_process(delta):
 	# delta = time since last physics frame, multiplying by this makes gravity independent of frame rate
 		
 	move_and_slide()
-	
-#@onready var idle_cape := %idle_cape
-#@onready var walk_cape := %walk_cape
-#@onready var sprint_cape := %sprint_cape
-#@onready var crouch_cape := %crouch_cape
 
 func _process(delta: float) -> void:
 	if current_held_item and current_held_item in snowman_items:
@@ -127,11 +122,7 @@ func _process(delta: float) -> void:
 			notification.text = prev_line
 			notification.modulate = Color('#9f8974')
 			label_tick = -1
-			
-	if Input.is_action_pressed("equip") and current_held_item and "cape" in current_held_item:
-		equipped_cape = true
 		
-			
 	if Input.is_action_pressed("crouch"):
 		if !normal_collision_shapes[0].disabled:
 			for collision in normal_collision_shapes:

@@ -1039,6 +1039,15 @@ def add_to_enc(item, username):
     db.commit()
     db.close()
 
+def update_cape(username):
+    db = sqlite3.connect(DB_FILE)
+    c = db.cursor()
+
+    c.execute("UPDATE user SET cape = TRUE WHERE username = ?", (username))
+
+    db.commit()
+    db.close()
+
 @app.route("/", methods=["GET", "POST"])
 def start():
     return render_template('start.html')
@@ -1183,6 +1192,12 @@ def game():
             item = body.get('item')
             user = body.get('user')
             add_to_enc(item, user)
+
+            return jsonify( { 'request': 'handled' })
+
+        if body.get('type') == 'update_cape':
+            user = body.get('user')
+            update_cape(user)
 
             return jsonify( { 'request': 'handled' })
 

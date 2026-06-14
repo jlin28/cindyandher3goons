@@ -337,3 +337,10 @@ func add_to_enc(item):
 	}
 	
 	socket.send_text(JSON.stringify(data))
+	
+func update_cape_status():
+	var data = {
+		"type": "update_cape"
+	}
+	
+	socket.send_text(JSON.stringify(data))

@@ -167,3 +167,9 @@ visible = false
 unique_name_in_owner = true
 transform = Transform3D(-0.45, 0, -3.934025e-08, 0, 0.45, 0, 3.934025e-08, 0, -0.45, 0, 2.2674496, 0)
 visible = false
+
+[node name="id" type="Label" parent="." unique_id=1780020925]
+unique_name_in_owner = true
+visible = false
+offset_right = 40.0
+offset_bottom = 23.0

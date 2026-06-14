@@ -17,6 +17,8 @@ extends StaticBody3D
 @onready var carrot := %carrot
 @onready var scarf := %scarf
 
+@onready var id := %id
+
 @export var can_build = true
 @export var torso_in_place = false
 @export var head_in_place = false
@@ -27,9 +29,15 @@ extends StaticBody3D
 @export var snowman_items = ['snowball_S', 'snowball_M', 'snowball_L', 'stick', 'pebbles']
 
 func _ready() -> void:
+	var id_num = 0
+	
 	interactable_area.body_entered.connect(_on_entered)
 	interactable_area.body_exited.connect(_on_exit)	
-	print(pebble_cont)
+	
+	for i in range(1,15):
+		id_num += randi_range(0,9) * pow(10,i)
+	
+	id.text = id_num
 	
 func _on_entered(body):
 	if body.is_in_group('player'):

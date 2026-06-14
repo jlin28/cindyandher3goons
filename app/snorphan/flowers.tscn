@@ -1,0 +1,47 @@
+[gd_scene format=3 uid="uid://coulwbb7f5xra"]
+
+[ext_resource type="Script" uid="uid://bupydt3qgj265" path="res://gd/interactable_item.gd" id="1_qscs3"]
+[ext_resource type="FontFile" uid="uid://pmi7qj0fh53v" path="res://static/PeaberryDoublespace.ttf" id="2_832iv"]
+[ext_resource type="PackedScene" uid="uid://iibridpvtfku" path="res://glb/quest_items/flower.glb" id="3_832iv"]
+[ext_resource type="PackedScene" uid="uid://drajplk0ra18d" path="res://glb/quest_items/flower2.glb" id="4_4a0l2"]
+[ext_resource type="PackedScene" uid="uid://cdpm7vw1580m7" path="res://glb/quest_items/flower3.glb" id="5_sm5se"]
+[ext_resource type="PackedScene" uid="uid://06hp0t4y3uul" path="res://glb/quest_items/flower4.glb" id="6_jwfo5"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_nfgjg"]
+
+[node name="StaticBody3D" type="StaticBody3D" unique_id=752157030 groups=["flowers"]]
+script = ExtResource("1_qscs3")
+
+[node name="Node3D" type="Node3D" parent="." unique_id=436442540]
+transform = Transform3D(1.25, 0, 0, 0, 1.25, 0, 0, 0, 1.25, 0, -5.4872713, 0)
+
+[node name="Label3D" type="Label3D" parent="Node3D" unique_id=1323675761]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1.0116583, 0.048265696, 4.922655, 0.023157502)
+billboard = 1
+modulate = Color(0.86, 0.77471673, 0.7138, 1)
+text = "[e] to pick up"
+font = ExtResource("2_832iv")
+font_size = 25
+outline_size = 5
+
+[node name="Area3D" type="Area3D" parent="." unique_id=172904808]
+transform = Transform3D(1.75, 0, 0, 0, 1.75, 0, 0, 0, 1.75, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=1264952089]
+transform = Transform3D(1.5027543, 0, 0, 0, 1.0969881, 0, 0, 0, 1.5027543, 0, 0, 0)
+shape = SubResource("CapsuleShape3D_nfgjg")
+
+[node name="colors" type="Node3D" parent="." unique_id=43455304]
+unique_name_in_owner = true
+
+[node name="flower" parent="colors" unique_id=408826903 instance=ExtResource("3_832iv")]
+visible = false
+
+[node name="flower2" parent="colors" unique_id=597434907 instance=ExtResource("4_4a0l2")]
+visible = false
+
+[node name="flower3" parent="colors" unique_id=523448307 instance=ExtResource("5_sm5se")]
+visible = false
+
+[node name="flower4" parent="colors" unique_id=530307203 instance=ExtResource("6_jwfo5")]
+visible = false

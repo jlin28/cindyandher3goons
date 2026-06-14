@@ -32,6 +32,9 @@ dialogue=""
 inv=""
 quests=""
 snowman=""
+flowers=""
+special_powder=""
+apples=""
 
 [gui]
 

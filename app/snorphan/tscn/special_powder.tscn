@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://bf0e84lyfx5ly"]
+
+[ext_resource type="Script" uid="uid://bupydt3qgj265" path="res://gd/interactable_item.gd" id="1_k3qny"]
+[ext_resource type="PackedScene" uid="uid://8wjfridv0ed0" path="res://glb/quest_items/whitepowder.glb" id="2_igknj"]
+[ext_resource type="FontFile" uid="uid://pmi7qj0fh53v" path="res://static/PeaberryDoublespace.ttf" id="3_xipms"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ri0hh"]
+
+[node name="StaticBody3D" type="StaticBody3D" unique_id=1984519357 groups=["special_powder"]]
+script = ExtResource("1_k3qny")
+
+[node name="whitepowder" parent="." unique_id=1573518937 instance=ExtResource("2_igknj")]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0)
+
+[node name="Node3D" type="Node3D" parent="." unique_id=1278316980]
+transform = Transform3D(1.25, 0, 0, 0, 1.25, 0, 0, 0, 1.25, 0, -5.4872713, 0)
+
+[node name="Label3D" type="Label3D" parent="Node3D" unique_id=632793623]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1.0116583, 0.048265696, 4.922655, 0.023157502)
+billboard = 1
+modulate = Color(0.86, 0.77471673, 0.7138, 1)
+text = "[e] to pick up"
+font = ExtResource("3_xipms")
+font_size = 25
+outline_size = 5
+
+[node name="Area3D" type="Area3D" parent="." unique_id=370937035]
+transform = Transform3D(1.75, 0, 0, 0, 1.75, 0, 0, 0, 1.75, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=163582471]
+transform = Transform3D(1.5027543, 0, 0, 0, 1.0969881, 0, 0, 0, 1.5027543, 0, 0, 0)
+shape = SubResource("CapsuleShape3D_ri0hh")

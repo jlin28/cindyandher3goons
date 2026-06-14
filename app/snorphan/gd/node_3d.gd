@@ -83,7 +83,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		
 		elif player.item_interactable == true:
 			MultiplayerClient.add_item(player.current_interactable_item.label, 1)
-			if 'snowball' not in player.current_interactable_item: 
+			if 'snowball' not in player.current_interactable_item.label: 
 				quests_cont.update_quests_progress()
 
 	if Input.is_action_just_pressed("roll_snowball") and player.is_on_floor():

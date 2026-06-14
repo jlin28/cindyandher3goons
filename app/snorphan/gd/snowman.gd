@@ -6,15 +6,23 @@ extends StaticBody3D
 @onready var medium_collision := $medium_snowball_collision
 @onready var small := $small_snowball
 @onready var small_collision := $small_snowball_collision
-@onready var branch1 := %branch
+
+@onready var branch1 := %branch1
 @onready var branch2 := %branch2
+
 @onready var pebble_cont = get_node(^"pebbles").get_children()
+@onready var button_cont = get_node(^"buttons").get_children()
+
+@onready var hat := %hat
+@onready var carrot := %carrot
+@onready var scarf := %scarf
 
 @export var can_build = true
 @export var torso_in_place = false
 @export var head_in_place = false
 
 @export var current_pebble = 0
+@export var current_button = 0
 
 @export var snowman_items = ['snowball_S', 'snowball_M', 'snowball_L', 'stick', 'pebbles']
 
@@ -60,6 +68,23 @@ func pebble():
 	if current_pebble < pebble_cont.size():
 		pebble_cont[current_pebble].visible = true
 		current_pebble += 1
+		return true
+	else:
+		return false
+
+func accessories(item):
+	if item == "hat" and not hat.visible:
+		hat.visible = true
+		return true
+	elif item == "carrot" and not carrot.visible:
+		carrot.visible = true
+		return true
+	elif "scarf" in item and not scarf.visible:
+		scarf.visible = true
+		return true
+	elif item == "button" and current_button < button_cont.size():
+		button_cont[current_button].visible = true
+		current_button += 1
 		return true
 	else:
 		return false

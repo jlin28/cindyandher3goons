@@ -1,7 +1,11 @@
 [gd_scene format=3 uid="uid://dldwcopwvqp47"]
 
-[ext_resource type="Script" uid="uid://c05j2ojmewstv" path="res://gd/snowman.gd" id="1_vwvqo"]
+[ext_resource type="Script" uid="uid://drntren84hr2r" path="res://gd/snowman.gd" id="1_vwvqo"]
 [ext_resource type="PackedScene" uid="uid://cka08rje6lukc" path="res://glb/randomly_spawned/branch.glb" id="2_gul2m"]
+[ext_resource type="PackedScene" uid="uid://biih4o6a4b1n6" path="res://glb/snowman_accessories/hat.glb" id="3_wb8kv"]
+[ext_resource type="PackedScene" uid="uid://cx1mqqu8unisi" path="res://glb/snowman_accessories/carrot.glb" id="4_qycod"]
+[ext_resource type="PackedScene" uid="uid://mbxt4wxuk2va" path="res://glb/snowman_accessories/button.glb" id="5_pbf4x"]
+[ext_resource type="PackedScene" uid="uid://c7twx16gifu8y" path="res://glb/snowman_accessories/scarf.glb" id="6_vxhtf"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_x4rgl"]
 
@@ -72,7 +76,7 @@ shape = SubResource("CapsuleShape3D_ioflu")
 
 [node name="branches" type="Node3D" parent="." unique_id=215853251]
 
-[node name="branch" parent="branches" unique_id=2083277656 instance=ExtResource("2_gul2m")]
+[node name="branch1" parent="branches" unique_id=2083277656 instance=ExtResource("2_gul2m")]
 unique_name_in_owner = true
 transform = Transform3D(0.13408431, -0.024040855, -0.2096269, -0.2060078, 0.038797274, -0.13621886, 0.04563108, 0.24579832, 0.0009979978, 1.0635176, 1.6846035, 0.0074186325)
 visible = false
@@ -85,50 +89,81 @@ visible = false
 [node name="pebbles" type="Node3D" parent="." unique_id=583122093]
 unique_name_in_owner = true
 
-[node name="pebble" type="MeshInstance3D" parent="pebbles" unique_id=1902056059]
-transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -0.26076102, 2.806175, 0.71677846)
+[node name="pebble1" type="MeshInstance3D" parent="pebbles" unique_id=1902056059]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -0.26076102, 2.8621848, 0.71677846)
 visible = false
 material_overlay = SubResource("StandardMaterial3D_gul2m")
 mesh = SubResource("SphereMesh_qdrjw")
 
 [node name="pebble2" type="MeshInstance3D" parent="pebbles" unique_id=77674223]
-transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0.2276769, 2.806175, 0.71677846)
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0.2276769, 2.8621848, 0.71677846)
 visible = false
 material_overlay = SubResource("StandardMaterial3D_gul2m")
 mesh = SubResource("SphereMesh_qdrjw")
 
 [node name="pebble3" type="MeshInstance3D" parent="pebbles" unique_id=745835413]
-transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, 0.2276769, 2.6157494, 0.71677846)
+transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, 0.2276769, 2.6717591, 0.71677846)
 visible = false
 material_overlay = SubResource("StandardMaterial3D_gul2m")
 mesh = SubResource("SphereMesh_qdrjw")
 
 [node name="pebble4" type="MeshInstance3D" parent="pebbles" unique_id=1178728659]
-transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, 0.16180643, 2.5527458, 0.71677846)
+transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, 0.16180643, 2.6013768, 0.71677846)
 visible = false
 material_overlay = SubResource("StandardMaterial3D_gul2m")
 mesh = SubResource("SphereMesh_qdrjw")
 
 [node name="pebble5" type="MeshInstance3D" parent="pebbles" unique_id=1025407233]
-transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, 0.0757831, 2.5133276, 0.71677846)
+transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, 0.0757831, 2.5619586, 0.71677846)
 visible = false
 material_overlay = SubResource("StandardMaterial3D_gul2m")
 mesh = SubResource("SphereMesh_qdrjw")
 
 [node name="pebble6" type="MeshInstance3D" parent="pebbles" unique_id=1778732110]
-transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, -0.023332417, 2.498933, 0.71677846)
+transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, -0.023332417, 2.5549428, 0.71677846)
 visible = false
 material_overlay = SubResource("StandardMaterial3D_gul2m")
 mesh = SubResource("SphereMesh_qdrjw")
 
 [node name="pebble7" type="MeshInstance3D" parent="pebbles" unique_id=1511192720]
-transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, -0.12954204, 2.5132384, 0.71677846)
+transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, -0.12954204, 2.5692482, 0.71677846)
 visible = false
 material_overlay = SubResource("StandardMaterial3D_gul2m")
 mesh = SubResource("SphereMesh_qdrjw")
 
 [node name="pebble8" type="MeshInstance3D" parent="pebbles" unique_id=414416154]
-transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, -0.20987454, 2.5803435, 0.71677846)
+transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, -0.20987454, 2.6363533, 0.71677846)
 visible = false
 material_overlay = SubResource("StandardMaterial3D_gul2m")
 mesh = SubResource("SphereMesh_qdrjw")
+
+[node name="hat" parent="." unique_id=1257450969 instance=ExtResource("3_wb8kv")]
+unique_name_in_owner = true
+transform = Transform3D(-3.4969112e-08, 0, 0.8, 0, 0.8, 0, -0.8, 0, -3.4969112e-08, 0, 3.4333453, 0)
+visible = false
+
+[node name="carrot" parent="." unique_id=1086368871 instance=ExtResource("4_qycod")]
+unique_name_in_owner = true
+transform = Transform3D(-7.649493e-09, 0, -0.175, 0, 0.175, 0, 0.175, 0, -7.649493e-09, 0, 2.720549, 0.8635894)
+visible = false
+
+[node name="buttons" type="Node3D" parent="." unique_id=1471397456]
+unique_name_in_owner = true
+transform = Transform3D(-0.059999995, -5.3085524e-16, -9.0597485e-09, 5.0242512e-09, 0.049928278, -0.033274107, 7.5389615e-09, -0.033274107, -0.049928278, 0, 2.0916867, 0.8097484)
+
+[node name="button" parent="buttons" unique_id=577285251 instance=ExtResource("5_pbf4x")]
+transform = Transform3D(0.99999857, 0.0008093498, -0.0014620334, -0.00063596835, 0.99337393, 0.11492598, 0.0015453589, -0.11492476, 0.99337304, 0.0043327943, -2.8406963, 0.20800972)
+visible = false
+
+[node name="button2" parent="buttons" unique_id=770653841 instance=ExtResource("5_pbf4x")]
+transform = Transform3D(0.99999857, 0.0011089977, -0.0012501115, -0.0006517986, 0.9476551, 0.31929576, 0.001538769, -0.3192946, 0.94765425, 0.0005061071, -6.325178, 1.082695)
+visible = false
+
+[node name="button3" parent="buttons" unique_id=1001503598 instance=ExtResource("5_pbf4x")]
+transform = Transform3D(0.9999986, 0.0013827615, -0.0009384661, -0.00065915566, 0.8424022, 0.53884965, 0.0015356624, -0.53884816, 0.84240204, -0.0048395265, -9.956517, 2.8148003)
+visible = false
+
+[node name="scarf" parent="." unique_id=1230792514 instance=ExtResource("6_vxhtf")]
+unique_name_in_owner = true
+transform = Transform3D(-0.45, 0, -3.934025e-08, 0, 0.45, 0, 3.934025e-08, 0, -0.45, 0, 2.2674496, 0)
+visible = false

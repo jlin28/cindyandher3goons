@@ -41,7 +41,8 @@ var time = 0.0;
 @export var full_inventory = false
 @export var house_found = false
 
-@export var snowman_items = ['snowball_S', 'snowball_M', 'snowball_L', 'stick', 'pebbles']
+@export var snowman_items = ['snowball_S', 'snowball_M', 'snowball_L', 'stick', 
+							'pebbles', 'button', 'hat', 'red_scarf', 'carrot']
 
 @export var equipped_cape = false
 @export var current_action = "idle"

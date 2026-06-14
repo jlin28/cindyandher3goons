@@ -8,9 +8,11 @@ const Snowman:= preload("res://tscn/snowman.tscn")
 @onready var MultiplayerClient := get_tree().get_first_node_in_group('socket')
 @onready var quests_cont := get_tree().get_first_node_in_group('quests')
 
+@export var snowman_accessories = ['button', 'carrot', 'hat', 'red_scarf']
+
 func _unhandled_input(event: InputEvent) -> void:
-	if Input.is_action_just_pressed("build_snowman"):
-		if player.current_held_item and 'snowball' in player.current_held_item:
+	if Input.is_action_just_pressed("build_snowman") and player.current_held_item:
+		if 'snowball' in player.current_held_item:
 			if player.snowman_in_vicinity:
 				var snowman = player.snowman_in_vicinity
 				if snowman.can_build:
@@ -29,7 +31,7 @@ func _unhandled_input(event: InputEvent) -> void:
 				get_tree().current_scene.add_child(snowman)
 				snowman.position = player.position - 2.5*Vector3(sin(player.current_angle), 0, cos(player.current_angle))
 				snowman.rotation.y = -player.rotation.y
-		elif player.current_held_item and 'stick' in player.current_held_item:
+		elif 'stick' in player.current_held_item:
 			if player.snowman_in_vicinity:
 				var snowman = player.snowman_in_vicinity
 				if snowman.torso_in_place:
@@ -37,7 +39,7 @@ func _unhandled_input(event: InputEvent) -> void:
 						player.update_notification("That's enough arms...")
 					else:
 						MultiplayerClient.remove_item(player.current_held_item, 1)
-		elif player.current_held_item and 'pebbles' in player.current_held_item:
+		elif 'pebbles' in player.current_held_item:
 			if player.snowman_in_vicinity:
 				var snowman = player.snowman_in_vicinity
 				if snowman.head_in_place:
@@ -46,6 +48,23 @@ func _unhandled_input(event: InputEvent) -> void:
 					else:
 						MultiplayerClient.remove_item(player.current_held_item, 1)
 						player.inventory_update.emit()
+		elif player.current_held_item in snowman_accessories:
+			if player.snowman_in_vicinity:
+				var snowman = player.snowman_in_vicinity
+				if player.current_held_item == "button":
+					if snowman.torso_in_place:
+						if !snowman.accessories(player.current_held_item):
+							player.update_notification("Let's try something else!")
+						else:
+							MultiplayerClient.remove_item(player.current_held_item, 1)
+							player.inventory_update.emit()
+				elif snowman.head_in_place:
+					if !snowman.accessories(player.current_held_item):
+						player.update_notification("Let's try something else!")
+					else:
+						MultiplayerClient.remove_item(player.current_held_item, 1)
+						player.inventory_update.emit()
+							
 	if Input.is_action_just_pressed("interact") and player.can_move:
 		if player.npc_interactable == true:
 			var dialogue_box = ui.get_child(1)

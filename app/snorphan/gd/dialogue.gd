@@ -41,9 +41,9 @@ func play_dialogue():
 			var item_to_be_taken = quest.get('fulfillment_requirement')
 			var amount_to_be_taken = quest.get('amount_required')
 			var current_amount = 1.0;
-			if item_to_be_taken != "house": # For Town Chief's quest
+			if item_to_be_taken != "house" and item_to_be_taken != "": # For Town Chief's and Button quest
 				current_amount = player.current_items[item_to_be_taken]
-			if player.full_inventory and (current_amount - amount_to_be_taken != 0 or item_to_be_taken == "house"):
+			if player.full_inventory and (current_amount - amount_to_be_taken != 0 or item_to_be_taken == "house" or item_to_be_taken == ""):
 				current_dialogue_line = 'item_cap'
 			else:
 				current_dialogue_line = 'quest_completed'
@@ -51,8 +51,8 @@ func play_dialogue():
 				player.completion_status.remove_at(player.active_quests.find(current_npc))
 				player.active_quests.erase(current_npc)
 				add_quest_to_completed(current_npc)
-				
-				MultiplayerClient.remove_item(item_to_be_taken, amount_to_be_taken)
+				if item_to_be_taken != "" and item_to_be_taken != "house":
+					MultiplayerClient.remove_item(item_to_be_taken, amount_to_be_taken)
 				player.inventory_update.emit()
 				
 				MultiplayerClient.add_item(quest.get('reward'), quest.get('reward_amt'))

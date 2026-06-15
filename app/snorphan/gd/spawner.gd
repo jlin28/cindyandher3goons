@@ -11,7 +11,7 @@ extends Node3D
 @export var stick_count := 25
 @export var pebble_count := 100
 @export var powder_count := 1
-@export var flower_count := 5
+@export var flower_count := 15
 @export var apple_count := 55
 
 func _ready():

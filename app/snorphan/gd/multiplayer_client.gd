@@ -96,7 +96,7 @@ func set_remote_username(player_id: String, username_text: String) -> void:
 	var label = remote_player.get_node_or_null("username")
 	if label != null:
 		label.text = username_text
-		label.add_theme_font_override("font", font)
+
 
 func handle_msg(data):
 	var msg_type = data.get("type", "")

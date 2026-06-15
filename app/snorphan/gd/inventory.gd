@@ -178,11 +178,12 @@ func _unhandled_input(event: InputEvent) -> void:
 func highlight(index: int, focus: bool):
 	var current_slot = slots[index]
 	var current_label = labels[index].get_child(0)
+
 	var image = current_slot.get_child(0)
 	if focus:
 		image.modulate = Color(0.8,0.8,0.8,1)
 		if current_label.text != "":
-			current_label.visible = true
+			current_label.get_parent().visible = true
 			if ' ' in current_label.text:
 				player.current_held_item = current_label.text.replace(' ', '_')
 			else:

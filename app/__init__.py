@@ -1215,12 +1215,13 @@ def game():
 
             return jsonify( { 'request': 'handled' })
 
-		if body.get('type') == 'remove_quest':
-			npc = body.get('npc')
-			user = body.get('user')
-			remove_quest(npc, user)
+	
+	    if body.get('type') == 'remove_quest':
+	        npc = body.get('npc')
+	        user = body.get('user')
+	        remove_quest(npc, user)
 			
-			return jsonify( { 'request': 'handled' })
+	        return jsonify( { 'request': 'handled' })
 
         if body.get('type') == 'complete_quest':
             npc = body.get('npc')
@@ -1279,7 +1280,7 @@ def game():
 
         if body.get('type') == 'create_snowman':
             user = body.get('user')
-            x_coord = body,get('x_coord')
+            x_coord = body.get('x_coord')
             y_coord = body.get('y_coord')
             z_coord = body.get('z_coord')
             y_rot = body.get('y_rot')

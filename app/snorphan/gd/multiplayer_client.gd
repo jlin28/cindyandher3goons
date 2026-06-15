@@ -148,7 +148,7 @@ func handle_msg(data):
 	elif msg_type == "fetch_quests":
 		quests_cont.update_quests(data.quests)
 		
-	elif msg_type == "add_quest":
+	elif msg_type == "add_quest" or msg_type == "remove_quest":
 		quests_cont.change_quests.emit()
 	
 	elif msg_type == "cape_info":
@@ -299,6 +299,14 @@ func send_inventory(inv):
 func add_quest(npc):
 	var data = {
 		"type": "add_quest",
+		"npc": npc
+	}
+	
+	socket.send_text(JSON.stringify(data))
+	
+func remove_quest(npc):
+	var data = {
+		"type": "remove_quest",
 		"npc": npc
 	}
 	

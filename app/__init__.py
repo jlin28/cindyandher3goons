@@ -806,6 +806,19 @@ def add_quest(npc_name, user):
     db.commit()
     db.close()
 
+def remove_quest(npc_name, user):
+    db = sqlite3.connect(DB_FILE)
+    c = db.cursor()
+
+    questsActive = questsActive_list(user)
+    questsActive.remove(npc_name)
+
+    new_quests_active = "&".join(questsActive)
+    c.execute("UPDATE user SET questsActive = ? WHERE username = ?", (new_quests_active, user))
+
+    db.commit()
+    db.close()
+
 def get_quests(npcs):
     db = sqlite3.connect(DB_FILE)
     c = db.cursor()
@@ -1199,6 +1212,13 @@ def game():
             npc = body.get('npc')
             user = body.get('user')
             add_quest(npc, user)
+
+            return jsonify( { 'request': 'handled' })
+
+	if body.get('type') == 'remove_quest':
+            npc = body.get('npc')
+            user = body.get('user')
+            remove_quest(npc, user)
 
             return jsonify( { 'request': 'handled' })
 

@@ -130,6 +130,21 @@ ws.on('connection', function connect(client, req) {
       )
     }
 
+    if (data.type === "remove_quest") {
+      let res = await fetch("https://cindyandher3goons.me/" + client.route, {
+      // let res = await fetch("http://127.0.0.1:5000/" + client.route, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json'},
+        body: JSON.stringify({ type: "remove_quest", npc: data.npc, user: client.username})
+      });
+
+      send(
+        client, {
+          type: "remove_quest"
+        }
+      )
+    }
+
     if (data.type === "add_item") {
       let res = await fetch("https://cindyandher3goons.me/" + client.route, {
       // let res = await fetch("http://127.0.0.1:5000/" + client.route, {

@@ -39,6 +39,9 @@ func update_quests(active_quests):
 		var current_quest_box = quest_boxes[i]
 		var info_cont = current_quest_box.get_node(^'MarginContainer/VBoxContainer')
 		var second_info_cont = info_cont.get_node(^'HBoxContainer')
+		
+		var npc_name_cont = current_quest_box.get_node(^"MarginContainer2/Label")
+		npc_name_cont.text = npc_name
 
 		info_cont.get_node(^"quest_name").text = quest.get('name')
 		info_cont.get_node(^"quest_desc").text = "- %s" % quest.get('desc')

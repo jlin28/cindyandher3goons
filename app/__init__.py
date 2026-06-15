@@ -1240,7 +1240,7 @@ def game():
             user = body.get('user')
             item = body.get('item')
             quantity = body.get('quantity')
-
+            
             remove_from_inventory(user, item, quantity)
             return jsonify( { 'request': 'handled' })
 

@@ -168,7 +168,7 @@ func handle_msg(data):
 		encyclopedia.load_item_info(data.get("item"), data.get("desc"))
 	
 	elif msg_type == "instantiate_snowmen":
-		main_node.instantiate_snowmen(data.get("snowmen"), {})
+		main_node.instantiate_snowmen(data.get("snowmen", {}))
 		
 func send_username():
 	var data = {

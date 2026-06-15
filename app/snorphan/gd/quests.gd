@@ -68,6 +68,13 @@ func update_current_progress(quest, quest_info_cont, current_quest_progress):
 		current_quest_progress.text = ''
 		quest_info_cont.get_node(^"HBoxContainer/quest_required_progress").text = ''
 		return true
+	elif quest.get('type') == 'wait':
+		quest_info_cont.get_node(^"quest_req").text = "wait for it..."
+		quest_info_cont.get_node(^"quest_req").modulate = Color('#ffffff')
+		current_quest_progress.text = str(int(elapsed_time))
+		print(str(current) + str(required))
+		quest_info_cont.get_node(^"HBoxContainer/quest_required_progress").text = '/' + str(10)
+		return false
 	else:
 		quest_info_cont.get_node(^"quest_req").text = req.replace('_', ' ')
 		quest_info_cont.get_node(^"quest_req").modulate = Color('#ffffff')

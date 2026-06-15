@@ -183,7 +183,7 @@ func highlight(index: int, focus: bool):
 	if focus:
 		image.modulate = Color(0.8,0.8,0.8,1)
 		if current_label.text != "":
-			current_label.get_parent().visible = true
+			current_label.visible = true
 			if ' ' in current_label.text:
 				player.current_held_item = current_label.text.replace(' ', '_')
 			else:

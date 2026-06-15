@@ -354,11 +354,11 @@ layout_mode = 2
 theme_override_constants/separation = 13
 
 [node name="1" type="MarginContainer" parent="default/inventory cont/inventory/VBoxContainer/MarginContainer/item_labels" unique_id=227553069]
-visible = false
 custom_minimum_size = Vector2(50, 0)
 layout_mode = 2
 
 [node name="Label" type="Label" parent="default/inventory cont/inventory/VBoxContainer/MarginContainer/item_labels/1" unique_id=13007639]
+visible = false
 custom_minimum_size = Vector2(40, 25)
 layout_mode = 2
 theme_override_colors/font_color = Color(0.84705883, 0.7882353, 0.7372549, 1)
@@ -372,11 +372,11 @@ vertical_alignment = 1
 autowrap_mode = 2
 
 [node name="2" type="MarginContainer" parent="default/inventory cont/inventory/VBoxContainer/MarginContainer/item_labels" unique_id=1149303606]
-visible = false
 custom_minimum_size = Vector2(50, 0)
 layout_mode = 2
 
 [node name="Label" type="Label" parent="default/inventory cont/inventory/VBoxContainer/MarginContainer/item_labels/2" unique_id=1480033271]
+visible = false
 custom_minimum_size = Vector2(40, 25)
 layout_mode = 2
 theme_override_colors/font_color = Color(0.84705883, 0.7882353, 0.7372549, 1)
@@ -390,11 +390,11 @@ vertical_alignment = 1
 autowrap_mode = 2
 
 [node name="3" type="MarginContainer" parent="default/inventory cont/inventory/VBoxContainer/MarginContainer/item_labels" unique_id=1721682848]
-visible = false
 custom_minimum_size = Vector2(50, 0)
 layout_mode = 2
 
 [node name="Label" type="Label" parent="default/inventory cont/inventory/VBoxContainer/MarginContainer/item_labels/3" unique_id=859330295]
+visible = false
 custom_minimum_size = Vector2(40, 25)
 layout_mode = 2
 theme_override_colors/font_color = Color(0.84705883, 0.7882353, 0.7372549, 1)
@@ -408,11 +408,11 @@ vertical_alignment = 1
 autowrap_mode = 2
 
 [node name="4" type="MarginContainer" parent="default/inventory cont/inventory/VBoxContainer/MarginContainer/item_labels" unique_id=1190881954]
-visible = false
 custom_minimum_size = Vector2(50, 0)
 layout_mode = 2
 
 [node name="Label" type="Label" parent="default/inventory cont/inventory/VBoxContainer/MarginContainer/item_labels/4" unique_id=2131427489]
+visible = false
 custom_minimum_size = Vector2(40, 25)
 layout_mode = 2
 theme_override_colors/font_color = Color(0.84705883, 0.7882353, 0.7372549, 1)
@@ -426,11 +426,11 @@ vertical_alignment = 1
 autowrap_mode = 2
 
 [node name="5" type="MarginContainer" parent="default/inventory cont/inventory/VBoxContainer/MarginContainer/item_labels" unique_id=54565109]
-visible = false
 custom_minimum_size = Vector2(50, 0)
 layout_mode = 2
 
 [node name="Label" type="Label" parent="default/inventory cont/inventory/VBoxContainer/MarginContainer/item_labels/5" unique_id=59828923]
+visible = false
 custom_minimum_size = Vector2(40, 25)
 layout_mode = 2
 theme_override_colors/font_color = Color(0.84705883, 0.7882353, 0.7372549, 1)
@@ -444,11 +444,11 @@ vertical_alignment = 1
 autowrap_mode = 2
 
 [node name="6" type="MarginContainer" parent="default/inventory cont/inventory/VBoxContainer/MarginContainer/item_labels" unique_id=1746788911]
-visible = false
 custom_minimum_size = Vector2(50, 0)
 layout_mode = 2
 
 [node name="Label" type="Label" parent="default/inventory cont/inventory/VBoxContainer/MarginContainer/item_labels/6" unique_id=2039506693]
+visible = false
 custom_minimum_size = Vector2(40, 25)
 layout_mode = 2
 theme_override_colors/font_color = Color(0.84705883, 0.7882353, 0.7372549, 1)
@@ -2452,6 +2452,7 @@ layout_mode = 0
 offset_top = -126.0
 offset_right = 1152.0
 offset_bottom = 648.0
+mouse_filter = 2
 theme_override_constants/margin_top = 20
 script = ExtResource("34_hqrgm")
 

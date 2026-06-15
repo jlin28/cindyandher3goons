@@ -33,6 +33,8 @@
 [ext_resource type="Texture2D" uid="uid://cfwox8oqmmaji" path="res://static/items/special_powder.png" id="28_q07ck"]
 [ext_resource type="Texture2D" uid="uid://6nhc58cir762" path="res://static/items/stick.png" id="29_yav8j"]
 [ext_resource type="Script" uid="uid://cl8jnnu07ewjw" path="res://gd/item_back_button.gd" id="33_vpcjx"]
+[ext_resource type="Script" uid="uid://btog4kvhvwtaq" path="res://gd/alert.gd" id="34_hqrgm"]
+[ext_resource type="Script" uid="uid://w3cfymuq66lq" path="res://gd/clear_alert.gd" id="35_0161x"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mmuml"]
 bg_color = Color(0.6117647, 0.52156866, 0.4392157, 1)
@@ -205,6 +207,108 @@ region_rect = Rect2(259, 84, 10, 10)
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0161x"]
 texture = ExtResource("1_vpxtf")
 region_rect = Rect2(259, 84, 10, 10)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5tsac"]
+texture = ExtResource("1_vpxtf")
+region_rect = Rect2(243, 82, 10, 12)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_18ea2"]
+texture = ExtResource("1_vpxtf")
+region_rect = Rect2(259, 84, 10, 10)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xlc54"]
+texture = ExtResource("1_vpxtf")
+region_rect = Rect2(259, 84, 10, 10)
+
+[sub_resource type="Animation" id="Animation_0161x"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("..:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -126)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("..:size")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1152, 774)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("..:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_18ea2"]
+resource_name = "fade_out"
+length = 0.76666665
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("..:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.73333335),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_5tsac"]
+resource_name = "slide_down"
+length = 0.6666667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("..:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.6666667),
+"transitions": PackedFloat32Array(1, 0.7578583),
+"update": 0,
+"values": [Vector2(0, -126), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("..:size")
+tracks/1/interp = 0
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.6666667),
+"transitions": PackedFloat32Array(1, 0.7578583),
+"update": 0,
+"values": [Vector2(1152, 774), Vector2(1152, 648)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_18ea2"]
+_data = {
+&"RESET": SubResource("Animation_0161x"),
+&"fade_out": SubResource("Animation_18ea2"),
+&"slide_down": SubResource("Animation_5tsac")
+}
 
 [node name="Control" type="Control" unique_id=1355566499]
 layout_mode = 3
@@ -2342,3 +2446,92 @@ theme_override_fonts/font = ExtResource("2_y35ns")
 theme_override_font_sizes/font_size = 25
 horizontal_alignment = 1
 autowrap_mode = 3
+
+[node name="alert_cont" type="MarginContainer" parent="." unique_id=1509071500 groups=["alert"]]
+layout_mode = 0
+offset_top = -126.0
+offset_right = 1152.0
+offset_bottom = 648.0
+theme_override_constants/margin_top = 20
+script = ExtResource("34_hqrgm")
+
+[node name="MarginContainer" type="MarginContainer" parent="alert_cont" unique_id=1442134559]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+
+[node name="NinePatchRect" type="NinePatchRect" parent="alert_cont/MarginContainer" unique_id=581709133]
+custom_minimum_size = Vector2(400, 70)
+layout_mode = 2
+texture = ExtResource("1_vpxtf")
+region_rect = Rect2(201, 105, 30, 30)
+patch_margin_left = 10
+patch_margin_top = 10
+patch_margin_right = 10
+patch_margin_bottom = 10
+
+[node name="MarginContainer" type="MarginContainer" parent="alert_cont/MarginContainer" unique_id=103236516]
+layout_mode = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 11
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 11
+
+[node name="HBoxContainer" type="HBoxContainer" parent="alert_cont/MarginContainer/MarginContainer" unique_id=1212397188]
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="MarginContainer" type="MarginContainer" parent="alert_cont/MarginContainer/MarginContainer/HBoxContainer" unique_id=507577041]
+layout_mode = 2
+
+[node name="NinePatchRect" type="NinePatchRect" parent="alert_cont/MarginContainer/MarginContainer/HBoxContainer/MarginContainer" unique_id=1353429481]
+custom_minimum_size = Vector2(50, 45)
+layout_mode = 2
+texture = ExtResource("1_vpxtf")
+region_rect = Rect2(107, 155, 26, 26)
+
+[node name="img" type="TextureRect" parent="alert_cont/MarginContainer/MarginContainer/HBoxContainer/MarginContainer" unique_id=12145175]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("26_yaipa")
+expand_mode = 2
+
+[node name="MarginContainer2" type="MarginContainer" parent="alert_cont/MarginContainer/MarginContainer/HBoxContainer" unique_id=1793812972]
+layout_mode = 2
+theme_override_constants/margin_top = 7
+
+[node name="VBoxContainer" type="VBoxContainer" parent="alert_cont/MarginContainer/MarginContainer/HBoxContainer/MarginContainer2" unique_id=27074110]
+layout_mode = 2
+theme_override_constants/separation = 2
+
+[node name="Label" type="Label" parent="alert_cont/MarginContainer/MarginContainer/HBoxContainer/MarginContainer2/VBoxContainer" unique_id=1660441667]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.855, 0.7, 1)
+theme_override_colors/font_outline_color = Color(0.51, 0.4131, 0.3162, 1)
+theme_override_constants/outline_size = 3
+theme_override_fonts/font = ExtResource("2_y35ns")
+theme_override_font_sizes/font_size = 13
+text = "NEW ITEM DISCOVERED"
+
+[node name="item" type="Label" parent="alert_cont/MarginContainer/MarginContainer/HBoxContainer/MarginContainer2/VBoxContainer" unique_id=531976062]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.71, 0.60705, 0.49699998, 1)
+theme_override_fonts/font = ExtResource("2_y35ns")
+theme_override_font_sizes/font_size = 12
+text = "cape"
+
+[node name="Button" type="Button" parent="alert_cont/MarginContainer/MarginContainer" unique_id=1180261675]
+custom_minimum_size = Vector2(10, 10)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+theme_override_styles/normal = SubResource("StyleBoxTexture_5tsac")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_18ea2")
+theme_override_styles/hover = SubResource("StyleBoxTexture_xlc54")
+script = ExtResource("35_0161x")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="alert_cont" unique_id=68723573]
+root_node = NodePath("../MarginContainer")
+libraries/ = SubResource("AnimationLibrary_18ea2")

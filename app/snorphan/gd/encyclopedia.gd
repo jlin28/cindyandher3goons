@@ -85,7 +85,7 @@ func fetch_item_info(item):
 	MultiplayerClient.fetch_item_info(item)
 
 func load_item_info(item, desc):
-	item_name.text = item
+	item_name.text = item.replace("_", " ")
 	item_desc.text = desc
 	
 	if item in player.unlocked_items:

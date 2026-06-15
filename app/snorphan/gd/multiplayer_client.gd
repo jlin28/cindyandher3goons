@@ -6,6 +6,7 @@ extends Node
 @onready var player := get_tree().get_first_node_in_group('player')
 @onready var encyclopedia := get_tree().get_first_node_in_group('encyclopedia')
 @onready var main_node := get_tree().get_first_node_in_group('main_node')
+@onready var alert_cont := get_tree().get_first_node_in_group("alert")
 
 @export var remote_player_scene: PackedScene
 @export var local_player: Node3D
@@ -26,6 +27,8 @@ var last_sent_pos = Vector3.ZERO
 var last_sent_rot_y = 0.0
 var last_sent_action = null
 var last_sent_cape = null
+
+var font = preload("res://static/PeaberryDoublespace.ttf")
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -93,6 +96,7 @@ func set_remote_username(player_id: String, username_text: String) -> void:
 	var label = remote_player.get_node_or_null("username")
 	if label != null:
 		label.text = username_text
+		label.add_theme_font_override("font", font)
 
 func handle_msg(data):
 	var msg_type = data.get("type", "")
@@ -269,6 +273,8 @@ func add_item(item, quantity):
 		add_to_enc(item)
 		player.unlocked_items.append(item)
 		encyclopedia.update_item_status(item)
+		alert_cont.play_alert(item)
+		
 	
 func remove_item(item, quantity):
 	var data = {

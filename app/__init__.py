@@ -1215,7 +1215,7 @@ def game():
 
             return jsonify( { 'request': 'handled' })
 
-	if body.get('type') == 'remove_quest':
+		if body.get('type') == 'remove_quest':
             npc = body.get('npc')
             user = body.get('user')
             remove_quest(npc, user)

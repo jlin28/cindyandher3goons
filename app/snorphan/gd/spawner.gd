@@ -24,7 +24,8 @@ func _ready():
 	for i in range(apple_count):
 		spawn("apple", randf_range(-40, -50), randf_range(140, 170))
 	for i in range(flower_count):
-		spawn("flower", randf_range(370, 380), randf_range(-70, -65)) #375 35 -67
+		#spawn("flower", randf_range(370, 380), randf_range(-70, -65)) #375 35 -67
+		spawn("flower", randf_range(75, 85), randf_range(90, 100)) #78 -16 97
 
 func spawn(item, x, z):
 	var space_state = get_world_3d().direct_space_state

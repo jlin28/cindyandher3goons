@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://dhwuwrgj0xoop"]
 
-[ext_resource type="Script" uid="uid://b6yjo386ho4ca" path="res://gd/node_3d.gd" id="1_7lhp4"]
+[ext_resource type="Script" uid="uid://dm8x0xj86d2pm" path="res://gd/node_3d.gd" id="1_7lhp4"]
 [ext_resource type="PackedScene" uid="uid://6eok38y3bfyh" path="res://tscn/character_body_3d.tscn" id="1_a202f"]
-[ext_resource type="FontFile" uid="uid://pmi7qj0fh53v" path="res://static/PeaberryDoublespace.ttf" id="3_pum07"]
-[ext_resource type="Script" uid="uid://bc57ope5deafr" path="res://gd/multiplayer_client.gd" id="3_r3fl7"]
+[ext_resource type="FontFile" uid="uid://cjvg0evcqc7yp" path="res://static/PeaberryDoublespace.ttf" id="3_pum07"]
+[ext_resource type="Script" uid="uid://dbl13glq3ei2w" path="res://gd/multiplayer_client.gd" id="3_r3fl7"]
 [ext_resource type="PackedScene" uid="uid://bifhuaitnfy3p" path="res://tscn/remote_player.tscn" id="4_jka67"]
 [ext_resource type="Shader" uid="uid://cxjghkmx57hr4" path="res://node_3d.gdshader" id="5_jka67"]
 [ext_resource type="Texture2D" uid="uid://b0i2ljk60x3w7" path="res://static/citrus_orchard_road_puresky_4k.exr" id="6_i5arm"]
@@ -11,25 +11,26 @@
 [ext_resource type="Texture2D" uid="uid://c3f4752vwh53n" path="res://static/blue.webp" id="9_4arys"]
 [ext_resource type="PackedScene" uid="uid://cxo150m2m6bob" path="res://tscn/control.tscn" id="9_6iypd"]
 [ext_resource type="PackedScene" uid="uid://d552wf5u3x3a" path="res://glb/landscape-col.glb" id="9_7lhp4"]
-[ext_resource type="PackedScene" uid="uid://dk4wydotfxrj5" path="res://glb/architecture/house1.glb" id="10_oycpi"]
-[ext_resource type="PackedScene" uid="uid://bemhyaf0leh7h" path="res://glb/architecture/archhouse1.glb" id="12_y4xl3"]
-[ext_resource type="PackedScene" uid="uid://b2acd6oqhabr" path="res://glb/architecture/fence.glb" id="13_ppss0"]
-[ext_resource type="PackedScene" uid="uid://bt4w2wdmc86gt" path="res://glb/architecture/skinnyhouse1.glb" id="14_5rhs8"]
+[ext_resource type="PackedScene" uid="uid://c45q1qrt5rdxb" path="res://glb/architecture/house1.glb" id="10_oycpi"]
+[ext_resource type="PackedScene" uid="uid://eeckngvfa3lc" path="res://glb/architecture/archhouse1.glb" id="12_y4xl3"]
+[ext_resource type="PackedScene" uid="uid://b0mkv3rsjlu5s" path="res://glb/architecture/fence.glb" id="13_ppss0"]
+[ext_resource type="PackedScene" uid="uid://c4m8bct1d0d3s" path="res://glb/architecture/skinnyhouse1.glb" id="14_5rhs8"]
 [ext_resource type="PackedScene" uid="uid://2lnq4kvnv37b" path="res://tscn/npc_1.tscn" id="15_eu483"]
 [ext_resource type="PackedScene" uid="uid://c1dbprdspf5dt" path="res://tscn/npc_2.tscn" id="17_eh2cu"]
-[ext_resource type="Script" uid="uid://dqhsobhw8b7ms" path="res://gd/npc.gd" id="18_eh2cu"]
-[ext_resource type="PackedScene" uid="uid://bc0vl2j7kfi8p" path="res://glb/architecture/statue.glb" id="19_fp1dq"]
+[ext_resource type="Script" uid="uid://dycbujv8chtur" path="res://gd/npc.gd" id="18_eh2cu"]
+[ext_resource type="PackedScene" uid="uid://b4gpttxtb5wnj" path="res://glb/architecture/statue.glb" id="19_fp1dq"]
 [ext_resource type="PackedScene" uid="uid://cmid6tvx5gd4m" path="res://tscn/npc_3.tscn" id="19_vwbxu"]
 [ext_resource type="PackedScene" uid="uid://bkgu87ng2o360" path="res://tscn/npc_4.tscn" id="20_7r6eq"]
-[ext_resource type="PackedScene" uid="uid://xuaqccpulmiy" path="res://glb/nature/tree.glb" id="20_byo66"]
+[ext_resource type="PackedScene" uid="uid://bbimhd08nimjl" path="res://glb/nature/tree.glb" id="20_byo66"]
 [ext_resource type="PackedScene" uid="uid://dni2hxk7bqjef" path="res://tscn/npc_5.tscn" id="21_ia1py"]
-[ext_resource type="PackedScene" uid="uid://cms2vpw7vc6j3" path="res://glb/nature/bush2.glb" id="21_oem1t"]
+[ext_resource type="PackedScene" uid="uid://1rpnxp7kobid" path="res://glb/nature/bush2.glb" id="21_oem1t"]
 [ext_resource type="PackedScene" uid="uid://wspphm6l4jbh" path="res://tscn/npc_6.tscn" id="22_p54dj"]
-[ext_resource type="PackedScene" uid="uid://p2rukjlak37q" path="res://glb/nature/bush.glb" id="22_vwbxu"]
+[ext_resource type="PackedScene" uid="uid://12nogel3il20" path="res://glb/nature/bush.glb" id="22_vwbxu"]
 [ext_resource type="PackedScene" uid="uid://bau8o4vp215m5" path="res://tscn/npc_7.tscn" id="23_nipb7"]
 [ext_resource type="PackedScene" uid="uid://ch0kkwchimue1" path="res://tscn/npc_8.tscn" id="24_hpx56"]
 [ext_resource type="Script" uid="uid://dwqrumaqg0p7d" path="res://gd/spawner.gd" id="24_r8j7b"]
 [ext_resource type="Script" uid="uid://fptewt1rbs1t" path="res://gd/area_3d.gd" id="25_bbiul"]
+[ext_resource type="PackedScene" uid="uid://bbqc1a4wy1imt" path="res://glb/quest_items/apple.glb" id="27_d88ld"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_i5arm"]
 shader = ExtResource("5_jka67")
@@ -276,7 +277,7 @@ transform = Transform3D(-0.9908282, 0, 0.13512738, 0, 1, 0, -0.13512738, 0, -0.9
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.030033588, -0.1080246, 1.4149761)
 
-[node name="Landscape" parent="landscape" index="0" unique_id=845164961]
+[node name="Landscape" parent="landscape" index="0" unique_id=1572683854]
 transform = Transform3D(17.71466, -0.0029094922, 0.017167607, 0.0028964176, 17.714664, 0.013368785, -0.017169818, -0.013365945, 17.714655, -0.0062122345, 0.06770897, -0.060983658)
 
 [node name="npcs" type="Node3D" parent="." unique_id=1090715944]
@@ -479,6 +480,36 @@ transform = Transform3D(-1.427082, 0, -3.7367687, 0, 4, 0, 3.7367687, 0, -1.4270
 
 [node name="tree20" parent="decoration/trees" unique_id=2060208980 instance=ExtResource("20_byo66")]
 transform = Transform3D(4.2169437, 0, 3.5309184, 0, 5.4999995, 0, -3.5309184, 0, 4.2169437, -43.699028, -17.454792, 154.19478)
+
+[node name="apple1" parent="decoration/trees/tree20" unique_id=194586226 instance=ExtResource("27_d88ld")]
+transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, 0.14568901, 1.4718882, 0.4807415)
+
+[node name="apple2" parent="decoration/trees/tree20" unique_id=469651166 instance=ExtResource("27_d88ld")]
+transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, 0.015081406, 1.474003, -0.5240574)
+
+[node name="apple3" parent="decoration/trees/tree20" unique_id=664836166 instance=ExtResource("27_d88ld")]
+transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, 0.36681938, 1.6238805, -0.08320618)
+
+[node name="apple4" parent="decoration/trees/tree20" unique_id=2072284902 instance=ExtResource("27_d88ld")]
+transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, 0.12662315, 1.423936, 0.7596302)
+
+[node name="apple5" parent="decoration/trees/tree20" unique_id=1993840939 instance=ExtResource("27_d88ld")]
+transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, -0.022047043, 1.6086226, 0.07289505)
+
+[node name="apple6" parent="decoration/trees/tree20" unique_id=1567546957 instance=ExtResource("27_d88ld")]
+transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, 0.2912426, 1.6203115, -0.45360374)
+
+[node name="apple7" parent="decoration/trees/tree20" unique_id=956543747 instance=ExtResource("27_d88ld")]
+transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, -0.64445305, 1.6853112, 0.40438843)
+
+[node name="apple8" parent="decoration/trees/tree20" unique_id=2107578487 instance=ExtResource("27_d88ld")]
+transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, -0.6041126, 1.7788358, 0.035223007)
+
+[node name="apple9" parent="decoration/trees/tree20" unique_id=810664156 instance=ExtResource("27_d88ld")]
+transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, -0.3942585, 1.5686473, 0.36725807)
+
+[node name="apple10" parent="decoration/trees/tree20" unique_id=1419323992 instance=ExtResource("27_d88ld")]
+transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, -0.307518, 1.6203116, -0.17649078)
 
 [node name="tree21" parent="decoration/trees" unique_id=1995964607 instance=ExtResource("20_byo66")]
 transform = Transform3D(1.3532863, 0, 2.677427, 0, 3, 0, -2.677427, 0, 1.3532863, -38.958317, -17.454792, 151.17549)

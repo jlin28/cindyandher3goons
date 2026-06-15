@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://bf0e84lyfx5ly"]
 
-[ext_resource type="Script" uid="uid://bupydt3qgj265" path="res://gd/interactable_item.gd" id="1_k3qny"]
-[ext_resource type="PackedScene" uid="uid://8wjfridv0ed0" path="res://glb/quest_items/whitepowder.glb" id="2_igknj"]
-[ext_resource type="FontFile" uid="uid://pmi7qj0fh53v" path="res://static/PeaberryDoublespace.ttf" id="3_xipms"]
+[ext_resource type="Script" uid="uid://uwf34voeb5wm" path="res://gd/interactable_item.gd" id="1_k3qny"]
+[ext_resource type="PackedScene" uid="uid://8sq5gv74e3px" path="res://glb/quest_items/whitepowder.glb" id="2_igknj"]
+[ext_resource type="FontFile" uid="uid://cjvg0evcqc7yp" path="res://static/PeaberryDoublespace.ttf" id="3_xipms"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ri0hh"]
 

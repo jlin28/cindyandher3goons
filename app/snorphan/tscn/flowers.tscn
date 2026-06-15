@@ -1,11 +1,11 @@
 [gd_scene format=3 uid="uid://coulwbb7f5xra"]
 
-[ext_resource type="Script" uid="uid://bupydt3qgj265" path="res://gd/interactable_item.gd" id="1_qscs3"]
-[ext_resource type="FontFile" uid="uid://pmi7qj0fh53v" path="res://static/PeaberryDoublespace.ttf" id="2_832iv"]
+[ext_resource type="Script" uid="uid://uwf34voeb5wm" path="res://gd/interactable_item.gd" id="1_qscs3"]
+[ext_resource type="FontFile" uid="uid://cjvg0evcqc7yp" path="res://static/PeaberryDoublespace.ttf" id="2_832iv"]
 [ext_resource type="PackedScene" uid="uid://iibridpvtfku" path="res://glb/quest_items/flower.glb" id="3_832iv"]
-[ext_resource type="PackedScene" uid="uid://drajplk0ra18d" path="res://glb/quest_items/flower2.glb" id="4_4a0l2"]
-[ext_resource type="PackedScene" uid="uid://cdpm7vw1580m7" path="res://glb/quest_items/flower3.glb" id="5_sm5se"]
-[ext_resource type="PackedScene" uid="uid://06hp0t4y3uul" path="res://glb/quest_items/flower4.glb" id="6_jwfo5"]
+[ext_resource type="PackedScene" uid="uid://brlk3mxwbjd4t" path="res://glb/quest_items/flower2.glb" id="4_4a0l2"]
+[ext_resource type="PackedScene" uid="uid://d277tcaedgcgw" path="res://glb/quest_items/flower3.glb" id="5_sm5se"]
+[ext_resource type="PackedScene" uid="uid://b4dj52y2uieyr" path="res://glb/quest_items/flower4.glb" id="6_jwfo5"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_nfgjg"]
 

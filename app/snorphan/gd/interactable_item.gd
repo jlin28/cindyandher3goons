@@ -3,12 +3,15 @@ extends StaticBody3D
 @onready var interactable_area := $Area3D
 @onready var interactable_notification := $Node3D
 
-@onready var color_cont := get_node(^"colors").get_children()
+@onready var color_node := get_node(^"colors")
+@onready var color_cont
 
 var interactable_items_list = ["flowers", "special_powder", "apples"]
 var label = ""
 
 func _ready() -> void:
+	if color_node:
+		color_cont = get_node(^"colors").get_children()
 	interactable_notification.visible = false
 	
 	interactable_area.body_entered.connect(_on_entered)

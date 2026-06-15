@@ -483,3 +483,7 @@ carrieK -- 2026-06-12 10:37
 
 cindyL -- 2026-06-12 10:45
 * design doc pdf'd
+
+cindyL -- 2026-06-15 03:52
+* indent errors fixed 
+* erroneous comma replaced with correct period

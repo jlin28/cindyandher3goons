@@ -95,6 +95,14 @@ ws.on('connection', function connect(client, req) {
       }, client);
     }
 
+    if (data.type === "chat") {
+      broadcast({
+        type: "chat",
+        id: client.id,
+        chat: msg
+      }, client);
+    }
+
     if (data.type === "dialogue") {
       console.log('i gott here');
       let res = await fetch("https://cindyandher3goons.me/" + client.route, {

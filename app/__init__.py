@@ -97,19 +97,18 @@ c.execute("""CREATE TABLE IF NOT EXISTS snowmen(
     x_coord REAL,
     y_coord REAL,
     z_coord REAL,
-    x_rot REAL,
     y_rot REAL,
-    z_rot REAL,
     current_button_count INTEGER,
+    current_snowball_count INTEGER,
     carrot BOOLEAN,
     hat BOOLEAN,
     red_scarf BOOLEAN,
-    stick1 BOOLEAN,
-    stick2 BOOLEAN,
-    current_pebble_count BOOLEAN,
+    current_stick_count INTEGER,
+    current_pebbles_count INTEGER,
     FOREIGN KEY (player) references user(username)
     );
     """)
+
 c.execute("INSERT OR IGNORE INTO npc VALUES ('Sealius', 'A Spark of Inspiration', 'Help Sealius out of his slump---though you don''t even know why you''re doing this', 'flowers', 'fetch', 5,'ice_sculpture', 1)")
 c.execute("INSERT OR IGNORE INTO npc VALUES ('Town Chief', 'A Warm Welcome', 'Find the house the Town Chief set aside for you', 'house', 'go', 1,'slightly_worn_out_cape', 1)")
 c.execute("INSERT OR IGNORE INTO npc VALUES ('Buntanist', 'A Bunny''s Cry For Help', 'Save Buntanist''s plants!', 'special_powder', 'fetch', 1,'carrot', 1)")
@@ -1048,6 +1047,63 @@ def update_cape(username):
     db.commit()
     db.close()
 
+def create_snowman(username, x, y, z, y_rot, id):
+    db = sqlite3.connect(DB_FILE)
+    c = db.cursor()
+
+    c.execute("INSERT into snowmen VALUES (?, ?, ?, ?, ?, ?, 0, 1, FALSE, FALSE, FALSE, 0, 0)",
+        (username, id, x, y, z, y_rot))
+
+    db.commit()
+    db.close()
+
+def update_snowman(username, id, update):
+    db = sqlite3.connect(DB_FILE)
+    c = db.cursor()
+
+    if 'snowball' in update:
+        update = 'snowball'
+
+    if update in ['carrot', 'hat', 'red_scarf']:
+        c.execute(f"UPDATE snowmen SET {update} = ? WHERE player = ? AND id = ?", (True, username, id))
+    elif update in ['snowball','button', 'pebbles', 'stick']:
+        c.execute(f"SELECT current_{update}_count FROM snowmen WHERE player = ? AND id = ?", (username, id))
+        curr_count = c.fetchone()[0]
+
+        c.execute(f"UPDATE snowmen SET current_{update}_count = ? WHERE player = ? AND id = ?", (curr_count + 1, username, id))
+
+    db.commit()
+    db.close()
+
+def snowman_info(username):
+    db = sqlite3.connect(DB_FILE)
+    c = db.cursor()
+
+    snowmen_dict = {}
+    c.execute("SELECT id FROM snowmen WHERE player = ?", (username,))
+    snowmen = [row[0] for row in c.fetchall()]
+
+    for snowman in snowmen:
+        c.execute("SELECT * FROM snowmen WHERE id = ?", (snowman,))
+        info = c.fetchone()
+        snowmen_dict[snowman] = {
+            'x_coord': info[2],
+            'y_coord': info[3],
+            'z_coord': info[4],
+            'y_rot': info[5],
+            'button': info[6],
+            'snowball': info[7],
+            'carrot': info[8],
+            'hat': info[9],
+            'scarf': info[10],
+            'stick': info[11],
+            'pebble': info[12]
+        }
+
+    db.close()
+
+    return snowmen_dict
+
 @app.route("/", methods=["GET", "POST"])
 def start():
     return render_template('start.html')
@@ -1200,6 +1256,32 @@ def game():
             update_cape(user)
 
             return jsonify( { 'request': 'handled' })
+
+        if body.get('type') == 'create_snowman':
+            user = body.get('user')
+            x_coord = body,get('x_coord')
+            y_coord = body.get('y_coord')
+            z_coord = body.get('z_coord')
+            y_rot = body.get('y_rot')
+            id = body.get('id')
+
+            create_snowman(user, x_coord, y_coord, z_coord, y_rot, id)
+
+            return jsonify( { 'request': 'handled' })
+
+        if body.get('type') == 'update_snowman':
+            user = body.get('user')
+            update = body.get('update')
+            id = body.get('id')
+
+            update_snowman(user, id, update)
+
+            return jsonify( { 'request': 'handled' })
+
+        if body.get('type') == 'instantiate_snowmen':
+            user = body.get('user')
+
+            return jsonify(snowman_info(user))
 
     if "username" not in session:
         return redirect(url_for("login"))

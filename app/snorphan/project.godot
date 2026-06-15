@@ -37,6 +37,7 @@ flowers=""
 special_powder=""
 apples=""
 encyclopedia=""
+main_node=""
 
 [gui]
 

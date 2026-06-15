@@ -5,6 +5,7 @@ extends Node
 @onready var inventory_cont := get_tree().get_first_node_in_group('inv')
 @onready var player := get_tree().get_first_node_in_group('player')
 @onready var encyclopedia := get_tree().get_first_node_in_group('encyclopedia')
+@onready var main_node := get_tree().get_first_node_in_group('main_node')
 
 @export var remote_player_scene: PackedScene
 @export var local_player: Node3D
@@ -103,6 +104,7 @@ func handle_msg(data):
 		quests_cont.fetch_quests()
 		fetch_cape_info()
 		fetch_initial_enc()
+		instantiate_snowmen()
 		
 	elif msg_type == "player_name":
 		var player_id = str(data.get("id", ""))
@@ -160,6 +162,9 @@ func handle_msg(data):
 				
 	elif msg_type == "item_info":
 		encyclopedia.load_item_info(data.get("item"), data.get("desc"))
+	
+	elif msg_type == "instantiate_snowmen":
+		main_node.instantiate_snowmen(data.get("snowmen"), {})
 		
 func send_username():
 	var data = {
@@ -341,6 +346,34 @@ func add_to_enc(item):
 func update_cape_status():
 	var data = {
 		"type": "update_cape"
+	}
+	
+	socket.send_text(JSON.stringify(data))
+
+func create_snowman(position, y_rotation, id):
+	var data = {
+		"type": "create_snowman",
+		"x_coord": position.x,
+		"y_coord": position.y,
+		"z_coord": position.z,
+		"y_rot": y_rotation,
+		"id": id
+	}
+	
+	socket.send_text(JSON.stringify(data))
+
+func update_snowman(item, id):
+	var data = {
+		"type": "update_snowman",
+		"item": item,
+		"id": id
+	}
+	
+	socket.send_text(JSON.stringify(data))
+	
+func instantiate_snowmen():
+	var data = {
+		"type": "instantiate_snowmen"
 	}
 	
 	socket.send_text(JSON.stringify(data))

@@ -26,8 +26,6 @@ extends StaticBody3D
 @export var current_pebble = 0
 @export var current_button = 0
 
-@export var snowman_items = ['snowball_S', 'snowball_M', 'snowball_L', 'stick', 'pebbles']
-
 func _ready() -> void:
 	var id_num = 0
 	
@@ -96,3 +94,33 @@ func accessories(item):
 		return true
 	else:
 		return false
+
+func set_up(data):
+	var snowman_stuffs_with_counts = ['button', 'snowball', 'stick', 'pebble']
+	var other_snowman_stuffs = ['carrot', 'hat', 'scarf']
+	
+	for item in other_snowman_stuffs:
+		var status = data.get(item, [0])[0]
+		
+		if status > 0:
+			accessories(item)
+			
+	for item in snowman_stuffs_with_counts:
+		var curr_count = data.get(item, 0)
+		
+		if item == 'button':
+			for i in range(0, curr_count):
+				accessories('button')
+		if item == 'snowball':
+			if curr_count > 1:
+				if curr_count > 2:
+					build('M')
+					build('S')
+				else:
+					build('M')
+		if item == 'stick':
+			for i in range(0, curr_count):
+				arms()
+		if item == 'pebble':
+			for i in range(0, curr_count):
+				pebble()

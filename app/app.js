@@ -275,6 +275,44 @@ ws.on('connection', function connect(client, req) {
         body: JSON.stringify({ type: "update_cape", user: client.username })
       });
     }
+
+    if (data.type === "create_snowman") {
+      let res = await fetch("https://cindyandher3goons.me/" + client.route, {
+      // let res = await fetch("http://127.0.0.1:5000/" + client.route, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json'},
+        body: JSON.stringify({ type: "create_snowman", x_coord: data.x_coord,
+                                y_coord: data.y_coord, z_coord: data.z_cood,
+                                y_rot: data.y_rot, id: data.id,
+                                user: client.username })
+      });
+    }
+
+    if (data.type === "update_snowman") {
+      let res = await fetch("https://cindyandher3goons.me/" + client.route, {
+      // let res = await fetch("http://127.0.0.1:5000/" + client.route, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json'},
+        body: JSON.stringify({ type: "update_snowman", update: data.item, id: data.id, user: client.username })
+      });
+    }
+
+    if (data.type === "instantiate_snowmen") {
+      let res = await fetch("https://cindyandher3goons.me/" + client.route, {
+      // let res = await fetch("http://127.0.0.1:5000/" + client.route, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json'},
+        body: JSON.stringify({ type: "instantiate_snowmen", user: client.username })
+      });
+
+      let snowmen = await res.json()
+      send(
+        client, {
+          type: "instantiate_snowmen",
+          snowmen: snowmen
+        }
+      )
+    }
   });
 
   client.on('close', () => {

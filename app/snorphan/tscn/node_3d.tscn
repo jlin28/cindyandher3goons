@@ -132,7 +132,7 @@ center_offset = Vector3(100, 100, 50)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_bbiul"]
 
-[node name="Node3D" type="Node3D" unique_id=1689037102]
+[node name="Node3D" type="Node3D" unique_id=1689037102 groups=["main_node"]]
 script = ExtResource("1_7lhp4")
 
 [node name="player" parent="." unique_id=966699921 groups=["player"] instance=ExtResource("1_a202f")]

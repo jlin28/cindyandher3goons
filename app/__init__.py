@@ -646,7 +646,7 @@ npc_dialogue = {
         },
         'quest_in_progress': {
             'dialogue_type': "normal",
-            'dialogue': "",
+            'dialogue': "Hold... on........",
             'dialogue_options': {}
         },
         'quest_completed': {

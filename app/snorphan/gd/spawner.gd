@@ -24,7 +24,7 @@ func _ready():
 	for i in range(apple_count):
 		spawn("apple", randf_range(-40, -50), randf_range(140, 170))
 	for i in range(flower_count):
-		spawn("flower", randf_range(260, 270), randf_range(15, 25)) #266 84 19
+		spawn("flower", randf_range(370, 380), randf_range(-70, -65)) #375 35 -67
 
 func spawn(item, x, z):
 	var space_state = get_world_3d().direct_space_state
@@ -59,4 +59,5 @@ func spawn(item, x, z):
 		if item == "flower":
 			var flower = flower_mesh.instantiate()
 			flower.position = result.position
+			flower.position.y += 0.5
 			add_child(flower)

@@ -39,6 +39,10 @@
 [ext_resource type="Script" uid="uid://dqjog0lp0yfvq" path="res://gd/item_back_button.gd" id="33_vpcjx"]
 [ext_resource type="Script" uid="uid://bvv1stmau0j5u" path="res://gd/alert.gd" id="34_hqrgm"]
 [ext_resource type="Script" uid="uid://ca0e1i2r7a0sy" path="res://gd/clear_alert.gd" id="35_0161x"]
+[ext_resource type="Script" uid="uid://bqkkpi0y1nbtj" path="res://gd/discard_item_cont.gd" id="40_yaipa"]
+[ext_resource type="Script" uid="uid://dsgt5c1pfepsh" path="res://gd/close_item_discard.gd" id="41_hm3lq"]
+[ext_resource type="Script" uid="uid://bmxhotoftr348" path="res://gd/discard_item.gd" id="41_q07ck"]
+[ext_resource type="Script" uid="uid://dkbfxiuaw3rkc" path="res://gd/chat.gd" id="43_yav8j"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mmuml"]
 bg_color = Color(0.6117647, 0.52156866, 0.4392157, 1)
@@ -357,6 +361,67 @@ _data = {
 &"fade_out": SubResource("Animation_18ea2"),
 &"slide_down": SubResource("Animation_5tsac")
 }
+
+[sub_resource type="Animation" id="Animation_yav8j"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:theme_override_colors/font_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.58, 0.2552, 0.2822667, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_mwi3n"]
+resource_name = "shake"
+length = 2.0000033
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:theme_override_colors/font_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.43333334, 0.6666667, 0.93333334, 1.2, 1.4666667, 1.7333333, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(0.58, 0.2552, 0.2822667, 1), Color(0.9, 0.387, 0.42975006, 1), Color(0.5803922, 0.25490198, 0.28235295, 1), Color(0.9, 0.387, 0.42975006, 1), Color(0.5803922, 0.25490198, 0.28235295, 1), Color(0.9, 0.387, 0.42975006, 1), Color(0.5803922, 0.25490198, 0.28235295, 1), Color(0.9, 0.387, 0.42975006, 1), Color(0.5803922, 0.25490198, 0.28235295, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_8b51m"]
+_data = {
+&"RESET": SubResource("Animation_yav8j"),
+&"shake": SubResource("Animation_mwi3n")
+}
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_cjs3x"]
+texture = ExtResource("1_vpxtf")
+region_rect = Rect2(163, 178, 90, 27)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_pbt5h"]
+texture = ExtResource("1_vpxtf")
+region_rect = Rect2(259, 180, 90, 25)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_iq0c6"]
+texture = ExtResource("1_vpxtf")
+region_rect = Rect2(259, 180, 90, 25)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vkmkp"]
+texture = ExtResource("1_vpxtf")
+region_rect = Rect2(163, 178, 90, 27)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7ll7h"]
+texture = ExtResource("1_vpxtf")
+region_rect = Rect2(259, 180, 90, 25)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_k1rkg"]
+texture = ExtResource("1_vpxtf")
+region_rect = Rect2(259, 180, 90, 25)
 
 [node name="Control" type="Control" unique_id=1355566499]
 layout_mode = 3
@@ -2676,3 +2741,132 @@ script = ExtResource("35_0161x")
 [node name="AnimationPlayer" type="AnimationPlayer" parent="alert_cont" unique_id=68723573]
 root_node = NodePath("../MarginContainer")
 libraries/ = SubResource("AnimationLibrary_18ea2")
+
+[node name="discard_item_cont" type="MarginContainer" parent="." unique_id=410234066]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/margin_top = 175
+script = ExtResource("40_yaipa")
+
+[node name="MarginContainer" type="MarginContainer" parent="discard_item_cont" unique_id=1805684525]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+
+[node name="NinePatchRect" type="NinePatchRect" parent="discard_item_cont/MarginContainer" unique_id=1733952491]
+custom_minimum_size = Vector2(500, 130)
+layout_mode = 2
+texture = ExtResource("1_vpxtf")
+region_rect = Rect2(59, 107, 26, 26)
+patch_margin_left = 5
+patch_margin_top = 5
+patch_margin_right = 5
+patch_margin_bottom = 5
+
+[node name="MarginContainer" type="MarginContainer" parent="discard_item_cont/MarginContainer" unique_id=1544398746]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 25
+theme_override_constants/margin_bottom = 15
+
+[node name="VBoxContainer" type="VBoxContainer" parent="discard_item_cont/MarginContainer/MarginContainer" unique_id=537064585]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="discard_item_cont/MarginContainer/MarginContainer/VBoxContainer" unique_id=436378626]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.90588236, 0.8666667, 0.83137256, 1)
+theme_override_colors/font_outline_color = Color(0.61, 0.58397335, 0.5612, 1)
+theme_override_constants/outline_size = 3
+theme_override_fonts/font = ExtResource("2_y35ns")
+text = "HOW MANY __ WOULD YOU LIKE TO DISCARD?"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="discard_item_cont/MarginContainer/MarginContainer/VBoxContainer" unique_id=453238469]
+custom_minimum_size = Vector2(0, 5)
+layout_mode = 2
+
+[node name="Label2" type="Label" parent="discard_item_cont/MarginContainer/MarginContainer/VBoxContainer" unique_id=1190289159]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.58, 0.2552, 0.2822667, 1)
+theme_override_fonts/font = ExtResource("2_y35ns")
+theme_override_font_sizes/font_size = 10
+text = "PLEASE ENTER A VALID NUMBER"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="discard_item_cont/MarginContainer/MarginContainer/VBoxContainer/Label2" unique_id=714701063]
+libraries/ = SubResource("AnimationLibrary_8b51m")
+
+[node name="LineEdit" type="LineEdit" parent="discard_item_cont/MarginContainer/MarginContainer/VBoxContainer" unique_id=1087345761]
+layout_mode = 2
+
+[node name="MarginContainer2" type="MarginContainer" parent="discard_item_cont/MarginContainer/MarginContainer/VBoxContainer" unique_id=1240842164]
+custom_minimum_size = Vector2(0, 5)
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="discard_item_cont/MarginContainer/MarginContainer/VBoxContainer" unique_id=1842837267]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 50
+
+[node name="Button" type="Button" parent="discard_item_cont/MarginContainer/MarginContainer/VBoxContainer/HBoxContainer" unique_id=646571003]
+custom_minimum_size = Vector2(100, 25)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.73, 0.63656, 0.55480003, 1)
+theme_override_colors/font_outline_color = Color(0.59, 0.51447994, 0.44839996, 1)
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = ExtResource("2_y35ns")
+theme_override_font_sizes/font_size = 14
+theme_override_styles/normal = SubResource("StyleBoxTexture_cjs3x")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_pbt5h")
+theme_override_styles/hover = SubResource("StyleBoxTexture_iq0c6")
+text = "ENTER"
+script = ExtResource("41_q07ck")
+
+[node name="Button2" type="Button" parent="discard_item_cont/MarginContainer/MarginContainer/VBoxContainer/HBoxContainer" unique_id=1558913143]
+custom_minimum_size = Vector2(100, 25)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.73, 0.63656, 0.55480003, 1)
+theme_override_colors/font_outline_color = Color(0.59, 0.51447994, 0.44839996, 1)
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = ExtResource("2_y35ns")
+theme_override_font_sizes/font_size = 14
+theme_override_styles/normal = SubResource("StyleBoxTexture_vkmkp")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_7ll7h")
+theme_override_styles/hover = SubResource("StyleBoxTexture_k1rkg")
+text = "CANCEL"
+script = ExtResource("41_hm3lq")
+
+[node name="Label" type="Label" parent="discard_item_cont" unique_id=1268110578]
+visible = false
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=168442891]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -40.0
+offset_top = -40.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer" unique_id=298964265]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="LineEdit" type="LineEdit" parent="MarginContainer/MarginContainer" unique_id=983481043]
+layout_mode = 2
+script = ExtResource("43_yav8j")

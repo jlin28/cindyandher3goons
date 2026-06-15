@@ -7,6 +7,7 @@ var time = 0.0;
 
 @export var current_angle: float
 
+@onready var MultiplayerClient := get_tree().get_first_node_in_group('socket')
 @onready var cam := %pivot
 
 @onready var idle := %fox
@@ -21,6 +22,9 @@ var time = 0.0;
 @onready var walk_cape := %walk_cape
 @onready var sprint_cape := %sprint_cape
 @onready var crouch_cape := %crouch_cape
+
+@onready var chat_text := %chat_text
+@onready var chat_cont := %chat_cont
 
 @onready var normal_collision_shapes := get_tree().get_nodes_in_group("normal_collision")
 @onready var crouch_collision_shapes := get_tree().get_nodes_in_group("crouch_collision")
@@ -51,6 +55,7 @@ var time = 0.0;
 
 var prev_line = ""
 var label_tick = -1
+var msg_tick = -1
 
 signal inventory_update
 signal inventory_full
@@ -122,8 +127,13 @@ func _process(delta: float) -> void:
 			notification.text = prev_line
 			notification.modulate = Color('#9f8974')
 			label_tick = -1
+			
+	if msg_tick > -1:
+		msg_tick += 1
+		if msg_tick % 1500 == 0:
+			close_message()
 		
-	if Input.is_action_pressed("crouch"):
+	if Input.is_action_pressed("crouch") and can_move:
 		if !normal_collision_shapes[0].disabled:
 			for collision in normal_collision_shapes:
 				collision.disabled = true
@@ -214,62 +224,20 @@ func update_notification(new_line):
 func _on_inventory_full():
 	update_notification("Inventory is full!")
 
-func update_current_action(action, cape):
-	if action == "crouch":
-		if !normal_collision_shapes[0].disabled:
-			for collision in normal_collision_shapes:
-				collision.disabled = true
-			for collision in crouch_collision_shapes:
-				collision.disabled = false
-			crouch.visible = true
-			idle.visible = false
-			anim_cont2.visible = false
-			anim_cont.visible = false
-			
-			if cape:
-				crouch_cape.visible = true
-				if idle_cape.visible: idle_cape.visible = false
-				if walk_cape.visible: walk_cape.visible = false
-				if sprint_cape.visible: sprint_cape.visible = false
-			
-	elif action == "sprint":
-		idle.visible = false
-			
-		if idle_cape.visible: idle_cape.visible = false
-		if crouch_cape.visible: crouch_cape.visible = false
-			
-		anim_cont2.visible = true
-		anim_cont.visible = false
-		sprint.play("walk")
-		
-		if cape:
-			sprint_cape.visible = true
-			if walk_cape.visible: walk_cape.visible = false
+func update_chat(msg):
+	chat_text.text = msg
+	chat_cont.visible = true
+	
+	msg_tick = 0
+	MultiplayerClient.send_chat(msg)
 
-	elif action == "walk":
-		anim_cont2.visible = false
-		anim_cont.visible = true
-		walk.play("walk")
-		
-		if cape:
-			walk_cape.visible = true
-			if sprint_cape.visible: sprint_cape.visible = false
-
-	else: 
-		if normal_collision_shapes[0].disabled:
-			for collision in normal_collision_shapes:
-				collision.disabled = false
-			for collision in crouch_collision_shapes:
-				collision.disabled = true
-				
-		idle.visible = true
-		anim_cont2.visible = false
-		anim_cont.visible = false
-		walk.stop()
-		sprint.stop()
-			
-		if cape:
-			idle_cape.visible = true
-			if crouch_cape.visible: crouch_cape.visible = false
-			if walk_cape.visible: walk_cape.visible = false
-			if sprint_cape.visible: sprint_cape.visible = false
+func close_message():
+	var anim_cont = chat_cont.get_child(0)
+	anim_cont.play("fade_out")
+	
+	await anim_cont.animation_finished
+	chat_text.text = ''
+	chat_cont.visible = false
+	anim_cont.stop()
+	
+	msg_tick = -1

@@ -16,6 +16,17 @@ extends CharacterBody3D
 @onready var normal_collision_shapes := get_tree().get_nodes_in_group("normal_collision")
 @onready var crouch_collision_shapes := get_tree().get_nodes_in_group("crouch_collision")
 
+@onready var chat_text := %chat_text
+@onready var chat_cont := %chat_cont
+
+var msg_tick = -1
+
+func _process(delta: float) -> void:
+	if msg_tick > -1:
+		msg_tick += 1
+		if msg_tick % 1500 == 0:
+			close_message()
+
 func update_current_action(action, cape):
 	if action == "crouch":
 		if !normal_collision_shapes[0].disabled:
@@ -77,3 +88,20 @@ func update_current_action(action, cape):
 			if crouch_cape.visible: crouch_cape.visible = false
 			if walk_cape.visible: walk_cape.visible = false
 			if sprint_cape.visible: sprint_cape.visible = false
+			
+func update_chat(msg):
+	chat_text.text = msg
+	chat_cont.visible = true
+	
+	msg_tick = 0
+
+func close_message():
+	var anim_cont = chat_cont.get_child(0)
+	anim_cont.play("fade_out")
+	
+	await anim_cont.animation_finished
+	chat_text.text = ''
+	chat_cont.visible = false
+	anim_cont.stop()
+	
+	msg_tick = -1

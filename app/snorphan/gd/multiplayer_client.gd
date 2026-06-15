@@ -169,6 +169,9 @@ func handle_msg(data):
 	
 	elif msg_type == "instantiate_snowmen":
 		main_node.instantiate_snowmen(data.get("snowmen", {}))
+	
+	elif msg_type == "chat":
+		remote_player_chat(data)
 		
 func send_username():
 	var data = {
@@ -207,6 +210,19 @@ func send_position():
 	}
 	socket.send_text(JSON.stringify(data))
 
+func remote_player_chat(data):
+	var player_id = str(data.get("id", ""))
+	if player_id == my_id:
+		return
+	if player_id == "":
+		return
+	if not remote_players.has(player_id):
+		spawn_remote_player(player_id)
+
+	var remote_player = remote_players[player_id]
+	
+	remote_player.update_chat(data.get("msg"))
+	
 func update_remote_player(data):
 	var player_id = str(data.get("id", ""))
 	if player_id == my_id:
@@ -391,3 +407,12 @@ func instantiate_snowmen():
 	}
 	
 	socket.send_text(JSON.stringify(data))
+	
+func send_chat(msg):
+	var data = {
+		"type" = "chat",
+		"msg" = msg
+	}
+	
+	socket.send_text(JSON.stringify(data))
+	

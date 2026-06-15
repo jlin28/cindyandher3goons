@@ -181,8 +181,8 @@ func send_position():
 	var moved = pos.distance_to(last_sent_pos) > 0.01
 	var rotated = abs(rot_y - last_sent_rot_y) > 0.01
 	
-	var changed_action = last_sent_action == curr_action
-	var changed_cape_status = last_sent_cape == cape_status
+	var changed_action = last_sent_action != curr_action
+	var changed_cape_status = last_sent_cape != cape_status
 	
 	if not moved and not rotated and not changed_action and not changed_cape_status:
 		return

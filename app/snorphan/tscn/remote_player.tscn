@@ -1,8 +1,11 @@
 [gd_scene format=3 uid="uid://bifhuaitnfy3p"]
 
+[ext_resource type="Script" uid="uid://do1b55lequvg7" path="res://gd/remote_player.gd" id="1_lb4qp"]
 [ext_resource type="PackedScene" uid="uid://pfjxshufor15" path="res://glb/characters/fox.glb" id="1_mj1cd"]
-[ext_resource type="PackedScene" path="res://tscn/walk_cycle.tscn" id="2_lb4qp"]
-[ext_resource type="PackedScene" path="res://tscn/sprint.tscn" id="3_qd0g7"]
+[ext_resource type="PackedScene" uid="uid://dqtrb1h3t2qkr" path="res://tscn/walk_cycle.tscn" id="2_lb4qp"]
+[ext_resource type="PackedScene" uid="uid://bx4i8mfwdfxh8" path="res://tscn/sprint.tscn" id="3_qd0g7"]
+[ext_resource type="PackedScene" uid="uid://d03mssssymjjl" path="res://glb/actions/foxcrouch.glb" id="5_5510y"]
+[ext_resource type="PackedScene" uid="uid://pwfwturgwr30" path="res://glb/player_items/cape.glb" id="5_qd0g7"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_a63tl"]
 size = Vector3(0.9288845, 1.6221123, 1.2651367)
@@ -10,6 +13,7 @@ size = Vector3(0.9288845, 1.6221123, 1.2651367)
 [node name="remote_player" type="CharacterBody3D" unique_id=966699921]
 unique_name_in_owner = true
 transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 1.2661138, -16.149754, 35.854744)
+script = ExtResource("1_lb4qp")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=296489695]
 transform = Transform3D(1.2773366, 0, 0, 0, 1.8893056, 0, 0, 0, 0.8585242, 0, 0, 0.20497404)
@@ -49,6 +53,11 @@ unique_name_in_owner = true
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0)
 visible = false
 
+[node name="foxcrouch" parent="." unique_id=767547857 instance=ExtResource("5_5510y")]
+unique_name_in_owner = true
+transform = Transform3D(2.9999998, 0, 0, 0, 2.9999998, 0, 0, 0, 2.9999998, 0, -1.8135757, 0)
+visible = false
+
 [node name="username" type="Label3D" parent="." unique_id=2016288181]
 transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, 0, 7, 0)
 pixel_size = 0.008
@@ -57,3 +66,23 @@ text = "Player
 "
 font_size = 48
 outline_size = 8
+
+[node name="idle_cape" parent="." unique_id=545309698 instance=ExtResource("5_qd0g7")]
+unique_name_in_owner = true
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0.036044598, -2.706795, -0.09149909)
+visible = false
+
+[node name="walk_cape" parent="." unique_id=1200947775 instance=ExtResource("5_qd0g7")]
+unique_name_in_owner = true
+transform = Transform3D(4, 0, 0, 0, 3.983834, -0.3592626, 0, 0.3592626, 3.983834, 0.056079745, -2.579891, -0.38018006)
+visible = false
+
+[node name="sprint_cape" parent="." unique_id=96703774 instance=ExtResource("5_qd0g7")]
+unique_name_in_owner = true
+transform = Transform3D(4, 0, 0, 0, 3.8363285, -1.1325133, 0, 1.1325133, 3.8363285, 0.10173297, -2.4524784, -0.21458393)
+visible = false
+
+[node name="crouch_cape" parent="." unique_id=2072868564 instance=ExtResource("5_qd0g7")]
+unique_name_in_owner = true
+transform = Transform3D(4, 0, 0, 0, 2.3997266, -3.200205, 0, 3.200205, 2.3997266, 0.10173297, -3.6146479, -2.451366)
+visible = false

@@ -221,6 +221,7 @@ func remote_player_chat(data):
 
 	var remote_player = remote_players[player_id]
 	
+	print(data.get("msg"))
 	remote_player.update_chat(data.get("msg"))
 	
 func update_remote_player(data):

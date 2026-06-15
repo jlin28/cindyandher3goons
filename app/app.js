@@ -99,7 +99,7 @@ ws.on('connection', function connect(client, req) {
       broadcast({
         type: "chat",
         id: client.id,
-        chat: msg
+        chat: data.msg
       }, client);
     }
 

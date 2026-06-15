@@ -411,8 +411,8 @@ func instantiate_snowmen():
 	
 func send_chat(msg):
 	var data = {
-		"type" = "chat",
-		"msg" = msg
+		"type": "chat",
+		"msg": msg
 	}
 	
 	socket.send_text(JSON.stringify(data))

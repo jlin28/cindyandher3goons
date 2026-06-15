@@ -43,8 +43,6 @@ func play_dialogue():
 			var current_amount = 1.0;
 			if item_to_be_taken != "house": # For Town Chief's quest
 				current_amount = player.current_items[item_to_be_taken]
-				MultiplayerClient.add_item(quest.get('reward'), quest.get('reward_amt'))
-				quests_cont.change_quests.emit()
 			if player.full_inventory and current_amount - amount_to_be_taken != 0:
 				current_dialogue_line = 'item_cap'
 			else:

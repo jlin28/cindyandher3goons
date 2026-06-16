@@ -117,7 +117,12 @@ func instantiate_snowmen(snowmen):
 			var snowman = Snowman.instantiate()
 				
 			get_tree().current_scene.add_child(snowman)
-			snowman.position = Vector3(data.get('x_coord', 0), data.get('y_coord', 0), data.get('z_coord', 0))
-			snowman.rotation.y = data.get('y_rot', 0)
+			
+			var x = float(data.get('x_coord', 0))
+			var y = float(data.get('y_coord', 0))
+			var z = float(data.get('z_coord', 0))
+			
+			snowman.position = Vector3(x, y, z)
+			snowman.rotation.y = float(data.get('y_rot', 0))
 			
 			snowman.set_up(data)

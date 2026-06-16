@@ -35,7 +35,7 @@ func _ready() -> void:
 	for i in range(1,15):
 		id_num += randi_range(0,9) * pow(10,i)
 	
-	id.text = id_num
+	id.text = String(id_num)
 	
 func _on_entered(body):
 	if body.is_in_group('player'):

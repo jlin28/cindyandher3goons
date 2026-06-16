@@ -1,14 +1,54 @@
 [gd_scene format=3 uid="uid://bifhuaitnfy3p"]
 
-[ext_resource type="Script" uid="uid://do1b55lequvg7" path="res://gd/remote_player.gd" id="1_lb4qp"]
+[ext_resource type="Script" uid="uid://bk7xole5g8vmf" path="res://gd/remote_player.gd" id="1_lb4qp"]
 [ext_resource type="PackedScene" uid="uid://pfjxshufor15" path="res://glb/characters/fox.glb" id="1_mj1cd"]
 [ext_resource type="PackedScene" uid="uid://dqtrb1h3t2qkr" path="res://tscn/walk_cycle.tscn" id="2_lb4qp"]
 [ext_resource type="PackedScene" uid="uid://bx4i8mfwdfxh8" path="res://tscn/sprint.tscn" id="3_qd0g7"]
 [ext_resource type="PackedScene" uid="uid://d03mssssymjjl" path="res://glb/actions/foxcrouch.glb" id="5_5510y"]
 [ext_resource type="PackedScene" uid="uid://pwfwturgwr30" path="res://glb/player_items/cape.glb" id="5_qd0g7"]
+[ext_resource type="FontFile" uid="uid://cjvg0evcqc7yp" path="res://static/PeaberryDoublespace.ttf" id="7_5xpyl"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_a63tl"]
 size = Vector3(0.9288845, 1.6221123, 1.2651367)
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_eh25o"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="Animation" id="Animation_atlo2"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_ah280"]
+resource_name = "fade_out"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_gf5bf"]
+_data = {
+&"RESET": SubResource("Animation_atlo2"),
+&"fade_out": SubResource("Animation_ah280")
+}
 
 [node name="remote_player" type="CharacterBody3D" unique_id=966699921]
 unique_name_in_owner = true
@@ -86,3 +126,49 @@ visible = false
 unique_name_in_owner = true
 transform = Transform3D(4, 0, 0, 0, 2.3997266, -3.200205, 0, 3.200205, 2.3997266, 0.10173297, -3.6146479, -2.451366)
 visible = false
+
+[node name="SubViewport" type="SubViewport" parent="." unique_id=957084649]
+transparent_bg = true
+size = Vector2i(712, 312)
+
+[node name="Panel" type="Panel" parent="SubViewport" unique_id=1001427376]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="SubViewport/Panel" unique_id=1777648175]
+custom_minimum_size = Vector2(712, 300)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -131.0
+offset_top = -23.0
+offset_right = 131.0
+offset_bottom = 23.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_right = 10
+
+[node name="chat_text" type="Label" parent="SubViewport/Panel/MarginContainer" unique_id=2122859047]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_fonts/font = ExtResource("7_5xpyl")
+theme_override_font_sizes/font_size = 60
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="chat_cont" type="Sprite3D" parent="." unique_id=721295128]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.265307, 3.3519833, 0)
+visible = false
+billboard = 2
+texture = SubResource("ViewportTexture_eh25o")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="chat_cont" unique_id=1901691073]
+libraries/ = SubResource("AnimationLibrary_gf5bf")

@@ -305,7 +305,7 @@ ws.on('connection', function connect(client, req) {
         method: 'POST',
         headers: { 'Content-Type': 'application/json'},
         body: JSON.stringify({ type: "create_snowman", x_coord: data.x_coord,
-                                y_coord: data.y_coord, z_coord: data.z_cood,
+                                y_coord: data.y_coord, z_coord: data.z_coord,
                                 y_rot: data.y_rot, id: data.id,
                                 user: client.username })
       });

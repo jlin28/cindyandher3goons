@@ -122,8 +122,10 @@ func instantiate_snowmen(snowmen):
 			var y = data.get('y_coord', 0)
 			var z = data.get('z_coord', 0)
 			
-			print(x)
-			snowman.position = Vector3(float(x), float(y), float(z))
+			snowman.position.x = x
+			snowman.position.y = y
+			snowman.position.z = z
+			
 			snowman.rotation.y = data.get('y_rot', 0)
 			
 			snowman.set_up(data)

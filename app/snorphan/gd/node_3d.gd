@@ -118,14 +118,14 @@ func instantiate_snowmen(snowmen):
 				
 			get_tree().current_scene.add_child(snowman)
 			
-			var x = snowmen.get('x_coord', 0)
-			var y = snowmen.get('y_coord', 0)
-			var z = snowmen.get('z_coord', 0)
+			var x = snowmen.get('x_coord', 0.0)
+			var y = snowmen.get('y_coord', 0.0)
+			var z = snowmen.get('z_coord', 0.0)
 			
 			snowman.position.x = x
 			snowman.position.y = y
 			snowman.position.z = z
 			
-			snowman.rotation.y = snowmen.get('y_rot', 0)
+			snowman.rotation.y = snowmen.get('y_rot', 0.0)
 			
 			snowman.set_up(data)
